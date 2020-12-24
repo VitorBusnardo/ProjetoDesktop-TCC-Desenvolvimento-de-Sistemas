@@ -83,8 +83,13 @@ public class TelaLogin extends javax.swing.JFrame {
         jRadioButton1.setBackground(new java.awt.Color(23, 35, 51));
         jRadioButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jRadioButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton1.setText("Seriously I'm not a robot");
+        jRadioButton1.setText("Do you want to stay logged in?");
         jRadioButton1.setBorder(null);
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
 
         btn_login.setBackground(new java.awt.Color(57, 137, 186));
         btn_login.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -269,6 +274,10 @@ public class TelaLogin extends javax.swing.JFrame {
                
         
     }//GEN-LAST:event_btn_loginActionPerformed
+
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
                        
                                        
 
