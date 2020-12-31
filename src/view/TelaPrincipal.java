@@ -1,5 +1,5 @@
 
-package Telas;
+package view;
 
 import java.awt.Color;
 import javax.swing.JPanel;

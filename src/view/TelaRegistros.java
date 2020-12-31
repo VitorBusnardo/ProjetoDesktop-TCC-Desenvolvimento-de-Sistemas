@@ -1,7 +1,7 @@
 
-package Telas;
+package view;
 
-import Telas.TelaPrincipal;
+import view.TelaPrincipal;
 import java.awt.Color;
 import javax.swing.JLabel;
 
@@ -472,7 +472,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 536, Short.MAX_VALUE)
+            .addComponent(main, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
         );
 
         pack();

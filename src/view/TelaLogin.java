@@ -1,7 +1,7 @@
 
-package Telas;
+package view;
 
-import Telas.TelaPrincipal;
+import view.TelaPrincipal;
 
 
 public class TelaLogin extends javax.swing.JFrame {
