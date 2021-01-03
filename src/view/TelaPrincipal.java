@@ -661,7 +661,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setColor(btn_home);
         ind_home.setOpaque(true);
         resetColor(new JPanel[]{btn_productsP, btn_users, btn_profile, btn_customersP, btn_EmployeesP, btn_servicesP, btn_settings}, new JPanel[]{ind_products, ind_users, ind_profile, ind_customers, ind_employees, ind_services, ind_settings, ind_records});
-
+        
     }//GEN-LAST:event_btn_homeMousePressed
 
     private void btn_usersMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_usersMousePressed
@@ -669,7 +669,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setColor(btn_users);
         ind_users.setOpaque(true);
         resetColor(new JPanel[]{btn_productsP, btn_home, btn_profile, btn_customersP, btn_EmployeesP, btn_servicesP, btn_settings, btn_records}, new JPanel[]{ind_products, ind_home, ind_profile, ind_customers, ind_employees, ind_services, ind_settings, ind_records});
-
+        
     }//GEN-LAST:event_btn_usersMousePressed
 
     private void btn_profileMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_profileMousePressed
@@ -677,7 +677,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setColor(btn_profile);
         ind_profile.setOpaque(true);
         resetColor(new JPanel[]{btn_productsP, btn_users, btn_home, btn_customersP, btn_EmployeesP, btn_servicesP, btn_settings, btn_records}, new JPanel[]{ind_products, ind_users, ind_home, ind_customers, ind_employees, ind_services, ind_settings, ind_records});
-
+        
     }//GEN-LAST:event_btn_profileMousePressed
 
     private void btn_productsPMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_productsPMouseReleased
@@ -685,7 +685,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setColor(btn_productsP);
         ind_products.setOpaque(true);
         resetColor(new JPanel[]{btn_home, btn_users, btn_profile, btn_customersP, btn_EmployeesP, btn_servicesP, btn_settings, btn_records}, new JPanel[]{ind_home, ind_users, ind_profile, ind_customers, ind_employees, ind_services, ind_settings, ind_records});
-
+        
     }//GEN-LAST:event_btn_productsPMouseReleased
 
     int xx, xy;
@@ -716,35 +716,42 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setColor(btn_customersP);
         ind_customers.setOpaque(true);
         resetColor(new JPanel[]{btn_productsP, btn_users, btn_profile, btn_home, btn_EmployeesP, btn_servicesP, btn_settings, btn_records}, new JPanel[]{ind_products, ind_users, ind_profile, ind_home, ind_employees, ind_services, ind_settings, ind_records});
+        
     }//GEN-LAST:event_btn_customersPMouseReleased
 
     private void btn_EmployeesPMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_EmployeesPMouseReleased
+        
         setColor(btn_EmployeesP);
         ind_employees.setOpaque(true);
         resetColor(new JPanel[]{btn_productsP, btn_users, btn_profile, btn_home, btn_customersP, btn_servicesP, btn_settings, btn_records}, new JPanel[]{ind_products, ind_users, ind_profile, ind_home, ind_customers, ind_services, ind_settings, ind_records});
+        
     }//GEN-LAST:event_btn_EmployeesPMouseReleased
 
     private void btn_servicesPMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_servicesPMouseReleased
+        
         setColor(btn_servicesP);
         ind_services.setOpaque(true);
         resetColor(new JPanel[]{btn_productsP, btn_users, btn_profile, btn_home, btn_EmployeesP, btn_customersP, btn_settings, btn_records}, new JPanel[]{ind_products, ind_users, ind_profile, ind_home, ind_employees, ind_customers, ind_settings, ind_records});
+        
     }//GEN-LAST:event_btn_servicesPMouseReleased
 
     private void btn_settingsMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_settingsMouseReleased
+        
         setColor(btn_settings);
         ind_settings.setOpaque(true);
         resetColor(new JPanel[]{btn_productsP, btn_users, btn_profile, btn_home, btn_EmployeesP, btn_customersP, btn_servicesP, btn_records}, new JPanel[]{ind_products, ind_users, ind_profile, ind_home, ind_employees, ind_customers, ind_services, ind_records});
+        
     }//GEN-LAST:event_btn_settingsMouseReleased
 
     private void btn_recordsMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_recordsMouseReleased
 
         setColor(btn_records);
-
         resetColor(new JPanel[]{btn_productsP, btn_users, btn_profile, btn_home, btn_EmployeesP, btn_customersP, btn_servicesP, btn_settings}, new JPanel[]{ind_products, ind_users, ind_profile, ind_home, ind_employees, ind_customers, ind_services, ind_settings});
 
         TelaRegistros registro = new TelaRegistros();
         registro.setVisible(true);
         this.dispose();
+        
     }//GEN-LAST:event_btn_recordsMouseReleased
 
     public static void main(String args[]) {
