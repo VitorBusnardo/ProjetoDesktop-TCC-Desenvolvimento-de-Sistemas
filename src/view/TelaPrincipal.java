@@ -1,20 +1,16 @@
-
 package view;
 
 import java.awt.Color;
 import javax.swing.JPanel;
 
-
 public class TelaPrincipal extends javax.swing.JFrame {
-
 
     public TelaPrincipal() {
         initComponents();
-        setColor(btn_home); 
-        
+        setColor(btn_home);
+
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -661,104 +657,98 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_homeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_homeMousePressed
-        
-        setColor(btn_home); 
+
+        setColor(btn_home);
         ind_home.setOpaque(true);
-        resetColor(new JPanel[]{btn_productsP,btn_users,btn_profile,btn_customersP,btn_EmployeesP,btn_servicesP,btn_settings}, new JPanel[]{ind_products,ind_users, ind_profile,ind_customers, ind_employees,ind_services,ind_settings, ind_records});
-        
+        resetColor(new JPanel[]{btn_productsP, btn_users, btn_profile, btn_customersP, btn_EmployeesP, btn_servicesP, btn_settings}, new JPanel[]{ind_products, ind_users, ind_profile, ind_customers, ind_employees, ind_services, ind_settings, ind_records});
+
     }//GEN-LAST:event_btn_homeMousePressed
 
     private void btn_usersMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_usersMousePressed
-        
-         setColor(btn_users); 
+
+        setColor(btn_users);
         ind_users.setOpaque(true);
-        resetColor(new JPanel[]{btn_productsP,btn_home,btn_profile,btn_customersP,btn_EmployeesP,btn_servicesP,btn_settings, btn_records}, new JPanel[]{ind_products,ind_home, ind_profile,ind_customers, ind_employees,ind_services,ind_settings, ind_records});
-        
+        resetColor(new JPanel[]{btn_productsP, btn_home, btn_profile, btn_customersP, btn_EmployeesP, btn_servicesP, btn_settings, btn_records}, new JPanel[]{ind_products, ind_home, ind_profile, ind_customers, ind_employees, ind_services, ind_settings, ind_records});
+
     }//GEN-LAST:event_btn_usersMousePressed
 
     private void btn_profileMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_profileMousePressed
-        
-        setColor(btn_profile); 
+
+        setColor(btn_profile);
         ind_profile.setOpaque(true);
-        resetColor(new JPanel[]{btn_productsP,btn_users,btn_home,btn_customersP,btn_EmployeesP,btn_servicesP,btn_settings, btn_records}, new JPanel[]{ind_products,ind_users, ind_home,ind_customers, ind_employees,ind_services,ind_settings, ind_records});
-            
+        resetColor(new JPanel[]{btn_productsP, btn_users, btn_home, btn_customersP, btn_EmployeesP, btn_servicesP, btn_settings, btn_records}, new JPanel[]{ind_products, ind_users, ind_home, ind_customers, ind_employees, ind_services, ind_settings, ind_records});
+
     }//GEN-LAST:event_btn_profileMousePressed
 
     private void btn_productsPMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_productsPMouseReleased
-        
-        setColor(btn_productsP); 
+
+        setColor(btn_productsP);
         ind_products.setOpaque(true);
-        resetColor(new JPanel[]{btn_home,btn_users,btn_profile,btn_customersP,btn_EmployeesP,btn_servicesP,btn_settings, btn_records}, new JPanel[]{ind_home,ind_users, ind_profile,ind_customers, ind_employees,ind_services,ind_settings, ind_records});
-        
+        resetColor(new JPanel[]{btn_home, btn_users, btn_profile, btn_customersP, btn_EmployeesP, btn_servicesP, btn_settings, btn_records}, new JPanel[]{ind_home, ind_users, ind_profile, ind_customers, ind_employees, ind_services, ind_settings, ind_records});
+
     }//GEN-LAST:event_btn_productsPMouseReleased
 
-    int xx,xy;
-    
+    int xx, xy;
+
     private void Menu2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Menu2MousePressed
-        
+
         xx = evt.getX();
         xy = evt.getY();
-        
+
     }//GEN-LAST:event_Menu2MousePressed
 
     private void Menu2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Menu2MouseDragged
-        
-        
+
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
-        this.setLocation(x-xx,y-xy);
-        
+        this.setLocation(x - xx, y - xy);
+
     }//GEN-LAST:event_Menu2MouseDragged
 
     private void btn_exitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_exitMousePressed
-        
+
         System.exit(0);
-        
+
     }//GEN-LAST:event_btn_exitMousePressed
 
     private void btn_customersPMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_customersPMouseReleased
-        
-        setColor(btn_customersP); 
+
+        setColor(btn_customersP);
         ind_customers.setOpaque(true);
-        resetColor(new JPanel[]{btn_productsP,btn_users,btn_profile,btn_home,btn_EmployeesP,btn_servicesP,btn_settings, btn_records}, new JPanel[]{ind_products,ind_users, ind_profile,ind_home, ind_employees,ind_services,ind_settings, ind_records});
+        resetColor(new JPanel[]{btn_productsP, btn_users, btn_profile, btn_home, btn_EmployeesP, btn_servicesP, btn_settings, btn_records}, new JPanel[]{ind_products, ind_users, ind_profile, ind_home, ind_employees, ind_services, ind_settings, ind_records});
     }//GEN-LAST:event_btn_customersPMouseReleased
 
     private void btn_EmployeesPMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_EmployeesPMouseReleased
-        setColor(btn_EmployeesP); 
+        setColor(btn_EmployeesP);
         ind_employees.setOpaque(true);
-        resetColor(new JPanel[]{btn_productsP,btn_users,btn_profile,btn_home,btn_customersP,btn_servicesP,btn_settings, btn_records}, new JPanel[]{ind_products,ind_users, ind_profile,ind_home, ind_customers,ind_services,ind_settings, ind_records});
+        resetColor(new JPanel[]{btn_productsP, btn_users, btn_profile, btn_home, btn_customersP, btn_servicesP, btn_settings, btn_records}, new JPanel[]{ind_products, ind_users, ind_profile, ind_home, ind_customers, ind_services, ind_settings, ind_records});
     }//GEN-LAST:event_btn_EmployeesPMouseReleased
 
     private void btn_servicesPMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_servicesPMouseReleased
-        setColor(btn_servicesP); 
+        setColor(btn_servicesP);
         ind_services.setOpaque(true);
-        resetColor(new JPanel[]{btn_productsP,btn_users,btn_profile,btn_home,btn_EmployeesP,btn_customersP,btn_settings, btn_records}, new JPanel[]{ind_products,ind_users, ind_profile,ind_home, ind_employees,ind_customers,ind_settings, ind_records});
+        resetColor(new JPanel[]{btn_productsP, btn_users, btn_profile, btn_home, btn_EmployeesP, btn_customersP, btn_settings, btn_records}, new JPanel[]{ind_products, ind_users, ind_profile, ind_home, ind_employees, ind_customers, ind_settings, ind_records});
     }//GEN-LAST:event_btn_servicesPMouseReleased
 
     private void btn_settingsMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_settingsMouseReleased
-        setColor(btn_settings); 
+        setColor(btn_settings);
         ind_settings.setOpaque(true);
-        resetColor(new JPanel[]{btn_productsP,btn_users,btn_profile,btn_home,btn_EmployeesP,btn_customersP,btn_servicesP, btn_records}, new JPanel[]{ind_products,ind_users, ind_profile,ind_home, ind_employees,ind_customers,ind_services, ind_records});
+        resetColor(new JPanel[]{btn_productsP, btn_users, btn_profile, btn_home, btn_EmployeesP, btn_customersP, btn_servicesP, btn_records}, new JPanel[]{ind_products, ind_users, ind_profile, ind_home, ind_employees, ind_customers, ind_services, ind_records});
     }//GEN-LAST:event_btn_settingsMouseReleased
 
     private void btn_recordsMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_recordsMouseReleased
-        
-        setColor(btn_records); 
-        
-        resetColor(new JPanel[]{btn_productsP,btn_users,btn_profile,btn_home,btn_EmployeesP,btn_customersP,btn_servicesP,btn_settings}, new JPanel[]{ind_products,ind_users, ind_profile,ind_home, ind_employees,ind_customers,ind_services, ind_settings});
-        
+
+        setColor(btn_records);
+
+        resetColor(new JPanel[]{btn_productsP, btn_users, btn_profile, btn_home, btn_EmployeesP, btn_customersP, btn_servicesP, btn_settings}, new JPanel[]{ind_products, ind_users, ind_profile, ind_home, ind_employees, ind_customers, ind_services, ind_settings});
+
         TelaRegistros registro = new TelaRegistros();
         registro.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_recordsMouseReleased
 
-    
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+        
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Windows".equals(info.getName())) {
@@ -775,36 +765,33 @@ public class TelaPrincipal extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
+       
 
-        /* Create and display the form */
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TelaPrincipal().setVisible(true);
             }
         });
     }
-   
-    
-    private void setColor(JPanel pane)
-    {
-        pane.setBackground(new Color(41,57,80));
+
+    private void setColor(JPanel pane) {
+        pane.setBackground(new Color(41, 57, 80));
     }
-    
-    private void resetColor(JPanel [] pane, JPanel [] indicators)
-    {
-        for(int i=0;i<pane.length;i++){
-            
-           pane[i].setBackground(new Color(23,35,51));
-           
-        } for(int i=0;i<indicators.length;i++){
-            
-           indicators[i].setOpaque(false);           
+
+    private void resetColor(JPanel[] pane, JPanel[] indicators) {
+        for (int i = 0; i < pane.length; i++) {
+
+            pane[i].setBackground(new Color(23, 35, 51));
+
         }
-        
+        for (int i = 0; i < indicators.length; i++) {
+
+            indicators[i].setOpaque(false);
+        }
+
     }
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Menu;

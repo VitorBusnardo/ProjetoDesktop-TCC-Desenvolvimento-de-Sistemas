@@ -1,17 +1,13 @@
-
 package view;
 
 import view.TelaPrincipal;
 
-
 public class TelaLogin extends javax.swing.JFrame {
 
-    
     public TelaLogin() {
         initComponents();
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -232,54 +228,50 @@ public class TelaLogin extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-    
+
     int xy;
     int xx;
-         
+
     private void Menu2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Menu2MouseDragged
-        
-       
+
+
     }//GEN-LAST:event_Menu2MouseDragged
 
     private void Menu2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Menu2MousePressed
-       
-          
-        
+
+
     }//GEN-LAST:event_Menu2MousePressed
 
     private void exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseClicked
-        
+
         System.exit(0);
     }//GEN-LAST:event_exitMouseClicked
 
     private void MenuLoginMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuLoginMousePressed
-       
 
         xx = evt.getX();
         xy = evt.getY();
     }//GEN-LAST:event_MenuLoginMousePressed
 
     private void MenuLoginMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuLoginMouseDragged
-        
+
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
-        this.setLocation(x-xx,y-xy);
+        this.setLocation(x - xx, y - xy);
     }//GEN-LAST:event_MenuLoginMouseDragged
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
-        
+
         TelaPrincipal principal = new TelaPrincipal();
         principal.setVisible(true);
         this.dispose();
-               
-        
+
+
     }//GEN-LAST:event_btn_loginActionPerformed
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton1ActionPerformed
-                       
-                                       
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
