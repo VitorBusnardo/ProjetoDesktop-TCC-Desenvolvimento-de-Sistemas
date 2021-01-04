@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.Color;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class TelaPrincipal extends javax.swing.JFrame {
@@ -915,6 +916,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         }
 
     }
+    
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

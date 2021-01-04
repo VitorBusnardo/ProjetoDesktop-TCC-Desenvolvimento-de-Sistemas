@@ -3,6 +3,7 @@ package view;
 
 import view.TelaPrincipal;
 import java.awt.Color;
+import java.awt.Font;
 import javax.swing.JLabel;
 
 
@@ -25,6 +26,38 @@ public class TelaRegistros extends javax.swing.JFrame {
         Employees.setVisible(false);
         Services.setVisible(false);
         Accounting.setVisible(false);
+        
+        
+        
+        TabelaGraphic.getTableHeader().setOpaque(false);
+        TabelaGraphic.getTableHeader().setBackground(new Color(71,120,197));
+        TabelaGraphic.getTableHeader().setForeground(new Color(255,255,255));
+        TabelaGraphic.setRowHeight(25);
+        
+        TabelaProducts.getTableHeader().setOpaque(false);
+        TabelaProducts.getTableHeader().setBackground(new Color(71,120,197));
+        TabelaProducts.getTableHeader().setForeground(new Color(255,255,255));
+        TabelaProducts.setRowHeight(25);
+    
+        TabelaCustomers.getTableHeader().setOpaque(false);
+        TabelaCustomers.getTableHeader().setBackground(new Color(71,120,197));
+        TabelaCustomers.getTableHeader().setForeground(new Color(255,255,255));
+        TabelaCustomers.setRowHeight(25);
+        
+        TabelaEmployees.getTableHeader().setOpaque(false);
+        TabelaEmployees.getTableHeader().setBackground(new Color(71,120,197));
+        TabelaEmployees.getTableHeader().setForeground(new Color(255,255,255));
+        TabelaEmployees.setRowHeight(25);
+        
+        TabelaAccounting.getTableHeader().setOpaque(false);
+        TabelaAccounting.getTableHeader().setBackground(new Color(71,120,197));
+        TabelaAccounting.getTableHeader().setForeground(new Color(255,255,255));
+        TabelaAccounting.setRowHeight(25);
+        
+        TabelaServices.getTableHeader().setOpaque(false);
+        TabelaServices.getTableHeader().setBackground(new Color(71,120,197));
+        TabelaServices.getTableHeader().setForeground(new Color(255,255,255));
+        TabelaServices.setRowHeight(25);
     }
 
     
@@ -44,17 +77,23 @@ public class TelaRegistros extends javax.swing.JFrame {
         btn_accounting = new javax.swing.JLabel();
         Paineis = new javax.swing.JPanel();
         Graphic = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TabelaGraphic = new javax.swing.JTable();
         Products = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        TabelaProducts = new javax.swing.JTable();
         Customers = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        TabelaCustomers = new javax.swing.JTable();
         Employees = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        TabelaEmployees = new javax.swing.JTable();
         Accounting = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        TabelaAccounting = new javax.swing.JTable();
         Services = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        TabelaServices = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -169,7 +208,7 @@ public class TelaRegistros extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(headerLayout.createSequentialGroup()
                 .addComponent(btn_graphic, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -208,23 +247,49 @@ public class TelaRegistros extends javax.swing.JFrame {
         Graphic.setBackground(new java.awt.Color(255, 255, 255));
         Graphic.setForeground(new java.awt.Color(204, 204, 204));
 
-        jLabel2.setText("GRAFICOS");
+        TabelaGraphic.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        TabelaGraphic.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Nome", "Telefone", "Endereço", "Email"
+            }
+        ));
+        TabelaGraphic.setFocusable(false);
+        TabelaGraphic.setIntercellSpacing(new java.awt.Dimension(0, 0));
+        TabelaGraphic.setRowHeight(25);
+        TabelaGraphic.setSelectionBackground(new java.awt.Color(192, 192, 192));
+        TabelaGraphic.setShowVerticalLines(false);
+        TabelaGraphic.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(TabelaGraphic);
 
         javax.swing.GroupLayout GraphicLayout = new javax.swing.GroupLayout(Graphic);
         Graphic.setLayout(GraphicLayout);
         GraphicLayout.setHorizontalGroup(
             GraphicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(GraphicLayout.createSequentialGroup()
-                .addGap(358, 358, 358)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(465, Short.MAX_VALUE))
+            .addGap(0, 900, Short.MAX_VALUE)
+            .addGroup(GraphicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, GraphicLayout.createSequentialGroup()
+                    .addContainerGap(33, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 833, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(34, Short.MAX_VALUE)))
         );
         GraphicLayout.setVerticalGroup(
             GraphicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(GraphicLayout.createSequentialGroup()
-                .addGap(114, 114, 114)
-                .addComponent(jLabel2)
-                .addContainerGap(180, Short.MAX_VALUE))
+            .addGap(0, 308, Short.MAX_VALUE)
+            .addGroup(GraphicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, GraphicLayout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(70, Short.MAX_VALUE)))
         );
 
         Paineis.add(Graphic, "card3");
@@ -232,23 +297,49 @@ public class TelaRegistros extends javax.swing.JFrame {
         Products.setBackground(new java.awt.Color(255, 255, 255));
         Products.setForeground(new java.awt.Color(204, 204, 204));
 
-        jLabel4.setText("TabelaProdutos");
+        TabelaProducts.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        TabelaProducts.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Nome", "Telefone", "Endereço", "Email"
+            }
+        ));
+        TabelaProducts.setFocusable(false);
+        TabelaProducts.setIntercellSpacing(new java.awt.Dimension(0, 0));
+        TabelaProducts.setRowHeight(25);
+        TabelaProducts.setSelectionBackground(new java.awt.Color(192, 192, 192));
+        TabelaProducts.setShowVerticalLines(false);
+        TabelaProducts.getTableHeader().setReorderingAllowed(false);
+        jScrollPane2.setViewportView(TabelaProducts);
 
         javax.swing.GroupLayout ProductsLayout = new javax.swing.GroupLayout(Products);
         Products.setLayout(ProductsLayout);
         ProductsLayout.setHorizontalGroup(
             ProductsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ProductsLayout.createSequentialGroup()
-                .addGap(344, 344, 344)
-                .addComponent(jLabel4)
-                .addContainerGap(480, Short.MAX_VALUE))
+            .addGap(0, 900, Short.MAX_VALUE)
+            .addGroup(ProductsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProductsLayout.createSequentialGroup()
+                    .addContainerGap(33, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 833, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(34, Short.MAX_VALUE)))
         );
         ProductsLayout.setVerticalGroup(
             ProductsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ProductsLayout.createSequentialGroup()
-                .addGap(125, 125, 125)
-                .addComponent(jLabel4)
-                .addContainerGap(169, Short.MAX_VALUE))
+            .addGap(0, 308, Short.MAX_VALUE)
+            .addGroup(ProductsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProductsLayout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(70, Short.MAX_VALUE)))
         );
 
         Paineis.add(Products, "card3");
@@ -256,23 +347,49 @@ public class TelaRegistros extends javax.swing.JFrame {
         Customers.setBackground(new java.awt.Color(255, 255, 255));
         Customers.setForeground(new java.awt.Color(153, 153, 153));
 
-        jLabel5.setText("TabelaClientes");
+        TabelaCustomers.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        TabelaCustomers.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Nome", "Telefone", "Endereço", "Email"
+            }
+        ));
+        TabelaCustomers.setFocusable(false);
+        TabelaCustomers.setIntercellSpacing(new java.awt.Dimension(0, 0));
+        TabelaCustomers.setRowHeight(25);
+        TabelaCustomers.setSelectionBackground(new java.awt.Color(192, 192, 192));
+        TabelaCustomers.setShowVerticalLines(false);
+        TabelaCustomers.getTableHeader().setReorderingAllowed(false);
+        jScrollPane3.setViewportView(TabelaCustomers);
 
         javax.swing.GroupLayout CustomersLayout = new javax.swing.GroupLayout(Customers);
         Customers.setLayout(CustomersLayout);
         CustomersLayout.setHorizontalGroup(
             CustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CustomersLayout.createSequentialGroup()
-                .addGap(403, 403, 403)
-                .addComponent(jLabel5)
-                .addContainerGap(426, Short.MAX_VALUE))
+            .addGap(0, 900, Short.MAX_VALUE)
+            .addGroup(CustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CustomersLayout.createSequentialGroup()
+                    .addContainerGap(33, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 833, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(34, Short.MAX_VALUE)))
         );
         CustomersLayout.setVerticalGroup(
             CustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CustomersLayout.createSequentialGroup()
-                .addGap(127, 127, 127)
-                .addComponent(jLabel5)
-                .addContainerGap(167, Short.MAX_VALUE))
+            .addGap(0, 308, Short.MAX_VALUE)
+            .addGroup(CustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CustomersLayout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(70, Short.MAX_VALUE)))
         );
 
         Paineis.add(Customers, "card3");
@@ -280,23 +397,49 @@ public class TelaRegistros extends javax.swing.JFrame {
         Employees.setBackground(new java.awt.Color(255, 255, 255));
         Employees.setForeground(new java.awt.Color(102, 102, 102));
 
-        jLabel6.setText("TabelaFuncionarios");
+        TabelaEmployees.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        TabelaEmployees.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Nome", "Telefone", "Endereço", "Email"
+            }
+        ));
+        TabelaEmployees.setFocusable(false);
+        TabelaEmployees.setIntercellSpacing(new java.awt.Dimension(0, 0));
+        TabelaEmployees.setRowHeight(25);
+        TabelaEmployees.setSelectionBackground(new java.awt.Color(192, 192, 192));
+        TabelaEmployees.setShowVerticalLines(false);
+        TabelaEmployees.getTableHeader().setReorderingAllowed(false);
+        jScrollPane4.setViewportView(TabelaEmployees);
 
         javax.swing.GroupLayout EmployeesLayout = new javax.swing.GroupLayout(Employees);
         Employees.setLayout(EmployeesLayout);
         EmployeesLayout.setHorizontalGroup(
             EmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(EmployeesLayout.createSequentialGroup()
-                .addGap(426, 426, 426)
-                .addComponent(jLabel6)
-                .addContainerGap(381, Short.MAX_VALUE))
+            .addGap(0, 900, Short.MAX_VALUE)
+            .addGroup(EmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EmployeesLayout.createSequentialGroup()
+                    .addContainerGap(33, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 833, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(34, Short.MAX_VALUE)))
         );
         EmployeesLayout.setVerticalGroup(
             EmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EmployeesLayout.createSequentialGroup()
-                .addContainerGap(149, Short.MAX_VALUE)
-                .addComponent(jLabel6)
-                .addGap(145, 145, 145))
+            .addGap(0, 308, Short.MAX_VALUE)
+            .addGroup(EmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EmployeesLayout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(70, Short.MAX_VALUE)))
         );
 
         Paineis.add(Employees, "card3");
@@ -304,23 +447,49 @@ public class TelaRegistros extends javax.swing.JFrame {
         Accounting.setBackground(new java.awt.Color(255, 255, 255));
         Accounting.setForeground(new java.awt.Color(102, 102, 102));
 
-        jLabel7.setText("TabelaVendasGastos");
+        TabelaAccounting.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        TabelaAccounting.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Nome", "Telefone", "Endereço", "Email"
+            }
+        ));
+        TabelaAccounting.setFocusable(false);
+        TabelaAccounting.setIntercellSpacing(new java.awt.Dimension(0, 0));
+        TabelaAccounting.setRowHeight(25);
+        TabelaAccounting.setSelectionBackground(new java.awt.Color(192, 192, 192));
+        TabelaAccounting.setShowVerticalLines(false);
+        TabelaAccounting.getTableHeader().setReorderingAllowed(false);
+        jScrollPane5.setViewportView(TabelaAccounting);
 
         javax.swing.GroupLayout AccountingLayout = new javax.swing.GroupLayout(Accounting);
         Accounting.setLayout(AccountingLayout);
         AccountingLayout.setHorizontalGroup(
             AccountingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AccountingLayout.createSequentialGroup()
-                .addGap(404, 404, 404)
-                .addComponent(jLabel7)
-                .addContainerGap(395, Short.MAX_VALUE))
+            .addGap(0, 900, Short.MAX_VALUE)
+            .addGroup(AccountingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AccountingLayout.createSequentialGroup()
+                    .addContainerGap(33, Short.MAX_VALUE)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 833, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(34, Short.MAX_VALUE)))
         );
         AccountingLayout.setVerticalGroup(
             AccountingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AccountingLayout.createSequentialGroup()
-                .addGap(134, 134, 134)
-                .addComponent(jLabel7)
-                .addContainerGap(160, Short.MAX_VALUE))
+            .addGap(0, 308, Short.MAX_VALUE)
+            .addGroup(AccountingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AccountingLayout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(70, Short.MAX_VALUE)))
         );
 
         Paineis.add(Accounting, "card3");
@@ -328,23 +497,49 @@ public class TelaRegistros extends javax.swing.JFrame {
         Services.setBackground(new java.awt.Color(255, 255, 255));
         Services.setForeground(new java.awt.Color(51, 51, 51));
 
-        jLabel8.setText("TabelaServiços");
+        TabelaServices.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        TabelaServices.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Nome", "Telefone", "Endereço", "Email"
+            }
+        ));
+        TabelaServices.setFocusable(false);
+        TabelaServices.setIntercellSpacing(new java.awt.Dimension(0, 0));
+        TabelaServices.setRowHeight(25);
+        TabelaServices.setSelectionBackground(new java.awt.Color(192, 192, 192));
+        TabelaServices.setShowVerticalLines(false);
+        TabelaServices.getTableHeader().setReorderingAllowed(false);
+        jScrollPane6.setViewportView(TabelaServices);
 
         javax.swing.GroupLayout ServicesLayout = new javax.swing.GroupLayout(Services);
         Services.setLayout(ServicesLayout);
         ServicesLayout.setHorizontalGroup(
             ServicesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ServicesLayout.createSequentialGroup()
-                .addGap(338, 338, 338)
-                .addComponent(jLabel8)
-                .addContainerGap(489, Short.MAX_VALUE))
+            .addGap(0, 900, Short.MAX_VALUE)
+            .addGroup(ServicesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ServicesLayout.createSequentialGroup()
+                    .addContainerGap(33, Short.MAX_VALUE)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 833, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(34, Short.MAX_VALUE)))
         );
         ServicesLayout.setVerticalGroup(
             ServicesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ServicesLayout.createSequentialGroup()
-                .addGap(118, 118, 118)
-                .addComponent(jLabel8)
-                .addContainerGap(176, Short.MAX_VALUE))
+            .addGap(0, 308, Short.MAX_VALUE)
+            .addGroup(ServicesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ServicesLayout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(70, Short.MAX_VALUE)))
         );
 
         Paineis.add(Services, "card3");
@@ -574,6 +769,12 @@ public class TelaRegistros extends javax.swing.JFrame {
     private javax.swing.JPanel Paineis;
     private javax.swing.JPanel Products;
     private javax.swing.JPanel Services;
+    private javax.swing.JTable TabelaAccounting;
+    private javax.swing.JTable TabelaCustomers;
+    private javax.swing.JTable TabelaEmployees;
+    private javax.swing.JTable TabelaGraphic;
+    private javax.swing.JTable TabelaProducts;
+    private javax.swing.JTable TabelaServices;
     private javax.swing.JLabel btn_accounting;
     private javax.swing.JLabel btn_customers;
     private javax.swing.JLabel btn_employees;
@@ -582,13 +783,13 @@ public class TelaRegistros extends javax.swing.JFrame {
     private javax.swing.JLabel btn_services;
     private javax.swing.JPanel header;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JPanel main;
     // End of variables declaration//GEN-END:variables
 }
