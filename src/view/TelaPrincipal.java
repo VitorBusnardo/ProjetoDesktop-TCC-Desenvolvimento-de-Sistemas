@@ -1,20 +1,18 @@
-
-package Telas;
+package view;
 
 import java.awt.Color;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
-
 
 public class TelaPrincipal extends javax.swing.JFrame {
 
-
     public TelaPrincipal() {
         initComponents();
-        setColor(btn_home); 
-        
+        setColor(btn_home);
+        ind_home.setOpaque(true);
+
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -23,15 +21,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
         btn_home = new javax.swing.JPanel();
         ind_home = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        btn_productsP = new javax.swing.JPanel();
-        ind_products = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
+        btn_settings = new javax.swing.JPanel();
+        ind_settings = new javax.swing.JPanel();
+        jLabel20 = new javax.swing.JLabel();
         btn_users = new javax.swing.JPanel();
         ind_users = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         btn_profile = new javax.swing.JPanel();
         ind_profile = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
+        btn_productsP = new javax.swing.JPanel();
+        ind_products = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
         btn_customersP = new javax.swing.JPanel();
         ind_customers = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
@@ -41,9 +42,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         btn_servicesP = new javax.swing.JPanel();
         ind_services = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
-        btn_settings = new javax.swing.JPanel();
-        ind_settings = new javax.swing.JPanel();
-        jLabel20 = new javax.swing.JLabel();
+        btn_salesP = new javax.swing.JPanel();
+        ind_services1 = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
+        btn_spendingP = new javax.swing.JPanel();
+        ind_services2 = new javax.swing.JPanel();
+        jLabel22 = new javax.swing.JLabel();
         Menu2 = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
@@ -121,53 +125,53 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         Menu.add(btn_home, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 120, -1));
 
-        btn_productsP.setBackground(new java.awt.Color(23, 35, 51));
-        btn_productsP.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_settings.setBackground(new java.awt.Color(23, 35, 51));
+        btn_settings.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                btn_productsPMouseReleased(evt);
+                btn_settingsMouseReleased(evt);
             }
         });
 
-        ind_products.setOpaque(false);
-        ind_products.setPreferredSize(new java.awt.Dimension(3, 43));
+        ind_settings.setOpaque(false);
+        ind_settings.setPreferredSize(new java.awt.Dimension(3, 43));
 
-        javax.swing.GroupLayout ind_productsLayout = new javax.swing.GroupLayout(ind_products);
-        ind_products.setLayout(ind_productsLayout);
-        ind_productsLayout.setHorizontalGroup(
-            ind_productsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout ind_settingsLayout = new javax.swing.GroupLayout(ind_settings);
+        ind_settings.setLayout(ind_settingsLayout);
+        ind_settingsLayout.setHorizontalGroup(
+            ind_settingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 3, Short.MAX_VALUE)
         );
-        ind_productsLayout.setVerticalGroup(
-            ind_productsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        ind_settingsLayout.setVerticalGroup(
+            ind_settingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Products");
+        jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel20.setText("Settings");
 
-        javax.swing.GroupLayout btn_productsPLayout = new javax.swing.GroupLayout(btn_productsP);
-        btn_productsP.setLayout(btn_productsPLayout);
-        btn_productsPLayout.setHorizontalGroup(
-            btn_productsPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_productsPLayout.createSequentialGroup()
-                .addComponent(ind_products, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout btn_settingsLayout = new javax.swing.GroupLayout(btn_settings);
+        btn_settings.setLayout(btn_settingsLayout);
+        btn_settingsLayout.setHorizontalGroup(
+            btn_settingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_settingsLayout.createSequentialGroup()
+                .addComponent(ind_settings, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(jLabel9)
-                .addGap(0, 35, Short.MAX_VALUE))
+                .addComponent(jLabel20)
+                .addGap(0, 40, Short.MAX_VALUE))
         );
-        btn_productsPLayout.setVerticalGroup(
-            btn_productsPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_productsPLayout.createSequentialGroup()
-                .addComponent(ind_products, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        btn_settingsLayout.setVerticalGroup(
+            btn_settingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_settingsLayout.createSequentialGroup()
+                .addComponent(ind_settings, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(btn_productsPLayout.createSequentialGroup()
+            .addGroup(btn_settingsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        Menu.add(btn_productsP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 120, -1));
+        Menu.add(btn_settings, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 120, -1));
 
         btn_users.setBackground(new java.awt.Color(23, 35, 51));
         btn_users.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -264,6 +268,54 @@ public class TelaPrincipal extends javax.swing.JFrame {
         );
 
         Menu.add(btn_profile, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 120, -1));
+
+        btn_productsP.setBackground(new java.awt.Color(23, 35, 51));
+        btn_productsP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btn_productsPMouseReleased(evt);
+            }
+        });
+
+        ind_products.setOpaque(false);
+        ind_products.setPreferredSize(new java.awt.Dimension(3, 43));
+
+        javax.swing.GroupLayout ind_productsLayout = new javax.swing.GroupLayout(ind_products);
+        ind_products.setLayout(ind_productsLayout);
+        ind_productsLayout.setHorizontalGroup(
+            ind_productsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 3, Short.MAX_VALUE)
+        );
+        ind_productsLayout.setVerticalGroup(
+            ind_productsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 43, Short.MAX_VALUE)
+        );
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Products");
+
+        javax.swing.GroupLayout btn_productsPLayout = new javax.swing.GroupLayout(btn_productsP);
+        btn_productsP.setLayout(btn_productsPLayout);
+        btn_productsPLayout.setHorizontalGroup(
+            btn_productsPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_productsPLayout.createSequentialGroup()
+                .addComponent(ind_products, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(jLabel9)
+                .addGap(0, 35, Short.MAX_VALUE))
+        );
+        btn_productsPLayout.setVerticalGroup(
+            btn_productsPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_productsPLayout.createSequentialGroup()
+                .addComponent(ind_products, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(btn_productsPLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        Menu.add(btn_productsP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 120, -1));
 
         btn_customersP.setBackground(new java.awt.Color(23, 35, 51));
         btn_customersP.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -409,53 +461,101 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         Menu.add(btn_servicesP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 120, -1));
 
-        btn_settings.setBackground(new java.awt.Color(23, 35, 51));
-        btn_settings.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_salesP.setBackground(new java.awt.Color(23, 35, 51));
+        btn_salesP.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                btn_settingsMouseReleased(evt);
+                btn_salesPMouseReleased(evt);
             }
         });
 
-        ind_settings.setOpaque(false);
-        ind_settings.setPreferredSize(new java.awt.Dimension(3, 43));
+        ind_services1.setOpaque(false);
+        ind_services1.setPreferredSize(new java.awt.Dimension(3, 43));
 
-        javax.swing.GroupLayout ind_settingsLayout = new javax.swing.GroupLayout(ind_settings);
-        ind_settings.setLayout(ind_settingsLayout);
-        ind_settingsLayout.setHorizontalGroup(
-            ind_settingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout ind_services1Layout = new javax.swing.GroupLayout(ind_services1);
+        ind_services1.setLayout(ind_services1Layout);
+        ind_services1Layout.setHorizontalGroup(
+            ind_services1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 3, Short.MAX_VALUE)
         );
-        ind_settingsLayout.setVerticalGroup(
-            ind_settingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        ind_services1Layout.setVerticalGroup(
+            ind_services1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel20.setText("Settings");
+        jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel21.setText("Sales");
 
-        javax.swing.GroupLayout btn_settingsLayout = new javax.swing.GroupLayout(btn_settings);
-        btn_settings.setLayout(btn_settingsLayout);
-        btn_settingsLayout.setHorizontalGroup(
-            btn_settingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_settingsLayout.createSequentialGroup()
-                .addComponent(ind_settings, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout btn_salesPLayout = new javax.swing.GroupLayout(btn_salesP);
+        btn_salesP.setLayout(btn_salesPLayout);
+        btn_salesPLayout.setHorizontalGroup(
+            btn_salesPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_salesPLayout.createSequentialGroup()
+                .addComponent(ind_services1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(jLabel20)
-                .addGap(0, 40, Short.MAX_VALUE))
+                .addComponent(jLabel21)
+                .addGap(0, 56, Short.MAX_VALUE))
         );
-        btn_settingsLayout.setVerticalGroup(
-            btn_settingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_settingsLayout.createSequentialGroup()
-                .addComponent(ind_settings, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        btn_salesPLayout.setVerticalGroup(
+            btn_salesPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_salesPLayout.createSequentialGroup()
+                .addComponent(ind_services1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(btn_settingsLayout.createSequentialGroup()
+            .addGroup(btn_salesPLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        Menu.add(btn_settings, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 120, -1));
+        Menu.add(btn_salesP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, 120, 40));
+
+        btn_spendingP.setBackground(new java.awt.Color(23, 35, 51));
+        btn_spendingP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btn_spendingPMouseReleased(evt);
+            }
+        });
+
+        ind_services2.setOpaque(false);
+        ind_services2.setPreferredSize(new java.awt.Dimension(3, 43));
+
+        javax.swing.GroupLayout ind_services2Layout = new javax.swing.GroupLayout(ind_services2);
+        ind_services2.setLayout(ind_services2Layout);
+        ind_services2Layout.setHorizontalGroup(
+            ind_services2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 3, Short.MAX_VALUE)
+        );
+        ind_services2Layout.setVerticalGroup(
+            ind_services2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 43, Short.MAX_VALUE)
+        );
+
+        jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel22.setText("Spending");
+
+        javax.swing.GroupLayout btn_spendingPLayout = new javax.swing.GroupLayout(btn_spendingP);
+        btn_spendingP.setLayout(btn_spendingPLayout);
+        btn_spendingPLayout.setHorizontalGroup(
+            btn_spendingPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_spendingPLayout.createSequentialGroup()
+                .addComponent(ind_services2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(jLabel22)
+                .addGap(0, 32, Short.MAX_VALUE))
+        );
+        btn_spendingPLayout.setVerticalGroup(
+            btn_spendingPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_spendingPLayout.createSequentialGroup()
+                .addComponent(ind_services2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(btn_spendingPLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        Menu.add(btn_spendingP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 470, 120, -1));
 
         getContentPane().add(Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 590));
 
@@ -661,104 +761,119 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_homeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_homeMousePressed
-        
-        setColor(btn_home); 
+
+        setColor(btn_home);
         ind_home.setOpaque(true);
-        resetColor(new JPanel[]{btn_productsP,btn_users,btn_profile,btn_customersP,btn_EmployeesP,btn_servicesP,btn_settings}, new JPanel[]{ind_products,ind_users, ind_profile,ind_customers, ind_employees,ind_services,ind_settings, ind_records});
+        resetColor(new JPanel[]{btn_productsP, btn_users, btn_profile, btn_customersP, btn_EmployeesP, btn_servicesP, btn_settings, btn_salesP, btn_spendingP}, new JPanel[]{ind_products, ind_users, ind_profile, ind_customers, ind_employees, ind_services, ind_settings, ind_records, ind_services2, ind_services1});
         
     }//GEN-LAST:event_btn_homeMousePressed
 
     private void btn_usersMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_usersMousePressed
-        
-         setColor(btn_users); 
+
+        setColor(btn_users);
         ind_users.setOpaque(true);
-        resetColor(new JPanel[]{btn_productsP,btn_home,btn_profile,btn_customersP,btn_EmployeesP,btn_servicesP,btn_settings, btn_records}, new JPanel[]{ind_products,ind_home, ind_profile,ind_customers, ind_employees,ind_services,ind_settings, ind_records});
+        resetColor(new JPanel[]{btn_productsP, btn_home, btn_profile, btn_customersP, btn_EmployeesP, btn_servicesP, btn_settings, btn_records, btn_salesP, btn_spendingP}, new JPanel[]{ind_products, ind_home, ind_profile, ind_customers, ind_employees, ind_services, ind_settings, ind_records, ind_services2, ind_services1});
         
     }//GEN-LAST:event_btn_usersMousePressed
 
     private void btn_profileMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_profileMousePressed
-        
-        setColor(btn_profile); 
+
+        setColor(btn_profile);
         ind_profile.setOpaque(true);
-        resetColor(new JPanel[]{btn_productsP,btn_users,btn_home,btn_customersP,btn_EmployeesP,btn_servicesP,btn_settings, btn_records}, new JPanel[]{ind_products,ind_users, ind_home,ind_customers, ind_employees,ind_services,ind_settings, ind_records});
-            
+        resetColor(new JPanel[]{btn_productsP, btn_users, btn_home, btn_customersP, btn_EmployeesP, btn_servicesP, btn_settings, btn_records, btn_salesP, btn_spendingP}, new JPanel[]{ind_products, ind_users, ind_home, ind_customers, ind_employees, ind_services, ind_settings, ind_records, ind_services2, ind_services1});
+        
     }//GEN-LAST:event_btn_profileMousePressed
 
     private void btn_productsPMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_productsPMouseReleased
-        
-        setColor(btn_productsP); 
+
+        setColor(btn_productsP);
         ind_products.setOpaque(true);
-        resetColor(new JPanel[]{btn_home,btn_users,btn_profile,btn_customersP,btn_EmployeesP,btn_servicesP,btn_settings, btn_records}, new JPanel[]{ind_home,ind_users, ind_profile,ind_customers, ind_employees,ind_services,ind_settings, ind_records});
+        resetColor(new JPanel[]{btn_home, btn_users, btn_profile, btn_customersP, btn_EmployeesP, btn_servicesP, btn_settings, btn_records, btn_salesP, btn_spendingP}, new JPanel[]{ind_home, ind_users, ind_profile, ind_customers, ind_employees, ind_services, ind_settings, ind_records, ind_services2, ind_services1});
         
     }//GEN-LAST:event_btn_productsPMouseReleased
 
-    int xx,xy;
-    
+    int xx, xy;
+
     private void Menu2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Menu2MousePressed
-        
+
         xx = evt.getX();
         xy = evt.getY();
-        
+
     }//GEN-LAST:event_Menu2MousePressed
 
     private void Menu2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Menu2MouseDragged
-        
-        
+
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
-        this.setLocation(x-xx,y-xy);
-        
+        this.setLocation(x - xx, y - xy);
+
     }//GEN-LAST:event_Menu2MouseDragged
 
     private void btn_exitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_exitMousePressed
-        
+
         System.exit(0);
-        
+
     }//GEN-LAST:event_btn_exitMousePressed
 
     private void btn_customersPMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_customersPMouseReleased
-        
-        setColor(btn_customersP); 
+
+        setColor(btn_customersP);
         ind_customers.setOpaque(true);
-        resetColor(new JPanel[]{btn_productsP,btn_users,btn_profile,btn_home,btn_EmployeesP,btn_servicesP,btn_settings, btn_records}, new JPanel[]{ind_products,ind_users, ind_profile,ind_home, ind_employees,ind_services,ind_settings, ind_records});
+        resetColor(new JPanel[]{btn_productsP, btn_users, btn_profile, btn_home, btn_EmployeesP, btn_servicesP, btn_settings, btn_records, btn_salesP, btn_spendingP}, new JPanel[]{ind_products, ind_users, ind_profile, ind_home, ind_employees, ind_services, ind_settings, ind_records, ind_services2, ind_services1});
+        
     }//GEN-LAST:event_btn_customersPMouseReleased
 
     private void btn_EmployeesPMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_EmployeesPMouseReleased
-        setColor(btn_EmployeesP); 
+        
+        setColor(btn_EmployeesP);
         ind_employees.setOpaque(true);
-        resetColor(new JPanel[]{btn_productsP,btn_users,btn_profile,btn_home,btn_customersP,btn_servicesP,btn_settings, btn_records}, new JPanel[]{ind_products,ind_users, ind_profile,ind_home, ind_customers,ind_services,ind_settings, ind_records});
+        resetColor(new JPanel[]{btn_productsP, btn_users, btn_profile, btn_home, btn_customersP, btn_servicesP, btn_settings, btn_records, btn_salesP, btn_spendingP}, new JPanel[]{ind_products, ind_users, ind_profile, ind_home, ind_customers, ind_services, ind_settings, ind_records, ind_services2, ind_services1});
+        
     }//GEN-LAST:event_btn_EmployeesPMouseReleased
 
     private void btn_servicesPMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_servicesPMouseReleased
-        setColor(btn_servicesP); 
+        
+        setColor(btn_servicesP);
         ind_services.setOpaque(true);
-        resetColor(new JPanel[]{btn_productsP,btn_users,btn_profile,btn_home,btn_EmployeesP,btn_customersP,btn_settings, btn_records}, new JPanel[]{ind_products,ind_users, ind_profile,ind_home, ind_employees,ind_customers,ind_settings, ind_records});
+        resetColor(new JPanel[]{btn_productsP, btn_users, btn_profile, btn_home, btn_EmployeesP, btn_customersP, btn_settings, btn_records, btn_salesP, btn_spendingP}, new JPanel[]{ind_products, ind_users, ind_profile, ind_home, ind_employees, ind_customers, ind_settings, ind_records, ind_services2, ind_services1});
+        
     }//GEN-LAST:event_btn_servicesPMouseReleased
 
     private void btn_settingsMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_settingsMouseReleased
-        setColor(btn_settings); 
+        
+        setColor(btn_settings);
         ind_settings.setOpaque(true);
-        resetColor(new JPanel[]{btn_productsP,btn_users,btn_profile,btn_home,btn_EmployeesP,btn_customersP,btn_servicesP, btn_records}, new JPanel[]{ind_products,ind_users, ind_profile,ind_home, ind_employees,ind_customers,ind_services, ind_records});
+        resetColor(new JPanel[]{btn_productsP, btn_users, btn_profile, btn_home, btn_EmployeesP, btn_customersP, btn_servicesP, btn_records, btn_salesP, btn_spendingP}, new JPanel[]{ind_products, ind_users, ind_profile, ind_home, ind_employees, ind_customers, ind_services, ind_records, ind_services2, ind_services1});
+        
     }//GEN-LAST:event_btn_settingsMouseReleased
 
     private void btn_recordsMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_recordsMouseReleased
-        
-        setColor(btn_records); 
-        
-        resetColor(new JPanel[]{btn_productsP,btn_users,btn_profile,btn_home,btn_EmployeesP,btn_customersP,btn_servicesP,btn_settings}, new JPanel[]{ind_products,ind_users, ind_profile,ind_home, ind_employees,ind_customers,ind_services, ind_settings});
-        
+
+        setColor(btn_records);
+        resetColor(new JPanel[]{btn_productsP, btn_users, btn_profile, btn_home, btn_EmployeesP, btn_customersP, btn_servicesP, btn_settings, btn_salesP, btn_spendingP}, new JPanel[]{ind_products, ind_users, ind_profile, ind_home, ind_employees, ind_customers, ind_services, ind_settings, ind_services2, ind_services1});
+
         TelaRegistros registro = new TelaRegistros();
         registro.setVisible(true);
         this.dispose();
+        
     }//GEN-LAST:event_btn_recordsMouseReleased
 
-    
+    private void btn_salesPMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_salesPMouseReleased
+        
+        setColor(btn_salesP);
+        ind_services1.setOpaque(true);
+        resetColor(new JPanel[]{btn_productsP, btn_users, btn_profile, btn_home, btn_customersP, btn_servicesP, btn_settings, btn_records, btn_spendingP}, new JPanel[]{ind_products, ind_users, ind_profile, ind_home, ind_customers, ind_services, ind_settings, ind_records, ind_services2});
+    }//GEN-LAST:event_btn_salesPMouseReleased
+
+    private void btn_spendingPMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_spendingPMouseReleased
+        
+        setColor(btn_spendingP);
+        ind_services2.setOpaque(true);
+        resetColor(new JPanel[]{btn_productsP, btn_users, btn_profile, btn_home, btn_customersP, btn_servicesP, btn_settings, btn_records, btn_salesP}, new JPanel[]{ind_products, ind_users, ind_profile, ind_home, ind_customers, ind_services, ind_settings, ind_records, ind_services1});
+    }//GEN-LAST:event_btn_spendingPMouseReleased
+
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+        
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Windows".equals(info.getName())) {
@@ -775,36 +890,34 @@ public class TelaPrincipal extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
+       
 
-        /* Create and display the form */
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TelaPrincipal().setVisible(true);
             }
         });
     }
-   
-    
-    private void setColor(JPanel pane)
-    {
-        pane.setBackground(new Color(41,57,80));
+
+    private void setColor(JPanel pane) {
+        pane.setBackground(new Color(41, 57, 80));
     }
-    
-    private void resetColor(JPanel [] pane, JPanel [] indicators)
-    {
-        for(int i=0;i<pane.length;i++){
-            
-           pane[i].setBackground(new Color(23,35,51));
-           
-        } for(int i=0;i<indicators.length;i++){
-            
-           indicators[i].setOpaque(false);           
+
+    private void resetColor(JPanel[] pane, JPanel[] indicators) {
+        for (int i = 0; i < pane.length; i++) {
+
+            pane[i].setBackground(new Color(23, 35, 51));
+
         }
-        
+        for (int i = 0; i < indicators.length; i++) {
+
+            indicators[i].setOpaque(false);
+        }
+
     }
     
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Menu;
@@ -818,8 +931,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel btn_productsP;
     private javax.swing.JPanel btn_profile;
     private javax.swing.JPanel btn_records;
+    private javax.swing.JPanel btn_salesP;
     private javax.swing.JPanel btn_servicesP;
     private javax.swing.JPanel btn_settings;
+    private javax.swing.JPanel btn_spendingP;
     private javax.swing.JPanel btn_users;
     private javax.swing.JPanel ind_customers;
     private javax.swing.JPanel ind_employees;
@@ -828,6 +943,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel ind_profile;
     private javax.swing.JPanel ind_records;
     private javax.swing.JPanel ind_services;
+    private javax.swing.JPanel ind_services1;
+    private javax.swing.JPanel ind_services2;
     private javax.swing.JPanel ind_settings;
     private javax.swing.JPanel ind_users;
     private javax.swing.JLabel jLabel1;
@@ -841,6 +958,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
