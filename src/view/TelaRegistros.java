@@ -79,21 +79,27 @@ public class TelaRegistros extends javax.swing.JFrame {
         Graphic = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TabelaGraphic = new javax.swing.JTable();
+        PesquisarGraphic = new javax.swing.JTextField();
         Products = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         TabelaProducts = new javax.swing.JTable();
+        PesquisarProducts = new javax.swing.JTextField();
         Customers = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         TabelaCustomers = new javax.swing.JTable();
+        PesquisarCustomers = new javax.swing.JTextField();
         Employees = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         TabelaEmployees = new javax.swing.JTable();
+        PesquisarEmployees = new javax.swing.JTextField();
         Accounting = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         TabelaAccounting = new javax.swing.JTable();
+        PesquisarAccounting = new javax.swing.JTextField();
         Services = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
         TabelaServices = new javax.swing.JTable();
+        PesquisarServices = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -230,7 +236,7 @@ public class TelaRegistros extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
-                        .addGap(0, 43, Short.MAX_VALUE)
+                        .addGap(0, 13, Short.MAX_VALUE)
                         .addComponent(jLabel1)))
                 .addGap(29, 29, 29)
                 .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -271,11 +277,23 @@ public class TelaRegistros extends javax.swing.JFrame {
         TabelaGraphic.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(TabelaGraphic);
 
+        PesquisarGraphic.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        PesquisarGraphic.setText("Search here!");
+        PesquisarGraphic.setToolTipText("");
+        PesquisarGraphic.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PesquisarGraphicActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout GraphicLayout = new javax.swing.GroupLayout(Graphic);
         Graphic.setLayout(GraphicLayout);
         GraphicLayout.setHorizontalGroup(
             GraphicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 900, Short.MAX_VALUE)
+            .addGroup(GraphicLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(PesquisarGraphic, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(595, Short.MAX_VALUE))
             .addGroup(GraphicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, GraphicLayout.createSequentialGroup()
                     .addContainerGap(33, Short.MAX_VALUE)
@@ -284,7 +302,10 @@ public class TelaRegistros extends javax.swing.JFrame {
         );
         GraphicLayout.setVerticalGroup(
             GraphicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 308, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, GraphicLayout.createSequentialGroup()
+                .addContainerGap(269, Short.MAX_VALUE)
+                .addComponent(PesquisarGraphic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
             .addGroup(GraphicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, GraphicLayout.createSequentialGroup()
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -321,11 +342,22 @@ public class TelaRegistros extends javax.swing.JFrame {
         TabelaProducts.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(TabelaProducts);
 
+        PesquisarProducts.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        PesquisarProducts.setText("Search here!");
+        PesquisarProducts.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PesquisarProductsActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout ProductsLayout = new javax.swing.GroupLayout(Products);
         Products.setLayout(ProductsLayout);
         ProductsLayout.setHorizontalGroup(
             ProductsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 900, Short.MAX_VALUE)
+            .addGroup(ProductsLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(PesquisarProducts, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(595, Short.MAX_VALUE))
             .addGroup(ProductsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProductsLayout.createSequentialGroup()
                     .addContainerGap(33, Short.MAX_VALUE)
@@ -334,7 +366,10 @@ public class TelaRegistros extends javax.swing.JFrame {
         );
         ProductsLayout.setVerticalGroup(
             ProductsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 308, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProductsLayout.createSequentialGroup()
+                .addContainerGap(269, Short.MAX_VALUE)
+                .addComponent(PesquisarProducts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
             .addGroup(ProductsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProductsLayout.createSequentialGroup()
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -371,11 +406,22 @@ public class TelaRegistros extends javax.swing.JFrame {
         TabelaCustomers.getTableHeader().setReorderingAllowed(false);
         jScrollPane3.setViewportView(TabelaCustomers);
 
+        PesquisarCustomers.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        PesquisarCustomers.setText("Search here!");
+        PesquisarCustomers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PesquisarCustomersActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout CustomersLayout = new javax.swing.GroupLayout(Customers);
         Customers.setLayout(CustomersLayout);
         CustomersLayout.setHorizontalGroup(
             CustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 900, Short.MAX_VALUE)
+            .addGroup(CustomersLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(PesquisarCustomers, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(595, Short.MAX_VALUE))
             .addGroup(CustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CustomersLayout.createSequentialGroup()
                     .addContainerGap(33, Short.MAX_VALUE)
@@ -384,10 +430,13 @@ public class TelaRegistros extends javax.swing.JFrame {
         );
         CustomersLayout.setVerticalGroup(
             CustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 308, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CustomersLayout.createSequentialGroup()
+                .addContainerGap(269, Short.MAX_VALUE)
+                .addComponent(PesquisarCustomers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
             .addGroup(CustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CustomersLayout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(CustomersLayout.createSequentialGroup()
+                    .addContainerGap()
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(70, Short.MAX_VALUE)))
         );
@@ -421,11 +470,17 @@ public class TelaRegistros extends javax.swing.JFrame {
         TabelaEmployees.getTableHeader().setReorderingAllowed(false);
         jScrollPane4.setViewportView(TabelaEmployees);
 
+        PesquisarEmployees.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        PesquisarEmployees.setText("Search here!");
+
         javax.swing.GroupLayout EmployeesLayout = new javax.swing.GroupLayout(Employees);
         Employees.setLayout(EmployeesLayout);
         EmployeesLayout.setHorizontalGroup(
             EmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 900, Short.MAX_VALUE)
+            .addGroup(EmployeesLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(PesquisarEmployees, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(595, Short.MAX_VALUE))
             .addGroup(EmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EmployeesLayout.createSequentialGroup()
                     .addContainerGap(33, Short.MAX_VALUE)
@@ -434,7 +489,10 @@ public class TelaRegistros extends javax.swing.JFrame {
         );
         EmployeesLayout.setVerticalGroup(
             EmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 308, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EmployeesLayout.createSequentialGroup()
+                .addContainerGap(269, Short.MAX_VALUE)
+                .addComponent(PesquisarEmployees, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
             .addGroup(EmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EmployeesLayout.createSequentialGroup()
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -471,11 +529,17 @@ public class TelaRegistros extends javax.swing.JFrame {
         TabelaAccounting.getTableHeader().setReorderingAllowed(false);
         jScrollPane5.setViewportView(TabelaAccounting);
 
+        PesquisarAccounting.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        PesquisarAccounting.setText("Search here!");
+
         javax.swing.GroupLayout AccountingLayout = new javax.swing.GroupLayout(Accounting);
         Accounting.setLayout(AccountingLayout);
         AccountingLayout.setHorizontalGroup(
             AccountingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 900, Short.MAX_VALUE)
+            .addGroup(AccountingLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(PesquisarAccounting, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(595, Short.MAX_VALUE))
             .addGroup(AccountingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AccountingLayout.createSequentialGroup()
                     .addContainerGap(33, Short.MAX_VALUE)
@@ -484,7 +548,10 @@ public class TelaRegistros extends javax.swing.JFrame {
         );
         AccountingLayout.setVerticalGroup(
             AccountingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 308, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AccountingLayout.createSequentialGroup()
+                .addContainerGap(269, Short.MAX_VALUE)
+                .addComponent(PesquisarAccounting, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
             .addGroup(AccountingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AccountingLayout.createSequentialGroup()
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -521,11 +588,22 @@ public class TelaRegistros extends javax.swing.JFrame {
         TabelaServices.getTableHeader().setReorderingAllowed(false);
         jScrollPane6.setViewportView(TabelaServices);
 
+        PesquisarServices.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        PesquisarServices.setText("Search here!");
+        PesquisarServices.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PesquisarServicesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout ServicesLayout = new javax.swing.GroupLayout(Services);
         Services.setLayout(ServicesLayout);
         ServicesLayout.setHorizontalGroup(
             ServicesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 900, Short.MAX_VALUE)
+            .addGroup(ServicesLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(PesquisarServices, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(595, Short.MAX_VALUE))
             .addGroup(ServicesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ServicesLayout.createSequentialGroup()
                     .addContainerGap(33, Short.MAX_VALUE)
@@ -534,7 +612,10 @@ public class TelaRegistros extends javax.swing.JFrame {
         );
         ServicesLayout.setVerticalGroup(
             ServicesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 308, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ServicesLayout.createSequentialGroup()
+                .addContainerGap(269, Short.MAX_VALUE)
+                .addComponent(PesquisarServices, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
             .addGroup(ServicesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ServicesLayout.createSequentialGroup()
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -705,6 +786,22 @@ public class TelaRegistros extends javax.swing.JFrame {
         Accounting.setVisible(true);
         
     }//GEN-LAST:event_btn_accountingMouseClicked
+
+    private void PesquisarCustomersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarCustomersActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PesquisarCustomersActionPerformed
+
+    private void PesquisarProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarProductsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PesquisarProductsActionPerformed
+
+    private void PesquisarGraphicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarGraphicActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PesquisarGraphicActionPerformed
+
+    private void PesquisarServicesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarServicesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PesquisarServicesActionPerformed
     
     
     public void setLblColor(JLabel lbl)
@@ -767,6 +864,12 @@ public class TelaRegistros extends javax.swing.JFrame {
     private javax.swing.JPanel Employees;
     private javax.swing.JPanel Graphic;
     private javax.swing.JPanel Paineis;
+    private javax.swing.JTextField PesquisarAccounting;
+    private javax.swing.JTextField PesquisarCustomers;
+    private javax.swing.JTextField PesquisarEmployees;
+    private javax.swing.JTextField PesquisarGraphic;
+    private javax.swing.JTextField PesquisarProducts;
+    private javax.swing.JTextField PesquisarServices;
     private javax.swing.JPanel Products;
     private javax.swing.JPanel Services;
     private javax.swing.JTable TabelaAccounting;
