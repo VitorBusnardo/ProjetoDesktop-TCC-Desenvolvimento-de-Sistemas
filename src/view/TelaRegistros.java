@@ -80,30 +80,43 @@ public class TelaRegistros extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         TabelaGraphic = new javax.swing.JTable();
         PesquisarGraphic = new javax.swing.JTextField();
+        btn_DeleteGraphic = new javax.swing.JLabel();
+        DeleteGraphic = new javax.swing.JTextField();
         Products = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         TabelaProducts = new javax.swing.JTable();
         PesquisarProducts = new javax.swing.JTextField();
+        btn_DeleteProducts = new javax.swing.JLabel();
+        DeleteProducts = new javax.swing.JTextField();
         Customers = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         TabelaCustomers = new javax.swing.JTable();
         PesquisarCustomers = new javax.swing.JTextField();
+        btn_DeleteCustomers = new javax.swing.JLabel();
+        DeleteCustomers = new javax.swing.JTextField();
         Employees = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         TabelaEmployees = new javax.swing.JTable();
         PesquisarEmployees = new javax.swing.JTextField();
+        btn_DeleteEmployees = new javax.swing.JLabel();
+        DeleteEmployees = new javax.swing.JTextField();
         Accounting = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         TabelaAccounting = new javax.swing.JTable();
         PesquisarAccounting = new javax.swing.JTextField();
+        btn_DeleteAccounting = new javax.swing.JLabel();
+        DeleteAccounting = new javax.swing.JTextField();
         Services = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
         TabelaServices = new javax.swing.JTable();
         PesquisarServices = new javax.swing.JTextField();
+        btn_DeleteServices = new javax.swing.JLabel();
+        DeleteServices = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(900, 565));
 
         main.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -125,6 +138,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("X");
+        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel3.setOpaque(true);
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -137,6 +151,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         btn_graphic.setForeground(new java.awt.Color(255, 255, 255));
         btn_graphic.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btn_graphic.setText("Graphic");
+        btn_graphic.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_graphic.setOpaque(true);
         btn_graphic.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -149,6 +164,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         btn_products.setForeground(new java.awt.Color(255, 255, 255));
         btn_products.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btn_products.setText("Products");
+        btn_products.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_products.setOpaque(true);
         btn_products.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -163,6 +179,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         btn_services.setForeground(new java.awt.Color(255, 255, 255));
         btn_services.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btn_services.setText("Services");
+        btn_services.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_services.setOpaque(true);
         btn_services.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -175,6 +192,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         btn_customers.setForeground(new java.awt.Color(255, 255, 255));
         btn_customers.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btn_customers.setText("Customers");
+        btn_customers.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_customers.setOpaque(true);
         btn_customers.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -187,6 +205,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         btn_employees.setForeground(new java.awt.Color(255, 255, 255));
         btn_employees.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btn_employees.setText("Employees");
+        btn_employees.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_employees.setOpaque(true);
         btn_employees.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -199,6 +218,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         btn_accounting.setForeground(new java.awt.Color(255, 255, 255));
         btn_accounting.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btn_accounting.setText("Accounting");
+        btn_accounting.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_accounting.setOpaque(true);
         btn_accounting.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -236,7 +256,7 @@ public class TelaRegistros extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
-                        .addGap(0, 13, Short.MAX_VALUE)
+                        .addGap(0, 43, Short.MAX_VALUE)
                         .addComponent(jLabel1)))
                 .addGap(29, 29, 29)
                 .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -252,6 +272,7 @@ public class TelaRegistros extends javax.swing.JFrame {
 
         Graphic.setBackground(new java.awt.Color(255, 255, 255));
         Graphic.setForeground(new java.awt.Color(204, 204, 204));
+        Graphic.setPreferredSize(new java.awt.Dimension(900, 565));
 
         TabelaGraphic.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         TabelaGraphic.setModel(new javax.swing.table.DefaultTableModel(
@@ -278,11 +299,32 @@ public class TelaRegistros extends javax.swing.JFrame {
         jScrollPane1.setViewportView(TabelaGraphic);
 
         PesquisarGraphic.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        PesquisarGraphic.setText("Search here!");
         PesquisarGraphic.setToolTipText("");
         PesquisarGraphic.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PesquisarGraphicActionPerformed(evt);
+            }
+        });
+
+        btn_DeleteGraphic.setBackground(new java.awt.Color(23, 35, 51));
+        btn_DeleteGraphic.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btn_DeleteGraphic.setForeground(new java.awt.Color(255, 255, 255));
+        btn_DeleteGraphic.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btn_DeleteGraphic.setText("Delete");
+        btn_DeleteGraphic.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_DeleteGraphic.setOpaque(true);
+        btn_DeleteGraphic.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_DeleteGraphicMouseClicked(evt);
+            }
+        });
+
+        DeleteGraphic.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        DeleteGraphic.setText("Search here!");
+        DeleteGraphic.setToolTipText("");
+        DeleteGraphic.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeleteGraphicActionPerformed(evt);
             }
         });
 
@@ -292,8 +334,12 @@ public class TelaRegistros extends javax.swing.JFrame {
             GraphicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(GraphicLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
-                .addComponent(PesquisarGraphic, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(595, Short.MAX_VALUE))
+                .addComponent(DeleteGraphic, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 215, Short.MAX_VALUE)
+                .addComponent(PesquisarGraphic, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_DeleteGraphic, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35))
             .addGroup(GraphicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, GraphicLayout.createSequentialGroup()
                     .addContainerGap(33, Short.MAX_VALUE)
@@ -303,8 +349,11 @@ public class TelaRegistros extends javax.swing.JFrame {
         GraphicLayout.setVerticalGroup(
             GraphicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, GraphicLayout.createSequentialGroup()
-                .addContainerGap(269, Short.MAX_VALUE)
-                .addComponent(PesquisarGraphic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(267, Short.MAX_VALUE)
+                .addGroup(GraphicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(PesquisarGraphic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_DeleteGraphic, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DeleteGraphic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
             .addGroup(GraphicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, GraphicLayout.createSequentialGroup()
@@ -317,6 +366,7 @@ public class TelaRegistros extends javax.swing.JFrame {
 
         Products.setBackground(new java.awt.Color(255, 255, 255));
         Products.setForeground(new java.awt.Color(204, 204, 204));
+        Products.setPreferredSize(new java.awt.Dimension(900, 565));
 
         TabelaProducts.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         TabelaProducts.setModel(new javax.swing.table.DefaultTableModel(
@@ -350,6 +400,27 @@ public class TelaRegistros extends javax.swing.JFrame {
             }
         });
 
+        btn_DeleteProducts.setBackground(new java.awt.Color(23, 35, 51));
+        btn_DeleteProducts.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btn_DeleteProducts.setForeground(new java.awt.Color(255, 255, 255));
+        btn_DeleteProducts.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btn_DeleteProducts.setText("Delete");
+        btn_DeleteProducts.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_DeleteProducts.setOpaque(true);
+        btn_DeleteProducts.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_DeleteProductsMouseClicked(evt);
+            }
+        });
+
+        DeleteProducts.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        DeleteProducts.setToolTipText("");
+        DeleteProducts.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeleteProductsActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout ProductsLayout = new javax.swing.GroupLayout(Products);
         Products.setLayout(ProductsLayout);
         ProductsLayout.setHorizontalGroup(
@@ -357,7 +428,11 @@ public class TelaRegistros extends javax.swing.JFrame {
             .addGroup(ProductsLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(PesquisarProducts, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(595, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 215, Short.MAX_VALUE)
+                .addComponent(DeleteProducts, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_DeleteProducts, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35))
             .addGroup(ProductsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProductsLayout.createSequentialGroup()
                     .addContainerGap(33, Short.MAX_VALUE)
@@ -366,9 +441,13 @@ public class TelaRegistros extends javax.swing.JFrame {
         );
         ProductsLayout.setVerticalGroup(
             ProductsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProductsLayout.createSequentialGroup()
-                .addContainerGap(269, Short.MAX_VALUE)
-                .addComponent(PesquisarProducts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(ProductsLayout.createSequentialGroup()
+                .addContainerGap(267, Short.MAX_VALUE)
+                .addGroup(ProductsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(PesquisarProducts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(ProductsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(DeleteProducts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_DeleteProducts, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
             .addGroup(ProductsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProductsLayout.createSequentialGroup()
@@ -381,6 +460,7 @@ public class TelaRegistros extends javax.swing.JFrame {
 
         Customers.setBackground(new java.awt.Color(255, 255, 255));
         Customers.setForeground(new java.awt.Color(153, 153, 153));
+        Customers.setPreferredSize(new java.awt.Dimension(900, 565));
 
         TabelaCustomers.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         TabelaCustomers.setModel(new javax.swing.table.DefaultTableModel(
@@ -414,6 +494,27 @@ public class TelaRegistros extends javax.swing.JFrame {
             }
         });
 
+        btn_DeleteCustomers.setBackground(new java.awt.Color(23, 35, 51));
+        btn_DeleteCustomers.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btn_DeleteCustomers.setForeground(new java.awt.Color(255, 255, 255));
+        btn_DeleteCustomers.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btn_DeleteCustomers.setText("Delete");
+        btn_DeleteCustomers.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_DeleteCustomers.setOpaque(true);
+        btn_DeleteCustomers.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_DeleteCustomersMouseClicked(evt);
+            }
+        });
+
+        DeleteCustomers.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        DeleteCustomers.setToolTipText("");
+        DeleteCustomers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeleteCustomersActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout CustomersLayout = new javax.swing.GroupLayout(Customers);
         Customers.setLayout(CustomersLayout);
         CustomersLayout.setHorizontalGroup(
@@ -421,7 +522,11 @@ public class TelaRegistros extends javax.swing.JFrame {
             .addGroup(CustomersLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(PesquisarCustomers, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(595, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 215, Short.MAX_VALUE)
+                .addComponent(DeleteCustomers, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_DeleteCustomers, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35))
             .addGroup(CustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CustomersLayout.createSequentialGroup()
                     .addContainerGap(33, Short.MAX_VALUE)
@@ -431,8 +536,12 @@ public class TelaRegistros extends javax.swing.JFrame {
         CustomersLayout.setVerticalGroup(
             CustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CustomersLayout.createSequentialGroup()
-                .addContainerGap(269, Short.MAX_VALUE)
-                .addComponent(PesquisarCustomers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(267, Short.MAX_VALUE)
+                .addGroup(CustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(PesquisarCustomers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(CustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(DeleteCustomers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_DeleteCustomers, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
             .addGroup(CustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(CustomersLayout.createSequentialGroup()
@@ -445,6 +554,7 @@ public class TelaRegistros extends javax.swing.JFrame {
 
         Employees.setBackground(new java.awt.Color(255, 255, 255));
         Employees.setForeground(new java.awt.Color(102, 102, 102));
+        Employees.setPreferredSize(new java.awt.Dimension(900, 565));
 
         TabelaEmployees.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         TabelaEmployees.setModel(new javax.swing.table.DefaultTableModel(
@@ -473,6 +583,27 @@ public class TelaRegistros extends javax.swing.JFrame {
         PesquisarEmployees.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         PesquisarEmployees.setText("Search here!");
 
+        btn_DeleteEmployees.setBackground(new java.awt.Color(23, 35, 51));
+        btn_DeleteEmployees.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btn_DeleteEmployees.setForeground(new java.awt.Color(255, 255, 255));
+        btn_DeleteEmployees.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btn_DeleteEmployees.setText("Delete");
+        btn_DeleteEmployees.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_DeleteEmployees.setOpaque(true);
+        btn_DeleteEmployees.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_DeleteEmployeesMouseClicked(evt);
+            }
+        });
+
+        DeleteEmployees.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        DeleteEmployees.setToolTipText("");
+        DeleteEmployees.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeleteEmployeesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout EmployeesLayout = new javax.swing.GroupLayout(Employees);
         Employees.setLayout(EmployeesLayout);
         EmployeesLayout.setHorizontalGroup(
@@ -480,7 +611,11 @@ public class TelaRegistros extends javax.swing.JFrame {
             .addGroup(EmployeesLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(PesquisarEmployees, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(595, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 215, Short.MAX_VALUE)
+                .addComponent(DeleteEmployees, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_DeleteEmployees, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35))
             .addGroup(EmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EmployeesLayout.createSequentialGroup()
                     .addContainerGap(33, Short.MAX_VALUE)
@@ -490,8 +625,12 @@ public class TelaRegistros extends javax.swing.JFrame {
         EmployeesLayout.setVerticalGroup(
             EmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EmployeesLayout.createSequentialGroup()
-                .addContainerGap(269, Short.MAX_VALUE)
-                .addComponent(PesquisarEmployees, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(267, Short.MAX_VALUE)
+                .addGroup(EmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(PesquisarEmployees, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(EmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(DeleteEmployees, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_DeleteEmployees, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
             .addGroup(EmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EmployeesLayout.createSequentialGroup()
@@ -504,6 +643,7 @@ public class TelaRegistros extends javax.swing.JFrame {
 
         Accounting.setBackground(new java.awt.Color(255, 255, 255));
         Accounting.setForeground(new java.awt.Color(102, 102, 102));
+        Accounting.setPreferredSize(new java.awt.Dimension(900, 565));
 
         TabelaAccounting.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         TabelaAccounting.setModel(new javax.swing.table.DefaultTableModel(
@@ -532,6 +672,27 @@ public class TelaRegistros extends javax.swing.JFrame {
         PesquisarAccounting.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         PesquisarAccounting.setText("Search here!");
 
+        btn_DeleteAccounting.setBackground(new java.awt.Color(23, 35, 51));
+        btn_DeleteAccounting.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btn_DeleteAccounting.setForeground(new java.awt.Color(255, 255, 255));
+        btn_DeleteAccounting.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btn_DeleteAccounting.setText("Delete");
+        btn_DeleteAccounting.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_DeleteAccounting.setOpaque(true);
+        btn_DeleteAccounting.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_DeleteAccountingMouseClicked(evt);
+            }
+        });
+
+        DeleteAccounting.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        DeleteAccounting.setToolTipText("");
+        DeleteAccounting.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeleteAccountingActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout AccountingLayout = new javax.swing.GroupLayout(Accounting);
         Accounting.setLayout(AccountingLayout);
         AccountingLayout.setHorizontalGroup(
@@ -539,7 +700,11 @@ public class TelaRegistros extends javax.swing.JFrame {
             .addGroup(AccountingLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(PesquisarAccounting, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(595, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 215, Short.MAX_VALUE)
+                .addComponent(DeleteAccounting, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_DeleteAccounting, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35))
             .addGroup(AccountingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AccountingLayout.createSequentialGroup()
                     .addContainerGap(33, Short.MAX_VALUE)
@@ -549,8 +714,12 @@ public class TelaRegistros extends javax.swing.JFrame {
         AccountingLayout.setVerticalGroup(
             AccountingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AccountingLayout.createSequentialGroup()
-                .addContainerGap(269, Short.MAX_VALUE)
-                .addComponent(PesquisarAccounting, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(267, Short.MAX_VALUE)
+                .addGroup(AccountingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(PesquisarAccounting, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(AccountingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(DeleteAccounting, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_DeleteAccounting, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
             .addGroup(AccountingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AccountingLayout.createSequentialGroup()
@@ -563,6 +732,7 @@ public class TelaRegistros extends javax.swing.JFrame {
 
         Services.setBackground(new java.awt.Color(255, 255, 255));
         Services.setForeground(new java.awt.Color(51, 51, 51));
+        Services.setPreferredSize(new java.awt.Dimension(900, 565));
 
         TabelaServices.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         TabelaServices.setModel(new javax.swing.table.DefaultTableModel(
@@ -596,6 +766,27 @@ public class TelaRegistros extends javax.swing.JFrame {
             }
         });
 
+        btn_DeleteServices.setBackground(new java.awt.Color(23, 35, 51));
+        btn_DeleteServices.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btn_DeleteServices.setForeground(new java.awt.Color(255, 255, 255));
+        btn_DeleteServices.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btn_DeleteServices.setText("Delete");
+        btn_DeleteServices.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_DeleteServices.setOpaque(true);
+        btn_DeleteServices.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_DeleteServicesMouseClicked(evt);
+            }
+        });
+
+        DeleteServices.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        DeleteServices.setToolTipText("");
+        DeleteServices.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeleteServicesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout ServicesLayout = new javax.swing.GroupLayout(Services);
         Services.setLayout(ServicesLayout);
         ServicesLayout.setHorizontalGroup(
@@ -603,7 +794,11 @@ public class TelaRegistros extends javax.swing.JFrame {
             .addGroup(ServicesLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(PesquisarServices, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(595, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 215, Short.MAX_VALUE)
+                .addComponent(DeleteServices, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_DeleteServices, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35))
             .addGroup(ServicesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ServicesLayout.createSequentialGroup()
                     .addContainerGap(33, Short.MAX_VALUE)
@@ -613,8 +808,11 @@ public class TelaRegistros extends javax.swing.JFrame {
         ServicesLayout.setVerticalGroup(
             ServicesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ServicesLayout.createSequentialGroup()
-                .addContainerGap(269, Short.MAX_VALUE)
-                .addComponent(PesquisarServices, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(267, Short.MAX_VALUE)
+                .addGroup(ServicesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(DeleteServices, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_DeleteServices, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PesquisarServices, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
             .addGroup(ServicesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ServicesLayout.createSequentialGroup()
@@ -638,7 +836,7 @@ public class TelaRegistros extends javax.swing.JFrame {
                 .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Paineis, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 21, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -649,7 +847,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(main, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
+            .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 536, Short.MAX_VALUE)
         );
 
         pack();
@@ -802,6 +1000,54 @@ public class TelaRegistros extends javax.swing.JFrame {
     private void PesquisarServicesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarServicesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_PesquisarServicesActionPerformed
+
+    private void btn_DeleteGraphicMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DeleteGraphicMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_DeleteGraphicMouseClicked
+
+    private void DeleteGraphicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteGraphicActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DeleteGraphicActionPerformed
+
+    private void btn_DeleteServicesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DeleteServicesMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_DeleteServicesMouseClicked
+
+    private void DeleteServicesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteServicesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DeleteServicesActionPerformed
+
+    private void btn_DeleteProductsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DeleteProductsMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_DeleteProductsMouseClicked
+
+    private void DeleteProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteProductsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DeleteProductsActionPerformed
+
+    private void btn_DeleteCustomersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DeleteCustomersMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_DeleteCustomersMouseClicked
+
+    private void DeleteCustomersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteCustomersActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DeleteCustomersActionPerformed
+
+    private void btn_DeleteAccountingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DeleteAccountingMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_DeleteAccountingMouseClicked
+
+    private void DeleteAccountingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteAccountingActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DeleteAccountingActionPerformed
+
+    private void btn_DeleteEmployeesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DeleteEmployeesMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_DeleteEmployeesMouseClicked
+
+    private void DeleteEmployeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteEmployeesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DeleteEmployeesActionPerformed
     
     
     public void setLblColor(JLabel lbl)
@@ -861,6 +1107,12 @@ public class TelaRegistros extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Accounting;
     private javax.swing.JPanel Customers;
+    private javax.swing.JTextField DeleteAccounting;
+    private javax.swing.JTextField DeleteCustomers;
+    private javax.swing.JTextField DeleteEmployees;
+    private javax.swing.JTextField DeleteGraphic;
+    private javax.swing.JTextField DeleteProducts;
+    private javax.swing.JTextField DeleteServices;
     private javax.swing.JPanel Employees;
     private javax.swing.JPanel Graphic;
     private javax.swing.JPanel Paineis;
@@ -878,6 +1130,12 @@ public class TelaRegistros extends javax.swing.JFrame {
     private javax.swing.JTable TabelaGraphic;
     private javax.swing.JTable TabelaProducts;
     private javax.swing.JTable TabelaServices;
+    private javax.swing.JLabel btn_DeleteAccounting;
+    private javax.swing.JLabel btn_DeleteCustomers;
+    private javax.swing.JLabel btn_DeleteEmployees;
+    private javax.swing.JLabel btn_DeleteGraphic;
+    private javax.swing.JLabel btn_DeleteProducts;
+    private javax.swing.JLabel btn_DeleteServices;
     private javax.swing.JLabel btn_accounting;
     private javax.swing.JLabel btn_customers;
     private javax.swing.JLabel btn_employees;
