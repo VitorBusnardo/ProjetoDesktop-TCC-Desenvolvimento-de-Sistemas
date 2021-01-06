@@ -1,4 +1,4 @@
-package view;
+                                              package view;
 
 import java.awt.Color;
 import javax.swing.JLabel;
@@ -703,7 +703,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         MenuSettingsLayout.setVerticalGroup(
             MenuSettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MenuSettingsLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addContainerGap()
                 .addGroup(MenuSettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -715,7 +715,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGroup(MenuSettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel30)
                     .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout Menu3Layout = new javax.swing.GroupLayout(Menu3);
@@ -738,7 +738,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
                 .addComponent(btn_records, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addComponent(MenuSettings, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22))
         );
@@ -965,7 +965,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
         setColor(btn_salesP);
         ind_sales.setOpaque(true);
-        resetColor(new JPanel[]{btn_productsP, btn_customersP, btn_servicesP, btn_records, btn_spendingP, btn_scheduleP}, new JPanel[]{ind_products,  ind_customers, ind_services,  ind_records, ind_spending, ind_schedule});
+        resetColor(new JPanel[]{btn_productsP, btn_customersP, btn_servicesP,   btn_EmployeesP, btn_records, btn_spendingP, btn_scheduleP}, new JPanel[]{ind_products,  ind_customers, ind_services, ind_employees, ind_records, ind_spending, ind_schedule});
         MenuSettings.setVisible(false);
         MenuSettings.setEnabled(false);
     }//GEN-LAST:event_btn_salesPMouseReleased
@@ -974,7 +974,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
         setColor(btn_spendingP);
         ind_spending.setOpaque(true);
-        resetColor(new JPanel[]{btn_productsP,  btn_customersP, btn_servicesP, btn_records, btn_salesP, btn_scheduleP}, new JPanel[]{ind_products, ind_customers, ind_services, ind_records, ind_sales, ind_schedule});
+        resetColor(new JPanel[]{btn_productsP,  btn_customersP, btn_servicesP, btn_records,btn_EmployeesP, btn_salesP, btn_scheduleP}, new JPanel[]{ind_products, ind_customers, ind_services, ind_records, ind_employees, ind_sales, ind_schedule});
         MenuSettings.setVisible(false);
         MenuSettings.setEnabled(false);
     }//GEN-LAST:event_btn_spendingPMouseReleased
@@ -1004,7 +1004,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void btn_schedulePMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_schedulePMouseReleased
         setColor(btn_scheduleP);
         ind_schedule.setOpaque(true);
-        resetColor(new JPanel[]{btn_productsP,  btn_customersP, btn_servicesP, btn_records, btn_salesP, btn_spendingP}, new JPanel[]{ind_products, ind_customers, ind_services, ind_records, ind_sales, ind_spending});
+        resetColor(new JPanel[]{btn_productsP,  btn_customersP, btn_servicesP,btn_EmployeesP, btn_records, btn_salesP, btn_spendingP}, new JPanel[]{ind_products, ind_customers, ind_services, ind_records, ind_employees, ind_sales, ind_spending});
         MenuSettings.setVisible(false);
         MenuSettings.setEnabled(false);
     }//GEN-LAST:event_btn_schedulePMouseReleased
