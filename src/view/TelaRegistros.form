@@ -98,7 +98,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btn_services" min="-2" pref="146" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="btn_accounting" min="-2" pref="146" max="-2" attributes="0"/>
+                      <Component id="btn_schedule" min="-2" pref="146" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -122,7 +122,7 @@
                           <Component id="btn_products" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="btn_graphic" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="btn_services" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="btn_accounting" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="btn_schedule" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -268,7 +268,7 @@
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_employeesMouseClicked"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="btn_accounting">
+            <Component class="javax.swing.JLabel" name="btn_schedule">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="23" red="17" type="rgb"/>
@@ -280,14 +280,14 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Accounting"/>
+                <Property name="text" type="java.lang.String" value="Schedule"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                   <Color id="Cursor em Forma de M&#xe3;o"/>
                 </Property>
                 <Property name="opaque" type="boolean" value="true"/>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_accountingMouseClicked"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_scheduleMouseClicked"/>
               </Events>
             </Component>
           </SubComponents>
@@ -968,7 +968,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="Accounting">
+            <Container class="javax.swing.JPanel" name="Schedule">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -991,11 +991,11 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                          <Component id="PesquisarAccounting" min="-2" pref="270" max="-2" attributes="0"/>
+                          <Component id="PesquisarSchedule" min="-2" pref="270" max="-2" attributes="0"/>
                           <EmptySpace pref="215" max="32767" attributes="0"/>
-                          <Component id="DeleteAccounting" min="-2" pref="189" max="-2" attributes="0"/>
+                          <Component id="DeleteSchedule" min="-2" pref="189" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="btn_DeleteAccounting" min="-2" pref="146" max="-2" attributes="0"/>
+                          <Component id="btn_DeleteSchedule" min="-2" pref="146" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
@@ -1013,10 +1013,10 @@
                           <EmptySpace pref="267" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="DeleteAccounting" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btn_DeleteAccounting" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="DeleteSchedule" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btn_DeleteSchedule" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="PesquisarAccounting" min="-2" max="-2" attributes="0"/>
+                              <Component id="PesquisarSchedule" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -1038,7 +1038,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTable" name="TabelaAccounting">
+                    <Component class="javax.swing.JTable" name="TabelaSchedule">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
@@ -1091,7 +1091,7 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JTextField" name="PesquisarAccounting">
+                <Component class="javax.swing.JTextField" name="PesquisarSchedule">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="16" style="0"/>
@@ -1099,7 +1099,7 @@
                     <Property name="text" type="java.lang.String" value="Search here!"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="btn_DeleteAccounting">
+                <Component class="javax.swing.JLabel" name="btn_DeleteSchedule">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="33" green="23" red="17" type="rgb"/>
@@ -1118,10 +1118,10 @@
                     <Property name="opaque" type="boolean" value="true"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_DeleteAccountingMouseClicked"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_DeleteScheduleMouseClicked"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JTextField" name="DeleteAccounting">
+                <Component class="javax.swing.JTextField" name="DeleteSchedule">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="16" style="0"/>
@@ -1129,7 +1129,7 @@
                     <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DeleteAccountingActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DeleteScheduleActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>

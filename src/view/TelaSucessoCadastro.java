@@ -1,9 +1,9 @@
 package view;
 
 
-public class TelaDelete extends javax.swing.JFrame {
+public class TelaSucessoCadastro extends javax.swing.JFrame {
 
-    public TelaDelete() {
+    public TelaSucessoCadastro() {
         initComponents();
     }
 
@@ -16,10 +16,8 @@ public class TelaDelete extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
-        btn_DeleteNo = new javax.swing.JLabel();
         btn_DeleteYes = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -54,26 +52,13 @@ public class TelaDelete extends javax.swing.JFrame {
 
         jLabel12.setBackground(new java.awt.Color(0, 0, 0));
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel12.setText("Do you really want to");
-
-        btn_DeleteNo.setBackground(new java.awt.Color(23, 35, 51));
-        btn_DeleteNo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btn_DeleteNo.setForeground(new java.awt.Color(255, 255, 255));
-        btn_DeleteNo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btn_DeleteNo.setText("No");
-        btn_DeleteNo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_DeleteNo.setOpaque(true);
-        btn_DeleteNo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_DeleteNoMouseClicked(evt);
-            }
-        });
+        jLabel12.setText("Successful registration!");
 
         btn_DeleteYes.setBackground(new java.awt.Color(23, 35, 51));
         btn_DeleteYes.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btn_DeleteYes.setForeground(new java.awt.Color(255, 255, 255));
         btn_DeleteYes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btn_DeleteYes.setText("Yes");
+        btn_DeleteYes.setText("Incredible");
         btn_DeleteYes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_DeleteYes.setOpaque(true);
         btn_DeleteYes.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -82,49 +67,35 @@ public class TelaDelete extends javax.swing.JFrame {
             }
         });
 
-        jLabel13.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel13.setText("delete this data?");
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/iconfinder_Neptune_1715800 (1).png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/iconfinder_Neptune_1715800 (1).png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+            .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(jLabel3)
+                .addComponent(jLabel1)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel12)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(57, 57, 57))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                        .addComponent(jLabel12)
+                        .addGap(53, 53, 53))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btn_DeleteYes, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_DeleteNo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(23, Short.MAX_VALUE))))
+                        .addGap(73, 73, 73)
+                        .addComponent(btn_DeleteYes, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btn_DeleteYes, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_DeleteNo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel3))
+                        .addComponent(btn_DeleteYes, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
@@ -150,7 +121,7 @@ public class TelaDelete extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -160,13 +131,7 @@ public class TelaDelete extends javax.swing.JFrame {
     private void btn_DeleteYesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DeleteYesMouseClicked
 
         this.dispose();
-
     }//GEN-LAST:event_btn_DeleteYesMouseClicked
-
-    private void btn_DeleteNoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DeleteNoMouseClicked
-
-        this.dispose();
-    }//GEN-LAST:event_btn_DeleteNoMouseClicked
 
 
     public static void main(String args[]) {
@@ -179,33 +144,29 @@ public class TelaDelete extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaDelete.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaSucessoCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaDelete.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaSucessoCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaDelete.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaSucessoCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaDelete.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaSucessoCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        
 
-        /* Create and display the form */
+
+     
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaDelete().setVisible(true);
+                new TelaSucessoCadastro().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel btn_DeleteNo;
     private javax.swing.JLabel btn_DeleteYes;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
