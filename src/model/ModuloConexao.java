@@ -3,6 +3,7 @@ package model;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class ModuloConexao {
 
@@ -12,7 +13,7 @@ public class ModuloConexao {
         // a linha abaixo "chama" o driver
         String driver = "com.mysql.jdbc.Driver";
         //armazenando informações referente ao banco
-        String url = "jdbc:mysql://localhost:3306/dbinfox";
+        String url = "jdbc:mysql://localhost:3306/tcc_desktop";
         String user = "root";
         String password = "";
         //Estabelecendo a conexão com o banco de dados
