@@ -1,16 +1,22 @@
                                               package view;
 
+import conexao.ConexaoMysql;
 import java.awt.Color;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class TelaPrincipal extends javax.swing.JFrame {
+    
+    
 
     public TelaPrincipal() {
         initComponents();
         setColor(btn_home);
         ind_home.setOpaque(true);
-        
         MenuSettings.setVisible(false);
         MenuSettings.setEnabled(false);
     }
@@ -57,7 +63,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         btn_Settings = new javax.swing.JLabel();
         btn_exit = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        lblNomeUsuario = new javax.swing.JLabel();
         btn_records = new javax.swing.JPanel();
         ind_records = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
@@ -609,12 +615,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel4.add(btn_exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(239, 24, -1, 46));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/iconfinder_Neptune_1715800.png"))); // NOI18N
-        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 140, -1));
+        jLabel2.setText("  ");
+        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 200, -1));
 
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("User");
-        jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, -1, 30));
+        lblNomeUsuario.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lblNomeUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        lblNomeUsuario.setText("User");
+        jPanel4.add(lblNomeUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, -1, 30));
 
         btn_records.setBackground(new java.awt.Color(23, 35, 51));
         btn_records.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -729,8 +736,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Menu3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(MenuSettings, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                .addComponent(MenuSettings, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         Menu3Layout.setVerticalGroup(
             Menu3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1085,7 +1091,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -1120,5 +1125,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextField1;
+    public javax.swing.JLabel lblNomeUsuario;
     // End of variables declaration//GEN-END:variables
 }

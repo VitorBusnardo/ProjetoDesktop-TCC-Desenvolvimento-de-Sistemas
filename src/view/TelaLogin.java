@@ -1,6 +1,7 @@
 package view;
 
 import view.TelaPrincipal;
+import java.sql.ResultSet;
 import java.sql.*;
 import javax.swing.JOptionPane;
 import conexao.ConexaoMysql;
@@ -31,7 +32,9 @@ public class TelaLogin extends javax.swing.JFrame {
             resultSQL = comandoSQL.executeQuery();
             
             if (resultSQL.next()) {
+                
                 TelaPrincipal principal = new TelaPrincipal();
+                principal.lblNomeUsuario.setText(NomeUsuario);
                 principal.setVisible(true);
                 this.dispose();
             } else {
@@ -60,6 +63,9 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         }
     }
+    
+    
+    
     
     public TelaLogin() {
         initComponents();
@@ -122,7 +128,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Name");
+        jLabel3.setText(" User Name");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
