@@ -18,14 +18,14 @@ public class TelaLogin extends javax.swing.JFrame {
         
         PreparedStatement comandoSQL = null;
         
-        String pesquisarSQL = " SELECT * FROM USUARIO WHERE EMAIL = ? AND SENHA = ?; ";
+        String pesquisarSQL = " SELECT * FROM USUARIO WHERE NomeUsuario = ? AND SENHA = ?; ";
         
         try {
-            String email = txtNome.getText();
+            String NomeUsuario = txtNome.getText();
             String senha = txtSenha.getText();
             comandoSQL = conexao.criarPreparedStatement(pesquisarSQL);
             
-            comandoSQL.setString(1 ,email );
+            comandoSQL.setString(1 ,NomeUsuario );
             comandoSQL.setString(2 , senha );
             
             resultSQL = comandoSQL.executeQuery();

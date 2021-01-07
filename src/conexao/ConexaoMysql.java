@@ -23,7 +23,7 @@ public class ConexaoMysql {
                 String user = "root";
                 String pass = "";
                 this.conexao = DriverManager.getConnection(url,user, pass);
-                JOptionPane.showMessageDialog(null,"Deu certo conectar");
+                //JOptionPane.showMessageDialog(null,"Deu certo conectar");
             
             } catch (SQLException e) {
             
@@ -54,7 +54,7 @@ public class ConexaoMysql {
         try {
             if (this.conexao.isClosed() == false ) {
             this.conexao.close();
-            JOptionPane.showMessageDialog(null,"deu certo desconectar");
+            //JOptionPane.showMessageDialog(null,"deu certo desconectar");
             } 
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null,"ERROR" + e.getMessage());
