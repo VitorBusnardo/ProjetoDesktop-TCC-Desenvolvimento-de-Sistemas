@@ -1042,6 +1042,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         TelaRegistros registro = new TelaRegistros();
         registro.setVisible(true);
         this.dispose();
+        
+        
+
+        registro.criaGrafico();
+
+    
 
     }//GEN-LAST:event_btn_recordsMouseReleased
 

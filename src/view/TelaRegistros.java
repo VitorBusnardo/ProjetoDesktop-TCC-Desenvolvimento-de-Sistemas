@@ -5,6 +5,12 @@ import view.TelaPrincipal;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JLabel;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.CategoryDataset;
+import org.jfree.data.category.DefaultCategoryDataset;
 
 public class TelaRegistros extends javax.swing.JFrame {
 
@@ -25,10 +31,6 @@ public class TelaRegistros extends javax.swing.JFrame {
         Services.setVisible(false);
         Schedule.setVisible(false);
 
-        TabelaGraphic.getTableHeader().setOpaque(false);
-        TabelaGraphic.getTableHeader().setBackground(new Color(71, 120, 197));
-        TabelaGraphic.getTableHeader().setForeground(new Color(255, 255, 255));
-        TabelaGraphic.setRowHeight(25);
 
         TabelaProducts.getTableHeader().setOpaque(false);
         TabelaProducts.getTableHeader().setBackground(new Color(71, 120, 197));
@@ -55,6 +57,64 @@ public class TelaRegistros extends javax.swing.JFrame {
         TabelaServices.getTableHeader().setForeground(new Color(255, 255, 255));
         TabelaServices.setRowHeight(25);
     }
+    
+    private CategoryDataset createDataset() {
+
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+        
+        int lucro = 1000;
+        
+        int gastos  = 534;
+        
+        int l = lucro - gastos;
+        
+        int m = l /2;
+        
+        dataset.addValue(lucro, "Lucro", "");
+
+        dataset.addValue(gastos, "Gastos", "");
+
+        dataset.addValue(l, "Lucro Líquido", "");
+        
+        dataset.addValue(m, "Media", "");
+
+        return dataset;
+
+    }
+
+    public void criaGrafico() {
+
+        CategoryDataset cds = createDataset();
+        
+        String titulo = "Monetary Chart";
+        
+        String eixoy = "Values";
+
+        String txt_legenda = "";
+
+        boolean legenda = true;
+
+        boolean tooltips = true;
+
+        boolean urls = true;
+
+        JFreeChart graf = ChartFactory.createBarChart3D(titulo, txt_legenda, eixoy, cds, PlotOrientation.VERTICAL, legenda, tooltips, urls);
+
+        ChartPanel myChartPanel = new ChartPanel(graf, true);
+
+        myChartPanel.setSize(jPanel1.getWidth(), jPanel1.getHeight());
+
+        myChartPanel.setVisible(true);
+
+        jPanel1.removeAll();
+
+        jPanel1.add(myChartPanel);
+
+        jPanel1.revalidate();
+
+        jPanel1.repaint();
+
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -72,11 +132,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         btn_schedule = new javax.swing.JLabel();
         Paineis = new javax.swing.JPanel();
         Graphic = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        TabelaGraphic = new javax.swing.JTable();
-        PesquisarGraphic = new javax.swing.JTextField();
-        btn_DeleteGraphic = new javax.swing.JLabel();
-        DeleteGraphic = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
         Products = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         TabelaProducts = new javax.swing.JTable();
@@ -269,92 +325,36 @@ public class TelaRegistros extends javax.swing.JFrame {
         Graphic.setForeground(new java.awt.Color(204, 204, 204));
         Graphic.setPreferredSize(new java.awt.Dimension(900, 565));
 
-        TabelaGraphic.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        TabelaGraphic.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Nome", "Telefone", "Endereço", "Email"
-            }
-        ));
-        TabelaGraphic.setFocusable(false);
-        TabelaGraphic.setIntercellSpacing(new java.awt.Dimension(0, 0));
-        TabelaGraphic.setRowHeight(25);
-        TabelaGraphic.setSelectionBackground(new java.awt.Color(192, 192, 192));
-        TabelaGraphic.setShowVerticalLines(false);
-        TabelaGraphic.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(TabelaGraphic);
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setFont(new java.awt.Font("Yu Gothic", 0, 11)); // NOI18N
+        jPanel1.setPreferredSize(new java.awt.Dimension(785, 300));
 
-        PesquisarGraphic.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        PesquisarGraphic.setToolTipText("");
-        PesquisarGraphic.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PesquisarGraphicActionPerformed(evt);
-            }
-        });
-
-        btn_DeleteGraphic.setBackground(new java.awt.Color(23, 35, 51));
-        btn_DeleteGraphic.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btn_DeleteGraphic.setForeground(new java.awt.Color(255, 255, 255));
-        btn_DeleteGraphic.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btn_DeleteGraphic.setText("Delete");
-        btn_DeleteGraphic.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_DeleteGraphic.setOpaque(true);
-        btn_DeleteGraphic.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_DeleteGraphicMouseClicked(evt);
-            }
-        });
-
-        DeleteGraphic.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        DeleteGraphic.setText("Search here!");
-        DeleteGraphic.setToolTipText("");
-        DeleteGraphic.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DeleteGraphicActionPerformed(evt);
-            }
-        });
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 785, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout GraphicLayout = new javax.swing.GroupLayout(Graphic);
         Graphic.setLayout(GraphicLayout);
         GraphicLayout.setHorizontalGroup(
             GraphicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(GraphicLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(DeleteGraphic, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 215, Short.MAX_VALUE)
-                .addComponent(PesquisarGraphic, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_DeleteGraphic, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35))
-            .addGroup(GraphicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, GraphicLayout.createSequentialGroup()
-                    .addContainerGap(33, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 833, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(34, Short.MAX_VALUE)))
+                .addGap(50, 50, 50)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(65, Short.MAX_VALUE))
         );
         GraphicLayout.setVerticalGroup(
             GraphicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, GraphicLayout.createSequentialGroup()
-                .addContainerGap(267, Short.MAX_VALUE)
-                .addGroup(GraphicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(PesquisarGraphic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_DeleteGraphic, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DeleteGraphic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-            .addGroup(GraphicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, GraphicLayout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(70, Short.MAX_VALUE)))
+            .addGroup(GraphicLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         Paineis.add(Graphic, "card3");
@@ -984,23 +984,9 @@ public class TelaRegistros extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_PesquisarProductsActionPerformed
 
-    private void PesquisarGraphicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarGraphicActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PesquisarGraphicActionPerformed
-
     private void PesquisarServicesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarServicesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_PesquisarServicesActionPerformed
-
-    private void btn_DeleteGraphicMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DeleteGraphicMouseClicked
-
-        TelaDelete delete = new TelaDelete();
-        delete.setVisible(true);
-    }//GEN-LAST:event_btn_DeleteGraphicMouseClicked
-
-    private void DeleteGraphicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteGraphicActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DeleteGraphicActionPerformed
 
     private void btn_DeleteServicesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DeleteServicesMouseClicked
         TelaDelete delete = new TelaDelete();
@@ -1097,7 +1083,6 @@ public class TelaRegistros extends javax.swing.JFrame {
     private javax.swing.JPanel Customers;
     private javax.swing.JTextField DeleteCustomers;
     private javax.swing.JTextField DeleteEmployees;
-    private javax.swing.JTextField DeleteGraphic;
     private javax.swing.JTextField DeleteProducts;
     private javax.swing.JTextField DeleteSchedule;
     private javax.swing.JTextField DeleteServices;
@@ -1106,7 +1091,6 @@ public class TelaRegistros extends javax.swing.JFrame {
     private javax.swing.JPanel Paineis;
     private javax.swing.JTextField PesquisarCustomers;
     private javax.swing.JTextField PesquisarEmployees;
-    private javax.swing.JTextField PesquisarGraphic;
     private javax.swing.JTextField PesquisarProducts;
     private javax.swing.JTextField PesquisarSchedule;
     private javax.swing.JTextField PesquisarServices;
@@ -1115,13 +1099,11 @@ public class TelaRegistros extends javax.swing.JFrame {
     private javax.swing.JPanel Services;
     private javax.swing.JTable TabelaCustomers;
     private javax.swing.JTable TabelaEmployees;
-    private javax.swing.JTable TabelaGraphic;
     private javax.swing.JTable TabelaProducts;
     private javax.swing.JTable TabelaSchedule;
     private javax.swing.JTable TabelaServices;
     private javax.swing.JLabel btn_DeleteCustomers;
     private javax.swing.JLabel btn_DeleteEmployees;
-    private javax.swing.JLabel btn_DeleteGraphic;
     private javax.swing.JLabel btn_DeleteProducts;
     private javax.swing.JLabel btn_DeleteSchedule;
     private javax.swing.JLabel btn_DeleteServices;
@@ -1134,7 +1116,7 @@ public class TelaRegistros extends javax.swing.JFrame {
     private javax.swing.JPanel header;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
