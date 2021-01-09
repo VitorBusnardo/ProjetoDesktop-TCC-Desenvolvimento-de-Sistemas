@@ -983,7 +983,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setColor(btn_productsP);
         ind_products.setOpaque(true);
         resetColor(new JPanel[]{btn_customersP, btn_EmployeesP, btn_servicesP, btn_records, btn_salesP, btn_spendingP, btn_scheduleP}, new JPanel[]{ind_customers, ind_employees, ind_services, ind_records, ind_spending, ind_sales, ind_schedule});
-
+        
+        TelaCadastroProducts products = new TelaCadastroProducts();
+        products.setVisible(true);
+        
     }//GEN-LAST:event_btn_productsPMouseReleased
 
     int xx, xy;
