@@ -1,8 +1,9 @@
 package view;
 
-public class TelaSucessoCadastro extends javax.swing.JFrame {
 
-    public TelaSucessoCadastro() {
+public class TelaSucessoDeletar extends javax.swing.JFrame {
+
+    public TelaSucessoDeletar() {
         initComponents();
     }
 
@@ -51,7 +52,7 @@ public class TelaSucessoCadastro extends javax.swing.JFrame {
 
         jLabel12.setBackground(new java.awt.Color(0, 0, 0));
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel12.setText("Successful registration!");
+        jLabel12.setText("Successfully deleted!");
 
         btn_DeleteYes.setBackground(new java.awt.Color(23, 35, 51));
         btn_DeleteYes.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -77,13 +78,12 @@ public class TelaSucessoCadastro extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
-                        .addComponent(jLabel12)
-                        .addGap(53, 53, 53))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(73, 73, 73)
-                        .addComponent(btn_DeleteYes, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(btn_DeleteYes, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(64, 64, 64)
+                        .addComponent(jLabel12)))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,11 +130,12 @@ public class TelaSucessoCadastro extends javax.swing.JFrame {
     private void btn_DeleteYesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DeleteYesMouseClicked
 
         this.dispose();
-
+        
     }//GEN-LAST:event_btn_DeleteYesMouseClicked
 
-    public static void main(String args[]) {
 
+    public static void main(String args[]) {
+        
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Windows".equals(info.getName())) {
@@ -143,18 +144,20 @@ public class TelaSucessoCadastro extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaSucessoCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaSucessoDeletar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaSucessoCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaSucessoDeletar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaSucessoCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaSucessoDeletar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaSucessoCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaSucessoDeletar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
+
+     
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaSucessoCadastro().setVisible(true);
+                new TelaSucessoDeletar().setVisible(true);
             }
         });
     }

@@ -37,7 +37,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
 
         DataCalender.setText(formatador.format(data));
-
     }
 
     @SuppressWarnings("unchecked")
@@ -966,7 +965,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         MenuApresentacao.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, 150, 190));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/dashboar.jpg"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/dashboar_1.jpg"))); // NOI18N
         MenuApresentacao.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, -1, -1));
 
         getContentPane().add(MenuApresentacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 50, 630, 540));
@@ -1043,11 +1042,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         registro.setVisible(true);
         this.dispose();
         
-        
-
         registro.criaGrafico();
-
-    
 
     }//GEN-LAST:event_btn_recordsMouseReleased
 
@@ -1080,6 +1075,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         MenuSafe.setVisible(false);
         MenuSafe.setEnabled(false);
+        
     }//GEN-LAST:event_btn_SettingsMousePressed
 
     private void btn_UserMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_UserMousePressed
@@ -1122,6 +1118,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel3MousePressed
 
     private void btn_schedulePMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_schedulePMouseReleased
+        
         setColor(btn_scheduleP);
         ind_schedule.setOpaque(true);
         resetColor(new JPanel[]{btn_productsP, btn_customersP, btn_servicesP, btn_EmployeesP, btn_records, btn_salesP, btn_spendingP}, new JPanel[]{ind_products, ind_customers, ind_services, ind_records, ind_employees, ind_sales, ind_spending});
@@ -1147,11 +1144,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_MenuUserMousePressed
 
     private void MenuCalenderMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuCalenderMousePressed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_MenuCalenderMousePressed
 
     private void MenuSafeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuSafeMousePressed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_MenuSafeMousePressed
 
     private void jLabel4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MousePressed
@@ -1179,6 +1176,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel2MousePressed
 
     private void jPanel7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MousePressed
+        
         try {
             URI link = new URI("www.github.com/PauloHNDS");
             URI link2 = new URI("www.github.com/VitorBusnardo");
@@ -1187,28 +1185,29 @@ public class TelaPrincipal extends javax.swing.JFrame {
         } catch (Exception erro) {
             System.out.println(erro);
         }
+        
     }//GEN-LAST:event_jPanel7MousePressed
 
     private void jPanel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MousePressed
+        
         try {
             URI link = new URI("www.youtube.com/?gl=BR");
-
             Desktop.getDesktop().browse(link);
-
         } catch (Exception erro) {
             System.out.println(erro);
         }
+        
     }//GEN-LAST:event_jPanel3MousePressed
 
     private void jPanel6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MousePressed
+        
         try {
             URI link = new URI("www.pornodoido.com/");
-
             Desktop.getDesktop().browse(link);
-
         } catch (Exception erro) {
             System.out.println(erro);
         }
+        
     }//GEN-LAST:event_jPanel6MousePressed
 
     public static void main(String args[]) {
@@ -1238,10 +1237,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     private void setColor(JPanel pane) {
+        
         pane.setBackground(new Color(41, 57, 80));
+        
     }
 
     private void resetColor(JPanel[] pane, JPanel[] indicators) {
+        
         for (int i = 0; i < pane.length; i++) {
 
             pane[i].setBackground(new Color(23, 35, 51));

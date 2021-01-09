@@ -1,4 +1,4 @@
-                                 package view;
+package view;
 
 import view.TelaDelete;
 import view.TelaPrincipal;
@@ -31,7 +31,6 @@ public class TelaRegistros extends javax.swing.JFrame {
         Services.setVisible(false);
         Schedule.setVisible(false);
 
-
         TabelaProducts.getTableHeader().setOpaque(false);
         TabelaProducts.getTableHeader().setBackground(new Color(71, 120, 197));
         TabelaProducts.getTableHeader().setForeground(new Color(255, 255, 255));
@@ -57,26 +56,26 @@ public class TelaRegistros extends javax.swing.JFrame {
         TabelaServices.getTableHeader().setForeground(new Color(255, 255, 255));
         TabelaServices.setRowHeight(25);
     }
-    
+
     private CategoryDataset createDataset() {
 
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-        
+
         int lucro = 1000;
-        
-        int gastos  = 534;
-        
+
+        int gastos = 534;
+
         int l = lucro - gastos;
-        
-        int m = l /2;
-        
-        dataset.addValue(lucro, "Lucro", "");
 
-        dataset.addValue(gastos, "Gastos", "");
+        int m = l / 2;
 
-        dataset.addValue(l, "Lucro Líquido", "");
-        
-        dataset.addValue(m, "Media", "");
+        dataset.addValue(lucro, "Profit", "Overall");
+
+        dataset.addValue(gastos, "Spending", "Overall");
+
+        dataset.addValue(l, "Net Profit", "Overall");
+
+        dataset.addValue(m, "Average", "Overall");
 
         return dataset;
 
@@ -85,9 +84,9 @@ public class TelaRegistros extends javax.swing.JFrame {
     public void criaGrafico() {
 
         CategoryDataset cds = createDataset();
-        
+
         String titulo = "Monetary Chart";
-        
+
         String eixoy = "Values";
 
         String txt_legenda = "";
@@ -862,6 +861,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
         this.setLocation(x - xx, y - xy);
+        
     }//GEN-LAST:event_headerMouseDragged
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
@@ -869,6 +869,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         TelaPrincipal principal = new TelaPrincipal();
         principal.setVisible(true);
         this.dispose();
+        
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void btn_graphicMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_graphicMouseClicked
@@ -904,6 +905,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         Employees.setVisible(false);
         Services.setVisible(false);
         Schedule.setVisible(false);
+        
     }//GEN-LAST:event_btn_productsMouseClicked
 
     private void btn_servicesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_servicesMouseClicked
@@ -939,6 +941,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         Employees.setVisible(false);
         Services.setVisible(false);
         Schedule.setVisible(false);
+        
     }//GEN-LAST:event_btn_customersMouseClicked
 
     private void btn_employeesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_employeesMouseClicked
@@ -956,6 +959,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         Employees.setVisible(true);
         Services.setVisible(false);
         Schedule.setVisible(false);
+        
     }//GEN-LAST:event_btn_employeesMouseClicked
 
     private void btn_scheduleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_scheduleMouseClicked
@@ -977,81 +981,84 @@ public class TelaRegistros extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_scheduleMouseClicked
 
     private void PesquisarCustomersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarCustomersActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_PesquisarCustomersActionPerformed
 
     private void PesquisarProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarProductsActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_PesquisarProductsActionPerformed
 
     private void PesquisarServicesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarServicesActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_PesquisarServicesActionPerformed
 
     private void btn_DeleteServicesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DeleteServicesMouseClicked
+        
         TelaDelete delete = new TelaDelete();
         delete.setVisible(true);
+        
     }//GEN-LAST:event_btn_DeleteServicesMouseClicked
 
     private void DeleteServicesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteServicesActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_DeleteServicesActionPerformed
 
     private void btn_DeleteProductsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DeleteProductsMouseClicked
+        
         TelaDelete delete = new TelaDelete();
         delete.setVisible(true);
+        
     }//GEN-LAST:event_btn_DeleteProductsMouseClicked
 
     private void DeleteProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteProductsActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_DeleteProductsActionPerformed
 
     private void btn_DeleteCustomersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DeleteCustomersMouseClicked
+        
         TelaDelete delete = new TelaDelete();
         delete.setVisible(true);
+        
     }//GEN-LAST:event_btn_DeleteCustomersMouseClicked
 
     private void DeleteCustomersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteCustomersActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_DeleteCustomersActionPerformed
 
     private void btn_DeleteScheduleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DeleteScheduleMouseClicked
+        
         TelaDelete delete = new TelaDelete();
         delete.setVisible(true);
+        
     }//GEN-LAST:event_btn_DeleteScheduleMouseClicked
 
     private void DeleteScheduleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteScheduleActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_DeleteScheduleActionPerformed
 
     private void btn_DeleteEmployeesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DeleteEmployeesMouseClicked
+        
         TelaDelete delete = new TelaDelete();
         delete.setVisible(true);
+        
     }//GEN-LAST:event_btn_DeleteEmployeesMouseClicked
 
     private void DeleteEmployeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteEmployeesActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_DeleteEmployeesActionPerformed
 
     public void setLblColor(JLabel lbl) {
+        
         lbl.setBackground(new Color(41, 57, 80));
     }
 
     public void resetLblColor(JLabel lbl) {
+        
         lbl.setBackground(new Color(23, 35, 51));
     }
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-
-        //Change UI look of table.
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+       
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Windows".equals(info.getName())) {
@@ -1068,10 +1075,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(TelaRegistros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TelaRegistros().setVisible(true);

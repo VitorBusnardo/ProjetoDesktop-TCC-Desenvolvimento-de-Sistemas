@@ -41,8 +41,6 @@ public class TelaLogin extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "dados errados ");
             }
                 
-                
-            
             
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null," ERROR " + e.getMessage());
@@ -63,8 +61,6 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         }
     }
-    
-    
     
     
     public TelaLogin() {
@@ -300,11 +296,9 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void Menu2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Menu2MouseDragged
 
-
     }//GEN-LAST:event_Menu2MouseDragged
 
     private void Menu2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Menu2MousePressed
-
 
     }//GEN-LAST:event_Menu2MousePressed
 
