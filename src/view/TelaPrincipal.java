@@ -37,6 +37,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
 
         DataCalender.setText(formatador.format(data));
+
     }
 
     @SuppressWarnings("unchecked")
@@ -115,6 +116,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
+        setIconImages(null);
         setLocationByPlatform(true);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -974,6 +976,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    int xx, xy;
+
+    TelaCadastroCustomers customers = new TelaCadastroCustomers();
+    TelaCadastroProducts products = new TelaCadastroProducts();
+
     private void btn_homeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_homeMousePressed
 
     }//GEN-LAST:event_btn_homeMousePressed
@@ -983,13 +990,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setColor(btn_productsP);
         ind_products.setOpaque(true);
         resetColor(new JPanel[]{btn_customersP, btn_EmployeesP, btn_servicesP, btn_records, btn_salesP, btn_spendingP, btn_scheduleP}, new JPanel[]{ind_customers, ind_employees, ind_services, ind_records, ind_spending, ind_sales, ind_schedule});
-        
-        TelaCadastroProducts products = new TelaCadastroProducts();
-        products.setVisible(true);
-        
-    }//GEN-LAST:event_btn_productsPMouseReleased
 
-    int xx, xy;
+        customers.setVisible(false);
+        products.setVisible(true);
+
+    }//GEN-LAST:event_btn_productsPMouseReleased
 
     private void Menu2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Menu2MousePressed
 
@@ -1018,6 +1023,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         ind_customers.setOpaque(true);
         resetColor(new JPanel[]{btn_productsP, btn_EmployeesP, btn_servicesP, btn_records, btn_salesP, btn_spendingP, btn_scheduleP}, new JPanel[]{ind_products, ind_employees, ind_services, ind_records, ind_spending, ind_sales, ind_schedule});
 
+        customers.setVisible(true);
+
+        products.setVisible(false);
     }//GEN-LAST:event_btn_customersPMouseReleased
 
     private void btn_EmployeesPMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_EmployeesPMouseReleased
@@ -1044,7 +1052,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         TelaRegistros registro = new TelaRegistros();
         registro.setVisible(true);
         this.dispose();
-        
+
         registro.criaGrafico();
 
     }//GEN-LAST:event_btn_recordsMouseReleased
@@ -1078,7 +1086,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         MenuSafe.setVisible(false);
         MenuSafe.setEnabled(false);
-        
+
     }//GEN-LAST:event_btn_SettingsMousePressed
 
     private void btn_UserMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_UserMousePressed
@@ -1121,7 +1129,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel3MousePressed
 
     private void btn_schedulePMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_schedulePMouseReleased
-        
+
         setColor(btn_scheduleP);
         ind_schedule.setOpaque(true);
         resetColor(new JPanel[]{btn_productsP, btn_customersP, btn_servicesP, btn_EmployeesP, btn_records, btn_salesP, btn_spendingP}, new JPanel[]{ind_products, ind_customers, ind_services, ind_records, ind_employees, ind_sales, ind_spending});
@@ -1147,11 +1155,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_MenuUserMousePressed
 
     private void MenuCalenderMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuCalenderMousePressed
-        
+
     }//GEN-LAST:event_MenuCalenderMousePressed
 
     private void MenuSafeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuSafeMousePressed
-        
+
     }//GEN-LAST:event_MenuSafeMousePressed
 
     private void jLabel4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MousePressed
@@ -1179,7 +1187,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel2MousePressed
 
     private void jPanel7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MousePressed
-        
+
         try {
             URI link = new URI("www.github.com/PauloHNDS");
             URI link2 = new URI("www.github.com/VitorBusnardo");
@@ -1188,29 +1196,29 @@ public class TelaPrincipal extends javax.swing.JFrame {
         } catch (Exception erro) {
             System.out.println(erro);
         }
-        
+
     }//GEN-LAST:event_jPanel7MousePressed
 
     private void jPanel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MousePressed
-        
+
         try {
             URI link = new URI("www.youtube.com/?gl=BR");
             Desktop.getDesktop().browse(link);
         } catch (Exception erro) {
             System.out.println(erro);
         }
-        
+
     }//GEN-LAST:event_jPanel3MousePressed
 
     private void jPanel6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MousePressed
-        
+
         try {
             URI link = new URI("www.pornodoido.com/");
             Desktop.getDesktop().browse(link);
         } catch (Exception erro) {
             System.out.println(erro);
         }
-        
+
     }//GEN-LAST:event_jPanel6MousePressed
 
     public static void main(String args[]) {
@@ -1240,13 +1248,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     private void setColor(JPanel pane) {
-        
+
         pane.setBackground(new Color(41, 57, 80));
-        
+
     }
 
     private void resetColor(JPanel[] pane, JPanel[] indicators) {
-        
+
         for (int i = 0; i < pane.length; i++) {
 
             pane[i].setBackground(new Color(23, 35, 51));

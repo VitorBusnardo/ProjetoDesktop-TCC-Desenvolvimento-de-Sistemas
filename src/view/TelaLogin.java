@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.*;
 import javax.swing.JOptionPane;
 import conexao.ConexaoMysql;
+import java.awt.Toolkit;
 
 
 public class TelaLogin extends javax.swing.JFrame {
@@ -64,10 +65,11 @@ public class TelaLogin extends javax.swing.JFrame {
     
     
     public TelaLogin() {
+        
         initComponents();
-      
+        
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

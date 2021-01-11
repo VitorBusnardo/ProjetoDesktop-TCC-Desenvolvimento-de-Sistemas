@@ -1,9 +1,9 @@
 package view;
 
 
-public class TelaCadastroProducts extends javax.swing.JFrame {
+public class TelaCadastroCustomers extends javax.swing.JFrame {
 
-    public TelaCadastroProducts() {
+    public TelaCadastroCustomers() {
         initComponents();
 
         
@@ -14,17 +14,19 @@ public class TelaCadastroProducts extends javax.swing.JFrame {
     private void initComponents() {
 
         Menu2 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         Menu3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
         btn_Edit = new javax.swing.JPanel();
         ind_records = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         btn_Register = new javax.swing.JPanel();
         ind_records1 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         PesquisarProducts = new javax.swing.JTextField();
         PesquisarProducts1 = new javax.swing.JTextField();
@@ -43,7 +45,7 @@ public class TelaCadastroProducts extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         PesquisarProducts7 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        PesquisarProducts8 = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -62,16 +64,16 @@ public class TelaCadastroProducts extends javax.swing.JFrame {
             }
         });
 
-        jLabel11.setBackground(new java.awt.Color(23, 35, 51));
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("X");
-        jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel11.setOpaque(true);
-        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabel12.setBackground(new java.awt.Color(23, 35, 51));
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setText("X");
+        jLabel12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel12.setOpaque(true);
+        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel11MouseClicked(evt);
+                jLabel12MouseClicked(evt);
             }
         });
 
@@ -81,11 +83,11 @@ public class TelaCadastroProducts extends javax.swing.JFrame {
             Menu2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Menu2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         Menu2Layout.setVerticalGroup(
             Menu2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel11)
+            .addComponent(jLabel12)
         );
 
         Menu3.setBackground(new java.awt.Color(192, 192, 192));
@@ -96,11 +98,11 @@ public class TelaCadastroProducts extends javax.swing.JFrame {
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Products");
+        jLabel2.setText("Customers");
         jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 15, -1, 30));
 
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/product-48.png"))); // NOI18N
-        jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, -10, -1, 80));
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/settings-24-48.png"))); // NOI18N
+        jPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, -2, -1, 60));
 
         btn_Edit.setBackground(new java.awt.Color(23, 35, 51));
         btn_Edit.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -196,6 +198,13 @@ public class TelaCadastroProducts extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jLabel11.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel11.setText("Service");
+
+        jComboBox2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", " " }));
+
         javax.swing.GroupLayout Menu3Layout = new javax.swing.GroupLayout(Menu3);
         Menu3.setLayout(Menu3Layout);
         Menu3Layout.setHorizontalGroup(
@@ -206,11 +215,21 @@ public class TelaCadastroProducts extends javax.swing.JFrame {
                 .addGroup(Menu3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btn_Register, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_Edit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(Menu3Layout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(Menu3Layout.createSequentialGroup()
+                .addGap(108, 108, 108)
+                .addComponent(jLabel11))
         );
         Menu3Layout.setVerticalGroup(
             Menu3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Menu3Layout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btn_Register, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
@@ -250,7 +269,7 @@ public class TelaCadastroProducts extends javax.swing.JFrame {
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel1.setText("Brand: ");
+        jLabel1.setText("Surname:");
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -258,19 +277,19 @@ public class TelaCadastroProducts extends javax.swing.JFrame {
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel4.setText("Type: ");
+        jLabel4.setText("CPF: ");
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel5.setText("Value: ");
+        jLabel5.setText("Address: ");
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel6.setText("Description: ");
+        jLabel6.setText("Telephone: ");
 
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel7.setText("Stock: ");
+        jLabel7.setText("Email: ");
 
         PesquisarProducts4.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         PesquisarProducts4.addActionListener(new java.awt.event.ActionListener() {
@@ -288,7 +307,7 @@ public class TelaCadastroProducts extends javax.swing.JFrame {
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel8.setText("Branco:");
+        jLabel8.setText("Birth Date: ");
 
         PesquisarProducts6.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         PesquisarProducts6.addActionListener(new java.awt.event.ActionListener() {
@@ -299,7 +318,7 @@ public class TelaCadastroProducts extends javax.swing.JFrame {
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel9.setText("Branco:");
+        jLabel9.setText("Value:");
 
         PesquisarProducts7.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         PesquisarProducts7.addActionListener(new java.awt.event.ActionListener() {
@@ -310,14 +329,10 @@ public class TelaCadastroProducts extends javax.swing.JFrame {
 
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel10.setText("Branco:");
+        jLabel10.setText("Sex:");
 
-        PesquisarProducts8.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        PesquisarProducts8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PesquisarProducts8ActionPerformed(evt);
-            }
-        });
+        jComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "             ", "Female", "Male" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -342,15 +357,15 @@ public class TelaCadastroProducts extends javax.swing.JFrame {
                             .addComponent(PesquisarProducts2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel4)
-                            .addComponent(PesquisarProducts4, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PesquisarProducts4, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
                             .addComponent(jLabel8)
-                            .addComponent(PesquisarProducts6, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PesquisarProducts6, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
                             .addComponent(jLabel9)
-                            .addComponent(PesquisarProducts7, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PesquisarProducts7, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
                             .addComponent(jLabel10)
-                            .addComponent(PesquisarProducts8, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(43, 43, 43))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -389,14 +404,14 @@ public class TelaCadastroProducts extends javax.swing.JFrame {
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(PesquisarProducts3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(PesquisarProducts8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(PesquisarProducts3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(1, 1, 1)))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -418,7 +433,6 @@ public class TelaCadastroProducts extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(Menu2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(Menu3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -477,10 +491,6 @@ public class TelaCadastroProducts extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_PesquisarProducts7ActionPerformed
 
-    private void PesquisarProducts8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarProducts8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PesquisarProducts8ActionPerformed
-
     private void btn_EditMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_EditMouseReleased
 
     }//GEN-LAST:event_btn_EditMouseReleased
@@ -489,12 +499,10 @@ public class TelaCadastroProducts extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btn_RegisterMouseReleased
 
-    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+    private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
 
-        
         this.dispose();
-
-    }//GEN-LAST:event_jLabel11MouseClicked
+    }//GEN-LAST:event_jLabel12MouseClicked
 
     public static void main(String args[]) {
 
@@ -506,18 +514,18 @@ public class TelaCadastroProducts extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroProducts.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroCustomers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroProducts.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroCustomers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroProducts.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroCustomers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroProducts.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroCustomers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaCadastroProducts().setVisible(true);
+                new TelaCadastroCustomers().setVisible(true);
             }
         });
     }
@@ -536,15 +544,17 @@ public class TelaCadastroProducts extends javax.swing.JFrame {
     private javax.swing.JTextField PesquisarProducts5;
     private javax.swing.JTextField PesquisarProducts6;
     private javax.swing.JTextField PesquisarProducts7;
-    private javax.swing.JTextField PesquisarProducts8;
     private javax.swing.JPanel btn_Edit;
     private javax.swing.JPanel btn_Register;
     private javax.swing.JPanel ind_records;
     private javax.swing.JPanel ind_records1;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
