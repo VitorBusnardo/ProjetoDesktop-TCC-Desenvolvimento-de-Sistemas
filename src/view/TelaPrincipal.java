@@ -980,6 +980,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     TelaCadastroCustomers customers = new TelaCadastroCustomers();
     TelaCadastroProducts products = new TelaCadastroProducts();
+    TelaCadastroEmployees employees = new TelaCadastroEmployees();
+    TelaCadastroServices services = new TelaCadastroServices();
 
     private void btn_homeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_homeMousePressed
 
@@ -992,7 +994,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         resetColor(new JPanel[]{btn_customersP, btn_EmployeesP, btn_servicesP, btn_records, btn_salesP, btn_spendingP, btn_scheduleP}, new JPanel[]{ind_customers, ind_employees, ind_services, ind_records, ind_spending, ind_sales, ind_schedule});
 
         customers.setVisible(false);
+
         products.setVisible(true);
+
+        employees.setVisible(false);
+
+        services.setVisible(false);
 
     }//GEN-LAST:event_btn_productsPMouseReleased
 
@@ -1026,6 +1033,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         customers.setVisible(true);
 
         products.setVisible(false);
+
+        employees.setVisible(false);
+
+        services.setVisible(false);
     }//GEN-LAST:event_btn_customersPMouseReleased
 
     private void btn_EmployeesPMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_EmployeesPMouseReleased
@@ -1034,6 +1045,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         ind_employees.setOpaque(true);
         resetColor(new JPanel[]{btn_productsP, btn_customersP, btn_servicesP, btn_records, btn_salesP, btn_spendingP, btn_scheduleP}, new JPanel[]{ind_products, ind_customers, ind_services, ind_records, ind_spending, ind_sales, ind_schedule});
 
+        customers.setVisible(false);
+
+        products.setVisible(false);
+
+        employees.setVisible(true);
+
+        services.setVisible(false);
     }//GEN-LAST:event_btn_EmployeesPMouseReleased
 
     private void btn_servicesPMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_servicesPMouseReleased
@@ -1042,6 +1060,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         ind_services.setOpaque(true);
         resetColor(new JPanel[]{btn_productsP, btn_EmployeesP, btn_customersP, btn_records, btn_salesP, btn_spendingP, btn_scheduleP}, new JPanel[]{ind_products, ind_employees, ind_customers, ind_records, ind_spending, ind_sales, ind_schedule});
 
+        customers.setVisible(false);
+
+        products.setVisible(false);
+
+        employees.setVisible(false);
+
+        services.setVisible(true);
+        
     }//GEN-LAST:event_btn_servicesPMouseReleased
 
     private void btn_recordsMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_recordsMouseReleased
