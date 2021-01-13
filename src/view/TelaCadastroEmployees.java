@@ -71,6 +71,11 @@ public class TelaCadastroEmployees extends javax.swing.JFrame {
         jLabel16.setText("X");
         jLabel16.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel16.setOpaque(true);
+        jLabel16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel16MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout Menu2Layout = new javax.swing.GroupLayout(Menu2);
         Menu2.setLayout(Menu2Layout);
@@ -496,6 +501,12 @@ public class TelaCadastroEmployees extends javax.swing.JFrame {
     private void PesquisarProducts8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarProducts8ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_PesquisarProducts8ActionPerformed
+
+    private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
+        
+        this.dispose();
+        
+    }//GEN-LAST:event_jLabel16MouseClicked
 
     public static void main(String args[]) {
 
