@@ -39,7 +39,12 @@ public class TelaLogin extends javax.swing.JFrame {
                 principal.setVisible(true);
                 this.dispose();
             } else {
-                JOptionPane.showMessageDialog(null, "dados errados ");
+                    
+                TelaErroLogin login = new TelaErroLogin();
+                login.setVisible(true);
+                
+                txtNome.setText(null);
+                txtSenha.setText(null);
             }
                 
             
@@ -140,7 +145,7 @@ public class TelaLogin extends javax.swing.JFrame {
         jRadioButton1.setBackground(new java.awt.Color(23, 35, 51));
         jRadioButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jRadioButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton1.setText("Do you want to stay logged in?");
+        jRadioButton1.setText("Aren't you a robot?");
         jRadioButton1.setBorder(null);
         jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -236,6 +241,7 @@ public class TelaLogin extends javax.swing.JFrame {
         exit.setForeground(new java.awt.Color(23, 35, 51));
         exit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         exit.setText("X");
+        exit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         exit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 exitMouseClicked(evt);
