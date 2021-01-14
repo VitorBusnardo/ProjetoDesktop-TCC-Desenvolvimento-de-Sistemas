@@ -38,7 +38,6 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        PesquisarProducts4 = new javax.swing.JTextField();
         PesquisarProducts5 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         PesquisarProducts6 = new javax.swing.JTextField();
@@ -46,8 +45,7 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
         PesquisarProducts7 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
-        PesquisarProducts8 = new javax.swing.JTextField();
-        jLabel16 = new javax.swing.JLabel();
+        PesquisarProducts4 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -293,13 +291,6 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel7.setText("Email: ");
 
-        PesquisarProducts4.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        PesquisarProducts4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PesquisarProducts4ActionPerformed(evt);
-            }
-        });
-
         PesquisarProducts5.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         PesquisarProducts5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -336,16 +327,12 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
         jComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "             ", "Female", "Male" }));
 
-        PesquisarProducts8.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        PesquisarProducts8.addActionListener(new java.awt.event.ActionListener() {
+        PesquisarProducts4.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        PesquisarProducts4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PesquisarProducts8ActionPerformed(evt);
+                PesquisarProducts4ActionPerformed(evt);
             }
         });
-
-        jLabel16.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel16.setText("Branco:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -368,32 +355,30 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel4)
-                        .addComponent(PesquisarProducts4, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
                         .addComponent(jLabel8)
                         .addComponent(PesquisarProducts6, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
                         .addComponent(jLabel9)
                         .addComponent(PesquisarProducts7, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
                         .addComponent(jLabel10)
                         .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jLabel16)
-                    .addComponent(PesquisarProducts8, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(PesquisarProducts4, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(43, 43, 43))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(8, 8, 8)
+                        .addComponent(PesquisarProducts, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(PesquisarProducts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(36, 36, 36)
-                            .addComponent(PesquisarProducts4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(PesquisarProducts4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(2, 2, 2)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 12, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -405,34 +390,27 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(PesquisarProducts2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(PesquisarProducts7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(PesquisarProducts2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PesquisarProducts7))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(9, 9, 9)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(PesquisarProducts3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(PesquisarProducts5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(34, 34, 34)
-                                .addComponent(PesquisarProducts8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(PesquisarProducts5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(79, Short.MAX_VALUE))
         );
 
@@ -476,38 +454,6 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
 
     }//GEN-LAST:event_Menu2MouseDragged
 
-    private void PesquisarProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarProductsActionPerformed
-
-    }//GEN-LAST:event_PesquisarProductsActionPerformed
-
-    private void PesquisarProducts1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarProducts1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PesquisarProducts1ActionPerformed
-
-    private void PesquisarProducts2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarProducts2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PesquisarProducts2ActionPerformed
-
-    private void PesquisarProducts3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarProducts3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PesquisarProducts3ActionPerformed
-
-    private void PesquisarProducts4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarProducts4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PesquisarProducts4ActionPerformed
-
-    private void PesquisarProducts5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarProducts5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PesquisarProducts5ActionPerformed
-
-    private void PesquisarProducts6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarProducts6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PesquisarProducts6ActionPerformed
-
-    private void PesquisarProducts7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarProducts7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PesquisarProducts7ActionPerformed
-
     private void btn_EditMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_EditMouseReleased
 
     }//GEN-LAST:event_btn_EditMouseReleased
@@ -521,9 +467,37 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jLabel12MouseClicked
 
-    private void PesquisarProducts8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarProducts8ActionPerformed
+    private void PesquisarProducts7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarProducts7ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_PesquisarProducts8ActionPerformed
+    }//GEN-LAST:event_PesquisarProducts7ActionPerformed
+
+    private void PesquisarProducts6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarProducts6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PesquisarProducts6ActionPerformed
+
+    private void PesquisarProducts5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarProducts5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PesquisarProducts5ActionPerformed
+
+    private void PesquisarProducts3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarProducts3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PesquisarProducts3ActionPerformed
+
+    private void PesquisarProducts2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarProducts2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PesquisarProducts2ActionPerformed
+
+    private void PesquisarProducts1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarProducts1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PesquisarProducts1ActionPerformed
+
+    private void PesquisarProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarProductsActionPerformed
+
+    }//GEN-LAST:event_PesquisarProductsActionPerformed
+
+    private void PesquisarProducts4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarProducts4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PesquisarProducts4ActionPerformed
 
     public static void main(String args[]) {
 
@@ -565,7 +539,6 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
     private javax.swing.JTextField PesquisarProducts5;
     private javax.swing.JTextField PesquisarProducts6;
     private javax.swing.JTextField PesquisarProducts7;
-    private javax.swing.JTextField PesquisarProducts8;
     private javax.swing.JPanel btn_Edit;
     private javax.swing.JPanel btn_Register;
     private javax.swing.JPanel ind_records;
@@ -579,7 +552,6 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
