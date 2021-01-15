@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import javax.swing.JOptionPane;
 
 public class TelaCadastroCustomers extends javax.swing.JFrame {
     
@@ -58,7 +59,22 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
             {
                 TelaErroCadastro error = new TelaErroCadastro();
                 error.setVisible(true);
-            } 
+            } finally{
+            
+            try {
+                
+                comandoSQL.close();
+                
+                resultSQL.close();
+                
+                conexao.desconectar();
+                
+            } catch (SQLException e) {
+                
+                JOptionPane.showMessageDialog(null," ERROR EM FECHAMENTO " + e.getMessage());
+                
+            }
+            }
     }
     
    
