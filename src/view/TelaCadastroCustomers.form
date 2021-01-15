@@ -270,6 +270,7 @@
             </Property>
           </Properties>
           <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_RegisterMouseClicked"/>
             <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_RegisterMouseReleased"/>
           </Events>
 
@@ -381,7 +382,7 @@
                       <Component id="txtFullName" alignment="0" min="-2" pref="270" max="-2" attributes="0"/>
                       <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="PesquisarProducts1" alignment="0" min="-2" pref="270" max="-2" attributes="0"/>
+                      <Component id="txtAge" alignment="0" min="-2" pref="270" max="-2" attributes="0"/>
                       <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="txtTelephone" alignment="0" min="-2" pref="270" max="-2" attributes="0"/>
                       <Component id="txtEmail" alignment="0" min="-2" pref="270" max="-2" attributes="0"/>
@@ -398,7 +399,7 @@
                       <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="txtSex" alignment="0" max="32767" attributes="0"/>
                       <Component id="txtCpf" pref="270" max="32767" attributes="0"/>
-                      <Component id="txtBirthDate" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txtBirthDate" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
               </Group>
@@ -428,7 +429,7 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="PesquisarProducts1" max="32767" attributes="0"/>
+                      <Component id="txtAge" max="32767" attributes="0"/>
                       <Component id="txtBirthDate" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -475,14 +476,14 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtFullNameActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="PesquisarProducts1">
+        <Component class="javax.swing.JTextField" name="txtAge">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="16" style="0"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PesquisarProducts1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtAgeActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtEmail">
@@ -630,10 +631,9 @@
               <Font name="Segoe UI" size="16" style="0"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="3">
-                <StringItem index="0" value="             "/>
-                <StringItem index="1" value="Female"/>
-                <StringItem index="2" value="Male"/>
+              <StringArray count="2">
+                <StringItem index="0" value="Female"/>
+                <StringItem index="1" value="Male"/>
               </StringArray>
             </Property>
           </Properties>
@@ -651,12 +651,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCpfActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JFormattedTextField" name="txtBirthDate">
-          <Properties>
-            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-              <Format format="yyyy/mm/dd" subtype="-1" type="1"/>
-            </Property>
-          </Properties>
+        <Component class="com.toedter.calendar.JDateChooser" name="txtBirthDate">
         </Component>
       </SubComponents>
     </Container>

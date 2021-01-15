@@ -1,7 +1,67 @@
 package view;
 
+import conexao.ConexaoMysql;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 
 public class TelaCadastroCustomers extends javax.swing.JFrame {
+    
+    public void insertCadastro(){
+        
+        ConexaoMysql conexao = new ConexaoMysql();
+        
+        conexao.conectar();
+        
+        ResultSet resultSQL = null;
+        
+        PreparedStatement comandoSQL = null;
+        
+        String insertSQL = "INSERT INTO CUSTOMERS(FULL_NAME,CPF,Birth_Date,Email,City,telephone,Address,Sex,age) VALUES(?,?,?,?,?,?,?,?,?);";
+        
+        SimpleDateFormat sdf  = new SimpleDateFormat("yyyy-MM-dd");
+        
+        String date = sdf.format(txtBirthDate.getDate()); 
+        
+        //criando Stament para fazer insert 
+        
+        try {
+            comandoSQL = conexao.criarPreparedStatement(insertSQL);
+            comandoSQL.setString(1, txtFullName.getText());
+            comandoSQL.setString(2, txtCpf.getText());
+            comandoSQL.setString(3, date);
+            comandoSQL.setString(4, txtEmail.getText());
+            comandoSQL.setString(5, txtCity.getText());
+            comandoSQL.setString(6, txtTelephone.getText());
+            comandoSQL.setString(7, txtAddress.getText());
+            comandoSQL.setString(8, txtSex.getSelectedItem().toString());
+            comandoSQL.setString(9, txtAge.getText());
+            
+            int insert = comandoSQL.executeUpdate();  
+            
+            if(insert > 0){
+            TelaSucessoCadastro cadastro = new TelaSucessoCadastro();
+            cadastro.setVisible(true);
+            txtAddress.setText(null);
+            txtAge.setText(null);
+            txtCity.setText(null);
+            txtCpf.setText(null);
+            txtEmail.setText(null);
+            txtFullName.setText(null);
+            txtTelephone.setText(null);
+            txtSex.setSelectedItem("Male");
+            txtBirthDate.setCalendar(null);
+            }
+            } 
+            catch (SQLException e) 
+            {
+                TelaErroCadastro error = new TelaErroCadastro();
+                error.setVisible(true);
+            } 
+    }
+    
+   
 
     public TelaCadastroCustomers() {
         initComponents();
@@ -29,7 +89,7 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
         jComboBox2 = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         txtFullName = new javax.swing.JTextField();
-        PesquisarProducts1 = new javax.swing.JTextField();
+        txtAge = new javax.swing.JTextField();
         txtEmail = new javax.swing.JTextField();
         txtTelephone = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
@@ -45,7 +105,7 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         txtSex = new javax.swing.JComboBox<>();
         txtCpf = new javax.swing.JTextField();
-        txtBirthDate = new javax.swing.JFormattedTextField();
+        txtBirthDate = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -153,6 +213,9 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
 
         btn_Register.setBackground(new java.awt.Color(23, 35, 51));
         btn_Register.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_RegisterMouseClicked(evt);
+            }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 btn_RegisterMouseReleased(evt);
             }
@@ -246,10 +309,10 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
             }
         });
 
-        PesquisarProducts1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        PesquisarProducts1.addActionListener(new java.awt.event.ActionListener() {
+        txtAge.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtAge.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PesquisarProducts1ActionPerformed(evt);
+                txtAgeActionPerformed(evt);
             }
         });
 
@@ -318,7 +381,7 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
         jLabel10.setText("Sex:");
 
         txtSex.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        txtSex.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "             ", "Female", "Male" }));
+        txtSex.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Female", "Male" }));
 
         txtCpf.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         txtCpf.addActionListener(new java.awt.event.ActionListener() {
@@ -326,8 +389,6 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
                 txtCpfActionPerformed(evt);
             }
         });
-
-        txtBirthDate.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy/mm/dd"))));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -339,7 +400,7 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
                     .addComponent(txtFullName, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel3)
-                    .addComponent(PesquisarProducts1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6)
                     .addComponent(txtTelephone, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -355,7 +416,7 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
                     .addComponent(jLabel10)
                     .addComponent(txtSex, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtCpf, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
-                    .addComponent(txtBirthDate))
+                    .addComponent(txtBirthDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(43, 43, 43))
         );
         jPanel1Layout.setVerticalGroup(
@@ -378,8 +439,8 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(PesquisarProducts1)
-                    .addComponent(txtBirthDate))
+                    .addComponent(txtAge)
+                    .addComponent(txtBirthDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -475,9 +536,9 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEmailActionPerformed
 
-    private void PesquisarProducts1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarProducts1ActionPerformed
+    private void txtAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAgeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_PesquisarProducts1ActionPerformed
+    }//GEN-LAST:event_txtAgeActionPerformed
 
     private void txtFullNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFullNameActionPerformed
 
@@ -486,6 +547,12 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
     private void txtCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpfActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCpfActionPerformed
+
+    private void btn_RegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_RegisterMouseClicked
+        // TODO add your handling code here:
+        
+        this.insertCadastro();
+    }//GEN-LAST:event_btn_RegisterMouseClicked
 
     public static void main(String args[]) {
 
@@ -519,7 +586,6 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Menu2;
     private javax.swing.JPanel Menu3;
-    private javax.swing.JTextField PesquisarProducts1;
     private javax.swing.JPanel btn_Edit;
     private javax.swing.JPanel btn_Register;
     private javax.swing.JPanel ind_records;
@@ -543,7 +609,8 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JTextField txtAddress;
-    private javax.swing.JFormattedTextField txtBirthDate;
+    private javax.swing.JTextField txtAge;
+    private com.toedter.calendar.JDateChooser txtBirthDate;
     private javax.swing.JTextField txtCity;
     private javax.swing.JTextField txtCpf;
     private javax.swing.JTextField txtEmail;
