@@ -683,6 +683,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Records");
         jLabel14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel14MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout btn_recordsLayout = new javax.swing.GroupLayout(btn_records);
         btn_records.setLayout(btn_recordsLayout);
@@ -1103,7 +1108,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         TelaRegistros registro = new TelaRegistros();
         registro.setVisible(true);
-        this.dispose();
+        //this.setVisible(false);
 
         registro.criaGrafico();
 
@@ -1324,6 +1329,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_jPanel6MousePressed
+
+    private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel14MouseClicked
 
     public static void main(String args[]) {
 
