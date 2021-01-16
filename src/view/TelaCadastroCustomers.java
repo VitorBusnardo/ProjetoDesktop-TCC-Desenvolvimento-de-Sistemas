@@ -8,25 +8,24 @@ import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 
 public class TelaCadastroCustomers extends javax.swing.JFrame {
-    
-    public void insertCadastro(){
-        
+
+    public void insertCadastro() {
+
         ConexaoMysql conexao = new ConexaoMysql();
-        
+
         conexao.conectar();
-        
+
         ResultSet resultSQL = null;
-        
+
         PreparedStatement comandoSQL = null;
-        
+
         String insertSQL = "INSERT INTO CUSTOMERS(FULL_NAME,CPF,Birth_Date,Email,City,telephone,Address,Sex,age) VALUES(?,?,?,?,?,?,?,?,?);";
-        
-        SimpleDateFormat sdf  = new SimpleDateFormat("yyyy-MM-dd");
-        
-        String date = sdf.format(txtBirthDate.getDate()); 
-        
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+        String date = sdf.format(txtBirthDate.getDate());
+
         //criando Stament para fazer insert 
-        
         try {
             comandoSQL = conexao.criarPreparedStatement(insertSQL);
             comandoSQL.setString(1, txtFullName.getText());
@@ -38,51 +37,46 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
             comandoSQL.setString(7, txtAddress.getText());
             comandoSQL.setString(8, txtSex.getSelectedItem().toString());
             comandoSQL.setString(9, txtAge.getText());
-            
-            int insert = comandoSQL.executeUpdate();  
-            
-            if(insert > 0){
-            TelaSucessoCadastro cadastro = new TelaSucessoCadastro();
-            cadastro.setVisible(true);
-            txtAddress.setText(null);
-            txtAge.setText(null);
-            txtCity.setText(null);
-            txtCpf.setText(null);
-            txtEmail.setText(null);
-            txtFullName.setText(null);
-            txtTelephone.setText(null);
-            txtSex.setSelectedItem("Male");
-            txtBirthDate.setCalendar(null);
+
+            int insert = comandoSQL.executeUpdate();
+
+            if (insert > 0) {
+                TelaSucessoCadastro cadastro = new TelaSucessoCadastro();
+                cadastro.setVisible(true);
+                txtAddress.setText(null);
+                txtAge.setText(null);
+                txtCity.setText(null);
+                txtCpf.setText(null);
+                txtEmail.setText(null);
+                txtFullName.setText(null);
+                txtTelephone.setText(null);
+                txtSex.setSelectedItem("Male");
+                txtBirthDate.setCalendar(null);
             }
-            } 
-            catch (SQLException e) 
-            {
-                TelaErroCadastro error = new TelaErroCadastro();
-                error.setVisible(true);
-            } finally{
-            
+        } catch (SQLException e) {
+            TelaErroCadastro error = new TelaErroCadastro();
+            error.setVisible(true);
+        } finally {
+
             try {
-                
+
                 comandoSQL.close();
-                
+
                 resultSQL.close();
-                
+
                 conexao.desconectar();
-                
+
             } catch (SQLException e) {
-                
-                JOptionPane.showMessageDialog(null," ERROR EM FECHAMENTO " + e.getMessage());
-                
+
+                JOptionPane.showMessageDialog(null, " ERROR EM FECHAMENTO " + e.getMessage());
+
             }
-            }
+        }
     }
-    
-   
 
     public TelaCadastroCustomers() {
         initComponents();
 
-        
     }
 
     @SuppressWarnings("unchecked")
@@ -397,7 +391,7 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
         jLabel10.setText("Sex:");
 
         txtSex.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        txtSex.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Female", "Male" }));
+        txtSex.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Female", "Male" }));
 
         txtCpf.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         txtCpf.addActionListener(new java.awt.event.ActionListener() {
@@ -405,6 +399,11 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
                 txtCpfActionPerformed(evt);
             }
         });
+
+        txtBirthDate.setBackground(new java.awt.Color(255, 255, 255));
+        txtBirthDate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtBirthDate.setOpaque(false);
+        txtBirthDate.setVerifyInputWhenFocusTarget(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -451,12 +450,14 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
                         .addGap(2, 2, 2)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 12, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtAge)
-                    .addComponent(txtBirthDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(8, 8, 8)
+                        .addComponent(txtBirthDate, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -465,19 +466,19 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCity))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(9, 9, 9)
-                        .addComponent(txtSex, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtSex))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtTelephone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtTelephone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(79, Short.MAX_VALUE))
@@ -566,7 +567,7 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
 
     private void btn_RegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_RegisterMouseClicked
         // TODO add your handling code here:
-        
+
         this.insertCadastro();
     }//GEN-LAST:event_btn_RegisterMouseClicked
 
@@ -595,8 +596,6 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
             }
         });
     }
-
-    
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

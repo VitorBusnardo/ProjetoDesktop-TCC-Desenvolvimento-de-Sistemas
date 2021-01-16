@@ -1331,7 +1331,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel6MousePressed
 
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
-        // TODO add your handling code here:
+        
+        TelaPrincipal principal  = new TelaPrincipal();
+        TelaRegistros registros = new TelaRegistros();
+        
+        this.dispose();
+        
+        registros.setVisible(true);
+        
+        registros.criaGrafico();
     }//GEN-LAST:event_jLabel14MouseClicked
 
     public static void main(String args[]) {

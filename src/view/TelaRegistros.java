@@ -865,10 +865,17 @@ public class TelaRegistros extends javax.swing.JFrame {
     }//GEN-LAST:event_headerMouseDragged
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-
-//        TelaPrincipal principal = new TelaPrincipal();
-//        principal.setVisible(true);
+        
+        
         this.dispose();
+        
+        
+        TelaPrincipal principal  = new TelaPrincipal();
+       
+        
+        principal.setVisible(true);
+        
+        
         
     }//GEN-LAST:event_jLabel3MouseClicked
 
