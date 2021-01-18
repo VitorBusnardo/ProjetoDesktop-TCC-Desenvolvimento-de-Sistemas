@@ -13,108 +13,108 @@ import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
 
 public class TelaRegistros extends javax.swing.JFrame {
-
+    
     public TelaRegistros() {
         initComponents();
-
+        
         setLblColor(btn_graphic);
         resetLblColor(btn_products);
         resetLblColor(btn_customers);
         resetLblColor(btn_employees);
         resetLblColor(btn_services);
         resetLblColor(btn_schedule);
-
+        
         Graphic.setVisible(true);
         Products.setVisible(false);
         Customers.setVisible(false);
         Employees.setVisible(false);
         Services.setVisible(false);
         Schedule.setVisible(false);
-
+        
         TabelaProducts.getTableHeader().setOpaque(false);
         TabelaProducts.getTableHeader().setBackground(new Color(71, 120, 197));
         TabelaProducts.getTableHeader().setForeground(new Color(255, 255, 255));
         TabelaProducts.setRowHeight(25);
-
+        
         TabelaCustomers.getTableHeader().setOpaque(false);
         TabelaCustomers.getTableHeader().setBackground(new Color(71, 120, 197));
         TabelaCustomers.getTableHeader().setForeground(new Color(255, 255, 255));
         TabelaCustomers.setRowHeight(25);
-
+        
         TabelaEmployees.getTableHeader().setOpaque(false);
         TabelaEmployees.getTableHeader().setBackground(new Color(71, 120, 197));
         TabelaEmployees.getTableHeader().setForeground(new Color(255, 255, 255));
         TabelaEmployees.setRowHeight(25);
-
+        
         TabelaSchedule.getTableHeader().setOpaque(false);
         TabelaSchedule.getTableHeader().setBackground(new Color(71, 120, 197));
         TabelaSchedule.getTableHeader().setForeground(new Color(255, 255, 255));
         TabelaSchedule.setRowHeight(25);
-
+        
         TabelaServices.getTableHeader().setOpaque(false);
         TabelaServices.getTableHeader().setBackground(new Color(71, 120, 197));
         TabelaServices.getTableHeader().setForeground(new Color(255, 255, 255));
         TabelaServices.setRowHeight(25);
     }
-
+    
     private CategoryDataset createDataset() {
-
+        
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-
+        
         int lucro = 1000;
-
+        
         int gastos = 534;
-
+        
         int l = lucro - gastos;
-
+        
         int m = l / 2;
-
+        
         dataset.addValue(lucro, "Profit", "Overall");
-
+        
         dataset.addValue(gastos, "Spending", "Overall");
-
+        
         dataset.addValue(l, "Net Profit", "Overall");
-
+        
         dataset.addValue(m, "Average", "Overall");
-
+        
         return dataset;
-
+        
     }
-
+    
     public void criaGrafico() {
-
+        
         CategoryDataset cds = createDataset();
-
+        
         String titulo = "Monetary Chart";
-
+        
         String eixoy = "Values";
-
+        
         String txt_legenda = "";
-
+        
         boolean legenda = true;
-
+        
         boolean tooltips = true;
-
+        
         boolean urls = true;
-
+        
         JFreeChart graf = ChartFactory.createBarChart3D(titulo, txt_legenda, eixoy, cds, PlotOrientation.VERTICAL, legenda, tooltips, urls);
-
+        
         ChartPanel myChartPanel = new ChartPanel(graf, true);
-
+        
         myChartPanel.setSize(jPanel1.getWidth(), jPanel1.getHeight());
-
+        
         myChartPanel.setVisible(true);
-
+        
         jPanel1.removeAll();
-
+        
         jPanel1.add(myChartPanel);
-
+        
         jPanel1.revalidate();
-
+        
         jPanel1.repaint();
-
+        
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -850,14 +850,14 @@ public class TelaRegistros extends javax.swing.JFrame {
     int xx;
     int xy;
     private void headerMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_headerMousePressed
-
+        
         xx = evt.getX();
         xy = evt.getY();
 
     }//GEN-LAST:event_headerMousePressed
 
     private void headerMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_headerMouseDragged
-
+        
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
         this.setLocation(x - xx, y - xy);
@@ -866,28 +866,22 @@ public class TelaRegistros extends javax.swing.JFrame {
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         
+        TelaPrincipal principal = new TelaPrincipal();
         
         this.dispose();
         
-        
-        TelaPrincipal principal  = new TelaPrincipal();
-       
-        
         principal.setVisible(true);
-        
-        
-        
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void btn_graphicMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_graphicMouseClicked
-
+        
         setLblColor(btn_graphic);
         resetLblColor(btn_products);
         resetLblColor(btn_customers);
         resetLblColor(btn_employees);
         resetLblColor(btn_services);
         resetLblColor(btn_schedule);
-
+        
         Graphic.setVisible(true);
         Products.setVisible(false);
         Customers.setVisible(false);
@@ -898,14 +892,14 @@ public class TelaRegistros extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_graphicMouseClicked
 
     private void btn_productsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_productsMouseClicked
-
+        
         resetLblColor(btn_graphic);
         setLblColor(btn_products);
         resetLblColor(btn_customers);
         resetLblColor(btn_employees);
         resetLblColor(btn_services);
         resetLblColor(btn_schedule);
-
+        
         Graphic.setVisible(false);
         Products.setVisible(true);
         Customers.setVisible(false);
@@ -916,14 +910,14 @@ public class TelaRegistros extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_productsMouseClicked
 
     private void btn_servicesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_servicesMouseClicked
-
+        
         resetLblColor(btn_graphic);
         resetLblColor(btn_products);
         resetLblColor(btn_customers);
         resetLblColor(btn_employees);
         setLblColor(btn_services);
         resetLblColor(btn_schedule);
-
+        
         Graphic.setVisible(false);
         Products.setVisible(false);
         Customers.setVisible(false);
@@ -934,14 +928,14 @@ public class TelaRegistros extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_servicesMouseClicked
 
     private void btn_customersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_customersMouseClicked
-
+        
         resetLblColor(btn_graphic);
         resetLblColor(btn_products);
         setLblColor(btn_customers);
         resetLblColor(btn_employees);
         resetLblColor(btn_services);
         resetLblColor(btn_schedule);
-
+        
         Graphic.setVisible(false);
         Products.setVisible(false);
         Customers.setVisible(true);
@@ -952,14 +946,14 @@ public class TelaRegistros extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_customersMouseClicked
 
     private void btn_employeesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_employeesMouseClicked
-
+        
         resetLblColor(btn_graphic);
         resetLblColor(btn_products);
         resetLblColor(btn_customers);
         setLblColor(btn_employees);
         resetLblColor(btn_services);
         resetLblColor(btn_schedule);
-
+        
         Graphic.setVisible(false);
         Products.setVisible(false);
         Customers.setVisible(false);
@@ -970,14 +964,14 @@ public class TelaRegistros extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_employeesMouseClicked
 
     private void btn_scheduleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_scheduleMouseClicked
-
+        
         resetLblColor(btn_graphic);
         resetLblColor(btn_products);
         resetLblColor(btn_customers);
         resetLblColor(btn_employees);
         resetLblColor(btn_services);
         setLblColor(btn_schedule);
-
+        
         Graphic.setVisible(false);
         Products.setVisible(false);
         Customers.setVisible(false);
@@ -1018,7 +1012,7 @@ public class TelaRegistros extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_DeleteProductsMouseClicked
 
     private void DeleteProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteProductsActionPerformed
-       
+        
     }//GEN-LAST:event_DeleteProductsActionPerformed
 
     private void btn_DeleteCustomersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DeleteCustomersMouseClicked
@@ -1053,19 +1047,19 @@ public class TelaRegistros extends javax.swing.JFrame {
     private void DeleteEmployeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteEmployeesActionPerformed
         
     }//GEN-LAST:event_DeleteEmployeesActionPerformed
-
+    
     public void setLblColor(JLabel lbl) {
         
         lbl.setBackground(new Color(41, 57, 80));
     }
-
+    
     public void resetLblColor(JLabel lbl) {
         
         lbl.setBackground(new Color(23, 35, 51));
     }
-
+    
     public static void main(String args[]) {
-       
+        
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Windows".equals(info.getName())) {
@@ -1082,7 +1076,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(TelaRegistros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TelaRegistros().setVisible(true);

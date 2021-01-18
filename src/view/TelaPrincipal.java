@@ -3,6 +3,8 @@ package view;
 import conexao.ConexaoMysql;
 import java.awt.Color;
 import java.awt.Desktop;
+import java.awt.Frame;
+import java.awt.event.ActionEvent;
 import java.net.URI;
 import java.util.Date;
 import java.sql.PreparedStatement;
@@ -10,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -17,6 +20,7 @@ import javax.swing.JPanel;
 public class TelaPrincipal extends javax.swing.JFrame {
 
     public TelaPrincipal() {
+
         initComponents();
 
         setColor(btn_home);
@@ -991,7 +995,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     TelaCadastroSpending spending = new TelaCadastroSpending();
     TelaCadastroSchedule schedule = new TelaCadastroSchedule();
 
-
     private void btn_homeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_homeMousePressed
 
     }//GEN-LAST:event_btn_homeMousePressed
@@ -1102,15 +1105,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_servicesPMouseReleased
 
     private void btn_recordsMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_recordsMouseReleased
-
-        setColor(btn_records);
-        resetColor(new JPanel[]{btn_productsP, btn_EmployeesP, btn_customersP, btn_servicesP, btn_salesP, btn_spendingP, btn_scheduleP}, new JPanel[]{ind_products, ind_employees, ind_customers, ind_services, ind_spending, ind_sales, ind_schedule});
-
-        TelaRegistros registro = new TelaRegistros();
-        registro.setVisible(true);
-        //this.setVisible(false);
-
-        registro.criaGrafico();
 
         customers.setVisible(false);
 
@@ -1331,15 +1325,29 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel6MousePressed
 
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
-        
-        TelaPrincipal principal  = new TelaPrincipal();
+
+        TelaPrincipal principal = new TelaPrincipal();
         TelaRegistros registros = new TelaRegistros();
-        
-        this.dispose();
-        
+
+        customers.setVisible(false);
+
+        products.setVisible(false);
+
+        employees.setVisible(false);
+
+        services.setVisible(false);
+
+        sales.setVisible(false);
+
+        spending.setVisible(false);
+
+        schedule.setVisible(false);
+
         registros.setVisible(true);
-        
+
         registros.criaGrafico();
+
+        this.dispose();
     }//GEN-LAST:event_jLabel14MouseClicked
 
     public static void main(String args[]) {
