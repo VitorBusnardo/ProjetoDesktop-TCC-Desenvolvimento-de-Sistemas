@@ -1,10 +1,19 @@
 package view;
 
+import java.awt.Toolkit;
 
 public class TelaDelete extends javax.swing.JFrame {
 
     public TelaDelete() {
         initComponents();
+
+        setIcon();
+    }
+
+    public void setIcon() {
+
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/IconPlanet.png")));
+
     }
 
     @SuppressWarnings("unchecked")
@@ -86,7 +95,7 @@ public class TelaDelete extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel13.setText("delete this data?");
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/iconfinder_Neptune_1715800 (1).png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconPlanetBig.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -168,9 +177,8 @@ public class TelaDelete extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btn_DeleteNoMouseClicked
 
-
     public static void main(String args[]) {
-        
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Windows".equals(info.getName())) {
@@ -189,7 +197,7 @@ public class TelaDelete extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-        
+
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

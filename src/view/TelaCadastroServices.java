@@ -1,12 +1,19 @@
 package view;
 
+import java.awt.Toolkit;
 
 public class TelaCadastroServices extends javax.swing.JFrame {
 
     public TelaCadastroServices() {
         initComponents();
 
-        
+        setIcon();
+    }
+
+    public void setIcon() {
+
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/IconPlanet.png")));
+
     }
 
     @SuppressWarnings("unchecked")
@@ -91,7 +98,7 @@ public class TelaCadastroServices extends javax.swing.JFrame {
         jLabel2.setText("Services");
         jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 15, -1, 30));
 
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/settings-24-48.png"))); // NOI18N
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconTools.png"))); // NOI18N
         jPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, -2, -1, 60));
 
         btn_Edit.setBackground(new java.awt.Color(23, 35, 51));
@@ -360,9 +367,9 @@ public class TelaCadastroServices extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_RegisterMouseReleased
 
     private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
-        
+
         this.dispose();
-        
+
     }//GEN-LAST:event_jLabel16MouseClicked
 
     public static void main(String args[]) {
@@ -390,8 +397,6 @@ public class TelaCadastroServices extends javax.swing.JFrame {
             }
         });
     }
-
-    
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

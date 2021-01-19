@@ -7,74 +7,78 @@ import javax.swing.JOptionPane;
 import conexao.ConexaoMysql;
 import java.awt.Toolkit;
 
-
 public class TelaLogin extends javax.swing.JFrame {
-    
-    public void logar(){
-        
+
+    public void logar() {
+
         ConexaoMysql conexao = new ConexaoMysql();
-        
+
         conexao.conectar();
-        
+
         ResultSet resultSQL = null;
-        
+
         PreparedStatement comandoSQL = null;
-        
+
         String pesquisarSQL = " SELECT * FROM USUARIO WHERE NomeUsuario = ? AND SENHA = ?; ";
-        
+
         try {
             String NomeUsuario = txtNome.getText();
             String senha = txtSenha.getText();
             comandoSQL = conexao.criarPreparedStatement(pesquisarSQL);
-            
-            comandoSQL.setString(1 ,NomeUsuario );
-            comandoSQL.setString(2 , senha );
-            
+
+            comandoSQL.setString(1, NomeUsuario);
+            comandoSQL.setString(2, senha);
+
             resultSQL = comandoSQL.executeQuery();
-            
+
             if (resultSQL.next()) {
-                
+
                 TelaPrincipal principal = new TelaPrincipal();
                 principal.lblNomeUsuario.setText(NomeUsuario);
                 principal.setVisible(true);
                 this.dispose();
             } else {
-                    
+
                 TelaErroLogin login = new TelaErroLogin();
                 login.setVisible(true);
-                
+
                 txtNome.setText(null);
                 txtSenha.setText(null);
             }
-                
-            
+
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null," ERROR " + e.getMessage());
-        } finally{
-            
+            JOptionPane.showMessageDialog(null, " ERROR " + e.getMessage());
+        } finally {
+
             try {
-                
+
                 comandoSQL.close();
-                
+
                 resultSQL.close();
-                
+
                 conexao.desconectar();
-                
+
             } catch (Exception e) {
-                
-                JOptionPane.showMessageDialog(null," ERROR EM FECHAMENTO " + e.getMessage());
-                
+
+                JOptionPane.showMessageDialog(null, " ERROR EM FECHAMENTO " + e.getMessage());
+
             }
         }
     }
-    
-    
-    public TelaLogin() {
-        
-        initComponents();
-        
+
+    public void setIcon() {
+
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/IconPlanet.png")));
+
     }
-    
+
+    public TelaLogin() {
+
+        initComponents();
+
+        setIcon();
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -248,7 +252,7 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/planet.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconFloatingPlanet.png"))); // NOI18N
 
         javax.swing.GroupLayout Menu2Layout = new javax.swing.GroupLayout(Menu2);
         Menu2.setLayout(Menu2Layout);
@@ -313,7 +317,7 @@ public class TelaLogin extends javax.swing.JFrame {
     private void exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseClicked
 
         System.exit(0);
-        
+
     }//GEN-LAST:event_exitMouseClicked
 
     private void MenuLoginMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuLoginMousePressed
@@ -327,7 +331,7 @@ public class TelaLogin extends javax.swing.JFrame {
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
         this.setLocation(x - xx, y - xy);
-        
+
     }//GEN-LAST:event_MenuLoginMouseDragged
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
@@ -337,11 +341,11 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-        
+
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     public static void main(String args[]) {
-        
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Windows".equals(info.getName())) {
@@ -359,7 +363,7 @@ public class TelaLogin extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

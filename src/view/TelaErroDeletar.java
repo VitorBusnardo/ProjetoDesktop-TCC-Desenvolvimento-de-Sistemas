@@ -1,10 +1,19 @@
 package view;
 
+import java.awt.Toolkit;
 
 public class TelaErroDeletar extends javax.swing.JFrame {
 
     public TelaErroDeletar() {
         initComponents();
+
+        setIcon();
+    }
+
+    public void setIcon() {
+
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/IconPlanet.png")));
+
     }
 
     @SuppressWarnings("unchecked")
@@ -54,7 +63,7 @@ public class TelaErroDeletar extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel12.setText("  Could not delete!");
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/iconfinder_Neptune_1715800 (1).png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconPlanetBig.png"))); // NOI18N
 
         btn_DeleteYes.setBackground(new java.awt.Color(23, 35, 51));
         btn_DeleteYes.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -130,9 +139,8 @@ public class TelaErroDeletar extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btn_DeleteYesMouseClicked
 
-
     public static void main(String args[]) {
-        
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Windows".equals(info.getName())) {
@@ -150,8 +158,6 @@ public class TelaErroDeletar extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(TelaErroDeletar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
-
-     
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TelaErroDeletar().setVisible(true);

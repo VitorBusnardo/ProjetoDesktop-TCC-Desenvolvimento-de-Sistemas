@@ -1,9 +1,18 @@
 package view;
 
+import java.awt.Toolkit;
+
 public class TelaCadastroSales extends javax.swing.JFrame {
 
     public TelaCadastroSales() {
         initComponents();
+
+        setIcon();
+    }
+
+    public void setIcon() {
+
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/IconPlanet.png")));
 
     }
 
@@ -99,7 +108,7 @@ public class TelaCadastroSales extends javax.swing.JFrame {
         jLabel2.setText("Sales");
         jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 15, -1, 30));
 
-        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/banknotes-48.png"))); // NOI18N
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconNotes.png"))); // NOI18N
         jPanel4.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, -2, -1, 60));
 
         btn_Edit.setBackground(new java.awt.Color(23, 35, 51));

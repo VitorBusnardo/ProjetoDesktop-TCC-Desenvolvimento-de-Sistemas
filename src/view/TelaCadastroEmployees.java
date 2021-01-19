@@ -1,6 +1,7 @@
 package view;
 
 import conexao.ConexaoMysql;
+import java.awt.Toolkit;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -78,6 +79,13 @@ public class TelaCadastroEmployees extends javax.swing.JFrame {
 
     public TelaCadastroEmployees() {
         initComponents();
+
+        setIcon();
+    }
+
+    public void setIcon() {
+
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/IconPlanet.png")));
 
     }
 
@@ -178,7 +186,7 @@ public class TelaCadastroEmployees extends javax.swing.JFrame {
         jLabel2.setText("Employees");
         jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 15, -1, 30));
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/workers-48.png"))); // NOI18N
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconWorkers.png"))); // NOI18N
         jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, -1, 60));
 
         btn_Edit.setBackground(new java.awt.Color(23, 35, 51));
