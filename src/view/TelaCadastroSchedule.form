@@ -192,7 +192,7 @@
             <Component class="javax.swing.JLabel" name="jLabel17">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/swing/images/agenda-48.png"/>
+                  <Image iconType="3" name="/images/IconSchedule.png"/>
                 </Property>
               </Properties>
               <Constraints>

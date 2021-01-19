@@ -4,6 +4,7 @@ import view.TelaDelete;
 import view.TelaPrincipal;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Toolkit;
 import javax.swing.JLabel;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -15,6 +16,9 @@ import org.jfree.data.category.DefaultCategoryDataset;
 public class TelaRegistros extends javax.swing.JFrame {
 
     public TelaRegistros() {
+
+        setIcon();
+
         initComponents();
 
         setLblColor(btn_graphic);
@@ -55,6 +59,12 @@ public class TelaRegistros extends javax.swing.JFrame {
         TabelaServices.getTableHeader().setBackground(new Color(71, 120, 197));
         TabelaServices.getTableHeader().setForeground(new Color(255, 255, 255));
         TabelaServices.setRowHeight(25);
+    }
+
+    public void setIcon() {
+
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/IconPlanet.png")));
+
     }
 
     private CategoryDataset createDataset() {
@@ -166,7 +176,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(900, 565));
+        setPreferredSize(new java.awt.Dimension(900, 554));
 
         main.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -222,7 +232,7 @@ public class TelaRegistros extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/planet.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconFloatingPlanet.png"))); // NOI18N
 
         btn_services.setBackground(new java.awt.Color(23, 35, 51));
         btn_services.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -304,11 +314,11 @@ public class TelaRegistros extends javax.swing.JFrame {
                 .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(headerLayout.createSequentialGroup()
                         .addComponent(jLabel3)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 150, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
-                        .addGap(0, 43, Short.MAX_VALUE)
-                        .addComponent(jLabel1)))
-                .addGap(29, 29, 29)
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
                 .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_employees, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_customers, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -861,15 +871,16 @@ public class TelaRegistros extends javax.swing.JFrame {
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
         this.setLocation(x - xx, y - xy);
-        
+
     }//GEN-LAST:event_headerMouseDragged
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
 
         TelaPrincipal principal = new TelaPrincipal();
-        principal.setVisible(true);
+
         this.dispose();
-        
+
+        principal.setVisible(true);
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void btn_graphicMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_graphicMouseClicked
@@ -905,7 +916,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         Employees.setVisible(false);
         Services.setVisible(false);
         Schedule.setVisible(false);
-        
+
     }//GEN-LAST:event_btn_productsMouseClicked
 
     private void btn_servicesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_servicesMouseClicked
@@ -941,7 +952,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         Employees.setVisible(false);
         Services.setVisible(false);
         Schedule.setVisible(false);
-        
+
     }//GEN-LAST:event_btn_customersMouseClicked
 
     private void btn_employeesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_employeesMouseClicked
@@ -959,7 +970,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         Employees.setVisible(true);
         Services.setVisible(false);
         Schedule.setVisible(false);
-        
+
     }//GEN-LAST:event_btn_employeesMouseClicked
 
     private void btn_scheduleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_scheduleMouseClicked
@@ -981,84 +992,84 @@ public class TelaRegistros extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_scheduleMouseClicked
 
     private void PesquisarCustomersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarCustomersActionPerformed
-        
+
     }//GEN-LAST:event_PesquisarCustomersActionPerformed
 
     private void PesquisarProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarProductsActionPerformed
-        
+
     }//GEN-LAST:event_PesquisarProductsActionPerformed
 
     private void PesquisarServicesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarServicesActionPerformed
-        
+
     }//GEN-LAST:event_PesquisarServicesActionPerformed
 
     private void btn_DeleteServicesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DeleteServicesMouseClicked
-        
+
         TelaDelete delete = new TelaDelete();
         delete.setVisible(true);
-        
+
     }//GEN-LAST:event_btn_DeleteServicesMouseClicked
 
     private void DeleteServicesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteServicesActionPerformed
-        
+
     }//GEN-LAST:event_DeleteServicesActionPerformed
 
     private void btn_DeleteProductsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DeleteProductsMouseClicked
-        
+
         TelaDelete delete = new TelaDelete();
         delete.setVisible(true);
-        
+
     }//GEN-LAST:event_btn_DeleteProductsMouseClicked
 
     private void DeleteProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteProductsActionPerformed
-       
+
     }//GEN-LAST:event_DeleteProductsActionPerformed
 
     private void btn_DeleteCustomersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DeleteCustomersMouseClicked
-        
+
         TelaDelete delete = new TelaDelete();
         delete.setVisible(true);
-        
+
     }//GEN-LAST:event_btn_DeleteCustomersMouseClicked
 
     private void DeleteCustomersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteCustomersActionPerformed
-        
+
     }//GEN-LAST:event_DeleteCustomersActionPerformed
 
     private void btn_DeleteScheduleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DeleteScheduleMouseClicked
-        
+
         TelaDelete delete = new TelaDelete();
         delete.setVisible(true);
-        
+
     }//GEN-LAST:event_btn_DeleteScheduleMouseClicked
 
     private void DeleteScheduleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteScheduleActionPerformed
-        
+
     }//GEN-LAST:event_DeleteScheduleActionPerformed
 
     private void btn_DeleteEmployeesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DeleteEmployeesMouseClicked
-        
+
         TelaDelete delete = new TelaDelete();
         delete.setVisible(true);
-        
+
     }//GEN-LAST:event_btn_DeleteEmployeesMouseClicked
 
     private void DeleteEmployeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteEmployeesActionPerformed
-        
+
     }//GEN-LAST:event_DeleteEmployeesActionPerformed
 
     public void setLblColor(JLabel lbl) {
-        
+
         lbl.setBackground(new Color(41, 57, 80));
     }
 
     public void resetLblColor(JLabel lbl) {
-        
+
         lbl.setBackground(new Color(23, 35, 51));
     }
 
     public static void main(String args[]) {
-       
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Windows".equals(info.getName())) {

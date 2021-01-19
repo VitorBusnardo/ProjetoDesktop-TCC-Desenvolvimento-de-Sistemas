@@ -1,9 +1,19 @@
 package view;
 
+import java.awt.Toolkit;
+
 public class TelaSucessoCadastro extends javax.swing.JFrame {
 
     public TelaSucessoCadastro() {
         initComponents();
+        
+        setIcon();
+    }
+
+    public void setIcon() {
+
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/IconPlanet.png")));
+
     }
 
     @SuppressWarnings("unchecked")
@@ -66,7 +76,7 @@ public class TelaSucessoCadastro extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/iconfinder_Neptune_1715800 (1).png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconPlanetBig.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);

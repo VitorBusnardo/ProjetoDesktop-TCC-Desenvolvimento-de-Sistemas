@@ -1,10 +1,19 @@
 package view;
 
+import java.awt.Toolkit;
 
 public class TelaSucessoDeletar extends javax.swing.JFrame {
 
     public TelaSucessoDeletar() {
         initComponents();
+
+        setIcon();
+    }
+
+    public void setIcon() {
+
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/IconPlanet.png")));
+
     }
 
     @SuppressWarnings("unchecked")
@@ -67,7 +76,7 @@ public class TelaSucessoDeletar extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/iconfinder_Neptune_1715800 (1).png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconPlanetBig.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -130,12 +139,11 @@ public class TelaSucessoDeletar extends javax.swing.JFrame {
     private void btn_DeleteYesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DeleteYesMouseClicked
 
         this.dispose();
-        
+
     }//GEN-LAST:event_btn_DeleteYesMouseClicked
 
-
     public static void main(String args[]) {
-        
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Windows".equals(info.getName())) {
@@ -153,8 +161,6 @@ public class TelaSucessoDeletar extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(TelaSucessoDeletar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
-
-     
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TelaSucessoDeletar().setVisible(true);

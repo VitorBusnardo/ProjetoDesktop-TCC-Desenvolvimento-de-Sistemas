@@ -1,12 +1,19 @@
 package view;
 
+import java.awt.Toolkit;
 
 public class TelaCadastroProducts extends javax.swing.JFrame {
 
     public TelaCadastroProducts() {
         initComponents();
 
-        
+        setIcon();
+    }
+
+    public void setIcon() {
+
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/IconPlanet.png")));
+
     }
 
     @SuppressWarnings("unchecked")
@@ -93,7 +100,7 @@ public class TelaCadastroProducts extends javax.swing.JFrame {
         jLabel2.setText("Products");
         jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 15, -1, 30));
 
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/product-48.png"))); // NOI18N
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconProduct.png"))); // NOI18N
         jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, -10, -1, 80));
 
         btn_Edit.setBackground(new java.awt.Color(23, 35, 51));
@@ -445,8 +452,6 @@ public class TelaCadastroProducts extends javax.swing.JFrame {
             }
         });
     }
-
-    
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

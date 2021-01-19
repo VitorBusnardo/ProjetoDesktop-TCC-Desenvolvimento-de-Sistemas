@@ -1,12 +1,19 @@
 package view;
 
+import java.awt.Toolkit;
 
 public class TelaCadastroSchedule extends javax.swing.JFrame {
 
     public TelaCadastroSchedule() {
         initComponents();
 
-        
+        setIcon();
+    }
+
+    public void setIcon() {
+
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/IconPlanet.png")));
+
     }
 
     @SuppressWarnings("unchecked")
@@ -99,7 +106,7 @@ public class TelaCadastroSchedule extends javax.swing.JFrame {
         jLabel2.setText("Schedule");
         jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 15, -1, 30));
 
-        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/agenda-48.png"))); // NOI18N
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconSchedule.png"))); // NOI18N
         jPanel4.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, -20, 60, 100));
 
         btn_Edit.setBackground(new java.awt.Color(23, 35, 51));
@@ -474,8 +481,6 @@ public class TelaCadastroSchedule extends javax.swing.JFrame {
             }
         });
     }
-
-    
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

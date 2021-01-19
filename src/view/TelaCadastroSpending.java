@@ -1,12 +1,19 @@
 package view;
 
+import java.awt.Toolkit;
 
 public class TelaCadastroSpending extends javax.swing.JFrame {
 
     public TelaCadastroSpending() {
         initComponents();
 
-        
+        setIcon();
+    }
+
+    public void setIcon() {
+
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/IconPlanet.png")));
+
     }
 
     @SuppressWarnings("unchecked")
@@ -97,7 +104,7 @@ public class TelaCadastroSpending extends javax.swing.JFrame {
         jLabel2.setText("Spending");
         jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 15, -1, 30));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/negative-dynamic-48.png"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconNegative.png"))); // NOI18N
         jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, -1, 60));
 
         btn_Edit.setBackground(new java.awt.Color(23, 35, 51));
@@ -422,9 +429,9 @@ public class TelaCadastroSpending extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_RegisterMouseReleased
 
     private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
-        
+
         this.dispose();
-        
+
     }//GEN-LAST:event_jLabel16MouseClicked
 
     private void PesquisarProducts9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarProducts9ActionPerformed
@@ -456,8 +463,6 @@ public class TelaCadastroSpending extends javax.swing.JFrame {
             }
         });
     }
-
-    
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

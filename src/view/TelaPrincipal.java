@@ -3,6 +3,9 @@ package view;
 import conexao.ConexaoMysql;
 import java.awt.Color;
 import java.awt.Desktop;
+import java.awt.Frame;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
 import java.net.URI;
 import java.util.Date;
 import java.sql.PreparedStatement;
@@ -10,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -17,7 +21,10 @@ import javax.swing.JPanel;
 public class TelaPrincipal extends javax.swing.JFrame {
 
     public TelaPrincipal() {
+        
         initComponents();
+        
+        setIcon();
 
         setColor(btn_home);
         ind_home.setOpaque(true);
@@ -37,6 +44,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
 
         DataCalender.setText(formatador.format(data));
+
+    }
+
+    public void setIcon() {
+
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/IconPlanet.png")));
 
     }
 
@@ -536,7 +549,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jTextField1.setCaretColor(new java.awt.Color(255, 255, 255));
         jTextField1.setPreferredSize(new java.awt.Dimension(2, 20));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/icons8_Search_18px.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconSearch.png"))); // NOI18N
         jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout Menu2Layout = new javax.swing.GroupLayout(Menu2);
@@ -570,7 +583,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jPanel5.setBackground(new java.awt.Color(71, 120, 197));
 
-        btn_User.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/icons8_Contacts_25px.png"))); // NOI18N
+        btn_User.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconUser.png"))); // NOI18N
         btn_User.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_User.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -578,7 +591,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/icons8_Calendar_25px.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconCalendar.png"))); // NOI18N
         jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -586,7 +599,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/icons8_Lock_25px.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconLock.png"))); // NOI18N
         jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -594,7 +607,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btn_Settings.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/settings-25.png"))); // NOI18N
+        btn_Settings.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconSettings.png"))); // NOI18N
         btn_Settings.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_Settings.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -637,7 +650,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 85, 310, 130));
 
-        btn_exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/icons8_Exit_25px.png"))); // NOI18N
+        btn_exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconExit.png"))); // NOI18N
         btn_exit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_exit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -647,7 +660,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel4.add(btn_exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, -1, 46));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/iconfinder_Neptune_1715800.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconPlanetSmall.png"))); // NOI18N
         jLabel2.setText("  ");
         jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 200, -1));
 
@@ -683,6 +696,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Records");
         jLabel14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel14MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout btn_recordsLayout = new javax.swing.GroupLayout(btn_records);
         btn_records.setLayout(btn_recordsLayout);
@@ -719,7 +737,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel16.setText("<html><center>Totally safe and protected, <br>we guarantee every possible </br><br><center>security</center></br></center></html>");
         MenuSafe.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/iconfinder_Padlock_lock_save-15_3709369 (1).png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconPadLock.png"))); // NOI18N
         MenuSafe.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 70, 50));
 
         Menu3.add(MenuSafe, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 345, 270, 173));
@@ -763,7 +781,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         MenuSettings.setBackground(new java.awt.Color(255, 255, 255));
 
         btn_MenuExit.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btn_MenuExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/iconfinder_logout_4115235.png"))); // NOI18N
+        btn_MenuExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconLogout.png"))); // NOI18N
         btn_MenuExit.setText(" Exit");
         btn_MenuExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_MenuExit.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -773,7 +791,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
 
         btn_MenuSwitchUsers.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btn_MenuSwitchUsers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/iconfinder__people_users_people_team_leader_group_community-16_4213441.png"))); // NOI18N
+        btn_MenuSwitchUsers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconPeople.png"))); // NOI18N
         btn_MenuSwitchUsers.setText(" Switch Users");
         btn_MenuSwitchUsers.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_MenuSwitchUsers.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -783,7 +801,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
 
         btn_MenuReset.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btn_MenuReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/iconfinder_Streamline-02_185021.png"))); // NOI18N
+        btn_MenuReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconStreamline.png"))); // NOI18N
         btn_MenuReset.setText(" Reset All");
         btn_MenuReset.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
@@ -826,7 +844,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/iconfinder_18-Website_2924879.png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconWebSite.png"))); // NOI18N
 
         jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel20.setText("Web Site");
@@ -862,7 +880,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/iconfinder_Error-computer-notice-warning_3853920.png"))); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconSuport.png"))); // NOI18N
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel17.setText("   Suport");
@@ -898,7 +916,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/iconfinder_linkedin-social-media-logo-website_3209304.png"))); // NOI18N
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconLinkedIn.png"))); // NOI18N
 
         jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel25.setText("       LinkedIn");
@@ -936,7 +954,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/iconfinder_github_2916248.png"))); // NOI18N
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconGitHub.png"))); // NOI18N
 
         jLabel24.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel24.setText("      GitHub");
@@ -967,7 +985,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         MenuApresentacao.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, 150, 190));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swing/images/dashboar_1.jpg"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconMenu.jpg"))); // NOI18N
         MenuApresentacao.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, -1, -1));
 
         getContentPane().add(MenuApresentacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 50, 630, 540));
@@ -985,7 +1003,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     TelaCadastroSales sales = new TelaCadastroSales();
     TelaCadastroSpending spending = new TelaCadastroSpending();
     TelaCadastroSchedule schedule = new TelaCadastroSchedule();
-
 
     private void btn_homeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_homeMousePressed
 
@@ -1097,15 +1114,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_servicesPMouseReleased
 
     private void btn_recordsMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_recordsMouseReleased
-
-        setColor(btn_records);
-        resetColor(new JPanel[]{btn_productsP, btn_EmployeesP, btn_customersP, btn_servicesP, btn_salesP, btn_spendingP, btn_scheduleP}, new JPanel[]{ind_products, ind_employees, ind_customers, ind_services, ind_spending, ind_sales, ind_schedule});
-
-        TelaRegistros registro = new TelaRegistros();
-        registro.setVisible(true);
-        this.dispose();
-
-        registro.criaGrafico();
 
         customers.setVisible(false);
 
@@ -1324,6 +1332,32 @@ public class TelaPrincipal extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_jPanel6MousePressed
+
+    private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
+
+        TelaPrincipal principal = new TelaPrincipal();
+        TelaRegistros registros = new TelaRegistros();
+
+        customers.setVisible(false);
+
+        products.setVisible(false);
+
+        employees.setVisible(false);
+
+        services.setVisible(false);
+
+        sales.setVisible(false);
+
+        spending.setVisible(false);
+
+        schedule.setVisible(false);
+
+        registros.setVisible(true);
+
+        registros.criaGrafico();
+
+        this.dispose();
+    }//GEN-LAST:event_jLabel14MouseClicked
 
     public static void main(String args[]) {
 
