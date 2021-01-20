@@ -1,11 +1,16 @@
 package view;
 
+import conexao.ConexaoSQLite;
 import view.TelaDelete;
 import view.TelaPrincipal;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Toolkit;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import net.proteanit.sql.DbUtils;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -14,7 +19,7 @@ import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
 
 public class TelaRegistros extends javax.swing.JFrame {
-    
+
     public String nomeDeUsuario = null;
 
     public TelaRegistros() {
@@ -61,6 +66,37 @@ public class TelaRegistros extends javax.swing.JFrame {
         TabelaServices.getTableHeader().setBackground(new Color(71, 120, 197));
         TabelaServices.getTableHeader().setForeground(new Color(255, 255, 255));
         TabelaServices.setRowHeight(25);
+    }
+
+    private void pesquisar_products() {
+
+        ConexaoSQLite conexao = new ConexaoSQLite();
+
+        conexao.conectar();
+        ResultSet resultSQL = null;
+        PreparedStatement comandoSQL = null;
+
+        String sql = "select Name, Brand, Stock, Description, Value, Type from Products where Name like ?";
+
+        try {
+
+            comandoSQL = conexao.criarPreparedStatement(sql);
+            comandoSQL.setString(1, PesquisarProducts.getText() + "%");
+            resultSQL = comandoSQL.executeQuery();
+            TabelaProducts.setModel(DbUtils.resultSetToTableModel(resultSQL));
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    }
+
+    private void setar_camposProducts() {
+
+        int setar = TabelaProducts.getSelectedRow();
+        DeleteProducts.setText(TabelaProducts.getModel().getValueAt(setar, 0).toString());
+
     }
 
     public void setIcon() {
@@ -179,8 +215,10 @@ public class TelaRegistros extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(900, 555));
 
         main.setBackground(new java.awt.Color(255, 255, 255));
+        main.setPreferredSize(new java.awt.Dimension(900, 555));
 
         header.setBackground(new java.awt.Color(23, 35, 51));
         header.setPreferredSize(new java.awt.Dimension(838, 200));
@@ -386,35 +424,61 @@ public class TelaRegistros extends javax.swing.JFrame {
         Products.setForeground(new java.awt.Color(204, 204, 204));
         Products.setPreferredSize(new java.awt.Dimension(900, 565));
 
-        TabelaProducts.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        TabelaProducts.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         TabelaProducts.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Nome", "Telefone", "Endereço", "Email"
+                "Name", "Brand", "Stock", "Description", "Value", "Type"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         TabelaProducts.setFocusable(false);
         TabelaProducts.setIntercellSpacing(new java.awt.Dimension(0, 0));
         TabelaProducts.setRowHeight(25);
         TabelaProducts.setSelectionBackground(new java.awt.Color(192, 192, 192));
         TabelaProducts.setShowVerticalLines(false);
         TabelaProducts.getTableHeader().setReorderingAllowed(false);
+        TabelaProducts.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TabelaProductsMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(TabelaProducts);
+        if (TabelaProducts.getColumnModel().getColumnCount() > 0) {
+            TabelaProducts.getColumnModel().getColumn(0).setResizable(false);
+            TabelaProducts.getColumnModel().getColumn(1).setResizable(false);
+            TabelaProducts.getColumnModel().getColumn(2).setResizable(false);
+            TabelaProducts.getColumnModel().getColumn(3).setResizable(false);
+            TabelaProducts.getColumnModel().getColumn(4).setResizable(false);
+            TabelaProducts.getColumnModel().getColumn(5).setResizable(false);
+        }
 
         PesquisarProducts.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         PesquisarProducts.setText("Search here!");
         PesquisarProducts.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PesquisarProductsActionPerformed(evt);
+            }
+        });
+        PesquisarProducts.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                PesquisarProductsKeyReleased(evt);
             }
         });
 
@@ -480,7 +544,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         Customers.setForeground(new java.awt.Color(153, 153, 153));
         Customers.setPreferredSize(new java.awt.Dimension(900, 565));
 
-        TabelaCustomers.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        TabelaCustomers.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         TabelaCustomers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -574,7 +638,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         Employees.setForeground(new java.awt.Color(102, 102, 102));
         Employees.setPreferredSize(new java.awt.Dimension(900, 565));
 
-        TabelaEmployees.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        TabelaEmployees.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         TabelaEmployees.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -663,7 +727,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         Schedule.setForeground(new java.awt.Color(102, 102, 102));
         Schedule.setPreferredSize(new java.awt.Dimension(900, 565));
 
-        TabelaSchedule.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        TabelaSchedule.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         TabelaSchedule.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -752,7 +816,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         Services.setForeground(new java.awt.Color(51, 51, 51));
         Services.setPreferredSize(new java.awt.Dimension(900, 565));
 
-        TabelaServices.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        TabelaServices.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         TabelaServices.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -775,6 +839,10 @@ public class TelaRegistros extends javax.swing.JFrame {
         TabelaServices.setShowVerticalLines(false);
         TabelaServices.getTableHeader().setReorderingAllowed(false);
         jScrollPane6.setViewportView(TabelaServices);
+        if (TabelaServices.getColumnModel().getColumnCount() > 0) {
+            TabelaServices.getColumnModel().getColumn(1).setResizable(false);
+            TabelaServices.getColumnModel().getColumn(2).setResizable(false);
+        }
 
         PesquisarServices.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         PesquisarServices.setText("Search here!");
@@ -1073,6 +1141,14 @@ public class TelaRegistros extends javax.swing.JFrame {
 
     }//GEN-LAST:event_DeleteEmployeesActionPerformed
 
+    private void PesquisarProductsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PesquisarProductsKeyReleased
+        pesquisar_products();
+    }//GEN-LAST:event_PesquisarProductsKeyReleased
+
+    private void TabelaProductsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabelaProductsMouseClicked
+        setar_camposProducts();
+    }//GEN-LAST:event_TabelaProductsMouseClicked
+
     public void setLblColor(JLabel lbl) {
 
         lbl.setBackground(new Color(41, 57, 80));
@@ -1113,7 +1189,7 @@ public class TelaRegistros extends javax.swing.JFrame {
     private javax.swing.JPanel Customers;
     private javax.swing.JTextField DeleteCustomers;
     private javax.swing.JTextField DeleteEmployees;
-    private javax.swing.JTextField DeleteProducts;
+    public javax.swing.JTextField DeleteProducts;
     private javax.swing.JTextField DeleteSchedule;
     private javax.swing.JTextField DeleteServices;
     private javax.swing.JPanel Employees;
@@ -1121,7 +1197,7 @@ public class TelaRegistros extends javax.swing.JFrame {
     private javax.swing.JPanel Paineis;
     private javax.swing.JTextField PesquisarCustomers;
     private javax.swing.JTextField PesquisarEmployees;
-    private javax.swing.JTextField PesquisarProducts;
+    public javax.swing.JTextField PesquisarProducts;
     private javax.swing.JTextField PesquisarSchedule;
     private javax.swing.JTextField PesquisarServices;
     private javax.swing.JPanel Products;
@@ -1129,7 +1205,7 @@ public class TelaRegistros extends javax.swing.JFrame {
     private javax.swing.JPanel Services;
     private javax.swing.JTable TabelaCustomers;
     private javax.swing.JTable TabelaEmployees;
-    private javax.swing.JTable TabelaProducts;
+    public javax.swing.JTable TabelaProducts;
     private javax.swing.JTable TabelaSchedule;
     private javax.swing.JTable TabelaServices;
     private javax.swing.JLabel btn_DeleteCustomers;

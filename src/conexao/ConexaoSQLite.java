@@ -21,7 +21,7 @@ public class ConexaoSQLite {
             
                 String url = "jdbc:sqlite:Banco_de_dados/BancoCadastrosTCC.db";
                 this.conexao = DriverManager.getConnection(url);
-                JOptionPane.showMessageDialog(null,"Deu certo conectar");
+                
             
             } catch (SQLException e) {
             
