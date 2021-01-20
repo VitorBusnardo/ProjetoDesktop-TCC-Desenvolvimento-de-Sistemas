@@ -1,6 +1,7 @@
 package view;
 
 import conexao.ConexaoMysql;
+import conexao.ConexaoSQLite;
 import java.awt.Toolkit;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,7 +13,7 @@ public class TelaCadastroEmployees extends javax.swing.JFrame {
 
     public void insertCadastro() {
 
-        ConexaoMysql conexao = new ConexaoMysql();
+        ConexaoSQLite conexao = new ConexaoSQLite();
 
         conexao.conectar();
 
@@ -20,7 +21,7 @@ public class TelaCadastroEmployees extends javax.swing.JFrame {
 
         PreparedStatement comandoSQL = null;
 
-        String insertSQL = "INSERT INTO CUSTOMERS(FULL_NAME,CPF,Birth_Date,Email,Salary,telephone,Address,Sex,age,Occupation_Area) VALUES(?,?,?,?,?,?,?,?,?,?);";
+        String insertSQL = "insert into Employees(FullName,Age,Email,Telephone,Address,Cpf,BirthDate,Salary,OccupationArea,Sex) VALUES(?,?,?,?,?,?,?,?,?,?);";
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -30,15 +31,15 @@ public class TelaCadastroEmployees extends javax.swing.JFrame {
         try {
             comandoSQL = conexao.criarPreparedStatement(insertSQL);
             comandoSQL.setString(1, txtFullName.getText());
-            comandoSQL.setString(2, txtCpf.getText());
-            comandoSQL.setString(3, date);
-            comandoSQL.setString(4, txtEmail.getText());
-            comandoSQL.setString(5, txtSalary.getText());
-            comandoSQL.setString(6, txtTelephone.getText());
-            comandoSQL.setString(7, txtAddress.getText());
-            comandoSQL.setString(8, txtSex.getSelectedItem().toString());
-            comandoSQL.setString(9, txtAge.getText());
-            comandoSQL.setString(10, txtOccupationArea.getText());
+            comandoSQL.setString(2, txtAge.getText());
+            comandoSQL.setString(3, txtEmail.getText());
+            comandoSQL.setString(4, txtTelephone.getText());
+            comandoSQL.setString(5, txtAddress.getText());
+            comandoSQL.setString(6, txtCpf.getText());
+            comandoSQL.setString(7, date);
+            comandoSQL.setString(8, txtSalary.getText());
+            comandoSQL.setString(9, txtOccupationArea.getText());
+            comandoSQL.setString(10, txtSex.getSelectedItem().toString());
 
             int insert = comandoSQL.executeUpdate();
 
@@ -58,6 +59,8 @@ public class TelaCadastroEmployees extends javax.swing.JFrame {
             }
         } catch (SQLException e) {
             TelaErroCadastro error = new TelaErroCadastro();
+            JOptionPane.showMessageDialog(null, " Error " + e.getMessage());
+            System.out.println(e);
             error.setVisible(true);
         } finally {
 
