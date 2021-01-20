@@ -1,8 +1,76 @@
 package view;
 
+import conexao.ConexaoSQLite;
 import java.awt.Toolkit;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import javax.swing.JOptionPane;
 
 public class TelaCadastroSales extends javax.swing.JFrame {
+    public void insertCadastro() {
+
+        ConexaoSQLite conexao = new ConexaoSQLite();
+
+        conexao.conectar();
+
+        ResultSet resultSQL = null;
+
+        PreparedStatement comandoSQL = null;
+
+        String insertSQL = "insert into Employees(FullName,Age,Email,Telephone,Address,Cpf,BirthDate,Salary,OccupationArea,Sex) VALUES(?,?,?,?,?,?,?,?,?,?);";
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+        String date = sdf.format(txtDate.getDate());
+
+        //criando Stament para fazer insert 
+        try {
+            comandoSQL = conexao.criarPreparedStatement(insertSQL);
+            comandoSQL.setString(1, txtTitle.getText());
+            comandoSQL.setString(2, txtType.getText());
+            comandoSQL.setString(3, txtDescription.getText());
+            comandoSQL.setString(4, date);
+            comandoSQL.setString(5, txtValue.getText());
+            comandoSQL.setString(6, txtProducts.getText());
+            comandoSQL.setString(7, txtClassification.getSelectedItem().toString());
+
+            int insert = comandoSQL.executeUpdate();
+
+            if (insert > 0) {
+                TelaSucessoCadastro cadastro = new TelaSucessoCadastro();
+                cadastro.setVisible(true);
+                txtTitle.setText(null);
+                txtType.setText(null);
+                txtDescription.setText(null);
+                txtDate.setCalendar(null);
+                txtValue.setText(null);
+                txtProducts.setText(null);
+                txtClassification.setSelectedItem(null);
+            }
+        } catch (SQLException e) {
+            TelaErroCadastro error = new TelaErroCadastro();
+            JOptionPane.showMessageDialog(null, " Error " + e.getMessage());
+            System.out.println(e);
+            error.setVisible(true);
+        } finally {
+
+            try {
+
+                comandoSQL.close();
+
+                resultSQL.close();
+
+                conexao.desconectar();
+
+            } catch (SQLException e) {
+
+                JOptionPane.showMessageDialog(null, " ERROR EM FECHAMENTO " + e.getMessage());
+
+            }
+        }
+    }
 
     public TelaCadastroSales() {
         initComponents();
@@ -37,20 +105,20 @@ public class TelaCadastroSales extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jComboBox3 = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
-        PesquisarProducts = new javax.swing.JTextField();
-        PesquisarProducts1 = new javax.swing.JTextField();
-        PesquisarProducts2 = new javax.swing.JTextField();
-        PesquisarProducts3 = new javax.swing.JTextField();
+        txtTitle = new javax.swing.JTextField();
+        txtType = new javax.swing.JTextField();
+        txtDescription = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        PesquisarProducts5 = new javax.swing.JTextField();
+        txtValue = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        PesquisarProducts9 = new javax.swing.JTextField();
+        txtClassification = new javax.swing.JComboBox<>();
+        txtProducts = new javax.swing.JTextField();
+        txtDate = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -261,31 +329,24 @@ public class TelaCadastroSales extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        PesquisarProducts.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        PesquisarProducts.addActionListener(new java.awt.event.ActionListener() {
+        txtTitle.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtTitle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PesquisarProductsActionPerformed(evt);
+                txtTitleActionPerformed(evt);
             }
         });
 
-        PesquisarProducts1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        PesquisarProducts1.addActionListener(new java.awt.event.ActionListener() {
+        txtType.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PesquisarProducts1ActionPerformed(evt);
+                txtTypeActionPerformed(evt);
             }
         });
 
-        PesquisarProducts2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        PesquisarProducts2.addActionListener(new java.awt.event.ActionListener() {
+        txtDescription.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtDescription.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PesquisarProducts2ActionPerformed(evt);
-            }
-        });
-
-        PesquisarProducts3.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        PesquisarProducts3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PesquisarProducts3ActionPerformed(evt);
+                txtDescriptionActionPerformed(evt);
             }
         });
 
@@ -313,10 +374,10 @@ public class TelaCadastroSales extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel7.setText("Description:");
 
-        PesquisarProducts5.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        PesquisarProducts5.addActionListener(new java.awt.event.ActionListener() {
+        txtValue.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtValue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PesquisarProducts5ActionPerformed(evt);
+                txtValueActionPerformed(evt);
             }
         });
 
@@ -324,14 +385,14 @@ public class TelaCadastroSales extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel10.setText("Classification");
 
-        jComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jComboBox1.setMaximumRowCount(2);
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Product revenue", "Revenue from services" }));
+        txtClassification.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtClassification.setMaximumRowCount(2);
+        txtClassification.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Product revenue", "Revenue from services" }));
 
-        PesquisarProducts9.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        PesquisarProducts9.addActionListener(new java.awt.event.ActionListener() {
+        txtProducts.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtProducts.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PesquisarProducts9ActionPerformed(evt);
+                txtProductsActionPerformed(evt);
             }
         });
 
@@ -341,23 +402,23 @@ public class TelaCadastroSales extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(42, 42, 42)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(PesquisarProducts, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel3)
-                    .addComponent(PesquisarProducts1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtType, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
                     .addComponent(jLabel6)
-                    .addComponent(PesquisarProducts3, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(PesquisarProducts2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDescription, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
                     .addComponent(jLabel7)
-                    .addComponent(PesquisarProducts5, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtValue, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(jLabel10)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(PesquisarProducts9, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtClassification, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtProducts, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(43, 43, 43))
         );
         jPanel1Layout.setVerticalGroup(
@@ -370,30 +431,30 @@ public class TelaCadastroSales extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addComponent(PesquisarProducts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(4, 4, 4)
-                        .addComponent(PesquisarProducts9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtProducts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(6, 6, 6)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(PesquisarProducts1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtClassification, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PesquisarProducts2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PesquisarProducts3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PesquisarProducts5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(79, 79, 79))
         );
 
@@ -437,25 +498,21 @@ public class TelaCadastroSales extends javax.swing.JFrame {
 
     }//GEN-LAST:event_Menu2MouseDragged
 
-    private void PesquisarProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarProductsActionPerformed
+    private void txtTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTitleActionPerformed
 
-    }//GEN-LAST:event_PesquisarProductsActionPerformed
+    }//GEN-LAST:event_txtTitleActionPerformed
 
-    private void PesquisarProducts1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarProducts1ActionPerformed
+    private void txtTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTypeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_PesquisarProducts1ActionPerformed
+    }//GEN-LAST:event_txtTypeActionPerformed
 
-    private void PesquisarProducts2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarProducts2ActionPerformed
+    private void txtDescriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescriptionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_PesquisarProducts2ActionPerformed
+    }//GEN-LAST:event_txtDescriptionActionPerformed
 
-    private void PesquisarProducts3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarProducts3ActionPerformed
+    private void txtValueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValueActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_PesquisarProducts3ActionPerformed
-
-    private void PesquisarProducts5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarProducts5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PesquisarProducts5ActionPerformed
+    }//GEN-LAST:event_txtValueActionPerformed
 
     private void btn_EditMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_EditMouseReleased
 
@@ -471,9 +528,9 @@ public class TelaCadastroSales extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jLabel16MouseClicked
 
-    private void PesquisarProducts9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarProducts9ActionPerformed
+    private void txtProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProductsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_PesquisarProducts9ActionPerformed
+    }//GEN-LAST:event_txtProductsActionPerformed
 
     public static void main(String args[]) {
 
@@ -505,17 +562,10 @@ public class TelaCadastroSales extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Menu2;
     private javax.swing.JPanel Menu3;
-    private javax.swing.JTextField PesquisarProducts;
-    private javax.swing.JTextField PesquisarProducts1;
-    private javax.swing.JTextField PesquisarProducts2;
-    private javax.swing.JTextField PesquisarProducts3;
-    private javax.swing.JTextField PesquisarProducts5;
-    private javax.swing.JTextField PesquisarProducts9;
     private javax.swing.JPanel btn_Edit;
     private javax.swing.JPanel btn_Register;
     private javax.swing.JPanel ind_records;
     private javax.swing.JPanel ind_records1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
@@ -534,5 +584,12 @@ public class TelaCadastroSales extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JComboBox<String> txtClassification;
+    private com.toedter.calendar.JDateChooser txtDate;
+    private javax.swing.JTextField txtDescription;
+    private javax.swing.JTextField txtProducts;
+    private javax.swing.JTextField txtTitle;
+    private javax.swing.JTextField txtType;
+    private javax.swing.JTextField txtValue;
     // End of variables declaration//GEN-END:variables
 }
