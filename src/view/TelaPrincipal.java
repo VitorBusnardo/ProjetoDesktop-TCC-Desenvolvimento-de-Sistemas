@@ -19,10 +19,16 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class TelaPrincipal extends javax.swing.JFrame {
-
+    
+    
+    
     public TelaPrincipal() {
         
         initComponents();
+        
+        //mudando o nome de usuario 
+        
+        
         
         setIcon();
 
@@ -1337,6 +1343,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         TelaPrincipal principal = new TelaPrincipal();
         TelaRegistros registros = new TelaRegistros();
+        
+        registros.lblNomeDeUsuarioRegistro.setText(lblNomeUsuario.getText());
 
         customers.setVisible(false);
 

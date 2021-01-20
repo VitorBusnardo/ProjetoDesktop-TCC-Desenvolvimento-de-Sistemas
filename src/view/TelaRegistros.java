@@ -14,6 +14,8 @@ import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
 
 public class TelaRegistros extends javax.swing.JFrame {
+    
+    public String nomeDeUsuario = null;
 
     public TelaRegistros() {
 
@@ -139,6 +141,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         btn_customers = new javax.swing.JLabel();
         btn_employees = new javax.swing.JLabel();
         btn_schedule = new javax.swing.JLabel();
+        lblNomeDeUsuarioRegistro = new javax.swing.JLabel();
         Paineis = new javax.swing.JPanel();
         Graphic = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
@@ -176,7 +179,6 @@ public class TelaRegistros extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(900, 554));
 
         main.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -286,14 +288,24 @@ public class TelaRegistros extends javax.swing.JFrame {
             }
         });
 
+        lblNomeDeUsuarioRegistro.setBackground(new java.awt.Color(23, 35, 51));
+        lblNomeDeUsuarioRegistro.setForeground(new java.awt.Color(23, 35, 51));
+        lblNomeDeUsuarioRegistro.setText("jLabel2");
+
         javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
         header.setLayout(headerLayout);
         headerLayout.setHorizontalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(headerLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(headerLayout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblNomeDeUsuarioRegistro)
+                        .addGap(275, 275, 275)))
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(headerLayout.createSequentialGroup()
                 .addComponent(btn_graphic, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -313,10 +325,12 @@ public class TelaRegistros extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
                 .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(headerLayout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(0, 150, Short.MAX_VALUE))
+                        .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(lblNomeDeUsuarioRegistro))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 43, Short.MAX_VALUE)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -877,6 +891,7 @@ public class TelaRegistros extends javax.swing.JFrame {
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
 
         TelaPrincipal principal = new TelaPrincipal();
+        principal.lblNomeUsuario.setText(lblNomeDeUsuarioRegistro.getText());
 
         this.dispose();
 
@@ -1137,6 +1152,7 @@ public class TelaRegistros extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    public javax.swing.JLabel lblNomeDeUsuarioRegistro;
     private javax.swing.JPanel main;
     // End of variables declaration//GEN-END:variables
 }
