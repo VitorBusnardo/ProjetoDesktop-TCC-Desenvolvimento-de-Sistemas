@@ -19,7 +19,7 @@ public class TelaCadastroSales extends javax.swing.JFrame {
 
         PreparedStatement comandoSQL = null;
 
-        String insertSQL = "insert into Employees(FullName,Age,Email,Telephone,Address,Cpf,BirthDate,Salary,OccupationArea,Sex) VALUES(?,?,?,?,?,?,?,?,?,?);";
+        String insertSQL = "insert into Sales(Title,Type,Description,Date,Value,Products,Classification) values(?,?,?,?,?,?,?);";
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -251,6 +251,11 @@ public class TelaCadastroSales extends javax.swing.JFrame {
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Register");
         jLabel15.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel15MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout btn_RegisterLayout = new javax.swing.GroupLayout(btn_Register);
         btn_Register.setLayout(btn_RegisterLayout);
@@ -531,6 +536,11 @@ public class TelaCadastroSales extends javax.swing.JFrame {
     private void txtProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProductsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtProductsActionPerformed
+
+    private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
+        // TODO add your handling code here:
+        this.insertCadastro();
+    }//GEN-LAST:event_jLabel15MouseClicked
 
     public static void main(String args[]) {
 
