@@ -9,6 +9,7 @@ import net.proteanit.sql.DbUtils;
 
 public class Methods extends TelaRegistros{
         
+    @Override
     public void pesquisar_products() {		
     
         

@@ -27,6 +27,8 @@ public class TelaRegistros extends javax.swing.JFrame {
         setIcon();
 
         initComponents();
+        
+        this.pesquisar_products_sem();
 
         setLblColor(btn_graphic);
         resetLblColor(btn_products);
@@ -67,8 +69,31 @@ public class TelaRegistros extends javax.swing.JFrame {
         TabelaServices.getTableHeader().setForeground(new Color(255, 255, 255));
         TabelaServices.setRowHeight(25);
     }
+    protected void pesquisar_products_sem() {
 
-    private void pesquisar_products() {
+        ConexaoSQLite conexao = new ConexaoSQLite();
+
+        conexao.conectar();
+        ResultSet resultSQL = null;
+        PreparedStatement comandoSQL = null;
+
+        String sql = "select Name, Brand, Stock, Description, Value, Type from Products where Name like ?";
+
+        try {
+
+            comandoSQL = conexao.criarPreparedStatement(sql);
+            comandoSQL.setString(1, PesquisarProducts.getText() + "%");
+            resultSQL = comandoSQL.executeQuery();
+            TabelaProducts.setModel(DbUtils.resultSetToTableModel(resultSQL));
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    }
+
+    protected void pesquisar_products() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -184,6 +209,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         Products = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         TabelaProducts = new javax.swing.JTable();
+        jLabel4 = new javax.swing.JLabel();
         PesquisarProducts = new javax.swing.JTextField();
         btn_DeleteProducts = new javax.swing.JLabel();
         DeleteProducts = new javax.swing.JTextField();
@@ -208,6 +234,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         Services = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
         TabelaServices = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
         PesquisarServices = new javax.swing.JTextField();
         btn_DeleteServices = new javax.swing.JLabel();
         DeleteServices = new javax.swing.JTextField();
@@ -215,7 +242,6 @@ public class TelaRegistros extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(900, 555));
 
         main.setBackground(new java.awt.Color(255, 255, 255));
         main.setPreferredSize(new java.awt.Dimension(900, 555));
@@ -423,6 +449,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         Products.setBackground(new java.awt.Color(255, 255, 255));
         Products.setForeground(new java.awt.Color(204, 204, 204));
         Products.setPreferredSize(new java.awt.Dimension(900, 565));
+        Products.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         TabelaProducts.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         TabelaProducts.setModel(new javax.swing.table.DefaultTableModel(
@@ -469,8 +496,13 @@ public class TelaRegistros extends javax.swing.JFrame {
             TabelaProducts.getColumnModel().getColumn(5).setResizable(false);
         }
 
+        Products.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 11, 833, 227));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel4.setText(" search here!");
+        Products.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, -1, -1));
+
         PesquisarProducts.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        PesquisarProducts.setText("Search here!");
         PesquisarProducts.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PesquisarProductsActionPerformed(evt);
@@ -481,6 +513,7 @@ public class TelaRegistros extends javax.swing.JFrame {
                 PesquisarProductsKeyReleased(evt);
             }
         });
+        Products.add(PesquisarProducts, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 267, 270, -1));
 
         btn_DeleteProducts.setBackground(new java.awt.Color(23, 35, 51));
         btn_DeleteProducts.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -494,6 +527,7 @@ public class TelaRegistros extends javax.swing.JFrame {
                 btn_DeleteProductsMouseClicked(evt);
             }
         });
+        Products.add(btn_DeleteProducts, new org.netbeans.lib.awtextra.AbsoluteConstraints(719, 267, 146, 30));
 
         DeleteProducts.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         DeleteProducts.setToolTipText("");
@@ -502,41 +536,7 @@ public class TelaRegistros extends javax.swing.JFrame {
                 DeleteProductsActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout ProductsLayout = new javax.swing.GroupLayout(Products);
-        Products.setLayout(ProductsLayout);
-        ProductsLayout.setHorizontalGroup(
-            ProductsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ProductsLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(PesquisarProducts, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 215, Short.MAX_VALUE)
-                .addComponent(DeleteProducts, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_DeleteProducts, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35))
-            .addGroup(ProductsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProductsLayout.createSequentialGroup()
-                    .addContainerGap(33, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 833, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(34, Short.MAX_VALUE)))
-        );
-        ProductsLayout.setVerticalGroup(
-            ProductsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ProductsLayout.createSequentialGroup()
-                .addContainerGap(267, Short.MAX_VALUE)
-                .addGroup(ProductsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ProductsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(DeleteProducts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btn_DeleteProducts, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(PesquisarProducts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-            .addGroup(ProductsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProductsLayout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(70, Short.MAX_VALUE)))
-        );
+        Products.add(DeleteProducts, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 267, 189, -1));
 
         Paineis.add(Products, "card3");
 
@@ -815,6 +815,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         Services.setBackground(new java.awt.Color(255, 255, 255));
         Services.setForeground(new java.awt.Color(51, 51, 51));
         Services.setPreferredSize(new java.awt.Dimension(900, 565));
+        Services.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         TabelaServices.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         TabelaServices.setModel(new javax.swing.table.DefaultTableModel(
@@ -844,13 +845,19 @@ public class TelaRegistros extends javax.swing.JFrame {
             TabelaServices.getColumnModel().getColumn(2).setResizable(false);
         }
 
+        Services.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 11, 833, 227));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setText(" search here!");
+        Services.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 260, 20));
+
         PesquisarServices.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        PesquisarServices.setText("Search here!");
         PesquisarServices.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PesquisarServicesActionPerformed(evt);
             }
         });
+        Services.add(PesquisarServices, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 267, 270, -1));
 
         btn_DeleteServices.setBackground(new java.awt.Color(23, 35, 51));
         btn_DeleteServices.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -864,6 +871,7 @@ public class TelaRegistros extends javax.swing.JFrame {
                 btn_DeleteServicesMouseClicked(evt);
             }
         });
+        Services.add(btn_DeleteServices, new org.netbeans.lib.awtextra.AbsoluteConstraints(719, 267, 146, 30));
 
         DeleteServices.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         DeleteServices.setToolTipText("");
@@ -872,40 +880,7 @@ public class TelaRegistros extends javax.swing.JFrame {
                 DeleteServicesActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout ServicesLayout = new javax.swing.GroupLayout(Services);
-        Services.setLayout(ServicesLayout);
-        ServicesLayout.setHorizontalGroup(
-            ServicesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ServicesLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(PesquisarServices, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 215, Short.MAX_VALUE)
-                .addComponent(DeleteServices, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_DeleteServices, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35))
-            .addGroup(ServicesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ServicesLayout.createSequentialGroup()
-                    .addContainerGap(33, Short.MAX_VALUE)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 833, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(34, Short.MAX_VALUE)))
-        );
-        ServicesLayout.setVerticalGroup(
-            ServicesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ServicesLayout.createSequentialGroup()
-                .addContainerGap(267, Short.MAX_VALUE)
-                .addGroup(ServicesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(DeleteServices, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_DeleteServices, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(PesquisarServices, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-            .addGroup(ServicesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ServicesLayout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(70, Short.MAX_VALUE)))
-        );
+        Services.add(DeleteServices, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 267, 189, -1));
 
         Paineis.add(Services, "card3");
 
@@ -933,7 +908,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 536, Short.MAX_VALUE)
+            .addComponent(main, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
         );
 
         pack();
@@ -1084,6 +1059,7 @@ public class TelaRegistros extends javax.swing.JFrame {
 
     private void PesquisarServicesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarServicesActionPerformed
 
+        this.jLabel2.setVisible(false);
     }//GEN-LAST:event_PesquisarServicesActionPerformed
 
     private void btn_DeleteServicesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DeleteServicesMouseClicked
@@ -1143,6 +1119,7 @@ public class TelaRegistros extends javax.swing.JFrame {
 
     private void PesquisarProductsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PesquisarProductsKeyReleased
         pesquisar_products();
+        this.lblNomeDeUsuarioRegistro.setVisible(false);
     }//GEN-LAST:event_PesquisarProductsKeyReleased
 
     private void TabelaProductsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabelaProductsMouseClicked
@@ -1221,7 +1198,9 @@ public class TelaRegistros extends javax.swing.JFrame {
     private javax.swing.JLabel btn_services;
     private javax.swing.JPanel header;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
