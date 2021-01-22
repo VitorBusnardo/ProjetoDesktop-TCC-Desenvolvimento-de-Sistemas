@@ -22,6 +22,35 @@ import org.jfree.data.category.DefaultCategoryDataset;
 public class TelaRegistros extends javax.swing.JFrame {
 
     public String nomeDeUsuario = null;
+    
+    
+    protected void Deletar_Customers()
+    {
+        ConexaoSQLite conexao = new ConexaoSQLite();
+
+        conexao.conectar();
+        ResultSet resultSQL = null;
+        PreparedStatement comandoSQL = null;
+        
+        String sql = "DELETE FROM Customers           \n" +
+"                     WHERE Id = ?  AND               \n" +
+"                     FullName = ?  AND               \n" +
+"                     Age = ?       AND               \n" +
+"                     Email = ?     AND               \n" +
+"                     Telephone = ? AND               \n" +
+"                     Address = ?   AND               \n" +
+"                     Cpf = ?       AND               \n" + 
+"                     BirthDate = ? AND               \n" +
+"                     City = ?      AND               \n" +
+"                     Sex = ?       AND               \n" +
+"                     Services = ?;";
+        
+        try {
+            
+        } catch (Exception e) {
+        }
+    
+    }
 
     protected void pesquisar_Customers_Sem() {
 
@@ -31,7 +60,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "select FullName, Age, Email, Telephone, Address, Email, Cpf, BirthDate, City, Sex from Customers where FullName like ?";
+        String sql = "select Id,FullName, Age, Email, Telephone, Address, Email, Cpf, BirthDate, City, Sex from Customers where FullName like ?";
 
         try {
 
@@ -55,7 +84,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "select FullName, Age, Email, Telephone, Address, Email, Cpf, BirthDate, City, Sex from Customers where FullName like ?";
+        String sql = "select Id,FullName, Age, Email, Telephone, Address, Email, Cpf, BirthDate, City, Sex from Customers where FullName like ?";
 
         try {
 
@@ -456,7 +485,6 @@ public class TelaRegistros extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(900, 565));
 
         main.setBackground(new java.awt.Color(255, 255, 255));
         main.setPreferredSize(new java.awt.Dimension(900, 565));
@@ -671,19 +699,27 @@ public class TelaRegistros extends javax.swing.JFrame {
         TabelaCustomers.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         TabelaCustomers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Nome", "Telefone", "Endereço", "Email"
+                "ID", "Nome", "Telefone", "Endereço", "Email"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         TabelaCustomers.setFocusable(false);
         TabelaCustomers.setIntercellSpacing(new java.awt.Dimension(0, 0));
         TabelaCustomers.setRowHeight(25);
@@ -747,7 +783,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         CustomersLayout.setVerticalGroup(
             CustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CustomersLayout.createSequentialGroup()
-                .addContainerGap(267, Short.MAX_VALUE)
+                .addContainerGap(524, Short.MAX_VALUE)
                 .addGroup(CustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(CustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(DeleteCustomers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -758,7 +794,7 @@ public class TelaRegistros extends javax.swing.JFrame {
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CustomersLayout.createSequentialGroup()
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(70, Short.MAX_VALUE)))
+                    .addContainerGap(325, Short.MAX_VALUE)))
         );
 
         Paineis.add(Customers, "card3");
@@ -845,7 +881,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         ProductsLayout.setVerticalGroup(
             ProductsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProductsLayout.createSequentialGroup()
-                .addContainerGap(267, Short.MAX_VALUE)
+                .addContainerGap(281, Short.MAX_VALUE)
                 .addGroup(ProductsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ProductsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(DeleteProducts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -856,7 +892,7 @@ public class TelaRegistros extends javax.swing.JFrame {
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProductsLayout.createSequentialGroup()
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(70, Short.MAX_VALUE)))
+                    .addContainerGap(77, Short.MAX_VALUE)))
         );
 
         Paineis.add(Products, "card3");
@@ -943,7 +979,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         ScheduleLayout.setVerticalGroup(
             ScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ScheduleLayout.createSequentialGroup()
-                .addContainerGap(267, Short.MAX_VALUE)
+                .addContainerGap(281, Short.MAX_VALUE)
                 .addGroup(ScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(DeleteSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -954,7 +990,7 @@ public class TelaRegistros extends javax.swing.JFrame {
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ScheduleLayout.createSequentialGroup()
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(70, Short.MAX_VALUE)))
+                    .addContainerGap(77, Short.MAX_VALUE)))
         );
 
         Paineis.add(Schedule, "card3");
@@ -1119,7 +1155,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         EmployeesLayout.setVerticalGroup(
             EmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EmployeesLayout.createSequentialGroup()
-                .addContainerGap(267, Short.MAX_VALUE)
+                .addContainerGap(281, Short.MAX_VALUE)
                 .addGroup(EmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(EmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(DeleteEmployees, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1130,7 +1166,7 @@ public class TelaRegistros extends javax.swing.JFrame {
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EmployeesLayout.createSequentialGroup()
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(70, Short.MAX_VALUE)))
+                    .addContainerGap(77, Short.MAX_VALUE)))
         );
 
         Paineis.add(Employees, "card3");
@@ -1159,7 +1195,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 536, Short.MAX_VALUE)
+            .addComponent(main, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
         );
 
         pack();
@@ -1248,7 +1284,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         Services.setVisible(true);
         Schedule.setVisible(false);
 
-        pesquisar_services_Sem();
+        pesquisar_products_Sem();
 
 
     }//GEN-LAST:event_btn_servicesMouseClicked
