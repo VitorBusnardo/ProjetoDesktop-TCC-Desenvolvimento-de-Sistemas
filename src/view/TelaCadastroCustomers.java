@@ -66,7 +66,6 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
             readComando.setString(1, txtServices.getSelectedItem().toString());
             resultSQL = readComando.executeQuery();
             String idServices = resultSQL.getString("Id");
-            
             comandoSQL = conexao.criarPreparedStatement(insertSQL);
             comandoSQL.setString(1, txtFullName.getText());
             comandoSQL.setString(2, txtAge.getText());
@@ -78,10 +77,7 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
             comandoSQL.setString(8, txtCity.getText());
             comandoSQL.setString(9, txtSex.getSelectedItem().toString());
             comandoSQL.setString(10, idServices);
-            
-
             int insert = comandoSQL.executeUpdate();
-
             if (insert > 0) {
                 TelaSucessoCadastro cadastro = new TelaSucessoCadastro();
                 cadastro.setVisible(true);
