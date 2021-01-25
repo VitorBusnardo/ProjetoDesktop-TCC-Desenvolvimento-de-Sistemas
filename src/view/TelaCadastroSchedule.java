@@ -9,10 +9,9 @@ import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 
 public class TelaCadastroSchedule extends javax.swing.JFrame {
-    
-    
-     protected void Buscar_Services(){
-        
+
+    protected void Buscar_Services() {
+
         ConexaoSQLite conexao = new ConexaoSQLite();
 
         conexao.conectar();
@@ -21,24 +20,25 @@ public class TelaCadastroSchedule extends javax.swing.JFrame {
 
         PreparedStatement comandoSQL = null;
 
-        String insertSQL = "select name from Services;";
-        
+        String insertSQL = "select Name from Services;";
+
         try {
-            
+
             comandoSQL = conexao.criarPreparedStatement(insertSQL);
-            resultSQL =  comandoSQL.executeQuery();
-            while(resultSQL.next()){
-            txtServices.addItem( resultSQL.getString("Name"));
+            resultSQL = comandoSQL.executeQuery();
+            while (resultSQL.next()) {
+                txtServices.addItem(resultSQL.getString("Name"));
             }
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null,"Error " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error " + e.getMessage());
         }
-        }
+    }
+
     /**
      *
      */
-        protected void Buscar_Client(){
-        
+    protected void Buscar_Client() {
+
         ConexaoSQLite conexao = new ConexaoSQLite();
 
         conexao.conectar();
@@ -48,20 +48,20 @@ public class TelaCadastroSchedule extends javax.swing.JFrame {
         PreparedStatement comandoSQL = null;
 
         String insertSQL = "select FullName from Customers;";
-        
+
         try {
-            
+
             comandoSQL = conexao.criarPreparedStatement(insertSQL);
-            resultSQL =  comandoSQL.executeQuery();
-            while(resultSQL.next()){
-            txtClient.addItem( resultSQL.getString("FullName"));
+            resultSQL = comandoSQL.executeQuery();
+            while (resultSQL.next()) {
+                txtClient.addItem(resultSQL.getString("FullName"));
             }
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null,"Error " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error " + e.getMessage());
         }
-    
-    
+
     }
+
     public void insertCadastro() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
@@ -72,7 +72,7 @@ public class TelaCadastroSchedule extends javax.swing.JFrame {
 
         PreparedStatement comandoSQL = null;
 
-        String insertSQL = "insert into Schedule(Title,Position,Description,Date,Schedule,Weekday) values(?,?,?,?,?,?);";
+        String insertSQL = "insert into Schedule(Title,Position,Description,Date,Schedule,Weekday,Services,Client) values(?,?,?,?,?,?,?,?);";
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -87,7 +87,8 @@ public class TelaCadastroSchedule extends javax.swing.JFrame {
             comandoSQL.setString(4, date);
             comandoSQL.setString(5, txtShedule.getText());
             comandoSQL.setString(6, txtWeekday.getSelectedItem().toString());
-            
+            comandoSQL.setString(7, txtServices.getSelectedItem().toString());
+            comandoSQL.setString(8, txtClient.getSelectedItem().toString());
             int insert = comandoSQL.executeUpdate();
 
             if (insert > 0) {
@@ -99,6 +100,8 @@ public class TelaCadastroSchedule extends javax.swing.JFrame {
                 txtDate.setCalendar(null);
                 txtShedule.setText(null);
                 txtWeekday.setSelectedItem(null);
+                txtServices.setSelectedItem(null);
+                txtClient.setSelectedItem(null);
             }
         } catch (SQLException e) {
             TelaErroCadastro error = new TelaErroCadastro();
@@ -127,7 +130,7 @@ public class TelaCadastroSchedule extends javax.swing.JFrame {
         initComponents();
 
         setIcon();
-        
+
         Buscar_Client();
         Buscar_Services();
     }

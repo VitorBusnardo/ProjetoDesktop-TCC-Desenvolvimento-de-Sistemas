@@ -20,7 +20,7 @@ public class TelaCadastroSales extends javax.swing.JFrame {
 
         PreparedStatement comandoSQL = null;
 
-        String insertSQL = "select name from Services;";
+        String insertSQL = "select Name from Services;";
         
         try {
             
@@ -73,7 +73,7 @@ public class TelaCadastroSales extends javax.swing.JFrame {
 
         PreparedStatement comandoSQL = null;
 
-        String insertSQL = "insert into Sales(Title,Type,Description,Date,Value,Products,Classification) values(?,?,?,?,?,?,?);";
+        String insertSQL = "insert into Sales(Title,Type,Description,Date,Value,Products,Classification,Service,Client) values(?,?,?,?,?,?,?,?,?);";
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -89,6 +89,8 @@ public class TelaCadastroSales extends javax.swing.JFrame {
             comandoSQL.setString(5, txtValue.getText());
             comandoSQL.setString(6, txtProducts.getText());
             comandoSQL.setString(7, txtClassification.getSelectedItem().toString());
+            comandoSQL.setString(8, txtServices.getSelectedItem().toString());
+            comandoSQL.setString(9, txtClient.getSelectedItem().toString());
 
             int insert = comandoSQL.executeUpdate();
 
@@ -102,6 +104,8 @@ public class TelaCadastroSales extends javax.swing.JFrame {
                 txtValue.setText(null);
                 txtProducts.setText(null);
                 txtClassification.setSelectedItem(null);
+                txtServices.setSelectedItem(null);
+                txtClient.setSelectedItem(null);
             }
         } catch (SQLException e) {
             TelaErroCadastro error = new TelaErroCadastro();

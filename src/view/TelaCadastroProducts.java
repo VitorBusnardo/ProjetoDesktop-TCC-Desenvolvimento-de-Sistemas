@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 
 public class TelaCadastroProducts extends javax.swing.JFrame {
+
     public void insertCadastro() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
@@ -31,24 +32,33 @@ public class TelaCadastroProducts extends javax.swing.JFrame {
             comandoSQL.setString(5, txtValue.getText());
             comandoSQL.setString(6, txtType.getText());
 
-            int insert = comandoSQL.executeUpdate();
+            if (txtName.getText().isEmpty() || txtBrand.getText().isEmpty() || txtStock.getText().isEmpty() || txtDescription.getText().isEmpty() || txtValue.getText().isEmpty() || txtType.getText().isEmpty()) {
 
-            if (insert > 0) {
-                TelaSucessoCadastro cadastro = new TelaSucessoCadastro();
-                cadastro.setVisible(true);
-                txtName.setText(null);
-                txtBrand.setText(null);
-                txtStock.setText(null);
-                txtDescription.setText(null);
-                txtValue.setText(null);
-                txtType.setText(null);
+                TelaPreencherCadastro preencher = new TelaPreencherCadastro();
+                preencher.setVisible(true);
+
+            } else {
+
+                int insert = comandoSQL.executeUpdate();
+
+                if (insert > 0) {
+                    TelaSucessoCadastro cadastro = new TelaSucessoCadastro();
+                    cadastro.setVisible(true);
+                    txtName.setText(null);
+                    txtBrand.setText(null);
+                    txtStock.setText(null);
+                    txtDescription.setText(null);
+                    txtValue.setText(null);
+                    txtType.setText(null);
+                }
+                
             }
-        } catch (SQLException e) {
+            }catch (SQLException e) {
             TelaErroCadastro error = new TelaErroCadastro();
             JOptionPane.showMessageDialog(null, " Error " + e.getMessage());
             System.out.println(e);
             error.setVisible(true);
-        } finally {
+        }finally {
 
             try {
 
@@ -64,7 +74,9 @@ public class TelaCadastroProducts extends javax.swing.JFrame {
 
             }
         }
-    }
+        }
+
+    
 
     public TelaCadastroProducts() {
         initComponents();

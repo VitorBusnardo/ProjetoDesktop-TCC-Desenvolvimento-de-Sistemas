@@ -11,9 +11,9 @@ import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
 public class TelaCadastroCustomers extends javax.swing.JFrame {
-    
-    private void Buscar_Services(){
-        
+
+    private void Buscar_Services() {
+
         ConexaoSQLite conexao = new ConexaoSQLite();
 
         conexao.conectar();
@@ -22,20 +22,19 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
 
         PreparedStatement comandoSQL = null;
 
-        String insertSQL = "select name from Services;";
-        
+        String insertSQL = "select Name from Services;";
+
         try {
-            
+
             comandoSQL = conexao.criarPreparedStatement(insertSQL);
-            resultSQL =  comandoSQL.executeQuery();
-            while(resultSQL.next()){
-            txtServices.addItem( resultSQL.getString("Name"));
+            resultSQL = comandoSQL.executeQuery();
+            while (resultSQL.next()) {
+                txtServices.addItem(resultSQL.getString("Name"));
             }
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null,"Error " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error " + e.getMessage());
         }
-    
-    
+
     }
 
     protected void insertCadastro() {
@@ -47,11 +46,11 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
         ResultSet resultSQL = null;
 
         PreparedStatement comandoSQL = null;
-        
-        PreparedStatement readComando = null ; 
-        
+
+        PreparedStatement readComando = null;
+
         String insertSQL = "insert into Customers(FullName,Age,Email,Telephone,Address,Cpf,BirthDate,City,Sex,Services) VALUES(?,?,?,?,?,?,?,?,?,?);";
-        
+
         String readSql = "select Name from Services where Name = ?";
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -59,9 +58,8 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
         String date = sdf.format(txtBirthDate.getDate());
 
         //criando Stament para fazer insert 
-        
         try {
-            
+
             readComando = conexao.criarPreparedStatement(readSql);
             readComando.setString(1, txtServices.getSelectedItem().toString());
             resultSQL = readComando.executeQuery();
@@ -76,20 +74,31 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
             comandoSQL.setString(7, date);
             comandoSQL.setString(8, txtCity.getText());
             comandoSQL.setString(9, txtSex.getSelectedItem().toString());
-            comandoSQL.setString(10, idServices);
-            int insert = comandoSQL.executeUpdate();
-            if (insert > 0) {
-                TelaSucessoCadastro cadastro = new TelaSucessoCadastro();
-                cadastro.setVisible(true);
-                txtAddress.setText(null);
-                txtAge.setText(null);
-                txtCity.setText(null);
-                txtCpf.setText(null);
-                txtEmail.setText(null);
-                txtFullName.setText(null);
-                txtTelephone.setText(null);
-                txtSex.setSelectedItem("Male");
-                txtBirthDate.setCalendar(null);
+            comandoSQL.setString(10, txtServices.getSelectedItem().toString());
+
+            if (txtAddress.getText().isEmpty() || txtAge.getText().isEmpty() || txtCity.getText().isEmpty() || txtEmail.getText().isEmpty() || txtFullName.getText().isEmpty() || txtTelephone.getText().isEmpty() ) {
+
+                TelaPreencherCadastro preencher = new TelaPreencherCadastro();
+                preencher.setVisible(true);
+
+            } else {
+
+                int insert = comandoSQL.executeUpdate();
+                
+                if (insert > 0) {
+                    TelaSucessoCadastro cadastro = new TelaSucessoCadastro();
+                    cadastro.setVisible(true);
+                    txtAddress.setText(null);
+                    txtAge.setText(null);
+                    txtCity.setText(null);
+                    txtCpf.setText(null);
+                    txtEmail.setText(null);
+                    txtFullName.setText(null);
+                    txtTelephone.setText(null);
+                    txtSex.setSelectedItem("Male");
+                    txtBirthDate.setCalendar(null);
+                }
+            
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error " + e.getMessage());
@@ -118,10 +127,10 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
         initComponents();
 
         setIcon();
-        
+
         Buscar_Services();
         
-        
+
     }
 
     public void setIcon() {
@@ -223,7 +232,7 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
         jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 15, -1, 30));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconBusinessman.png"))); // NOI18N
-        jPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, -2, -1, 60));
+        jPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, -1, 60));
 
         btn_Edit.setBackground(new java.awt.Color(23, 35, 51));
         btn_Edit.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -334,7 +343,6 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
             Menu3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Menu3Layout.createSequentialGroup()
                 .addGroup(Menu3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(Menu3Layout.createSequentialGroup()
                         .addGap(70, 70, 70)
                         .addGroup(Menu3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -346,7 +354,8 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
                     .addGroup(Menu3Layout.createSequentialGroup()
                         .addGap(50, 50, 50)
                         .addComponent(txtServices, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         Menu3Layout.setVerticalGroup(
             Menu3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -454,6 +463,7 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
         });
 
         txtBirthDate.setBackground(new java.awt.Color(255, 255, 255));
+        txtBirthDate.setToolTipText("");
         txtBirthDate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtBirthDate.setOpaque(false);
         txtBirthDate.setVerifyInputWhenFocusTarget(false);

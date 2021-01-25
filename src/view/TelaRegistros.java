@@ -37,20 +37,13 @@ public class TelaRegistros extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
         
-            String sql = "DELETE FROM Customers           \n" +
-"                     WHERE Id = ?  AND               \n" +
-"                     FullName = ?  AND               \n" +
-"                     Age = ?       AND               \n" +
-"                     Email = ?     AND               \n" +
-"                     Telephone = ? AND               \n" +
-"                     Address = ?   AND               \n" +
-"                     Cpf = ?       AND               \n" + 
-"                     BirthDate = ? AND               \n" +
-"                     City = ?      AND               \n" +
-"                     Sex = ?       AND               \n" +
-"                     Services = ?;";
+        String sql = "DELETE FROM Customers where FullName = ?" ;
         
             try {
+                
+                comandoSQL.setString(1, DeleteCustomers.getText());
+
+                int apagado = comandoSQL.executeUpdate();
             
             } catch (Exception e) {
             }
@@ -254,7 +247,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "select Title, Position, Description, Date, Schedule, Weekday from Schedule;";
+        String sql = "select Title, Position, Description, Date, Schedule, Weekday,Services, Client from Schedule;";
 
         try {
 
@@ -277,7 +270,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "select Title, Position, Description, Date, Schedule, Weekday from Schedule where Name like ?";
+        String sql = "select Title, Position, Description, Date, Schedule, Weekday, Services, Client from Schedule where Name like ?";
 
         try {
 
@@ -490,6 +483,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(900, 556));
 
         main.setBackground(new java.awt.Color(255, 255, 255));
         main.setPreferredSize(new java.awt.Dimension(900, 565));
@@ -1400,7 +1394,7 @@ public class TelaRegistros extends javax.swing.JFrame {
     }//GEN-LAST:event_DeleteProductsActionPerformed
 
     private void btn_DeleteCustomersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DeleteCustomersMouseClicked
-        // TODO add your handling code here:
+        Deletar_Customers();
     }//GEN-LAST:event_btn_DeleteCustomersMouseClicked
 
     private void DeleteCustomersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteCustomersActionPerformed

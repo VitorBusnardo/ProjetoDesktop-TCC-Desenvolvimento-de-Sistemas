@@ -52,7 +52,7 @@ public class ConexaoSQLite {
         try {
             if (this.conexao.isClosed() == false ) {
             this.conexao.close();
-            JOptionPane.showMessageDialog(null,"deu certo desconectar");
+            
             } 
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null,"ERROR" + e.getMessage());
