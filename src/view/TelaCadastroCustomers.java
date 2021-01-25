@@ -12,7 +12,7 @@ import net.proteanit.sql.DbUtils;
 
 public class TelaCadastroCustomers extends javax.swing.JFrame {
     
-    protected void Buscar_Services(){
+    private void Buscar_Services(){
         
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -52,7 +52,7 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
         
         String insertSQL = "insert into Customers(FullName,Age,Email,Telephone,Address,Cpf,BirthDate,City,Sex,Services) VALUES(?,?,?,?,?,?,?,?,?,?);";
         
-        String readSql = "select id from Services where Name = ?";
+        String readSql = "select Name from Services where Name = ?";
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -65,7 +65,7 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
             readComando = conexao.criarPreparedStatement(readSql);
             readComando.setString(1, txtServices.getSelectedItem().toString());
             resultSQL = readComando.executeQuery();
-            String idServices = resultSQL.getString("Id");
+            String idServices = resultSQL.getString("Name");
             comandoSQL = conexao.criarPreparedStatement(insertSQL);
             comandoSQL.setString(1, txtFullName.getText());
             comandoSQL.setString(2, txtAge.getText());
