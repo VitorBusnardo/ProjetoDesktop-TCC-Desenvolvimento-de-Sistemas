@@ -19,10 +19,16 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class TelaPrincipal extends javax.swing.JFrame {
-
+    
+    
+    
     public TelaPrincipal() {
         
         initComponents();
+        
+        //mudando o nome de usuario 
+        
+        
         
         setIcon();
 
@@ -128,6 +134,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Intermedix");
         setBackground(new java.awt.Color(255, 255, 255));
         setIconImages(null);
         setLocationByPlatform(true);
@@ -238,6 +245,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         btn_customersP.setBackground(new java.awt.Color(23, 35, 51));
         btn_customersP.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_customersP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_customersPMouseClicked(evt);
+            }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 btn_customersPMouseReleased(evt);
             }
@@ -1337,6 +1347,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         TelaPrincipal principal = new TelaPrincipal();
         TelaRegistros registros = new TelaRegistros();
+        
+        registros.lblNomeDeUsuarioRegistro.setText(lblNomeUsuario.getText());
 
         customers.setVisible(false);
 
@@ -1358,6 +1370,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         this.dispose();
     }//GEN-LAST:event_jLabel14MouseClicked
+
+    private void btn_customersPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_customersPMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btn_customersPMouseClicked
 
     public static void main(String args[]) {
 

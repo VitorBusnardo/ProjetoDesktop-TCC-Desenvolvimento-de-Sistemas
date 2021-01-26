@@ -1,18 +1,20 @@
 package view;
 
 import conexao.ConexaoMysql;
+import conexao.ConexaoSQLite;
 import java.awt.Toolkit;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
+import net.proteanit.sql.DbUtils;
 
 public class TelaCadastroCustomers extends javax.swing.JFrame {
 
-    public void insertCadastro() {
+    private void Buscar_Services() {
 
-        ConexaoMysql conexao = new ConexaoMysql();
+        ConexaoSQLite conexao = new ConexaoSQLite();
 
         conexao.conectar();
 
@@ -20,7 +22,36 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
 
         PreparedStatement comandoSQL = null;
 
-        String insertSQL = "INSERT INTO CUSTOMERS(FULL_NAME,CPF,Birth_Date,Email,City,telephone,Address,Sex,age) VALUES(?,?,?,?,?,?,?,?,?);";
+        String insertSQL = "select Name from Services;";
+
+        try {
+
+            comandoSQL = conexao.criarPreparedStatement(insertSQL);
+            resultSQL = comandoSQL.executeQuery();
+            while (resultSQL.next()) {
+                txtServices.addItem(resultSQL.getString("Name"));
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error " + e.getMessage());
+        }
+
+    }
+
+    protected void insertCadastro() {
+
+        ConexaoSQLite conexao = new ConexaoSQLite();
+
+        conexao.conectar();
+
+        ResultSet resultSQL = null;
+
+        PreparedStatement comandoSQL = null;
+
+        PreparedStatement readComando = null;
+
+        String insertSQL = "insert into Customers(FullName,Age,Email,Telephone,Address,Cpf,BirthDate,City,Sex,Services) VALUES(?,?,?,?,?,?,?,?,?,?);";
+
+        String readSql = "select Name from Services where Name = ?";
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -28,31 +59,46 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
 
         //criando Stament para fazer insert 
         try {
+
+            readComando = conexao.criarPreparedStatement(readSql);
+            readComando.setString(1, txtServices.getSelectedItem().toString());
+            resultSQL = readComando.executeQuery();
+            String idServices = resultSQL.getString("Name");
             comandoSQL = conexao.criarPreparedStatement(insertSQL);
             comandoSQL.setString(1, txtFullName.getText());
-            comandoSQL.setString(2, txtCpf.getText());
-            comandoSQL.setString(3, date);
-            comandoSQL.setString(4, txtEmail.getText());
-            comandoSQL.setString(5, txtCity.getText());
-            comandoSQL.setString(6, txtTelephone.getText());
-            comandoSQL.setString(7, txtAddress.getText());
-            comandoSQL.setString(8, txtSex.getSelectedItem().toString());
-            comandoSQL.setString(9, txtAge.getText());
+            comandoSQL.setString(2, txtAge.getText());
+            comandoSQL.setString(3, txtEmail.getText());
+            comandoSQL.setString(4, txtTelephone.getText());
+            comandoSQL.setString(5, txtAddress.getText());
+            comandoSQL.setString(6, txtCpf.getText());
+            comandoSQL.setString(7, date);
+            comandoSQL.setString(8, txtCity.getText());
+            comandoSQL.setString(9, txtSex.getSelectedItem().toString());
+            comandoSQL.setString(10, txtServices.getSelectedItem().toString());
 
-            int insert = comandoSQL.executeUpdate();
+            if (txtAddress.getText().isEmpty() || txtAge.getText().isEmpty() || txtCity.getText().isEmpty() || txtEmail.getText().isEmpty() || txtFullName.getText().isEmpty() || txtTelephone.getText().isEmpty()) {
 
-            if (insert > 0) {
-                TelaSucessoCadastro cadastro = new TelaSucessoCadastro();
-                cadastro.setVisible(true);
-                txtAddress.setText(null);
-                txtAge.setText(null);
-                txtCity.setText(null);
-                txtCpf.setText(null);
-                txtEmail.setText(null);
-                txtFullName.setText(null);
-                txtTelephone.setText(null);
-                txtSex.setSelectedItem("Male");
-                txtBirthDate.setCalendar(null);
+                TelaPreencherCadastro preencher = new TelaPreencherCadastro();
+                preencher.setVisible(true);
+
+            } else {
+
+                int insert = comandoSQL.executeUpdate();
+
+                if (insert > 0) {
+                    TelaSucessoCadastro cadastro = new TelaSucessoCadastro();
+                    cadastro.setVisible(true);
+                    txtAddress.setText(null);
+                    txtAge.setText(null);
+                    txtCity.setText(null);
+                    txtCpf.setText(null);
+                    txtEmail.setText(null);
+                    txtFullName.setText(null);
+                    txtTelephone.setText(null);
+                    txtSex.setSelectedItem("Male");
+                    txtBirthDate.setCalendar(null);
+                }
+
             }
         } catch (SQLException e) {
             TelaErroCadastro error = new TelaErroCadastro();
@@ -69,7 +115,8 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
 
             } catch (SQLException e) {
 
-                JOptionPane.showMessageDialog(null, " ERROR EM FECHAMENTO " + e.getMessage());
+                TelaErroCadastro error = new TelaErroCadastro();
+                error.setVisible(true);
 
             }
         }
@@ -79,6 +126,9 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
         initComponents();
 
         setIcon();
+
+        Buscar_Services();
+
     }
 
     public void setIcon() {
@@ -104,7 +154,7 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
         ind_records1 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        txtServices = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         txtFullName = new javax.swing.JTextField();
         txtAge = new javax.swing.JTextField();
@@ -180,7 +230,7 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
         jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 15, -1, 30));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconBusinessman.png"))); // NOI18N
-        jPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, -2, -1, 60));
+        jPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, -1, 60));
 
         btn_Edit.setBackground(new java.awt.Color(23, 35, 51));
         btn_Edit.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -283,25 +333,27 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel11.setText("Service");
 
-        jComboBox2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", " " }));
+        txtServices.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
 
         javax.swing.GroupLayout Menu3Layout = new javax.swing.GroupLayout(Menu3);
         Menu3.setLayout(Menu3Layout);
         Menu3Layout.setHorizontalGroup(
             Menu3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(Menu3Layout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addGroup(Menu3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btn_Register, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_Edit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-            .addGroup(Menu3Layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(Menu3Layout.createSequentialGroup()
-                .addGap(108, 108, 108)
-                .addComponent(jLabel11))
+                .addGroup(Menu3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Menu3Layout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addGroup(Menu3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btn_Register, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_Edit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(Menu3Layout.createSequentialGroup()
+                        .addGap(108, 108, 108)
+                        .addComponent(jLabel11))
+                    .addGroup(Menu3Layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(txtServices, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(50, Short.MAX_VALUE))
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         Menu3Layout.setVerticalGroup(
             Menu3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -310,8 +362,8 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtServices)
+                .addGap(144, 144, 144)
                 .addComponent(btn_Register, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(btn_Edit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -409,6 +461,7 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
         });
 
         txtBirthDate.setBackground(new java.awt.Color(255, 255, 255));
+        txtBirthDate.setToolTipText("");
         txtBirthDate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtBirthDate.setOpaque(false);
         txtBirthDate.setVerifyInputWhenFocusTarget(false);
@@ -430,7 +483,7 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel4)
                     .addComponent(jLabel8)
@@ -613,7 +666,6 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
     private javax.swing.JPanel btn_Register;
     private javax.swing.JPanel ind_records;
     private javax.swing.JPanel ind_records1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -638,6 +690,7 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
     private javax.swing.JTextField txtCpf;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtFullName;
+    private javax.swing.JComboBox<Object> txtServices;
     private javax.swing.JComboBox<String> txtSex;
     private javax.swing.JTextField txtTelephone;
     // End of variables declaration//GEN-END:variables

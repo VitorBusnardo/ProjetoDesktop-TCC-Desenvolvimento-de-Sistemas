@@ -8,6 +8,8 @@ import conexao.ConexaoMysql;
 import java.awt.Toolkit;
 
 public class TelaLogin extends javax.swing.JFrame {
+    
+    
 
     public void logar() {
 
@@ -102,6 +104,7 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Intermedix");
         setLocationByPlatform(true);
         setUndecorated(true);
 
