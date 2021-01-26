@@ -22,34 +22,177 @@ import org.jfree.data.category.DefaultCategoryDataset;
 public class TelaRegistros extends javax.swing.JFrame {
 
     public String nomeDeUsuario = null;
-    
-    
-    protected void Deletar_Customers() {
-        
-        int confirma = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja remover este Usuário?", "Atenção", JOptionPane.YES_NO_OPTION);
 
-        if (confirma == JOptionPane.YES_OPTION) {
-            
-        
+    protected void Deletar_Customers() {
+
         ConexaoSQLite conexao = new ConexaoSQLite();
 
         conexao.conectar();
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
-        
-        String sql = "DELETE FROM Customers where FullName = ?" ;
-        
-            try {
-                
-                comandoSQL.setString(1, DeleteCustomers.getText());
 
-                int apagado = comandoSQL.executeUpdate();
-            
-            } catch (Exception e) {
+        String sql = "delete from Customers where FullName=?";
+
+        try {
+
+            comandoSQL = conexao.criarPreparedStatement(sql);
+
+            comandoSQL.setString(1, DeleteCustomers.getText());
+
+            int apagado = comandoSQL.executeUpdate();
+
+            if (apagado > 0) {
+
+                DeleteCustomers.setText(null);
+                TelaSucessoDeletar sucesso = new TelaSucessoDeletar();
+                sucesso.setVisible(true);
+                pesquisar_Customers_Sem();
             }
+
+        } catch (Exception e) {
+
+            TelaErroDeletar erro = new TelaErroDeletar();
+            erro.setVisible(true);
+
         }
     }
 
+    protected void Deletar_Products() {
+
+        ConexaoSQLite conexao = new ConexaoSQLite();
+
+        conexao.conectar();
+        ResultSet resultSQL = null;
+        PreparedStatement comandoSQL = null;
+
+        String sql = "delete from Products where Name=?";
+
+        try {
+
+            comandoSQL = conexao.criarPreparedStatement(sql);
+
+            comandoSQL.setString(1, DeleteProducts.getText());
+
+            int apagado = comandoSQL.executeUpdate();
+
+            if (apagado > 0) {
+
+                DeleteProducts.setText(null);
+                TelaSucessoDeletar sucesso = new TelaSucessoDeletar();
+                sucesso.setVisible(true);
+                pesquisar_products_Sem();
+            }
+
+        } catch (Exception e) {
+
+            TelaErroDeletar erro = new TelaErroDeletar();
+            erro.setVisible(true);
+
+        }
+    }
+
+    protected void Deletar_Services() {
+
+        ConexaoSQLite conexao = new ConexaoSQLite();
+
+        conexao.conectar();
+        ResultSet resultSQL = null;
+        PreparedStatement comandoSQL = null;
+
+        String sql = "delete from Services where Name=?";
+
+        try {
+
+            comandoSQL = conexao.criarPreparedStatement(sql);
+
+            comandoSQL.setString(1, DeleteServices.getText());
+
+            int apagado = comandoSQL.executeUpdate();
+
+            if (apagado > 0) {
+
+                DeleteServices.setText(null);
+                TelaSucessoDeletar sucesso = new TelaSucessoDeletar();
+                sucesso.setVisible(true);
+                pesquisar_services_Sem();
+            }
+
+        } catch (Exception e) {
+
+            TelaErroDeletar erro = new TelaErroDeletar();
+            erro.setVisible(true);
+
+        }
+    }
+
+    protected void Deletar_Schedule() {
+
+        ConexaoSQLite conexao = new ConexaoSQLite();
+
+        conexao.conectar();
+        ResultSet resultSQL = null;
+        PreparedStatement comandoSQL = null;
+
+        String sql = "delete from Schedule where Title=?";
+
+        try {
+
+            comandoSQL = conexao.criarPreparedStatement(sql);
+
+            comandoSQL.setString(1, DeleteSchedule.getText());
+
+            int apagado = comandoSQL.executeUpdate();
+
+            if (apagado > 0) {
+
+                DeleteSchedule.setText(null);
+                TelaSucessoDeletar sucesso = new TelaSucessoDeletar();
+                sucesso.setVisible(true);
+                pesquisar_schedule_Sem();
+            }
+
+        } catch (Exception e) {
+
+            TelaErroDeletar erro = new TelaErroDeletar();
+            erro.setVisible(true);
+
+        }
+    }
+
+        protected void Deletar_Employees() {
+
+        ConexaoSQLite conexao = new ConexaoSQLite();
+
+        conexao.conectar();
+        ResultSet resultSQL = null;
+        PreparedStatement comandoSQL = null;
+
+        String sql = "delete from Employees where FullName=?";
+
+        try {
+
+            comandoSQL = conexao.criarPreparedStatement(sql);
+
+            comandoSQL.setString(1, DeleteEmployees.getText());
+
+            int apagado = comandoSQL.executeUpdate();
+
+            if (apagado > 0) {
+
+                DeleteEmployees.setText(null);
+                TelaSucessoDeletar sucesso = new TelaSucessoDeletar();
+                sucesso.setVisible(true);
+                pesquisar_Employees_Sem();
+            }
+
+        } catch (Exception e) {
+
+            TelaErroDeletar erro = new TelaErroDeletar();
+            erro.setVisible(true);
+
+        }
+    }
+    
     protected void pesquisar_Customers_Sem() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
@@ -313,14 +456,14 @@ public class TelaRegistros extends javax.swing.JFrame {
         DeleteServices.setText(TabelaServices.getModel().getValueAt(setar, 0).toString());
 
     }
-    
+
     private void setar_camposSchedule() {
 
         int setar = TabelaSchedule.getSelectedRow();
         DeleteSchedule.setText(TabelaSchedule.getModel().getValueAt(setar, 0).toString());
 
     }
-    
+
     public TelaRegistros() {
 
         setIcon();
@@ -481,6 +624,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         DeleteEmployees = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Intermedix");
         setLocationByPlatform(true);
         setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(900, 556));
@@ -1356,14 +1500,11 @@ public class TelaRegistros extends javax.swing.JFrame {
 
     private void PesquisarServicesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarServicesActionPerformed
 
-
     }//GEN-LAST:event_PesquisarServicesActionPerformed
 
     private void btn_DeleteServicesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DeleteServicesMouseClicked
-
-        TelaDelete delete = new TelaDelete();
-        delete.setVisible(true);
-
+        
+        Deletar_Services();
     }//GEN-LAST:event_btn_DeleteServicesMouseClicked
 
     private void DeleteServicesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteServicesActionPerformed
@@ -1371,10 +1512,8 @@ public class TelaRegistros extends javax.swing.JFrame {
     }//GEN-LAST:event_DeleteServicesActionPerformed
 
     private void btn_DeleteScheduleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DeleteScheduleMouseClicked
-
-        TelaDelete delete = new TelaDelete();
-        delete.setVisible(true);
-
+        
+        Deletar_Schedule();
     }//GEN-LAST:event_btn_DeleteScheduleMouseClicked
 
     private void DeleteScheduleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteScheduleActionPerformed
@@ -1386,7 +1525,8 @@ public class TelaRegistros extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_productsMouseEntered
 
     private void btn_DeleteProductsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DeleteProductsMouseClicked
-        // TODO add your handling code here:
+       
+        Deletar_Products();
     }//GEN-LAST:event_btn_DeleteProductsMouseClicked
 
     private void DeleteProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteProductsActionPerformed
@@ -1394,6 +1534,7 @@ public class TelaRegistros extends javax.swing.JFrame {
     }//GEN-LAST:event_DeleteProductsActionPerformed
 
     private void btn_DeleteCustomersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DeleteCustomersMouseClicked
+
         Deletar_Customers();
     }//GEN-LAST:event_btn_DeleteCustomersMouseClicked
 
@@ -1402,7 +1543,7 @@ public class TelaRegistros extends javax.swing.JFrame {
     }//GEN-LAST:event_DeleteCustomersActionPerformed
 
     private void btn_DeleteEmployeesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DeleteEmployeesMouseClicked
-        // TODO add your handling code here:
+        Deletar_Employees();
     }//GEN-LAST:event_btn_DeleteEmployeesMouseClicked
 
     private void DeleteEmployeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteEmployeesActionPerformed
@@ -1491,7 +1632,7 @@ public class TelaRegistros extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JPanel Customers;
-    private javax.swing.JTextField DeleteCustomers;
+    public javax.swing.JTextField DeleteCustomers;
     private javax.swing.JTextField DeleteEmployees;
     private javax.swing.JTextField DeleteProducts;
     private javax.swing.JTextField DeleteSchedule;

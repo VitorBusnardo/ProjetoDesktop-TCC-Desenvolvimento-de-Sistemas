@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 
 public class TelaCadastroServices extends javax.swing.JFrame {
+
     public void insertCadastro() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
@@ -28,21 +29,27 @@ public class TelaCadastroServices extends javax.swing.JFrame {
             comandoSQL.setString(2, txtType.getText());
             comandoSQL.setString(3, txtDescription.getText());
             comandoSQL.setString(4, txtValue.getText());
-            
-            int insert = comandoSQL.executeUpdate();
 
-            if (insert > 0) {
-                TelaSucessoCadastro cadastro = new TelaSucessoCadastro();
-                cadastro.setVisible(true);
-                txtName.setText(null);
-                txtType.setText(null);
-                txtDescription.setText(null);
-                txtValue.setText(null);
+            if (txtName.getText().isEmpty() || txtType.getText().isEmpty() || txtDescription.getText().isEmpty() || txtValue.getText().isEmpty()) {
+
+                TelaPreencherCadastro preencher = new TelaPreencherCadastro();
+                preencher.setVisible(true);
+
+            } else {
+
+                int insert = comandoSQL.executeUpdate();
+
+                if (insert > 0) {
+                    TelaSucessoCadastro cadastro = new TelaSucessoCadastro();
+                    cadastro.setVisible(true);
+                    txtName.setText(null);
+                    txtType.setText(null);
+                    txtDescription.setText(null);
+                    txtValue.setText(null);
+                }
             }
         } catch (SQLException e) {
             TelaErroCadastro error = new TelaErroCadastro();
-            JOptionPane.showMessageDialog(null, " Error " + e.getMessage());
-            System.out.println(e);
             error.setVisible(true);
         } finally {
 
@@ -56,7 +63,8 @@ public class TelaCadastroServices extends javax.swing.JFrame {
 
             } catch (SQLException e) {
 
-                JOptionPane.showMessageDialog(null, " ERROR EM FECHAMENTO " + e.getMessage());
+                TelaErroCadastro error = new TelaErroCadastro();
+                error.setVisible(true);
 
             }
         }

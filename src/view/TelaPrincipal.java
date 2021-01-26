@@ -134,6 +134,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Intermedix");
         setBackground(new java.awt.Color(255, 255, 255));
         setIconImages(null);
         setLocationByPlatform(true);

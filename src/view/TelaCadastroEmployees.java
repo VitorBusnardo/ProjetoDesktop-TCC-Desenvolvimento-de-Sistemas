@@ -41,26 +41,32 @@ public class TelaCadastroEmployees extends javax.swing.JFrame {
             comandoSQL.setString(9, txtOccupationArea.getText());
             comandoSQL.setString(10, txtSex.getSelectedItem().toString());
 
-            int insert = comandoSQL.executeUpdate();
+            if (txtFullName.getText().isEmpty() || txtAge.getText().isEmpty() || txtEmail.getText().isEmpty() || txtTelephone.getText().isEmpty() || txtCpf.getText().isEmpty() || txtAddress.getText().isEmpty() || txtSalary.getText().isEmpty() || txtOccupationArea.getText().isEmpty()) {
 
-            if (insert > 0) {
-                TelaSucessoCadastro cadastro = new TelaSucessoCadastro();
-                cadastro.setVisible(true);
-                txtAddress.setText(null);
-                txtAge.setText(null);
-                txtSalary.setText(null);
-                txtCpf.setText(null);
-                txtEmail.setText(null);
-                txtFullName.setText(null);
-                txtTelephone.setText(null);
-                txtSex.setSelectedItem("Male");
-                txtBirthDate.setCalendar(null);
-                txtOccupationArea.setText(null);
+                TelaPreencherCadastro preencher = new TelaPreencherCadastro();
+                preencher.setVisible(true);
+
+            } else {
+
+                int insert = comandoSQL.executeUpdate();
+
+                if (insert > 0) {
+                    TelaSucessoCadastro cadastro = new TelaSucessoCadastro();
+                    cadastro.setVisible(true);
+                    txtAddress.setText(null);
+                    txtAge.setText(null);
+                    txtSalary.setText(null);
+                    txtCpf.setText(null);
+                    txtEmail.setText(null);
+                    txtFullName.setText(null);
+                    txtTelephone.setText(null);
+                    txtSex.setSelectedItem("Male");
+                    txtBirthDate.setCalendar(null);
+                    txtOccupationArea.setText(null);
+                }
             }
         } catch (SQLException e) {
             TelaErroCadastro error = new TelaErroCadastro();
-            JOptionPane.showMessageDialog(null, " Error " + e.getMessage());
-            System.out.println(e);
             error.setVisible(true);
         } finally {
 
@@ -74,8 +80,8 @@ public class TelaCadastroEmployees extends javax.swing.JFrame {
 
             } catch (SQLException e) {
 
-                JOptionPane.showMessageDialog(null, " ERROR EM FECHAMENTO " + e.getMessage());
-
+                TelaErroCadastro error = new TelaErroCadastro();
+                error.setVisible(true);
             }
         }
     }

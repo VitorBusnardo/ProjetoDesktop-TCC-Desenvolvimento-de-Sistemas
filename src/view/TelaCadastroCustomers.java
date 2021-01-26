@@ -76,7 +76,7 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
             comandoSQL.setString(9, txtSex.getSelectedItem().toString());
             comandoSQL.setString(10, txtServices.getSelectedItem().toString());
 
-            if (txtAddress.getText().isEmpty() || txtAge.getText().isEmpty() || txtCity.getText().isEmpty() || txtEmail.getText().isEmpty() || txtFullName.getText().isEmpty() || txtTelephone.getText().isEmpty() ) {
+            if (txtAddress.getText().isEmpty() || txtAge.getText().isEmpty() || txtCity.getText().isEmpty() || txtEmail.getText().isEmpty() || txtFullName.getText().isEmpty() || txtTelephone.getText().isEmpty()) {
 
                 TelaPreencherCadastro preencher = new TelaPreencherCadastro();
                 preencher.setVisible(true);
@@ -84,7 +84,7 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
             } else {
 
                 int insert = comandoSQL.executeUpdate();
-                
+
                 if (insert > 0) {
                     TelaSucessoCadastro cadastro = new TelaSucessoCadastro();
                     cadastro.setVisible(true);
@@ -98,11 +98,9 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
                     txtSex.setSelectedItem("Male");
                     txtBirthDate.setCalendar(null);
                 }
-            
+
             }
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error " + e.getMessage());
-            System.out.println(e);
             TelaErroCadastro error = new TelaErroCadastro();
             error.setVisible(true);
         } finally {
@@ -117,7 +115,8 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
 
             } catch (SQLException e) {
 
-                JOptionPane.showMessageDialog(null, " ERROR EM FECHAMENTO " + e.getMessage());
+                TelaErroCadastro error = new TelaErroCadastro();
+                error.setVisible(true);
 
             }
         }
@@ -129,7 +128,6 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
         setIcon();
 
         Buscar_Services();
-        
 
     }
 

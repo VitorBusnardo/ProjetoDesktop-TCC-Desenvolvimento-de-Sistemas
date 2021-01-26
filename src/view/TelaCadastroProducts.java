@@ -51,14 +51,12 @@ public class TelaCadastroProducts extends javax.swing.JFrame {
                     txtValue.setText(null);
                     txtType.setText(null);
                 }
-                
+
             }
-            }catch (SQLException e) {
+        } catch (SQLException e) {
             TelaErroCadastro error = new TelaErroCadastro();
-            JOptionPane.showMessageDialog(null, " Error " + e.getMessage());
-            System.out.println(e);
             error.setVisible(true);
-        }finally {
+        } finally {
 
             try {
 
@@ -70,13 +68,12 @@ public class TelaCadastroProducts extends javax.swing.JFrame {
 
             } catch (SQLException e) {
 
-                JOptionPane.showMessageDialog(null, " ERROR EM FECHAMENTO " + e.getMessage());
+                TelaErroCadastro error = new TelaErroCadastro();
+                error.setVisible(true);
 
             }
         }
-        }
-
-    
+    }
 
     public TelaCadastroProducts() {
         initComponents();
@@ -488,10 +485,6 @@ public class TelaCadastroProducts extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtValueActionPerformed
 
-    private void btn_EditMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_EditMouseReleased
-
-    }//GEN-LAST:event_btn_EditMouseReleased
-
     private void btn_RegisterMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_RegisterMouseReleased
 
     }//GEN-LAST:event_btn_RegisterMouseReleased
@@ -510,6 +503,10 @@ public class TelaCadastroProducts extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.insertCadastro();
     }//GEN-LAST:event_jLabel15MouseClicked
+
+    private void btn_EditMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_EditMouseReleased
+
+    }//GEN-LAST:event_btn_EditMouseReleased
 
     public static void main(String args[]) {
 

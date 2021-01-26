@@ -37,23 +37,29 @@ public class TelaCadastroSpending extends javax.swing.JFrame {
             comandoSQL.setString(6, txtPS.getText());
             comandoSQL.setString(7, txtClassification.getSelectedItem().toString());
 
-            int insert = comandoSQL.executeUpdate();
+            if (txtTitle.getText().isEmpty() || txtType.getText().isEmpty() || txtDescription.getText().isEmpty() || txtValue.getText().isEmpty() || txtPS.getText().isEmpty()) {
 
-            if (insert > 0) {
-                TelaSucessoCadastro cadastro = new TelaSucessoCadastro();
-                cadastro.setVisible(true);
-                txtTitle.setText(null);
-                txtType.setText(null);
-                txtDescription.setText(null);
-                txtDate.setCalendar(null);
-                txtValue.setText(null);
-                txtPS.setText(null);
-                txtClassification.setSelectedItem(null);
+                TelaPreencherCadastro preencher = new TelaPreencherCadastro();
+                preencher.setVisible(true);
+
+            } else {
+
+                int insert = comandoSQL.executeUpdate();
+
+                if (insert > 0) {
+                    TelaSucessoCadastro cadastro = new TelaSucessoCadastro();
+                    cadastro.setVisible(true);
+                    txtTitle.setText(null);
+                    txtType.setText(null);
+                    txtDescription.setText(null);
+                    txtDate.setCalendar(null);
+                    txtValue.setText(null);
+                    txtPS.setText(null);
+                    txtClassification.setSelectedItem(null);
+                }
             }
         } catch (SQLException e) {
             TelaErroCadastro error = new TelaErroCadastro();
-            JOptionPane.showMessageDialog(null, " Error " + e.getMessage());
-            System.out.println(e);
             error.setVisible(true);
         } finally {
 
@@ -67,7 +73,8 @@ public class TelaCadastroSpending extends javax.swing.JFrame {
 
             } catch (SQLException e) {
 
-                JOptionPane.showMessageDialog(null, " ERROR EM FECHAMENTO " + e.getMessage());
+                TelaErroCadastro error = new TelaErroCadastro();
+                error.setVisible(true);
 
             }
         }
@@ -199,7 +206,7 @@ public class TelaCadastroSpending extends javax.swing.JFrame {
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("Edit");
+        jLabel14.setText("Records");
         jLabel14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout btn_EditLayout = new javax.swing.GroupLayout(btn_Edit);
@@ -208,9 +215,9 @@ public class TelaCadastroSpending extends javax.swing.JFrame {
             btn_EditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btn_EditLayout.createSequentialGroup()
                 .addComponent(ind_records, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
+                .addGap(40, 40, 40)
                 .addComponent(jLabel14)
-                .addGap(0, 56, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         btn_EditLayout.setVerticalGroup(
             btn_EditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -262,7 +269,7 @@ public class TelaCadastroSpending extends javax.swing.JFrame {
                 .addComponent(ind_records1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
                 .addComponent(jLabel15)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 40, Short.MAX_VALUE))
         );
         btn_RegisterLayout.setVerticalGroup(
             btn_RegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -284,7 +291,7 @@ public class TelaCadastroSpending extends javax.swing.JFrame {
                 .addGap(70, 70, 70)
                 .addGroup(Menu3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btn_Register, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_Edit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btn_Edit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         Menu3Layout.setVerticalGroup(
             Menu3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
