@@ -1,6 +1,8 @@
 package view;
 
 import conexao.ConexaoSQLite;
+import formatting.Letras;
+import formatting.Numeros;
 import java.awt.Toolkit;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -74,6 +76,10 @@ public class TelaCadastroServices extends javax.swing.JFrame {
         initComponents();
 
         setIcon();
+
+        txtName.setDocument(new Letras());
+        txtValue.setDocument(new Numeros());
+        txtType.setDocument(new Letras());
     }
 
     public void setIcon() {
@@ -296,11 +302,21 @@ public class TelaCadastroServices extends javax.swing.JFrame {
                 txtNameActionPerformed(evt);
             }
         });
+        txtName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNameKeyTyped(evt);
+            }
+        });
 
         txtType.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         txtType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTypeActionPerformed(evt);
+            }
+        });
+        txtType.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTypeKeyTyped(evt);
             }
         });
 
@@ -310,11 +326,21 @@ public class TelaCadastroServices extends javax.swing.JFrame {
                 txtDescriptionActionPerformed(evt);
             }
         });
+        txtDescription.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDescriptionKeyTyped(evt);
+            }
+        });
 
         txtValue.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         txtValue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtValueActionPerformed(evt);
+            }
+        });
+        txtValue.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtValueKeyTyped(evt);
             }
         });
 
@@ -447,6 +473,39 @@ public class TelaCadastroServices extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.insertCadastro();
     }//GEN-LAST:event_jLabel15MouseClicked
+
+    private void txtNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyTyped
+
+        if (txtName.getText().length() >= 20) {
+
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtNameKeyTyped
+
+    private void txtTypeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTypeKeyTyped
+
+        if (txtType.getText().length() >= 20) {
+
+            evt.consume();
+        }
+
+    }//GEN-LAST:event_txtTypeKeyTyped
+
+    private void txtDescriptionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDescriptionKeyTyped
+
+        if (txtDescription.getText().length() >= 80) {
+
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtDescriptionKeyTyped
+
+    private void txtValueKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValueKeyTyped
+
+        if (txtValue.getText().length() >= 10) {
+
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtValueKeyTyped
 
     public static void main(String args[]) {
 

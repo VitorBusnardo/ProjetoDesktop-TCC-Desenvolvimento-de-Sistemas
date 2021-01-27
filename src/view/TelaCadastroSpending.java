@@ -1,6 +1,8 @@
 package view;
 
 import conexao.ConexaoSQLite;
+import formatting.Letras;
+import formatting.Numeros;
 import java.awt.Toolkit;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -84,6 +86,11 @@ public class TelaCadastroSpending extends javax.swing.JFrame {
         initComponents();
 
         setIcon();
+
+        txtTitle.setDocument(new Letras());
+        txtPS.setDocument(new Letras());
+        txtValue.setDocument(new Numeros());
+        txtType.setDocument(new Letras());
     }
 
     public void setIcon() {
@@ -312,6 +319,11 @@ public class TelaCadastroSpending extends javax.swing.JFrame {
                 txtTitleActionPerformed(evt);
             }
         });
+        txtTitle.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTitleKeyTyped(evt);
+            }
+        });
 
         txtType.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         txtType.addActionListener(new java.awt.event.ActionListener() {
@@ -319,11 +331,21 @@ public class TelaCadastroSpending extends javax.swing.JFrame {
                 txtTypeActionPerformed(evt);
             }
         });
+        txtType.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTypeKeyTyped(evt);
+            }
+        });
 
         txtDescription.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         txtDescription.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDescriptionActionPerformed(evt);
+            }
+        });
+        txtDescription.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDescriptionKeyTyped(evt);
             }
         });
 
@@ -357,6 +379,11 @@ public class TelaCadastroSpending extends javax.swing.JFrame {
                 txtValueActionPerformed(evt);
             }
         });
+        txtValue.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtValueKeyTyped(evt);
+            }
+        });
 
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -369,6 +396,11 @@ public class TelaCadastroSpending extends javax.swing.JFrame {
         txtPS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPSActionPerformed(evt);
+            }
+        });
+        txtPS.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPSKeyTyped(evt);
             }
         });
 
@@ -513,6 +545,47 @@ public class TelaCadastroSpending extends javax.swing.JFrame {
     private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
         insertCadastro();
     }//GEN-LAST:event_jLabel15MouseClicked
+
+    private void txtTitleKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTitleKeyTyped
+
+        if (txtTitle.getText().length() >= 20) {
+
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtTitleKeyTyped
+
+    private void txtTypeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTypeKeyTyped
+
+        if (txtType.getText().length() >= 15) {
+
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtTypeKeyTyped
+
+    private void txtDescriptionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDescriptionKeyTyped
+
+        if (txtDescription.getText().length() >= 80) {
+
+            evt.consume();
+        }
+
+    }//GEN-LAST:event_txtDescriptionKeyTyped
+
+    private void txtValueKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValueKeyTyped
+
+        if (txtValue.getText().length() >= 10) {
+
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtValueKeyTyped
+
+    private void txtPSKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPSKeyTyped
+
+        if (txtPS.getText().length() >= 20) {
+
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtPSKeyTyped
 
     public static void main(String args[]) {
 
