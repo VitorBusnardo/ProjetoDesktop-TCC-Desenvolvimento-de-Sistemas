@@ -814,6 +814,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         btn_MenuReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconStreamline.png"))); // NOI18N
         btn_MenuReset.setText(" Reset All");
         btn_MenuReset.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_MenuReset.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_MenuResetMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout MenuSettingsLayout = new javax.swing.GroupLayout(MenuSettings);
         MenuSettings.setLayout(MenuSettingsLayout);
@@ -1375,6 +1380,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_btn_customersPMouseClicked
+
+    private void btn_MenuResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_MenuResetMouseClicked
+        
+        TelaDelete delete = new TelaDelete();
+        delete.setVisible(true);
+        
+    }//GEN-LAST:event_btn_MenuResetMouseClicked
 
     public static void main(String args[]) {
 

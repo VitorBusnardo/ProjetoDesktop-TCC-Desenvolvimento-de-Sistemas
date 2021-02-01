@@ -517,11 +517,30 @@ public class TelaRegistros extends javax.swing.JFrame {
     }
 
     private CategoryDataset createDataset() {
+        
+        /* Somar todos os valores, está dando erro
+        
+        ConexaoSQLite conexao = new ConexaoSQLite();
 
+        conexao.conectar();
+
+        ResultSet resultSQL = null;
+
+        PreparedStatement comandoSQL = null;
+
+        String insertSQL = "SELECT SUM(Value) from Sales";
+        
+        comandoSQL = conexao.criarPreparedStatement(insertSQL);
+        
+        resultSQL = comandoSQL.executeQuery();
+        
+        String soma = resultSQL.toString();
+        
+        */
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 
         int lucro = 1000;
-
+        
         int gastos = 534;
 
         int l = lucro - gastos;
