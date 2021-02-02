@@ -19,7 +19,7 @@ public class ConexaoMysql {
     public boolean conectar(){
         try {
             
-                String url = "jdbc:mysql://localhost:3306/tcc_desktop";
+                String url = "jdbc:mysql://localhost:3306/usuarios_intermedix";
                 String user = "root";
                 String pass = "";
                 this.conexao = DriverManager.getConnection(url,user, pass);

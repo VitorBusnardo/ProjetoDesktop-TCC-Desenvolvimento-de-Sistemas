@@ -1,15 +1,18 @@
 package view;
 
 import conexao.ConexaoMysql;
+import conexao.ConexaoSQLite;
 import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.Frame;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.net.URI;
 import java.util.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -17,19 +20,19 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 public class TelaPrincipal extends javax.swing.JFrame {
-    
-    
-    
+
     public TelaPrincipal() {
-        
+
         initComponents();
-        
-        //mudando o nome de usuario 
-        
-        
-        
+
+        Buscar_NomeCompleto();
+        Buscar_Telefone();
+        Buscar_Email();
+        Buscar_Idade();
+
         setIcon();
 
         setColor(btn_home);
@@ -50,6 +53,110 @@ public class TelaPrincipal extends javax.swing.JFrame {
         SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
 
         DataCalender.setText(formatador.format(data));
+        
+        Timer time  = new Timer(1000, new hora());
+        time.start();
+        
+
+    }
+
+    private void Buscar_NomeCompleto() {
+
+        ConexaoMysql conexao = new ConexaoMysql();
+
+        conexao.conectar();
+
+        ResultSet resultSQL = null;
+
+        PreparedStatement comandoSQL = null;
+
+        String insertSQL = "select NomeCompleto from Usuario;";
+
+        try {
+
+            comandoSQL = conexao.criarPreparedStatement(insertSQL);
+            resultSQL = comandoSQL.executeQuery();
+            while (resultSQL.next()) {
+                txtNomeCompleto.setText(resultSQL.getString("NomeCompleto"));
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error " + e.getMessage());
+        }
+
+    }
+
+    private void Buscar_Telefone() {
+
+        ConexaoMysql conexao = new ConexaoMysql();
+
+        conexao.conectar();
+
+        ResultSet resultSQL = null;
+
+        PreparedStatement comandoSQL = null;
+
+        String insertSQL = "select Telefone from Usuario;";
+
+        try {
+
+            comandoSQL = conexao.criarPreparedStatement(insertSQL);
+            resultSQL = comandoSQL.executeQuery();
+            while (resultSQL.next()) {
+                txtTelefoneUser.setText(resultSQL.getString("Telefone"));
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error " + e.getMessage());
+        }
+
+    }
+
+    private void Buscar_Email() {
+
+        ConexaoMysql conexao = new ConexaoMysql();
+
+        conexao.conectar();
+
+        ResultSet resultSQL = null;
+
+        PreparedStatement comandoSQL = null;
+
+        String insertSQL = "select Email from Usuario;";
+
+        try {
+
+            comandoSQL = conexao.criarPreparedStatement(insertSQL);
+            resultSQL = comandoSQL.executeQuery();
+            while (resultSQL.next()) {
+                txtEmailUser.setText(resultSQL.getString("Email"));
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error " + e.getMessage());
+        }
+
+    }
+
+    private void Buscar_Idade() {
+
+        ConexaoMysql conexao = new ConexaoMysql();
+
+        conexao.conectar();
+
+        ResultSet resultSQL = null;
+
+        PreparedStatement comandoSQL = null;
+
+        String insertSQL = "select Idade from Usuario;";
+
+        try {
+
+            comandoSQL = conexao.criarPreparedStatement(insertSQL);
+            resultSQL = comandoSQL.executeQuery();
+            while (resultSQL.next()) {
+                txtIdadeUser.setText(resultSQL.getString("Idade") + " Years");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error " + e.getMessage());
+        }
 
     }
 
@@ -114,6 +221,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         DataCalender = new javax.swing.JLabel();
         MenuUser = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
+        txtIdadeUser = new javax.swing.JLabel();
+        txtNomeCompleto = new javax.swing.JLabel();
+        txtNomeDeUsuario = new javax.swing.JLabel();
+        txtTelefoneUser = new javax.swing.JLabel();
+        txtEmailUser = new javax.swing.JLabel();
         MenuSettings = new javax.swing.JPanel();
         btn_MenuExit = new javax.swing.JLabel();
         btn_MenuSwitchUsers = new javax.swing.JLabel();
@@ -786,6 +898,26 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel12.setText("Information About Such");
         MenuUser.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
+        txtIdadeUser.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtIdadeUser.setText("Idade");
+        MenuUser.add(txtIdadeUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
+
+        txtNomeCompleto.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtNomeCompleto.setText("NomeCompleto");
+        MenuUser.add(txtNomeCompleto, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
+
+        txtNomeDeUsuario.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtNomeDeUsuario.setText("Nome De Usuario");
+        MenuUser.add(txtNomeDeUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
+
+        txtTelefoneUser.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtTelefoneUser.setText("Telefone");
+        MenuUser.add(txtTelefoneUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
+
+        txtEmailUser.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtEmailUser.setText("Email");
+        MenuUser.add(txtEmailUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+
         Menu3.add(MenuUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 345, 270, 173));
 
         MenuSettings.setBackground(new java.awt.Color(255, 255, 255));
@@ -1352,7 +1484,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         TelaPrincipal principal = new TelaPrincipal();
         TelaRegistros registros = new TelaRegistros();
-        
+
         registros.lblNomeDeUsuarioRegistro.setText(lblNomeUsuario.getText());
 
         customers.setVisible(false);
@@ -1378,14 +1510,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void btn_customersPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_customersPMouseClicked
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_btn_customersPMouseClicked
 
     private void btn_MenuResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_MenuResetMouseClicked
-        
+
         TelaDelete delete = new TelaDelete();
         delete.setVisible(true);
-        
+
     }//GEN-LAST:event_btn_MenuResetMouseClicked
 
     public static void main(String args[]) {
@@ -1505,5 +1637,29 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextField1;
     public javax.swing.JLabel lblNomeUsuario;
+    private javax.swing.JLabel txtEmailUser;
+    private javax.swing.JLabel txtIdadeUser;
+    private javax.swing.JLabel txtNomeCompleto;
+    public javax.swing.JLabel txtNomeDeUsuario;
+    private javax.swing.JLabel txtTelefoneUser;
     // End of variables declaration//GEN-END:variables
+
+    class hora implements ActionListener {
+    
+    
+    public void actionPerformed(ActionEvent e) {
+    
+    Calendar now = Calendar.getInstance();
+    
+    HoraCalender.setText(String.format("%1$tH:%1$tM:%1$tS", now));
+    
+    
+    }
+    
+    }
+
+
+
+
+
 }
