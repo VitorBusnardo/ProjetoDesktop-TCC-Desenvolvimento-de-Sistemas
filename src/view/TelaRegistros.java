@@ -646,7 +646,6 @@ public class TelaRegistros extends javax.swing.JFrame {
         setTitle("Intermedix");
         setLocationByPlatform(true);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(900, 556));
 
         main.setBackground(new java.awt.Color(255, 255, 255));
         main.setPreferredSize(new java.awt.Dimension(900, 565));
@@ -802,7 +801,7 @@ public class TelaRegistros extends javax.swing.JFrame {
                             .addComponent(lblNomeDeUsuarioRegistro))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
-                        .addGap(0, 43, Short.MAX_VALUE)
+                        .addGap(0, 13, Short.MAX_VALUE)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1362,7 +1361,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 536, Short.MAX_VALUE)
+            .addComponent(main, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
         );
 
         pack();

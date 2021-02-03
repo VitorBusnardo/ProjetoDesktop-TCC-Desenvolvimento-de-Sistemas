@@ -215,6 +215,11 @@ public class TelaCadastroSpending extends javax.swing.JFrame {
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Records");
         jLabel14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel14MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout btn_EditLayout = new javax.swing.GroupLayout(btn_Edit);
         btn_Edit.setLayout(btn_EditLayout);
@@ -586,6 +591,13 @@ public class TelaCadastroSpending extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_txtPSKeyTyped
+
+    private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
+
+        TelaRegistrosSpending spending = new TelaRegistrosSpending();
+        spending.setVisible(true);
+
+    }//GEN-LAST:event_jLabel14MouseClicked
 
     public static void main(String args[]) {
 

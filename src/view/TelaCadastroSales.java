@@ -255,6 +255,9 @@ public class TelaCadastroSales extends javax.swing.JFrame {
 
         btn_Edit.setBackground(new java.awt.Color(23, 35, 51));
         btn_Edit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_EditMouseClicked(evt);
+            }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 btn_EditMouseReleased(evt);
             }
@@ -278,6 +281,11 @@ public class TelaCadastroSales extends javax.swing.JFrame {
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Records");
         jLabel14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel14MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout btn_EditLayout = new javax.swing.GroupLayout(btn_Edit);
         btn_Edit.setLayout(btn_EditLayout);
@@ -680,6 +688,19 @@ public class TelaCadastroSales extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_txtProductsKeyTyped
+
+    private void btn_EditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_EditMouseClicked
+
+        TelaRegistrosSales sales = new TelaRegistrosSales();
+        sales.setVisible(true);
+    }//GEN-LAST:event_btn_EditMouseClicked
+
+    private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
+
+        TelaRegistrosSales sales = new TelaRegistrosSales();
+        sales.setVisible(true);
+
+    }//GEN-LAST:event_jLabel14MouseClicked
 
     public static void main(String args[]) {
 
