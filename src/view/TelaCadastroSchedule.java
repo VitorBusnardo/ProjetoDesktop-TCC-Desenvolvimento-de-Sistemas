@@ -609,7 +609,7 @@ public class TelaCadastroSchedule extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel16MouseClicked
 
     private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
-        // TODO add your handling code here:
+        
         this.insertCadastro();
     }//GEN-LAST:event_jLabel15MouseClicked
 
