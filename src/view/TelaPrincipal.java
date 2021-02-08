@@ -53,10 +53,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
 
         DataCalender.setText(formatador.format(data));
-        
-        Timer time  = new Timer(1000, new hora());
+
+        Timer time = new Timer(1000, new hora());
         time.start();
-        
 
     }
 
@@ -1333,6 +1332,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         MenuSafe.setVisible(false);
         MenuSafe.setEnabled(false);
 
+        HoraCalender.setVisible(false);
+
+
     }//GEN-LAST:event_btn_SettingsMousePressed
 
     private void btn_UserMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_UserMousePressed
@@ -1348,6 +1350,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         MenuSafe.setVisible(false);
         MenuSafe.setEnabled(false);
+
+        HoraCalender.setVisible(false);
 
     }//GEN-LAST:event_btn_UserMousePressed
 
@@ -1365,12 +1369,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         MenuSafe.setVisible(false);
         MenuSafe.setEnabled(false);
 
+        HoraCalender.setVisible(true);
+
         Calendar dataa = Calendar.getInstance();
         int horas = dataa.get(Calendar.HOUR_OF_DAY);
         int minutos = dataa.get(Calendar.MINUTE);
         int segundos = dataa.get(Calendar.SECOND);
 
         HoraCalender.setText(horas + ":" + minutos + ":" + segundos);
+
 
     }//GEN-LAST:event_jLabel3MousePressed
 
@@ -1431,6 +1438,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         MenuSafe.setVisible(true);
         MenuSafe.setEnabled(true);
+
+        HoraCalender.setVisible(false);
 
     }//GEN-LAST:event_jLabel4MousePressed
 
@@ -1645,21 +1654,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     class hora implements ActionListener {
-    
-    
-    public void actionPerformed(ActionEvent e) {
-    
-    Calendar now = Calendar.getInstance();
-    
-    HoraCalender.setText(String.format("%1$tH:%1$tM:%1$tS", now));
-    
-    
+
+        public void actionPerformed(ActionEvent e) {
+
+            Calendar now = Calendar.getInstance();
+
+            HoraCalender.setText(String.format("%1$tH:%1$tM:%1$tS", now));
+
+        }
+
     }
-    
-    }
-
-
-
-
 
 }
