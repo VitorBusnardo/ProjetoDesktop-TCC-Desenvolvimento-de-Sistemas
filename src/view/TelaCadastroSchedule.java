@@ -1,6 +1,8 @@
 package view;
 
 import conexao.ConexaoSQLite;
+import formatting.Letras;
+import formatting.Numeros;
 import java.awt.Toolkit;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -140,6 +142,10 @@ public class TelaCadastroSchedule extends javax.swing.JFrame {
 
         Buscar_Client();
         Buscar_Services();
+
+        txtTitle.setDocument(new Letras());
+        txtPosition.setDocument(new Numeros());
+
     }
 
     public void setIcon() {
@@ -400,6 +406,11 @@ public class TelaCadastroSchedule extends javax.swing.JFrame {
                 txtTitleActionPerformed(evt);
             }
         });
+        txtTitle.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTitleKeyTyped(evt);
+            }
+        });
 
         txtPosition.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         txtPosition.addActionListener(new java.awt.event.ActionListener() {
@@ -407,11 +418,21 @@ public class TelaCadastroSchedule extends javax.swing.JFrame {
                 txtPositionActionPerformed(evt);
             }
         });
+        txtPosition.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPositionKeyTyped(evt);
+            }
+        });
 
         txtDescription.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         txtDescription.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDescriptionActionPerformed(evt);
+            }
+        });
+        txtDescription.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDescriptionKeyTyped(evt);
             }
         });
 
@@ -439,6 +460,11 @@ public class TelaCadastroSchedule extends javax.swing.JFrame {
         txtShedule.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSheduleActionPerformed(evt);
+            }
+        });
+        txtShedule.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtSheduleKeyTyped(evt);
             }
         });
 
@@ -583,9 +609,43 @@ public class TelaCadastroSchedule extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel16MouseClicked
 
     private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
-        // TODO add your handling code here:
+        
         this.insertCadastro();
     }//GEN-LAST:event_jLabel15MouseClicked
+
+    private void txtTitleKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTitleKeyTyped
+
+        if (txtTitle.getText().length() >= 20) {
+
+            evt.consume();
+        }
+
+    }//GEN-LAST:event_txtTitleKeyTyped
+
+    private void txtPositionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPositionKeyTyped
+
+        if (txtPosition.getText().length() >= 3) {
+
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtPositionKeyTyped
+
+    private void txtDescriptionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDescriptionKeyTyped
+
+        if (txtDescription.getText().length() >= 80) {
+
+            evt.consume();
+        }
+
+    }//GEN-LAST:event_txtDescriptionKeyTyped
+
+    private void txtSheduleKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSheduleKeyTyped
+
+        if (txtShedule.getText().length() >= 25) {
+
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtSheduleKeyTyped
 
     public static void main(String args[]) {
 

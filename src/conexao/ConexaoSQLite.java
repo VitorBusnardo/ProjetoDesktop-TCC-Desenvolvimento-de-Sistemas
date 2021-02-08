@@ -19,7 +19,7 @@ public class ConexaoSQLite {
     public boolean conectar(){
         try {
             
-                String url = "jdbc:sqlite:Banco_de_dados/BancoCadastrosTCC.db";
+                String url = "jdbc:sqlite:DataBase/DataBaseIntermedix.db";
                 this.conexao = DriverManager.getConnection(url);
                 
             

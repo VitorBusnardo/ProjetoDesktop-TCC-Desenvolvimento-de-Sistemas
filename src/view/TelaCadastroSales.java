@@ -1,6 +1,8 @@
 package view;
 
 import conexao.ConexaoSQLite;
+import formatting.Letras;
+import formatting.Numeros;
 import java.awt.Toolkit;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -143,6 +145,11 @@ public class TelaCadastroSales extends javax.swing.JFrame {
         Buscar_Services();
 
         setIcon();
+
+        txtTitle.setDocument(new Letras());
+        txtProducts.setDocument(new Letras());
+        txtValue.setDocument(new Numeros());
+        txtType.setDocument(new Letras());
     }
 
     public void setIcon() {
@@ -248,6 +255,9 @@ public class TelaCadastroSales extends javax.swing.JFrame {
 
         btn_Edit.setBackground(new java.awt.Color(23, 35, 51));
         btn_Edit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_EditMouseClicked(evt);
+            }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 btn_EditMouseReleased(evt);
             }
@@ -271,6 +281,11 @@ public class TelaCadastroSales extends javax.swing.JFrame {
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Records");
         jLabel14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel14MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout btn_EditLayout = new javax.swing.GroupLayout(btn_Edit);
         btn_Edit.setLayout(btn_EditLayout);
@@ -405,6 +420,11 @@ public class TelaCadastroSales extends javax.swing.JFrame {
                 txtTitleActionPerformed(evt);
             }
         });
+        txtTitle.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTitleKeyTyped(evt);
+            }
+        });
 
         txtType.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         txtType.addActionListener(new java.awt.event.ActionListener() {
@@ -412,11 +432,21 @@ public class TelaCadastroSales extends javax.swing.JFrame {
                 txtTypeActionPerformed(evt);
             }
         });
+        txtType.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTypeKeyTyped(evt);
+            }
+        });
 
         txtDescription.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         txtDescription.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDescriptionActionPerformed(evt);
+            }
+        });
+        txtDescription.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDescriptionKeyTyped(evt);
             }
         });
 
@@ -450,6 +480,11 @@ public class TelaCadastroSales extends javax.swing.JFrame {
                 txtValueActionPerformed(evt);
             }
         });
+        txtValue.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtValueKeyTyped(evt);
+            }
+        });
 
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -463,6 +498,11 @@ public class TelaCadastroSales extends javax.swing.JFrame {
         txtProducts.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtProductsActionPerformed(evt);
+            }
+        });
+        txtProducts.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtProductsKeyTyped(evt);
             }
         });
 
@@ -608,6 +648,59 @@ public class TelaCadastroSales extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.insertCadastro();
     }//GEN-LAST:event_jLabel15MouseClicked
+
+    private void txtTitleKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTitleKeyTyped
+
+        if (txtTitle.getText().length() >= 20) {
+
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtTitleKeyTyped
+
+    private void txtTypeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTypeKeyTyped
+
+        if (txtType.getText().length() >= 15) {
+
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtTypeKeyTyped
+
+    private void txtDescriptionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDescriptionKeyTyped
+
+        if (txtDescription.getText().length() >= 80) {
+
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtDescriptionKeyTyped
+
+    private void txtValueKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValueKeyTyped
+
+        if (txtValue.getText().length() >= 10) {
+
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtValueKeyTyped
+
+    private void txtProductsKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtProductsKeyTyped
+
+        if (txtProducts.getText().length() >= 30) {
+
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtProductsKeyTyped
+
+    private void btn_EditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_EditMouseClicked
+
+        TelaRegistrosSales sales = new TelaRegistrosSales();
+        sales.setVisible(true);
+    }//GEN-LAST:event_btn_EditMouseClicked
+
+    private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
+
+        TelaRegistrosSales sales = new TelaRegistrosSales();
+        sales.setVisible(true);
+
+    }//GEN-LAST:event_jLabel14MouseClicked
 
     public static void main(String args[]) {
 

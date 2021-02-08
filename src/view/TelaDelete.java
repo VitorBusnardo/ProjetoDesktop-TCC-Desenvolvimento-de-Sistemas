@@ -1,6 +1,9 @@
 package view;
 
+import conexao.ConexaoSQLite;
 import java.awt.Toolkit;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class TelaDelete extends javax.swing.JFrame {
 
@@ -14,6 +17,174 @@ public class TelaDelete extends javax.swing.JFrame {
 
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/IconPlanet.png")));
 
+    }
+
+    protected void Deletar_Customers() {
+
+        ConexaoSQLite conexao = new ConexaoSQLite();
+
+        conexao.conectar();
+        ResultSet resultSQL = null;
+        PreparedStatement comandoSQL = null;
+
+        String sql = "delete from Customers";
+
+        try {
+
+            comandoSQL = conexao.criarPreparedStatement(sql);
+
+            int apagado = comandoSQL.executeUpdate();
+
+        } catch (Exception e) {
+
+            TelaErroDeletar erro = new TelaErroDeletar();
+            erro.setVisible(true);
+
+        }
+    }
+
+    protected void Deletar_Products() {
+
+        ConexaoSQLite conexao = new ConexaoSQLite();
+
+        conexao.conectar();
+        ResultSet resultSQL = null;
+        PreparedStatement comandoSQL = null;
+
+        String sql = "delete from Products";
+
+        try {
+
+            comandoSQL = conexao.criarPreparedStatement(sql);
+
+            int apagado = comandoSQL.executeUpdate();
+
+        } catch (Exception e) {
+
+            TelaErroDeletar erro = new TelaErroDeletar();
+            erro.setVisible(true);
+
+        }
+    }
+
+    protected void Deletar_Services() {
+
+        ConexaoSQLite conexao = new ConexaoSQLite();
+
+        conexao.conectar();
+        ResultSet resultSQL = null;
+        PreparedStatement comandoSQL = null;
+
+        String sql = "delete from Services";
+
+        try {
+
+            comandoSQL = conexao.criarPreparedStatement(sql);
+
+            int apagado = comandoSQL.executeUpdate();
+
+        } catch (Exception e) {
+
+            TelaErroDeletar erro = new TelaErroDeletar();
+            erro.setVisible(true);
+
+        }
+    }
+
+    protected void Deletar_Schedule() {
+
+        ConexaoSQLite conexao = new ConexaoSQLite();
+
+        conexao.conectar();
+        ResultSet resultSQL = null;
+        PreparedStatement comandoSQL = null;
+
+        String sql = "delete from Schedule";
+
+        try {
+
+            comandoSQL = conexao.criarPreparedStatement(sql);
+
+            int apagado = comandoSQL.executeUpdate();
+
+        } catch (Exception e) {
+
+            TelaErroDeletar erro = new TelaErroDeletar();
+            erro.setVisible(true);
+
+        }
+    }
+
+    protected void Deletar_Employees() {
+
+        ConexaoSQLite conexao = new ConexaoSQLite();
+
+        conexao.conectar();
+        ResultSet resultSQL = null;
+        PreparedStatement comandoSQL = null;
+
+        String sql = "delete from Employees";
+
+        try {
+
+            comandoSQL = conexao.criarPreparedStatement(sql);
+
+            int apagado = comandoSQL.executeUpdate();
+
+        } catch (Exception e) {
+
+            TelaErroDeletar erro = new TelaErroDeletar();
+            erro.setVisible(true);
+
+        }
+    }
+    
+    protected void Deletar_Sales() {
+
+        ConexaoSQLite conexao = new ConexaoSQLite();
+
+        conexao.conectar();
+        ResultSet resultSQL = null;
+        PreparedStatement comandoSQL = null;
+
+        String sql = "delete from Sales";
+
+        try {
+
+            comandoSQL = conexao.criarPreparedStatement(sql);
+
+            int apagado = comandoSQL.executeUpdate();
+
+        } catch (Exception e) {
+
+            TelaErroDeletar erro = new TelaErroDeletar();
+            erro.setVisible(true);
+
+        }
+    }
+    
+        protected void Deletar_Spending() {
+
+        ConexaoSQLite conexao = new ConexaoSQLite();
+
+        conexao.conectar();
+        ResultSet resultSQL = null;
+        PreparedStatement comandoSQL = null;
+
+        String sql = "delete from Sales";
+
+        try {
+
+            comandoSQL = conexao.criarPreparedStatement(sql);
+
+            int apagado = comandoSQL.executeUpdate();
+
+        } catch (Exception e) {
+
+            TelaErroDeletar erro = new TelaErroDeletar();
+            erro.setVisible(true);
+
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -63,7 +234,7 @@ public class TelaDelete extends javax.swing.JFrame {
 
         jLabel12.setBackground(new java.awt.Color(0, 0, 0));
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel12.setText("Do you really want to");
+        jLabel12.setText("Are you sure you want ");
 
         btn_DeleteNo.setBackground(new java.awt.Color(23, 35, 51));
         btn_DeleteNo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -93,7 +264,7 @@ public class TelaDelete extends javax.swing.JFrame {
 
         jLabel13.setBackground(new java.awt.Color(0, 0, 0));
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel13.setText("delete this data?");
+        jLabel13.setText("to delete all registered data?");
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconPlanetBig.png"))); // NOI18N
 
@@ -107,17 +278,16 @@ public class TelaDelete extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel12)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel12)
                         .addGap(57, 57, 57))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btn_DeleteYes, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_DeleteNo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(btn_DeleteYes, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btn_DeleteNo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(23, Short.MAX_VALUE))))
         );
         jPanel4Layout.setVerticalGroup(
@@ -127,9 +297,9 @@ public class TelaDelete extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btn_DeleteYes, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn_DeleteNo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -168,7 +338,18 @@ public class TelaDelete extends javax.swing.JFrame {
 
     private void btn_DeleteYesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DeleteYesMouseClicked
 
+        Deletar_Customers();
+        Deletar_Employees();
+        Deletar_Products();
+        Deletar_Schedule();
+        Deletar_Services();
+        Deletar_Sales();
+        Deletar_Spending();
+
         this.dispose();
+
+        TelaSucessoDeletar sucesso = new TelaSucessoDeletar();
+        sucesso.setVisible(true);
 
     }//GEN-LAST:event_btn_DeleteYesMouseClicked
 
