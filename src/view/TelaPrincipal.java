@@ -212,8 +212,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         ind_records = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         MenuSafe = new javax.swing.JPanel();
-        jLabel16 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        btn_records1 = new javax.swing.JPanel();
+        ind_records1 = new javax.swing.JPanel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
         MenuCalender = new javax.swing.JPanel();
         HoraCalender = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
@@ -854,12 +857,71 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         MenuSafe.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel16.setText("<html><center>Totally safe and protected, <br>we guarantee every possible </br><br><center>security</center></br></center></html>");
-        MenuSafe.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
-
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconPadLock.png"))); // NOI18N
-        MenuSafe.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 70, 50));
+        MenuSafe.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 70, 50));
+
+        btn_records1.setBackground(new java.awt.Color(23, 35, 51));
+        btn_records1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_records1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_records1MouseClicked(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btn_records1MouseReleased(evt);
+            }
+        });
+
+        ind_records1.setOpaque(false);
+        ind_records1.setPreferredSize(new java.awt.Dimension(3, 43));
+
+        javax.swing.GroupLayout ind_records1Layout = new javax.swing.GroupLayout(ind_records1);
+        ind_records1.setLayout(ind_records1Layout);
+        ind_records1Layout.setHorizontalGroup(
+            ind_records1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 3, Short.MAX_VALUE)
+        );
+        ind_records1Layout.setVerticalGroup(
+            ind_records1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 43, Short.MAX_VALUE)
+        );
+
+        jLabel27.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel27.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel27.setText("Check");
+        jLabel27.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel27.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel27MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout btn_records1Layout = new javax.swing.GroupLayout(btn_records1);
+        btn_records1.setLayout(btn_records1Layout);
+        btn_records1Layout.setHorizontalGroup(
+            btn_records1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_records1Layout.createSequentialGroup()
+                .addComponent(ind_records1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
+                .addComponent(jLabel27)
+                .addGap(0, 42, Short.MAX_VALUE))
+        );
+        btn_records1Layout.setVerticalGroup(
+            btn_records1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_records1Layout.createSequentialGroup()
+                .addComponent(ind_records1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(btn_records1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        MenuSafe.add(btn_records1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 120, -1));
+
+        jLabel16.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel16.setText("Security Intermedix");
+        MenuSafe.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, -1, 50));
 
         Menu3.add(MenuSafe, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 345, 270, 173));
 
@@ -1529,6 +1591,30 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btn_MenuResetMouseClicked
 
+    private void jLabel27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel27MouseClicked
+
+        TelaProtecao protecao = new TelaProtecao();
+
+        protecao.setVisible(true);
+
+    }//GEN-LAST:event_jLabel27MouseClicked
+
+    private void btn_records1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_records1MouseReleased
+
+        TelaProtecao protecao = new TelaProtecao();
+
+        protecao.setVisible(true);
+
+    }//GEN-LAST:event_btn_records1MouseReleased
+
+    private void btn_records1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_records1MouseClicked
+
+        TelaProtecao protecao = new TelaProtecao();
+
+        protecao.setVisible(true);
+
+    }//GEN-LAST:event_btn_records1MouseClicked
+
     public static void main(String args[]) {
 
         try {
@@ -1598,6 +1684,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel btn_home;
     private javax.swing.JPanel btn_productsP;
     private javax.swing.JPanel btn_records;
+    private javax.swing.JPanel btn_records1;
     private javax.swing.JPanel btn_salesP;
     private javax.swing.JPanel btn_scheduleP;
     private javax.swing.JPanel btn_servicesP;
@@ -1607,6 +1694,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel ind_home;
     private javax.swing.JPanel ind_products;
     private javax.swing.JPanel ind_records;
+    private javax.swing.JPanel ind_records1;
     private javax.swing.JPanel ind_sales;
     private javax.swing.JPanel ind_schedule;
     private javax.swing.JPanel ind_services;
@@ -1630,6 +1718,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
