@@ -22,11 +22,15 @@ import org.jfree.data.category.DefaultCategoryDataset;
 public class TelaRegistros extends javax.swing.JFrame {
 
     public String nomeDeUsuario = null;
-    
-    protected float SalesValor; 
-    
-    protected float SalesValorInicial; 
-    
+
+    protected float SalesValor;
+
+    protected float SalesValorInicial;
+
+    protected float SpendingValor;
+
+    protected float SpendingValorInicial;
+
     protected void Buscar_Sales_Value() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
@@ -38,10 +42,8 @@ public class TelaRegistros extends javax.swing.JFrame {
         PreparedStatement comandoSQL = null;
 
         String insertSQL = "select Value from Sales;";
-        
+
         float valorSales = 0;
-        
-       
 
         try {
 
@@ -52,6 +54,35 @@ public class TelaRegistros extends javax.swing.JFrame {
                 SalesValorInicial = SalesValorInicial + valorSales;
             }
             System.out.println(SalesValorInicial);
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error " + e.getMessage());
+        }
+
+    }
+
+    protected void Buscar_Spending_Value() {
+
+        ConexaoSQLite conexao = new ConexaoSQLite();
+
+        conexao.conectar();
+
+        ResultSet resultSQL = null;
+
+        PreparedStatement comandoSQL = null;
+
+        String insertSQL = "select Value from Spending;";
+
+        float valorSpending = 0;
+
+        try {
+
+            comandoSQL = conexao.criarPreparedStatement(insertSQL);
+            resultSQL = comandoSQL.executeQuery();
+            while (resultSQL.next()) {
+                valorSpending = Float.parseFloat(resultSQL.getString("Value"));
+                SpendingValorInicial = SpendingValorInicial + valorSpending;
+            }
+            System.out.println(SpendingValorInicial);
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error " + e.getMessage());
         }
@@ -194,7 +225,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         }
     }
 
-        protected void Deletar_Employees() {
+    protected void Deletar_Employees() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -227,7 +258,7 @@ public class TelaRegistros extends javax.swing.JFrame {
 
         }
     }
-    
+
     protected void pesquisar_Customers_Sem() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
@@ -500,13 +531,13 @@ public class TelaRegistros extends javax.swing.JFrame {
     }
 
     public TelaRegistros() {
-        
 
         setIcon();
 
         initComponents();
-        
+
         this.Buscar_Sales_Value();
+        this.Buscar_Spending_Value();
 
         setLblColor(btn_graphic);
         resetLblColor(btn_products);
@@ -555,43 +586,20 @@ public class TelaRegistros extends javax.swing.JFrame {
     }
 
     private CategoryDataset createDataset() {
-        
-        /* Somar todos os valores, está dando erro
-        
-        ConexaoSQLite conexao = new ConexaoSQLite();
 
-        conexao.conectar();
-
-        ResultSet resultSQL = null;
-
-        PreparedStatement comandoSQL = null;
-
-        String insertSQL = "SELECT SUM(Value) from Sales";
-        
-        comandoSQL = conexao.criarPreparedStatement(insertSQL);
-        
-        resultSQL = comandoSQL.executeQuery();
-        
-        String soma = resultSQL.toString();
-        
-        */
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 
         int lucro = (int) SalesValorInicial;
-        
-        int gastos = 534;
+
+        int gastos = (int) SpendingValorInicial;
 
         int l = lucro - gastos;
 
-        int m = l / 2;
-
-        dataset.addValue(lucro, "Profit", "Overall");
+        dataset.addValue(lucro, "Sales", "Overall");
 
         dataset.addValue(gastos, "Spending", "Overall");
 
         dataset.addValue(l, "Net Profit", "Overall");
-
-        dataset.addValue(m, "Average", "Overall");
 
         return dataset;
 
@@ -1560,7 +1568,7 @@ public class TelaRegistros extends javax.swing.JFrame {
     }//GEN-LAST:event_PesquisarServicesActionPerformed
 
     private void btn_DeleteServicesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DeleteServicesMouseClicked
-        
+
         Deletar_Services();
     }//GEN-LAST:event_btn_DeleteServicesMouseClicked
 
@@ -1569,7 +1577,7 @@ public class TelaRegistros extends javax.swing.JFrame {
     }//GEN-LAST:event_DeleteServicesActionPerformed
 
     private void btn_DeleteScheduleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DeleteScheduleMouseClicked
-        
+
         Deletar_Schedule();
     }//GEN-LAST:event_btn_DeleteScheduleMouseClicked
 
@@ -1582,7 +1590,7 @@ public class TelaRegistros extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_productsMouseEntered
 
     private void btn_DeleteProductsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DeleteProductsMouseClicked
-       
+
         Deletar_Products();
     }//GEN-LAST:event_btn_DeleteProductsMouseClicked
 

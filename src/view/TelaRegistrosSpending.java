@@ -38,7 +38,7 @@ public class TelaRegistrosSpending extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "delete from Sales where Title=?";
+        String sql = "delete from Spending where Title=?";
 
         try {
 
@@ -72,7 +72,7 @@ public class TelaRegistrosSpending extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "select Title, Type, Description, Date, Value, Products, Classification, Service, Client from Sales;";
+        String sql = "select Title, Type, Description, Date, Value, PurchasedSpent, Classification from Spending;";
 
         try {
 
@@ -95,7 +95,7 @@ public class TelaRegistrosSpending extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "select Title, Type, Description, Date, Value, Products, Classification, Service, Client from Sales where Title like ?";
+        String sql = "select Title, Type, Description, Date, Value, PurchasedSpent, Classification from Spending where Title like ?";
 
         try {
 

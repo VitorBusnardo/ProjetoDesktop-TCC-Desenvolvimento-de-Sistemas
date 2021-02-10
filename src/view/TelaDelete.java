@@ -171,7 +171,7 @@ public class TelaDelete extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "delete from Sales";
+        String sql = "delete from Spending";
 
         try {
 
