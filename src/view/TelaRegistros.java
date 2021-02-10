@@ -22,6 +22,41 @@ import org.jfree.data.category.DefaultCategoryDataset;
 public class TelaRegistros extends javax.swing.JFrame {
 
     public String nomeDeUsuario = null;
+    
+    protected float SalesValor; 
+    
+    protected float SalesValorInicial; 
+    
+    protected void Buscar_Sales_Value() {
+
+        ConexaoSQLite conexao = new ConexaoSQLite();
+
+        conexao.conectar();
+
+        ResultSet resultSQL = null;
+
+        PreparedStatement comandoSQL = null;
+
+        String insertSQL = "select Value from Sales;";
+        
+        float valorSales = 0;
+        
+       
+
+        try {
+
+            comandoSQL = conexao.criarPreparedStatement(insertSQL);
+            resultSQL = comandoSQL.executeQuery();
+            while (resultSQL.next()) {
+                valorSales = Float.parseFloat(resultSQL.getString("Value"));
+                SalesValorInicial = SalesValorInicial + valorSales;
+            }
+            System.out.println(SalesValorInicial);
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error " + e.getMessage());
+        }
+
+    }
 
     protected void Deletar_Customers() {
 
@@ -470,6 +505,8 @@ public class TelaRegistros extends javax.swing.JFrame {
         setIcon();
 
         initComponents();
+        
+        this.Buscar_Sales_Value();
 
         setLblColor(btn_graphic);
         resetLblColor(btn_products);
@@ -540,7 +577,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         */
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 
-        int lucro = 1000;
+        int lucro = (int) SalesValorInicial;
         
         int gastos = 534;
 

@@ -365,6 +365,11 @@ public class TelaCadastroSales extends javax.swing.JFrame {
         jLabel11.setText("Service");
 
         txtServices.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtServices.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtServicesActionPerformed(evt);
+            }
+        });
 
         jLabel13.setBackground(new java.awt.Color(255, 255, 255));
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -701,6 +706,10 @@ public class TelaCadastroSales extends javax.swing.JFrame {
         sales.setVisible(true);
 
     }//GEN-LAST:event_jLabel14MouseClicked
+
+    private void txtServicesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtServicesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtServicesActionPerformed
 
     public static void main(String args[]) {
 
