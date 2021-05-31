@@ -1508,7 +1508,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void jPanel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MousePressed
 
         try {
-            URI link = new URI("www.xvideos.com");
+            URI link = new URI("");
             Desktop.getDesktop().browse(link);
         } catch (Exception erro) {
             System.out.println(erro);
@@ -1543,7 +1543,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void jPanel6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MousePressed
 
         try {
-            URI link = new URI("www.pornodoido.com/");
+            URI link = new URI("");
             Desktop.getDesktop().browse(link);
         } catch (Exception erro) {
             System.out.println(erro);

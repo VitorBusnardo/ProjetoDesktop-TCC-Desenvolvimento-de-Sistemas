@@ -96,7 +96,6 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         txtSenha = new javax.swing.JPasswordField();
         jSeparator3 = new javax.swing.JSeparator();
-        jRadioButton1 = new javax.swing.JRadioButton();
         btnLogin = new javax.swing.JButton();
         Menu2 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
@@ -150,17 +149,6 @@ public class TelaLogin extends javax.swing.JFrame {
         txtSenha.setBorder(null);
         txtSenha.setCaretColor(new java.awt.Color(255, 255, 255));
 
-        jRadioButton1.setBackground(new java.awt.Color(23, 35, 51));
-        jRadioButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jRadioButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton1.setText("Aren't you a robot?");
-        jRadioButton1.setBorder(null);
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
-            }
-        });
-
         btnLogin.setBackground(new java.awt.Color(57, 137, 186));
         btnLogin.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnLogin.setForeground(new java.awt.Color(255, 255, 255));
@@ -191,7 +179,6 @@ public class TelaLogin extends javax.swing.JFrame {
                         .addComponent(jSeparator1)
                         .addComponent(txtSenha)
                         .addComponent(jSeparator3)
-                        .addComponent(jRadioButton1)
                         .addComponent(btnLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(87, Short.MAX_VALUE))
         );
@@ -202,7 +189,7 @@ public class TelaLogin extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addGap(21, 21, 21)
+                .addGap(30, 30, 30)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -212,13 +199,11 @@ public class TelaLogin extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(5, 5, 5)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jRadioButton1)
-                .addGap(29, 29, 29)
+                .addGap(55, 55, 55)
                 .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(133, Short.MAX_VALUE))
+                .addContainerGap(137, Short.MAX_VALUE))
         );
 
         jPanel1.add(MenuLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 510));
@@ -344,10 +329,6 @@ public class TelaLogin extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnLoginActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
-
     public static void main(String args[]) {
 
         try {
@@ -390,7 +371,6 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTextField txtNome;
