@@ -654,6 +654,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         btn_employees = new javax.swing.JLabel();
         btn_schedule = new javax.swing.JLabel();
         lblNomeDeUsuarioRegistro = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         Paineis = new javax.swing.JPanel();
         Graphic = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
@@ -692,7 +693,6 @@ public class TelaRegistros extends javax.swing.JFrame {
         setTitle("Intermedix");
         setLocationByPlatform(true);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(900, 556));
 
         main.setBackground(new java.awt.Color(255, 255, 255));
         main.setPreferredSize(new java.awt.Dimension(900, 565));
@@ -810,21 +810,12 @@ public class TelaRegistros extends javax.swing.JFrame {
         lblNomeDeUsuarioRegistro.setForeground(new java.awt.Color(23, 35, 51));
         lblNomeDeUsuarioRegistro.setText("jLabel2");
 
+        jButton1.setText("jButton1");
+
         javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
         header.setLayout(headerLayout);
         headerLayout.setHorizontalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(headerLayout.createSequentialGroup()
-                .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(headerLayout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblNomeDeUsuarioRegistro)
-                        .addGap(275, 275, 275)))
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(headerLayout.createSequentialGroup()
                 .addComponent(btn_graphic, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -837,6 +828,18 @@ public class TelaRegistros extends javax.swing.JFrame {
                 .addComponent(btn_services, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btn_schedule, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(headerLayout.createSequentialGroup()
+                        .addComponent(lblNomeDeUsuarioRegistro)
+                        .addGap(275, 275, 275)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(191, 191, 191))))
         );
         headerLayout.setVerticalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -846,6 +849,8 @@ public class TelaRegistros extends javax.swing.JFrame {
                         .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
                             .addComponent(lblNomeDeUsuarioRegistro))
+                        .addGap(53, 53, 53)
+                        .addComponent(jButton1)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
                         .addGap(0, 43, Short.MAX_VALUE)
@@ -1397,7 +1402,7 @@ public class TelaRegistros extends javax.swing.JFrame {
                 .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Paineis, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 21, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1730,6 +1735,7 @@ public class TelaRegistros extends javax.swing.JFrame {
     private javax.swing.JLabel btn_schedule;
     private javax.swing.JLabel btn_services;
     private javax.swing.JPanel header;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
