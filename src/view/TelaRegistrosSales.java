@@ -131,7 +131,7 @@ public class TelaRegistrosSales extends javax.swing.JFrame {
         PesquisarSales = new javax.swing.JTextField();
         btn_DeleteSales = new javax.swing.JLabel();
         DeleteSales = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        btnFechar = new javax.swing.JLabel();
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -161,6 +161,7 @@ public class TelaRegistrosSales extends javax.swing.JFrame {
         setUndecorated(true);
 
         jPanel3.setBackground(new java.awt.Color(71, 120, 197));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setPreferredSize(new java.awt.Dimension(444, 193));
@@ -282,32 +283,21 @@ public class TelaRegistrosSales extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        jLabel1.setBackground(new java.awt.Color(23, 35, 51));
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel1.setText("X");
-        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 38, 900, 344));
+
+        btnFechar.setBackground(new java.awt.Color(23, 35, 51));
+        btnFechar.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btnFechar.setForeground(new java.awt.Color(255, 255, 255));
+        btnFechar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnFechar.setText("X");
+        btnFechar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnFechar.setOpaque(true);
+        btnFechar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
+                btnFecharMouseClicked(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jPanel3.add(btnFechar, new org.netbeans.lib.awtextra.AbsoluteConstraints(864, 0, 36, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -324,10 +314,6 @@ public class TelaRegistrosSales extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TabelaSalesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabelaSalesMouseClicked
-        setar_camposSales();
-    }//GEN-LAST:event_TabelaSalesMouseClicked
-
     private void PesquisarSalesKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PesquisarSalesKeyReleased
         pesquisar_sales();
     }//GEN-LAST:event_PesquisarSalesKeyReleased
@@ -341,9 +327,13 @@ public class TelaRegistrosSales extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_DeleteSalesActionPerformed
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+    private void btnFecharMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFecharMouseClicked
         this.dispose();
-    }//GEN-LAST:event_jLabel1MouseClicked
+    }//GEN-LAST:event_btnFecharMouseClicked
+
+    private void TabelaSalesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabelaSalesMouseClicked
+        setar_camposSales();
+    }//GEN-LAST:event_TabelaSalesMouseClicked
 
     public static void main(String args[]) {
 
@@ -375,13 +365,13 @@ public class TelaRegistrosSales extends javax.swing.JFrame {
     private javax.swing.JTextField DeleteSales;
     public javax.swing.JTextField PesquisarSales;
     public javax.swing.JPanel Sales;
-    public javax.swing.JTable TabelaSales;
+    private javax.swing.JTable TabelaSales;
+    private javax.swing.JLabel btnFechar;
     public javax.swing.JLabel btn_DeleteSales;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    public javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane7;
     // End of variables declaration//GEN-END:variables
 }

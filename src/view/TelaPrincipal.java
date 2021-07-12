@@ -1,10 +1,8 @@
 package view;
 
 import conexao.ConexaoMysql;
-import conexao.ConexaoSQLite;
 import java.awt.Color;
 import java.awt.Desktop;
-import java.awt.Frame;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,11 +11,8 @@ import java.util.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -191,9 +186,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         btn_spendingP = new javax.swing.JPanel();
         ind_spending = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
-        btn_scheduleP = new javax.swing.JPanel();
-        ind_schedule = new javax.swing.JPanel();
-        jLabel23 = new javax.swing.JLabel();
         Menu2 = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
@@ -603,55 +595,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         );
 
         Menu.add(btn_spendingP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 140, -1));
-
-        btn_scheduleP.setBackground(new java.awt.Color(23, 35, 51));
-        btn_scheduleP.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_scheduleP.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                btn_schedulePMouseReleased(evt);
-            }
-        });
-
-        ind_schedule.setOpaque(false);
-        ind_schedule.setPreferredSize(new java.awt.Dimension(3, 43));
-
-        javax.swing.GroupLayout ind_scheduleLayout = new javax.swing.GroupLayout(ind_schedule);
-        ind_schedule.setLayout(ind_scheduleLayout);
-        ind_scheduleLayout.setHorizontalGroup(
-            ind_scheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 3, Short.MAX_VALUE)
-        );
-        ind_scheduleLayout.setVerticalGroup(
-            ind_scheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 43, Short.MAX_VALUE)
-        );
-
-        jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel23.setText("Schedule");
-
-        javax.swing.GroupLayout btn_schedulePLayout = new javax.swing.GroupLayout(btn_scheduleP);
-        btn_scheduleP.setLayout(btn_schedulePLayout);
-        btn_schedulePLayout.setHorizontalGroup(
-            btn_schedulePLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_schedulePLayout.createSequentialGroup()
-                .addComponent(ind_schedule, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(jLabel23)
-                .addGap(0, 54, Short.MAX_VALUE))
-        );
-        btn_schedulePLayout.setVerticalGroup(
-            btn_schedulePLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_schedulePLayout.createSequentialGroup()
-                .addComponent(ind_schedule, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(btn_schedulePLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        Menu.add(btn_scheduleP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 140, -1));
 
         getContentPane().add(Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 590));
 
@@ -1220,7 +1163,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         setColor(btn_productsP);
         ind_products.setOpaque(true);
-        resetColor(new JPanel[]{btn_customersP, btn_EmployeesP, btn_servicesP, btn_records, btn_salesP, btn_spendingP, btn_scheduleP}, new JPanel[]{ind_customers, ind_employees, ind_services, ind_records, ind_spending, ind_sales, ind_schedule});
+        resetColor(new JPanel[]{btn_customersP, btn_EmployeesP, btn_servicesP, btn_records, btn_salesP, btn_spendingP}, new JPanel[]{ind_customers, ind_employees, ind_services, ind_records, ind_spending, ind_sales});
 
         customers.setVisible(false);
 
@@ -1262,7 +1205,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         setColor(btn_customersP);
         ind_customers.setOpaque(true);
-        resetColor(new JPanel[]{btn_productsP, btn_EmployeesP, btn_servicesP, btn_records, btn_salesP, btn_spendingP, btn_scheduleP}, new JPanel[]{ind_products, ind_employees, ind_services, ind_records, ind_spending, ind_sales, ind_schedule});
+        resetColor(new JPanel[]{btn_productsP, btn_EmployeesP, btn_servicesP, btn_records, btn_salesP, btn_spendingP}, new JPanel[]{ind_products, ind_employees, ind_services, ind_records, ind_spending, ind_sales});
 
         customers.setVisible(true);
 
@@ -1283,7 +1226,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         setColor(btn_EmployeesP);
         ind_employees.setOpaque(true);
-        resetColor(new JPanel[]{btn_productsP, btn_customersP, btn_servicesP, btn_records, btn_salesP, btn_spendingP, btn_scheduleP}, new JPanel[]{ind_products, ind_customers, ind_services, ind_records, ind_spending, ind_sales, ind_schedule});
+        resetColor(new JPanel[]{btn_productsP, btn_customersP, btn_servicesP, btn_records, btn_salesP, btn_spendingP}, new JPanel[]{ind_products, ind_customers, ind_services, ind_records, ind_spending, ind_sales});
 
         customers.setVisible(false);
 
@@ -1304,7 +1247,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         setColor(btn_servicesP);
         ind_services.setOpaque(true);
-        resetColor(new JPanel[]{btn_productsP, btn_EmployeesP, btn_customersP, btn_records, btn_salesP, btn_spendingP, btn_scheduleP}, new JPanel[]{ind_products, ind_employees, ind_customers, ind_records, ind_spending, ind_sales, ind_schedule});
+        resetColor(new JPanel[]{btn_productsP, btn_EmployeesP, btn_customersP, btn_records, btn_salesP, btn_spendingP}, new JPanel[]{ind_products, ind_employees, ind_customers, ind_records, ind_spending, ind_sales});
 
         customers.setVisible(false);
 
@@ -1342,7 +1285,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         setColor(btn_salesP);
         ind_sales.setOpaque(true);
-        resetColor(new JPanel[]{btn_productsP, btn_customersP, btn_servicesP, btn_EmployeesP, btn_records, btn_spendingP, btn_scheduleP}, new JPanel[]{ind_products, ind_customers, ind_services, ind_employees, ind_records, ind_spending, ind_schedule});
+        resetColor(new JPanel[]{btn_productsP, btn_customersP, btn_servicesP, btn_EmployeesP, btn_records, btn_spendingP}, new JPanel[]{ind_products, ind_customers, ind_services, ind_employees, ind_records, ind_spending});
 
         customers.setVisible(false);
 
@@ -1358,27 +1301,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         schedule.setVisible(false);
     }//GEN-LAST:event_btn_salesPMouseReleased
-
-    private void btn_spendingPMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_spendingPMouseReleased
-
-        setColor(btn_spendingP);
-        ind_spending.setOpaque(true);
-        resetColor(new JPanel[]{btn_productsP, btn_customersP, btn_servicesP, btn_records, btn_EmployeesP, btn_salesP, btn_scheduleP}, new JPanel[]{ind_products, ind_customers, ind_services, ind_records, ind_employees, ind_sales, ind_schedule});
-
-        customers.setVisible(false);
-
-        products.setVisible(false);
-
-        employees.setVisible(false);
-
-        services.setVisible(false);
-
-        sales.setVisible(false);
-
-        spending.setVisible(true);
-
-        schedule.setVisible(false);
-    }//GEN-LAST:event_btn_spendingPMouseReleased
 
     private void btn_SettingsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SettingsMousePressed
 
@@ -1442,27 +1364,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_jLabel3MousePressed
-
-    private void btn_schedulePMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_schedulePMouseReleased
-
-        setColor(btn_scheduleP);
-        ind_schedule.setOpaque(true);
-        resetColor(new JPanel[]{btn_productsP, btn_customersP, btn_servicesP, btn_EmployeesP, btn_records, btn_salesP, btn_spendingP}, new JPanel[]{ind_products, ind_customers, ind_services, ind_records, ind_employees, ind_sales, ind_spending});
-
-        customers.setVisible(false);
-
-        products.setVisible(false);
-
-        employees.setVisible(false);
-
-        services.setVisible(false);
-
-        sales.setVisible(false);
-
-        spending.setVisible(false);
-
-        schedule.setVisible(true);
-    }//GEN-LAST:event_btn_schedulePMouseReleased
 
     private void btn_MenuExitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_MenuExitMousePressed
 
@@ -1615,6 +1516,27 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btn_records1MouseClicked
 
+    private void btn_spendingPMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_spendingPMouseReleased
+
+        setColor(btn_spendingP);
+        ind_spending.setOpaque(true);
+        resetColor(new JPanel[]{btn_productsP, btn_customersP, btn_servicesP, btn_records, btn_EmployeesP, btn_salesP}, new JPanel[]{ind_products, ind_customers, ind_services, ind_records, ind_employees, ind_sales});
+
+        customers.setVisible(false);
+
+        products.setVisible(false);
+
+        employees.setVisible(false);
+
+        services.setVisible(false);
+
+        sales.setVisible(false);
+
+        spending.setVisible(true);
+
+        schedule.setVisible(false);
+    }//GEN-LAST:event_btn_spendingPMouseReleased
+
     public static void main(String args[]) {
 
         try {
@@ -1686,7 +1608,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel btn_records;
     private javax.swing.JPanel btn_records1;
     private javax.swing.JPanel btn_salesP;
-    private javax.swing.JPanel btn_scheduleP;
     private javax.swing.JPanel btn_servicesP;
     private javax.swing.JPanel btn_spendingP;
     private javax.swing.JPanel ind_customers;
@@ -1696,7 +1617,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel ind_records;
     private javax.swing.JPanel ind_records1;
     private javax.swing.JPanel ind_sales;
-    private javax.swing.JPanel ind_schedule;
     private javax.swing.JPanel ind_services;
     private javax.swing.JPanel ind_spending;
     private javax.swing.JLabel jLabel1;
@@ -1714,7 +1634,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;

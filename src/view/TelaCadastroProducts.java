@@ -205,8 +205,13 @@ public class TelaCadastroProducts extends javax.swing.JFrame {
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("Edit");
+        jLabel14.setText("Raw Records");
         jLabel14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jLabel14MouseReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout btn_EditLayout = new javax.swing.GroupLayout(btn_Edit);
         btn_Edit.setLayout(btn_EditLayout);
@@ -214,9 +219,9 @@ public class TelaCadastroProducts extends javax.swing.JFrame {
             btn_EditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btn_EditLayout.createSequentialGroup()
                 .addComponent(ind_records, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addComponent(jLabel14)
-                .addGap(0, 56, Short.MAX_VALUE))
+                .addGap(25, 25, 25))
         );
         btn_EditLayout.setVerticalGroup(
             btn_EditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -487,7 +492,8 @@ public class TelaCadastroProducts extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     int xx, xy;
-
+    TelaRegistrosBrutosProducts brutosProducts = new TelaRegistrosBrutosProducts();
+    
     private void Menu2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Menu2MousePressed
 
         xx = evt.getX();
@@ -534,16 +540,17 @@ public class TelaCadastroProducts extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel11MouseClicked
 
     private void txtTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTypeActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_txtTypeActionPerformed
 
     private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
-        // TODO add your handling code here:
+        
         this.insertCadastro();
     }//GEN-LAST:event_jLabel15MouseClicked
 
     private void btn_EditMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_EditMouseReleased
-
+        brutosProducts.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btn_EditMouseReleased
 
     private void txtNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyTyped
@@ -595,6 +602,11 @@ public class TelaCadastroProducts extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_txtTypeKeyTyped
+
+    private void jLabel14MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseReleased
+        brutosProducts.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel14MouseReleased
 
     public static void main(String args[]) {
 

@@ -1,10 +1,7 @@
 package view;
 
 import conexao.ConexaoSQLite;
-import view.TelaDelete;
-import view.TelaPrincipal;
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Toolkit;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -181,40 +178,6 @@ public class TelaRegistros extends javax.swing.JFrame {
                 TelaSucessoDeletar sucesso = new TelaSucessoDeletar();
                 sucesso.setVisible(true);
                 pesquisar_services_Sem();
-            }
-
-        } catch (Exception e) {
-
-            TelaErroDeletar erro = new TelaErroDeletar();
-            erro.setVisible(true);
-
-        }
-    }
-
-    protected void Deletar_Schedule() {
-
-        ConexaoSQLite conexao = new ConexaoSQLite();
-
-        conexao.conectar();
-        ResultSet resultSQL = null;
-        PreparedStatement comandoSQL = null;
-
-        String sql = "delete from Schedule where Title=?";
-
-        try {
-
-            comandoSQL = conexao.criarPreparedStatement(sql);
-
-            comandoSQL.setString(1, DeleteSchedule.getText());
-
-            int apagado = comandoSQL.executeUpdate();
-
-            if (apagado > 0) {
-
-                DeleteSchedule.setText(null);
-                TelaSucessoDeletar sucesso = new TelaSucessoDeletar();
-                sucesso.setVisible(true);
-                pesquisar_schedule_Sem();
             }
 
         } catch (Exception e) {
@@ -448,53 +411,6 @@ public class TelaRegistros extends javax.swing.JFrame {
 
     }
 
-    public void pesquisar_schedule_Sem() {
-
-        ConexaoSQLite conexao = new ConexaoSQLite();
-
-        conexao.conectar();
-        ResultSet resultSQL = null;
-        PreparedStatement comandoSQL = null;
-
-        String sql = "select Title, Position, Description, Date, Schedule, Weekday,Services, Client from Schedule;";
-
-        try {
-
-            comandoSQL = conexao.criarPreparedStatement(sql);
-            resultSQL = comandoSQL.executeQuery();
-            TabelaSchedule.setModel(DbUtils.resultSetToTableModel(resultSQL));
-
-        } catch (SQLException e) {
-
-            JOptionPane.showMessageDialog(null, e);
-        }
-
-    }
-
-    public void pesquisar_schedule() {
-
-        ConexaoSQLite conexao = new ConexaoSQLite();
-
-        conexao.conectar();
-        ResultSet resultSQL = null;
-        PreparedStatement comandoSQL = null;
-
-        String sql = "select Title, Position, Description, Date, Schedule, Weekday, Services, Client from Schedule where Name like ?";
-
-        try {
-
-            comandoSQL = conexao.criarPreparedStatement(sql);
-            comandoSQL.setString(1, PesquisarSchedule.getText() + "%");
-            resultSQL = comandoSQL.executeQuery();
-            TabelaSchedule.setModel(DbUtils.resultSetToTableModel(resultSQL));
-
-        } catch (SQLException e) {
-
-            JOptionPane.showMessageDialog(null, e);
-        }
-
-    }
-
     private void setar_camposProducts() {
 
         int setar = TabelaProducts.getSelectedRow();
@@ -523,13 +439,6 @@ public class TelaRegistros extends javax.swing.JFrame {
 
     }
 
-    private void setar_camposSchedule() {
-
-        int setar = TabelaSchedule.getSelectedRow();
-        DeleteSchedule.setText(TabelaSchedule.getModel().getValueAt(setar, 0).toString());
-
-    }
-
     public TelaRegistros() {
 
         setIcon();
@@ -544,14 +453,12 @@ public class TelaRegistros extends javax.swing.JFrame {
         resetLblColor(btn_customers);
         resetLblColor(btn_employees);
         resetLblColor(btn_services);
-        resetLblColor(btn_schedule);
 
         Graphic.setVisible(true);
         Products.setVisible(false);
         Customers.setVisible(false);
         Employees.setVisible(false);
         Services.setVisible(false);
-        Schedule.setVisible(false);
 
         TabelaProducts.getTableHeader().setOpaque(false);
         TabelaProducts.getTableHeader().setBackground(new Color(71, 120, 197));
@@ -567,11 +474,6 @@ public class TelaRegistros extends javax.swing.JFrame {
         TabelaEmployees.getTableHeader().setBackground(new Color(71, 120, 197));
         TabelaEmployees.getTableHeader().setForeground(new Color(255, 255, 255));
         TabelaEmployees.setRowHeight(25);
-
-        TabelaSchedule.getTableHeader().setOpaque(false);
-        TabelaSchedule.getTableHeader().setBackground(new Color(71, 120, 197));
-        TabelaSchedule.getTableHeader().setForeground(new Color(255, 255, 255));
-        TabelaSchedule.setRowHeight(25);
 
         TabelaServices.getTableHeader().setOpaque(false);
         TabelaServices.getTableHeader().setBackground(new Color(71, 120, 197));
@@ -652,7 +554,6 @@ public class TelaRegistros extends javax.swing.JFrame {
         btn_services = new javax.swing.JLabel();
         btn_customers = new javax.swing.JLabel();
         btn_employees = new javax.swing.JLabel();
-        btn_schedule = new javax.swing.JLabel();
         lblNomeDeUsuarioRegistro = new javax.swing.JLabel();
         Paineis = new javax.swing.JPanel();
         Graphic = new javax.swing.JPanel();
@@ -669,12 +570,6 @@ public class TelaRegistros extends javax.swing.JFrame {
         PesquisarProducts = new javax.swing.JTextField();
         btn_DeleteProducts = new javax.swing.JLabel();
         DeleteProducts = new javax.swing.JTextField();
-        Schedule = new javax.swing.JPanel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        TabelaSchedule = new javax.swing.JTable();
-        PesquisarSchedule = new javax.swing.JTextField();
-        btn_DeleteSchedule = new javax.swing.JLabel();
-        DeleteSchedule = new javax.swing.JTextField();
         Services = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
         TabelaServices = new javax.swing.JTable();
@@ -792,19 +687,6 @@ public class TelaRegistros extends javax.swing.JFrame {
             }
         });
 
-        btn_schedule.setBackground(new java.awt.Color(23, 35, 51));
-        btn_schedule.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btn_schedule.setForeground(new java.awt.Color(255, 255, 255));
-        btn_schedule.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btn_schedule.setText("Schedule");
-        btn_schedule.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_schedule.setOpaque(true);
-        btn_schedule.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_scheduleMouseClicked(evt);
-            }
-        });
-
         lblNomeDeUsuarioRegistro.setBackground(new java.awt.Color(23, 35, 51));
         lblNomeDeUsuarioRegistro.setForeground(new java.awt.Color(23, 35, 51));
         lblNomeDeUsuarioRegistro.setText("jLabel2");
@@ -813,7 +695,15 @@ public class TelaRegistros extends javax.swing.JFrame {
         header.setLayout(headerLayout);
         headerLayout.setHorizontalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 389, Short.MAX_VALUE)
+                .addComponent(lblNomeDeUsuarioRegistro)
+                .addGap(275, 275, 275)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(headerLayout.createSequentialGroup()
+                .addGap(72, 72, 72)
                 .addComponent(btn_graphic, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_products, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -823,15 +713,7 @@ public class TelaRegistros extends javax.swing.JFrame {
                 .addComponent(btn_employees, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_services, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_schedule, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblNomeDeUsuarioRegistro)
-                .addGap(275, 275, 275)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 73, Short.MAX_VALUE))
         );
         headerLayout.setVerticalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -851,8 +733,7 @@ public class TelaRegistros extends javax.swing.JFrame {
                     .addComponent(btn_customers, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_products, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_graphic, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_services, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_schedule, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btn_services, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         Paineis.setLayout(new java.awt.CardLayout());
@@ -1100,104 +981,6 @@ public class TelaRegistros extends javax.swing.JFrame {
 
         Paineis.add(Products, "card3");
 
-        Schedule.setBackground(new java.awt.Color(255, 255, 255));
-        Schedule.setForeground(new java.awt.Color(102, 102, 102));
-        Schedule.setPreferredSize(new java.awt.Dimension(900, 565));
-
-        TabelaSchedule.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        TabelaSchedule.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Nome", "Telefone", "Endereço", "Email"
-            }
-        ));
-        TabelaSchedule.setFocusable(false);
-        TabelaSchedule.setIntercellSpacing(new java.awt.Dimension(0, 0));
-        TabelaSchedule.setRowHeight(25);
-        TabelaSchedule.setSelectionBackground(new java.awt.Color(192, 192, 192));
-        TabelaSchedule.setShowVerticalLines(false);
-        TabelaSchedule.getTableHeader().setReorderingAllowed(false);
-        TabelaSchedule.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                TabelaScheduleMouseClicked(evt);
-            }
-        });
-        jScrollPane5.setViewportView(TabelaSchedule);
-
-        PesquisarSchedule.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        PesquisarSchedule.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                PesquisarScheduleKeyReleased(evt);
-            }
-        });
-
-        btn_DeleteSchedule.setBackground(new java.awt.Color(23, 35, 51));
-        btn_DeleteSchedule.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btn_DeleteSchedule.setForeground(new java.awt.Color(255, 255, 255));
-        btn_DeleteSchedule.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btn_DeleteSchedule.setText("Delete");
-        btn_DeleteSchedule.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_DeleteSchedule.setOpaque(true);
-        btn_DeleteSchedule.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_DeleteScheduleMouseClicked(evt);
-            }
-        });
-
-        DeleteSchedule.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        DeleteSchedule.setToolTipText("");
-        DeleteSchedule.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DeleteScheduleActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout ScheduleLayout = new javax.swing.GroupLayout(Schedule);
-        Schedule.setLayout(ScheduleLayout);
-        ScheduleLayout.setHorizontalGroup(
-            ScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ScheduleLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(PesquisarSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 215, Short.MAX_VALUE)
-                .addComponent(DeleteSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_DeleteSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35))
-            .addGroup(ScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ScheduleLayout.createSequentialGroup()
-                    .addContainerGap(33, Short.MAX_VALUE)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 833, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(34, Short.MAX_VALUE)))
-        );
-        ScheduleLayout.setVerticalGroup(
-            ScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ScheduleLayout.createSequentialGroup()
-                .addContainerGap(267, Short.MAX_VALUE)
-                .addGroup(ScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(DeleteSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btn_DeleteSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(PesquisarSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-            .addGroup(ScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ScheduleLayout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(70, Short.MAX_VALUE)))
-        );
-
-        Paineis.add(Schedule, "card3");
-
         Services.setBackground(new java.awt.Color(255, 255, 255));
         Services.setForeground(new java.awt.Color(51, 51, 51));
         Services.setPreferredSize(new java.awt.Dimension(900, 565));
@@ -1443,14 +1226,12 @@ public class TelaRegistros extends javax.swing.JFrame {
         resetLblColor(btn_customers);
         resetLblColor(btn_employees);
         resetLblColor(btn_services);
-        resetLblColor(btn_schedule);
 
         Graphic.setVisible(true);
         Products.setVisible(false);
         Customers.setVisible(false);
         Employees.setVisible(false);
         Services.setVisible(false);
-        Schedule.setVisible(false);
 
     }//GEN-LAST:event_btn_graphicMouseClicked
 
@@ -1461,14 +1242,12 @@ public class TelaRegistros extends javax.swing.JFrame {
         resetLblColor(btn_customers);
         resetLblColor(btn_employees);
         resetLblColor(btn_services);
-        resetLblColor(btn_schedule);
 
         Graphic.setVisible(false);
         Products.setVisible(true);
         Customers.setVisible(false);
         Employees.setVisible(false);
         Services.setVisible(false);
-        Schedule.setVisible(false);
 
         this.lblNomeDeUsuarioRegistro.setVisible(true);
 
@@ -1483,14 +1262,12 @@ public class TelaRegistros extends javax.swing.JFrame {
         resetLblColor(btn_customers);
         resetLblColor(btn_employees);
         setLblColor(btn_services);
-        resetLblColor(btn_schedule);
 
         Graphic.setVisible(false);
         Products.setVisible(false);
         Customers.setVisible(false);
         Employees.setVisible(false);
         Services.setVisible(true);
-        Schedule.setVisible(false);
 
         pesquisar_services_Sem();
 
@@ -1504,14 +1281,12 @@ public class TelaRegistros extends javax.swing.JFrame {
         setLblColor(btn_customers);
         resetLblColor(btn_employees);
         resetLblColor(btn_services);
-        resetLblColor(btn_schedule);
 
         Graphic.setVisible(false);
         Products.setVisible(false);
         Customers.setVisible(true);
         Employees.setVisible(false);
         Services.setVisible(false);
-        Schedule.setVisible(false);
 
         pesquisar_Customers_Sem();
 
@@ -1525,38 +1300,16 @@ public class TelaRegistros extends javax.swing.JFrame {
         resetLblColor(btn_customers);
         setLblColor(btn_employees);
         resetLblColor(btn_services);
-        resetLblColor(btn_schedule);
 
         Graphic.setVisible(false);
         Products.setVisible(false);
         Customers.setVisible(false);
         Employees.setVisible(true);
         Services.setVisible(false);
-        Schedule.setVisible(false);
 
         pesquisar_Employees_Sem();
 
     }//GEN-LAST:event_btn_employeesMouseClicked
-
-    private void btn_scheduleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_scheduleMouseClicked
-
-        resetLblColor(btn_graphic);
-        resetLblColor(btn_products);
-        resetLblColor(btn_customers);
-        resetLblColor(btn_employees);
-        resetLblColor(btn_services);
-        setLblColor(btn_schedule);
-
-        Graphic.setVisible(false);
-        Products.setVisible(false);
-        Customers.setVisible(false);
-        Employees.setVisible(false);
-        Services.setVisible(false);
-        Schedule.setVisible(true);
-
-        pesquisar_schedule_Sem();
-
-    }//GEN-LAST:event_btn_scheduleMouseClicked
 
     private void PesquisarServicesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarServicesActionPerformed
 
@@ -1570,15 +1323,6 @@ public class TelaRegistros extends javax.swing.JFrame {
     private void DeleteServicesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteServicesActionPerformed
 
     }//GEN-LAST:event_DeleteServicesActionPerformed
-
-    private void btn_DeleteScheduleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DeleteScheduleMouseClicked
-
-        Deletar_Schedule();
-    }//GEN-LAST:event_btn_DeleteScheduleMouseClicked
-
-    private void DeleteScheduleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteScheduleActionPerformed
-
-    }//GEN-LAST:event_DeleteScheduleActionPerformed
 
     private void btn_productsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_productsMouseEntered
         // TODO add your handling code here:
@@ -1625,14 +1369,6 @@ public class TelaRegistros extends javax.swing.JFrame {
     private void ServicesKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ServicesKeyReleased
         pesquisar_services();
     }//GEN-LAST:event_ServicesKeyReleased
-
-    private void PesquisarScheduleKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PesquisarScheduleKeyReleased
-        pesquisar_schedule();
-    }//GEN-LAST:event_PesquisarScheduleKeyReleased
-
-    private void TabelaScheduleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabelaScheduleMouseClicked
-        setar_camposSchedule();
-    }//GEN-LAST:event_TabelaScheduleMouseClicked
 
     private void TabelaServicesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabelaServicesMouseClicked
         setar_camposServices();
@@ -1695,7 +1431,6 @@ public class TelaRegistros extends javax.swing.JFrame {
     public javax.swing.JTextField DeleteCustomers;
     private javax.swing.JTextField DeleteEmployees;
     private javax.swing.JTextField DeleteProducts;
-    private javax.swing.JTextField DeleteSchedule;
     private javax.swing.JTextField DeleteServices;
     public javax.swing.JPanel Employees;
     public javax.swing.JPanel Graphic;
@@ -1703,32 +1438,26 @@ public class TelaRegistros extends javax.swing.JFrame {
     public javax.swing.JTextField PesquisarCustomers;
     public javax.swing.JTextField PesquisarEmployees;
     public javax.swing.JTextField PesquisarProducts;
-    public javax.swing.JTextField PesquisarSchedule;
     public javax.swing.JTextField PesquisarServices;
     public javax.swing.JPanel Products;
-    public javax.swing.JPanel Schedule;
     public javax.swing.JPanel Services;
     public javax.swing.JTable TabelaCustomers;
     public javax.swing.JTable TabelaEmployees;
     public javax.swing.JTable TabelaProducts;
-    public javax.swing.JTable TabelaSchedule;
     public javax.swing.JTable TabelaServices;
     public javax.swing.JLabel btn_DeleteCustomers;
     public javax.swing.JLabel btn_DeleteEmployees;
     public javax.swing.JLabel btn_DeleteProducts;
-    public javax.swing.JLabel btn_DeleteSchedule;
     private javax.swing.JLabel btn_DeleteServices;
     private javax.swing.JLabel btn_customers;
     private javax.swing.JLabel btn_employees;
     private javax.swing.JLabel btn_graphic;
     private javax.swing.JLabel btn_products;
-    private javax.swing.JLabel btn_schedule;
     private javax.swing.JLabel btn_services;
     private javax.swing.JPanel header;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    public javax.swing.JScrollPane jScrollPane5;
     public javax.swing.JScrollPane jScrollPane6;
     public javax.swing.JScrollPane jScrollPane7;
     public javax.swing.JScrollPane jScrollPane8;
