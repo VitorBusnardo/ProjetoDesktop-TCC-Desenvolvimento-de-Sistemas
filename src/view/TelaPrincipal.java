@@ -346,7 +346,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        Menu.add(btn_productsP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 140, -1));
+        Menu.add(btn_productsP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 140, -1));
 
         btn_customersP.setBackground(new java.awt.Color(23, 35, 51));
         btn_customersP.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -398,7 +398,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        Menu.add(btn_customersP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 140, -1));
+        Menu.add(btn_customersP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 140, -1));
 
         btn_EmployeesP.setBackground(new java.awt.Color(23, 35, 51));
         btn_EmployeesP.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -447,7 +447,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        Menu.add(btn_EmployeesP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 140, -1));
+        Menu.add(btn_EmployeesP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 140, -1));
 
         btn_servicesP.setBackground(new java.awt.Color(23, 35, 51));
         btn_servicesP.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -496,7 +496,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        Menu.add(btn_servicesP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 140, -1));
+        Menu.add(btn_servicesP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 140, -1));
 
         btn_salesP.setBackground(new java.awt.Color(23, 35, 51));
         btn_salesP.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -545,7 +545,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        Menu.add(btn_salesP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 140, 40));
+        Menu.add(btn_salesP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 140, 40));
 
         btn_spendingP.setBackground(new java.awt.Color(23, 35, 51));
         btn_spendingP.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -594,7 +594,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        Menu.add(btn_spendingP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 140, -1));
+        Menu.add(btn_spendingP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, 140, -1));
 
         getContentPane().add(Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 590));
 
