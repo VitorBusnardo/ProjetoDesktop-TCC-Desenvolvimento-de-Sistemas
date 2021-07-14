@@ -9,18 +9,18 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
-public class TelaRegistrosBrutosCustomers extends javax.swing.JFrame {
+public class TelaRegistrosBrutosSpending extends javax.swing.JFrame {
     
-    public TelaRegistrosBrutosCustomers() {
+    public TelaRegistrosBrutosSpending() {
         initComponents();
 
         setIcon();
-        pesquisar_Customers_Sem();
+        pesquisar_Spending_Sem();
         
-        tabelaCustomersBruto.getTableHeader().setOpaque(false);
-        tabelaCustomersBruto.getTableHeader().setBackground(new Color(71, 120, 197));
-        tabelaCustomersBruto.getTableHeader().setForeground(new Color(255, 255, 255));
-        tabelaCustomersBruto.setRowHeight(25);
+        tabelaSpendingBruto.getTableHeader().setOpaque(false);
+        tabelaSpendingBruto.getTableHeader().setBackground(new Color(71, 120, 197));
+        tabelaSpendingBruto.getTableHeader().setForeground(new Color(255, 255, 255));
+        tabelaSpendingBruto.setRowHeight(25);
     }
 
     public void setIcon() {
@@ -29,7 +29,7 @@ public class TelaRegistrosBrutosCustomers extends javax.swing.JFrame {
 
     }
     
-    protected void pesquisar_Customers_Sem() {
+    protected void Deletar_Spending() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -37,46 +37,22 @@ public class TelaRegistrosBrutosCustomers extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "select Id, FullName, Age, Email, Telephone, Address, Email, Cpf, BirthDate, City, Sex, Services from Customers where FullName like ?";
-
-        try {
-
-            comandoSQL = conexao.criarPreparedStatement(sql);
-            comandoSQL.setString(1, pesquisarCustomers.getText() + "%");
-            resultSQL = comandoSQL.executeQuery();
-            tabelaCustomersBruto.setModel(DbUtils.resultSetToTableModel(resultSQL));
-
-        } catch (SQLException e) {
-
-            JOptionPane.showMessageDialog(null, e);
-        }
-
-    }
-    
-    protected void Deletar_Customers() {
-
-        ConexaoSQLite conexao = new ConexaoSQLite();
-
-        conexao.conectar();
-        ResultSet resultSQL = null;
-        PreparedStatement comandoSQL = null;
-
-        String sql = "delete from Customers where FullName=?";
+        String sql = "delete from Spending where Title=?";
 
         try {
 
             comandoSQL = conexao.criarPreparedStatement(sql);
 
-            comandoSQL.setString(1, deleteCustomers.getText());
+            comandoSQL.setString(1, deleteSpending.getText());
 
             int apagado = comandoSQL.executeUpdate();
 
             if (apagado > 0) {
 
-                deleteCustomers.setText(null);
+                deleteSpending.setText(null);
                 TelaSucessoDeletar sucesso = new TelaSucessoDeletar();
                 sucesso.setVisible(true);
-                pesquisar_Customers_Sem();
+                pesquisar_Spending_Sem();
             }
 
         } catch (Exception e) {
@@ -87,7 +63,7 @@ public class TelaRegistrosBrutosCustomers extends javax.swing.JFrame {
         }
     }
 
-    public void pesquisar_Customers() {
+    public void pesquisar_Spending_Sem() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -95,14 +71,13 @@ public class TelaRegistrosBrutosCustomers extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "select Id, FullName, Age, Email, Telephone, Address, Email, Cpf, BirthDate, City, Sex, Services from Customers where FullName like ?";
+        String sql = "select Id, Title, Type, Description, Date, Value, PurchasedSpent, Classification from Spending;";
 
         try {
 
             comandoSQL = conexao.criarPreparedStatement(sql);
-            comandoSQL.setString(1, pesquisarCustomers.getText() + "%");
             resultSQL = comandoSQL.executeQuery();
-            tabelaCustomersBruto.setModel(DbUtils.resultSetToTableModel(resultSQL));
+            tabelaSpendingBruto.setModel(DbUtils.resultSetToTableModel(resultSQL));
 
         } catch (SQLException e) {
 
@@ -111,12 +86,35 @@ public class TelaRegistrosBrutosCustomers extends javax.swing.JFrame {
 
     }
 
-    private void setar_camposCustomers() {
+    public void pesquisar_Spending() {
 
-        int setar = tabelaCustomersBruto.getSelectedRow();
-        deleteCustomers.setText(tabelaCustomersBruto.getModel().getValueAt(setar, 1).toString());
+        ConexaoSQLite conexao = new ConexaoSQLite();
 
+        conexao.conectar();
+        ResultSet resultSQL = null;
+        PreparedStatement comandoSQL = null;
+
+        String sql = "select Id, Title, Type, Description, Date, Value, PurchasedSpent, Classification from Spending where Title like ?";
+
+        try {
+
+            comandoSQL = conexao.criarPreparedStatement(sql);
+            comandoSQL.setString(1, pesquisarSpending.getText() + "%");
+            resultSQL = comandoSQL.executeQuery();
+            tabelaSpendingBruto.setModel(DbUtils.resultSetToTableModel(resultSQL));
+
+        } catch (SQLException e) {
+
+            JOptionPane.showMessageDialog(null, e);
+        }
     }
+
+    private void setar_camposSpending() {
+
+        int setar = tabelaSpendingBruto.getSelectedRow();
+        deleteSpending.setText(tabelaSpendingBruto.getModel().getValueAt(setar, 1).toString());
+
+    }    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -126,13 +124,13 @@ public class TelaRegistrosBrutosCustomers extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         painelBlue = new javax.swing.JPanel();
         painelWhithe = new javax.swing.JPanel();
-        painelCustomers = new javax.swing.JPanel();
+        painelSpending = new javax.swing.JPanel();
         jScrollPane7 = new javax.swing.JScrollPane();
-        tabelaCustomersBruto = new javax.swing.JTable();
-        pesquisarCustomers = new javax.swing.JTextField();
+        tabelaSpendingBruto = new javax.swing.JTable();
+        pesquisarSpending = new javax.swing.JTextField();
         btn_Refresh = new javax.swing.JLabel();
-        deleteCustomers = new javax.swing.JTextField();
-        btn_DeletarCostumers = new javax.swing.JLabel();
+        deleteSpending = new javax.swing.JTextField();
+        btn_DeletarSpending = new javax.swing.JLabel();
         btn_Change = new javax.swing.JLabel();
         btn_Editions = new javax.swing.JLabel();
         txt_Editar1 = new javax.swing.JTextField();
@@ -145,8 +143,6 @@ public class TelaRegistrosBrutosCustomers extends javax.swing.JFrame {
         txt_Editar8 = new javax.swing.JTextField();
         txt_Editar9 = new javax.swing.JTextField();
         txt_Editar10 = new javax.swing.JTextField();
-        txtSex = new javax.swing.JComboBox<>();
-        txtService = new javax.swing.JComboBox<>();
         btnFechar = new javax.swing.JLabel();
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -182,12 +178,12 @@ public class TelaRegistrosBrutosCustomers extends javax.swing.JFrame {
         painelWhithe.setBackground(new java.awt.Color(255, 255, 255));
         painelWhithe.setPreferredSize(new java.awt.Dimension(444, 193));
 
-        painelCustomers.setBackground(new java.awt.Color(255, 255, 255));
-        painelCustomers.setForeground(new java.awt.Color(102, 102, 102));
-        painelCustomers.setPreferredSize(new java.awt.Dimension(900, 565));
+        painelSpending.setBackground(new java.awt.Color(255, 255, 255));
+        painelSpending.setForeground(new java.awt.Color(102, 102, 102));
+        painelSpending.setPreferredSize(new java.awt.Dimension(900, 565));
 
-        tabelaCustomersBruto.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        tabelaCustomersBruto.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaSpendingBruto.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        tabelaSpendingBruto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -202,23 +198,23 @@ public class TelaRegistrosBrutosCustomers extends javax.swing.JFrame {
                 "Nome", "Telefone", "Endereço", "Email"
             }
         ));
-        tabelaCustomersBruto.setFocusable(false);
-        tabelaCustomersBruto.setIntercellSpacing(new java.awt.Dimension(0, 0));
-        tabelaCustomersBruto.setRowHeight(25);
-        tabelaCustomersBruto.setSelectionBackground(new java.awt.Color(192, 192, 192));
-        tabelaCustomersBruto.setShowVerticalLines(false);
-        tabelaCustomersBruto.getTableHeader().setReorderingAllowed(false);
-        tabelaCustomersBruto.addMouseListener(new java.awt.event.MouseAdapter() {
+        tabelaSpendingBruto.setFocusable(false);
+        tabelaSpendingBruto.setIntercellSpacing(new java.awt.Dimension(0, 0));
+        tabelaSpendingBruto.setRowHeight(25);
+        tabelaSpendingBruto.setSelectionBackground(new java.awt.Color(192, 192, 192));
+        tabelaSpendingBruto.setShowVerticalLines(false);
+        tabelaSpendingBruto.getTableHeader().setReorderingAllowed(false);
+        tabelaSpendingBruto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tabelaCustomersBrutoMouseClicked(evt);
+                tabelaSpendingBrutoMouseClicked(evt);
             }
         });
-        jScrollPane7.setViewportView(tabelaCustomersBruto);
+        jScrollPane7.setViewportView(tabelaSpendingBruto);
 
-        pesquisarCustomers.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        pesquisarCustomers.addKeyListener(new java.awt.event.KeyAdapter() {
+        pesquisarSpending.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        pesquisarSpending.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                pesquisarCustomersKeyReleased(evt);
+                pesquisarSpendingKeyReleased(evt);
             }
         });
 
@@ -235,24 +231,24 @@ public class TelaRegistrosBrutosCustomers extends javax.swing.JFrame {
             }
         });
 
-        deleteCustomers.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        deleteCustomers.setToolTipText("");
-        deleteCustomers.addActionListener(new java.awt.event.ActionListener() {
+        deleteSpending.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        deleteSpending.setToolTipText("");
+        deleteSpending.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteCustomersActionPerformed(evt);
+                deleteSpendingActionPerformed(evt);
             }
         });
 
-        btn_DeletarCostumers.setBackground(new java.awt.Color(23, 35, 51));
-        btn_DeletarCostumers.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btn_DeletarCostumers.setForeground(new java.awt.Color(255, 255, 255));
-        btn_DeletarCostumers.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btn_DeletarCostumers.setText("Delete");
-        btn_DeletarCostumers.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_DeletarCostumers.setOpaque(true);
-        btn_DeletarCostumers.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_DeletarSpending.setBackground(new java.awt.Color(23, 35, 51));
+        btn_DeletarSpending.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btn_DeletarSpending.setForeground(new java.awt.Color(255, 255, 255));
+        btn_DeletarSpending.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btn_DeletarSpending.setText("Delete");
+        btn_DeletarSpending.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_DeletarSpending.setOpaque(true);
+        btn_DeletarSpending.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_DeletarCostumersMouseClicked(evt);
+                btn_DeletarSpendingMouseClicked(evt);
             }
         });
 
@@ -362,109 +358,94 @@ public class TelaRegistrosBrutosCustomers extends javax.swing.JFrame {
             }
         });
 
-        txtSex.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        txtSex.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "             ", "Female", "Male" }));
-
-        txtService.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        txtService.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "             ", "Female", "Male" }));
-
-        javax.swing.GroupLayout painelCustomersLayout = new javax.swing.GroupLayout(painelCustomers);
-        painelCustomers.setLayout(painelCustomersLayout);
-        painelCustomersLayout.setHorizontalGroup(
-            painelCustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painelCustomersLayout.createSequentialGroup()
+        javax.swing.GroupLayout painelSpendingLayout = new javax.swing.GroupLayout(painelSpending);
+        painelSpending.setLayout(painelSpendingLayout);
+        painelSpendingLayout.setHorizontalGroup(
+            painelSpendingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelSpendingLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
-                .addGroup(painelCustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(painelCustomersLayout.createSequentialGroup()
-                        .addComponent(pesquisarCustomers, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(218, 218, 218))
-                    .addGroup(painelCustomersLayout.createSequentialGroup()
+                .addGroup(painelSpendingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pesquisarSpending, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(painelSpendingLayout.createSequentialGroup()
                         .addComponent(btn_Refresh, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btn_Change, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btn_Editions, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtService, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)))
-                .addGroup(painelCustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelCustomersLayout.createSequentialGroup()
-                        .addComponent(deleteCustomers, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_Editions, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(painelSpendingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelSpendingLayout.createSequentialGroup()
+                        .addComponent(deleteSpending, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btn_DeletarCostumers, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelCustomersLayout.createSequentialGroup()
-                        .addComponent(txtSex, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txt_Editar10, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btn_DeletarSpending, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_Editar10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35))
-            .addGroup(painelCustomersLayout.createSequentialGroup()
+            .addGroup(painelSpendingLayout.createSequentialGroup()
                 .addGap(76, 76, 76)
-                .addGroup(painelCustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(painelCustomersLayout.createSequentialGroup()
-                        .addGroup(painelCustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(painelSpendingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(painelSpendingLayout.createSequentialGroup()
+                        .addGroup(painelSpendingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txt_Editar2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt_Editar1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(89, 89, 89)
-                        .addGroup(painelCustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(painelSpendingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txt_Editar4, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt_Editar3, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(89, 89, 89)
-                        .addGroup(painelCustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(painelSpendingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txt_Editar6, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt_Editar5, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(painelCustomersLayout.createSequentialGroup()
+                    .addGroup(painelSpendingLayout.createSequentialGroup()
                         .addComponent(txt_Editar7, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(89, 89, 89)
                         .addComponent(txt_Editar8, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(89, 89, 89)
                         .addComponent(txt_Editar9, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(76, Short.MAX_VALUE))
-            .addGroup(painelCustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelCustomersLayout.createSequentialGroup()
+            .addGroup(painelSpendingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelSpendingLayout.createSequentialGroup()
                     .addContainerGap(78, Short.MAX_VALUE)
                     .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 984, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(78, Short.MAX_VALUE)))
         );
-        painelCustomersLayout.setVerticalGroup(
-            painelCustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelCustomersLayout.createSequentialGroup()
+        painelSpendingLayout.setVerticalGroup(
+            painelSpendingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelSpendingLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addGroup(painelCustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(painelSpendingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_Refresh, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_Change, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_Editions, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_Editar10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtSex, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtService, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_Editar10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 264, Short.MAX_VALUE)
-                .addGroup(painelCustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(painelSpendingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txt_Editar7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(painelCustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(painelSpendingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txt_Editar8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txt_Editar9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(30, 30, 30)
-                .addGroup(painelCustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(painelCustomersLayout.createSequentialGroup()
+                .addGroup(painelSpendingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(painelSpendingLayout.createSequentialGroup()
                         .addComponent(txt_Editar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
                         .addComponent(txt_Editar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(painelCustomersLayout.createSequentialGroup()
-                        .addGroup(painelCustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(painelSpendingLayout.createSequentialGroup()
+                        .addGroup(painelSpendingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txt_Editar3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt_Editar5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(30, 30, 30)
-                        .addGroup(painelCustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(painelSpendingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txt_Editar4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt_Editar6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(33, 33, 33)
-                .addGroup(painelCustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(painelCustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(deleteCustomers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btn_DeletarCostumers, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(pesquisarCustomers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(painelSpendingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(painelSpendingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(deleteSpending, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_DeletarSpending, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pesquisarSpending, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
-            .addGroup(painelCustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelCustomersLayout.createSequentialGroup()
+            .addGroup(painelSpendingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelSpendingLayout.createSequentialGroup()
                     .addContainerGap(68, Short.MAX_VALUE)
                     .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(235, Short.MAX_VALUE)))
@@ -476,13 +457,13 @@ public class TelaRegistrosBrutosCustomers extends javax.swing.JFrame {
             painelWhitheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1140, Short.MAX_VALUE)
             .addGroup(painelWhitheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(painelCustomers, javax.swing.GroupLayout.DEFAULT_SIZE, 1140, Short.MAX_VALUE))
+                .addComponent(painelSpending, javax.swing.GroupLayout.DEFAULT_SIZE, 1140, Short.MAX_VALUE))
         );
         painelWhitheLayout.setVerticalGroup(
             painelWhitheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 530, Short.MAX_VALUE)
             .addGroup(painelWhitheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(painelCustomers, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE))
+                .addComponent(painelSpending, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE))
         );
 
         painelBlue.add(painelWhithe, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 38, 1140, 530));
@@ -516,29 +497,29 @@ public class TelaRegistrosBrutosCustomers extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void pesquisarCustomersKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pesquisarCustomersKeyReleased
-        pesquisar_Customers();
-    }//GEN-LAST:event_pesquisarCustomersKeyReleased
+    private void pesquisarSpendingKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pesquisarSpendingKeyReleased
+        pesquisar_Spending();
+    }//GEN-LAST:event_pesquisarSpendingKeyReleased
 
     private void btn_RefreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_RefreshMouseClicked
-        pesquisar_Customers();
+        pesquisar_Spending();
     }//GEN-LAST:event_btn_RefreshMouseClicked
 
-    private void deleteCustomersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteCustomersActionPerformed
-        Deletar_Customers();
-    }//GEN-LAST:event_deleteCustomersActionPerformed
+    private void deleteSpendingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteSpendingActionPerformed
+        Deletar_Spending();
+    }//GEN-LAST:event_deleteSpendingActionPerformed
 
     private void btnFecharMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFecharMouseClicked
         this.dispose();
     }//GEN-LAST:event_btnFecharMouseClicked
 
-    private void tabelaCustomersBrutoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaCustomersBrutoMouseClicked
-        setar_camposCustomers();
-    }//GEN-LAST:event_tabelaCustomersBrutoMouseClicked
+    private void tabelaSpendingBrutoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaSpendingBrutoMouseClicked
+        setar_camposSpending();
+    }//GEN-LAST:event_tabelaSpendingBrutoMouseClicked
 
-    private void btn_DeletarCostumersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DeletarCostumersMouseClicked
-        Deletar_Customers();
-    }//GEN-LAST:event_btn_DeletarCostumersMouseClicked
+    private void btn_DeletarSpendingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DeletarSpendingMouseClicked
+        Deletar_Spending();
+    }//GEN-LAST:event_btn_DeletarSpendingMouseClicked
 
     private void btn_ChangeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ChangeMouseClicked
         // TODO add your handling code here:
@@ -606,18 +587,18 @@ public class TelaRegistrosBrutosCustomers extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaRegistrosBrutosCustomers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaRegistrosBrutosSpending.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaRegistrosBrutosCustomers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaRegistrosBrutosSpending.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaRegistrosBrutosCustomers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaRegistrosBrutosSpending.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaRegistrosBrutosCustomers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaRegistrosBrutosSpending.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaRegistrosBrutosCustomers().setVisible(true);
+                new TelaRegistrosBrutosSpending().setVisible(true);
             }
         });
     }
@@ -625,20 +606,18 @@ public class TelaRegistrosBrutosCustomers extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btnFechar;
     public javax.swing.JLabel btn_Change;
-    public javax.swing.JLabel btn_DeletarCostumers;
+    public javax.swing.JLabel btn_DeletarSpending;
     public javax.swing.JLabel btn_Editions;
     public javax.swing.JLabel btn_Refresh;
-    private javax.swing.JTextField deleteCustomers;
+    private javax.swing.JTextField deleteSpending;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;
     public javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JPanel painelBlue;
-    public javax.swing.JPanel painelCustomers;
+    public javax.swing.JPanel painelSpending;
     private javax.swing.JPanel painelWhithe;
-    public javax.swing.JTextField pesquisarCustomers;
-    public javax.swing.JTable tabelaCustomersBruto;
-    private javax.swing.JComboBox<String> txtService;
-    private javax.swing.JComboBox<String> txtSex;
+    public javax.swing.JTextField pesquisarSpending;
+    public javax.swing.JTable tabelaSpendingBruto;
     public javax.swing.JTextField txt_Editar1;
     public javax.swing.JTextField txt_Editar10;
     public javax.swing.JTextField txt_Editar2;
