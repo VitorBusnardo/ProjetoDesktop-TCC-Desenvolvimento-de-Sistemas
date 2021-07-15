@@ -230,7 +230,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "select FullName, Age, Email, Telephone, Address, Email, Cpf, BirthDate, City, Sex, Services from Customers where FullName like ?";
+        String sql = "select FullName, Telephone, Cpf, Sex, Services from Customers where FullName like ?";
 
         try {
 
@@ -254,7 +254,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "select FullName, Age, Email, Telephone, Address, Email, Cpf, BirthDate, City, Sex, Services from Customers where FullName like ?";
+        String sql = "select FullName, Telephone, Cpf, City, Sex, Services from Customers where FullName like ?";
 
         try {
 
@@ -278,7 +278,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "select FullName, Age, Telephone, Address, Email, Cpf, BirthDate, Salary, OccupationArea, Sex from Employees;";
+        String sql = "select FullName, Telephone, Cpf, Salary, OccupationArea from Employees;";
 
         try {
 
@@ -301,7 +301,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "select FullName, Age, Telephone, Address, Email, Cpf, BirthDate, Salary, OccupationArea, Sex from Employees where FullName like ?";
+        String sql = "select FullName, Telephone, Cpf, Salary, OccupationArea from Employees where FullName like ?";
 
         try {
 
@@ -325,7 +325,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "select Name, Brand, Stock, Description, Value, Type from Products;";
+        String sql = "select Name, Brand, Stock, Value, Type from Products;";
 
         try {
 
@@ -348,7 +348,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "select Name, Brand, Stock, Description, Value, Type from Products where Name like ?";
+        String sql = "select Name, Brand, Stock, Value, Type from Products where Name like ?";
 
         try {
 
