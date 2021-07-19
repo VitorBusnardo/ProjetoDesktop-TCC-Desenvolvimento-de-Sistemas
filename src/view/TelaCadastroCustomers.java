@@ -67,6 +67,7 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
             readComando.setString(1, txtServices.getSelectedItem().toString());
             resultSQL = readComando.executeQuery();
             String idServices = resultSQL.getString("Name");
+            
             comandoSQL = conexao.criarPreparedStatement(insertSQL);
             comandoSQL.setString(1, txtFullName.getText());
             comandoSQL.setString(2, txtAge.getText());
@@ -521,20 +522,16 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(txtTelephone))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9)
-                            .addComponent(txtCity, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
-                            .addComponent(jLabel10)
-                            .addComponent(txtSex, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtBirthDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(43, 43, 43))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtCpf)
-                        .addContainerGap())))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9)
+                    .addComponent(txtCity, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+                    .addComponent(jLabel10)
+                    .addComponent(txtSex, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtBirthDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtCpf))
+                .addGap(43, 43, 43))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -677,6 +674,7 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
 
             evt.consume();
         }
+        
     }//GEN-LAST:event_txtAgeKeyTyped
 
     private void txtEmailKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailKeyTyped
@@ -694,6 +692,7 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
 
             evt.consume();
         }
+        
     }//GEN-LAST:event_txtAddressKeyTyped
 
     private void txtCityKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCityKeyTyped
@@ -702,6 +701,7 @@ public class TelaCadastroCustomers extends javax.swing.JFrame {
 
             evt.consume();
         }
+        
     }//GEN-LAST:event_txtCityKeyTyped
 
     private void jLabel14MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseReleased
