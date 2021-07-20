@@ -472,22 +472,20 @@ public class TelaCadastroServices extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel16MouseClicked
 
     private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
-        // TODO add your handling code here:
         this.insertCadastro();
     }//GEN-LAST:event_jLabel15MouseClicked
 
     private void txtNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyTyped
 
         if (txtName.getText().length() >= 20) {
-
             evt.consume();
         }
+        
     }//GEN-LAST:event_txtNameKeyTyped
 
     private void txtTypeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTypeKeyTyped
 
         if (txtType.getText().length() >= 20) {
-
             evt.consume();
         }
 
@@ -496,17 +494,17 @@ public class TelaCadastroServices extends javax.swing.JFrame {
     private void txtDescriptionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDescriptionKeyTyped
 
         if (txtDescription.getText().length() >= 80) {
-
             evt.consume();
         }
+        
     }//GEN-LAST:event_txtDescriptionKeyTyped
 
     private void txtValueKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValueKeyTyped
 
         if (txtValue.getText().length() >= 10) {
-
             evt.consume();
         }
+        
     }//GEN-LAST:event_txtValueKeyTyped
 
     private void jLabel14MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseReleased

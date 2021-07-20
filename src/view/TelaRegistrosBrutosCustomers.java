@@ -92,8 +92,8 @@ public class TelaRegistrosBrutosCustomers extends javax.swing.JFrame {
             
             }
             
-        } catch (Exception e) {
-           TelaErroCadastro error = new TelaErroCadastro();
+        } catch (Exception e) {           
+           TelaErroAlterar error = new TelaErroAlterar();
            error.setVisible(true);
         } finally {
 
@@ -106,10 +106,8 @@ public class TelaRegistrosBrutosCustomers extends javax.swing.JFrame {
                 conexao.desconectar();
 
             } catch (SQLException e) {
-
-                TelaErroCadastro error = new TelaErroCadastro();
+                TelaErroAlterar error = new TelaErroAlterar();
                 error.setVisible(true);
-
             }
         }
     }
@@ -187,6 +185,15 @@ public class TelaRegistrosBrutosCustomers extends javax.swing.JFrame {
                 TelaSucessoDeletar sucesso = new TelaSucessoDeletar();
                 sucesso.setVisible(true);
                 pesquisar_Customers_Sem();
+                    txt_Editar1.setText(null);
+                    txt_Editar2.setText(null);
+                    txt_Editar3.setText(null);
+                    txt_Editar4.setText(null);
+                    txt_Editar5.setText(null);
+                    txt_Editar6.setText(null);
+                    txt_Editar7.setText(null);
+                    txt_Editar8.setText(null);
+                    txt_EditarCod.setText(null);
             }
 
         } catch (Exception e) {

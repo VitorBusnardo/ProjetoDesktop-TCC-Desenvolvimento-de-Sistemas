@@ -89,7 +89,7 @@ public class TelaRegistrosBrutosProducts extends javax.swing.JFrame {
             }
             
         } catch (Exception e) {
-           TelaErroCadastro error = new TelaErroCadastro();
+           TelaErroAlterar error = new TelaErroAlterar();
            error.setVisible(true);
         } finally {
 
@@ -103,7 +103,7 @@ public class TelaRegistrosBrutosProducts extends javax.swing.JFrame {
 
             } catch (SQLException e) {
 
-                TelaErroCadastro error = new TelaErroCadastro();
+                TelaErroAlterar error = new TelaErroAlterar();
                 error.setVisible(true);
 
             }
@@ -602,9 +602,7 @@ public class TelaRegistrosBrutosProducts extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_Editar6KeyReleased
 
     private void btn_EditionsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_EditionsMouseClicked
-        
         alterar_products();
-        
     }//GEN-LAST:event_btn_EditionsMouseClicked
 
     private void txt_EditarCodKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_EditarCodKeyReleased

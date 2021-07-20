@@ -572,7 +572,6 @@ public class TelaCadastroSpending extends javax.swing.JFrame {
 
             evt.consume();
         }
-
     }//GEN-LAST:event_txtDescriptionKeyTyped
 
     private void txtValueKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValueKeyTyped
