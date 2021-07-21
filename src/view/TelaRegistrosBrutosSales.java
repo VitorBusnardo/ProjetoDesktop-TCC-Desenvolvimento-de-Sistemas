@@ -1,6 +1,8 @@
 package view;
 
 import conexao.ConexaoSQLite;
+import formatting.Letras;
+import formatting.Numeros;
 import java.awt.Color;
 import java.awt.Toolkit;
 import java.sql.PreparedStatement;
@@ -16,6 +18,13 @@ public class TelaRegistrosBrutosSales extends javax.swing.JFrame {
 
         setIcon();
         pesquisar_sales_Sem();
+        Buscar_Client();
+        Buscar_Services();
+        
+        txt_Editar1.setDocument(new Letras());
+        txt_Editar6.setDocument(new Letras());
+        txt_Editar5.setDocument(new Numeros());
+        txt_Editar2.setDocument(new Letras());
         
         tabelaSalesBruto.getTableHeader().setOpaque(false);
         tabelaSalesBruto.getTableHeader().setBackground(new Color(71, 120, 197));
@@ -27,6 +36,129 @@ public class TelaRegistrosBrutosSales extends javax.swing.JFrame {
 
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/IconPlanet.png")));
 
+    }
+    
+    protected void Buscar_Services() {
+
+        ConexaoSQLite conexao = new ConexaoSQLite();
+
+        conexao.conectar();
+
+        ResultSet resultSQL = null;
+
+        PreparedStatement comandoSQL = null;
+
+        String insertSQL = "select Name from Services;";
+
+        try {
+
+            comandoSQL = conexao.criarPreparedStatement(insertSQL);
+            resultSQL = comandoSQL.executeQuery();
+            while (resultSQL.next()) {
+                txtService.addItem(resultSQL.getString("Name"));
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error " + e.getMessage());
+        }
+    }
+    
+    protected void Buscar_Client() {
+
+        ConexaoSQLite conexao = new ConexaoSQLite();
+
+        conexao.conectar();
+
+        ResultSet resultSQL = null;
+
+        PreparedStatement comandoSQL = null;
+
+        String insertSQL = "select FullName from Customers;";
+
+        try {
+
+            comandoSQL = conexao.criarPreparedStatement(insertSQL);
+            resultSQL = comandoSQL.executeQuery();
+            while (resultSQL.next()) {
+                txtClient.addItem(resultSQL.getString("FullName"));
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error " + e.getMessage());
+        }
+
+    }
+    
+    private void alterar_sales(){
+    
+        ConexaoSQLite conexao = new ConexaoSQLite();
+
+        conexao.conectar();
+        ResultSet resultSQL = null;
+        PreparedStatement comandoSQL = null;
+        
+        String sql = "update Sales set Title=?, Type=?, Description=?, Date=?, Value=?, Products=?, Classification=?, Service=?, Client=? where Id=?";
+        
+        try {
+            
+            comandoSQL = conexao.criarPreparedStatement(sql);
+            
+            
+            comandoSQL.setString(1, txt_Editar1.getText());
+            comandoSQL.setString(2, txt_Editar2.getText());
+            comandoSQL.setString(3, txt_Editar3.getText());
+            comandoSQL.setString(4, txt_Editar4.getText());
+            comandoSQL.setString(5, txt_Editar5.getText());
+            comandoSQL.setString(6, txt_Editar6.getText());
+            comandoSQL.setString(7, txtClassification.getSelectedItem().toString());
+            comandoSQL.setString(8, txtService.getSelectedItem().toString());
+            comandoSQL.setString(9, txtClient.getSelectedItem().toString());
+            
+            comandoSQL.setString(10, txt_EditarCod.getText());
+            
+            
+            if (txt_Editar1.getText().isEmpty() || txt_Editar2.getText().isEmpty() || txt_Editar3.getText().isEmpty() || txt_Editar4.getText().isEmpty() || txt_Editar5.getText().isEmpty() || txt_Editar6.getText().isEmpty()){
+            
+                TelaPreencherCadastro preencher = new TelaPreencherCadastro();
+                preencher.setVisible(true);
+                
+            } else {
+        
+            int adicionar = comandoSQL.executeUpdate();
+            
+                if (adicionar > 0) {
+                    
+                   JOptionPane.showMessageDialog(null, "Dados alterados com Sucesso!");
+                    txt_Editar1.setText(null);
+                    txt_Editar2.setText(null);
+                    txt_Editar3.setText(null);
+                    txt_Editar4.setText(null);
+                    txt_Editar5.setText(null);
+                    txt_Editar6.setText(null);
+                    txt_Editar8.setText(null);
+                    txt_EditarCod.setText(null); 
+                    
+                    pesquisar_sales_Sem();
+                }
+            
+            }
+            
+        } catch (Exception e) {           
+           TelaErroAlterar error = new TelaErroAlterar();
+           error.setVisible(true);
+        } finally {
+
+            try {
+
+                comandoSQL.close();
+
+                resultSQL.close();
+
+                conexao.desconectar();
+
+            } catch (SQLException e) {
+                TelaErroAlterar error = new TelaErroAlterar();
+                error.setVisible(true);
+            }
+        }
     }
     
         protected void Deletar_Sales() {
@@ -52,7 +184,15 @@ public class TelaRegistrosBrutosSales extends javax.swing.JFrame {
                 deleteSales.setText(null);
                 TelaSucessoDeletar sucesso = new TelaSucessoDeletar();
                 sucesso.setVisible(true);
-                pesquisar_sales_Sem();
+                pesquisar_sales_Sem();               
+                    txt_Editar1.setText(null);
+                    txt_Editar2.setText(null);
+                    txt_Editar3.setText(null);
+                    txt_Editar4.setText(null);
+                    txt_Editar5.setText(null);
+                    txt_Editar6.setText(null);
+                    txt_Editar8.setText(null);
+                    txt_EditarCod.setText(null); 
             }
 
         } catch (Exception e) {
@@ -112,6 +252,15 @@ public class TelaRegistrosBrutosSales extends javax.swing.JFrame {
     private void setar_camposSales() {
 
         int setar = tabelaSalesBruto.getSelectedRow();
+        
+        txt_EditarCod.setText(tabelaSalesBruto.getModel().getValueAt(setar, 0).toString());
+        txt_Editar1.setText(tabelaSalesBruto.getModel().getValueAt(setar, 1).toString());
+        txt_Editar2.setText(tabelaSalesBruto.getModel().getValueAt(setar, 2).toString());
+        txt_Editar3.setText(tabelaSalesBruto.getModel().getValueAt(setar, 3).toString());
+        txt_Editar4.setText(tabelaSalesBruto.getModel().getValueAt(setar, 4).toString());
+        txt_Editar5.setText(tabelaSalesBruto.getModel().getValueAt(setar, 5).toString());
+        txt_Editar6.setText(tabelaSalesBruto.getModel().getValueAt(setar, 6).toString());
+        
         deleteSales.setText(tabelaSalesBruto.getModel().getValueAt(setar, 1).toString());
 
     }
@@ -131,20 +280,19 @@ public class TelaRegistrosBrutosSales extends javax.swing.JFrame {
         btn_Refresh = new javax.swing.JLabel();
         deleteSales = new javax.swing.JTextField();
         btn_DeletarSales = new javax.swing.JLabel();
-        btn_Change = new javax.swing.JLabel();
         btn_Editions = new javax.swing.JLabel();
-        txt_Editar1 = new javax.swing.JTextField();
         txt_Editar2 = new javax.swing.JTextField();
-        txt_Editar4 = new javax.swing.JTextField();
         txt_Editar3 = new javax.swing.JTextField();
-        txt_Editar5 = new javax.swing.JTextField();
         txt_Editar6 = new javax.swing.JTextField();
-        txt_Editar7 = new javax.swing.JTextField();
+        txt_Editar5 = new javax.swing.JTextField();
         txt_Editar8 = new javax.swing.JTextField();
         txt_Editar9 = new javax.swing.JTextField();
-        txt_Editar10 = new javax.swing.JTextField();
+        txt_Editar1 = new javax.swing.JTextField();
+        txt_EditarCod = new javax.swing.JTextField();
         txtClient = new javax.swing.JComboBox<>();
         txtService = new javax.swing.JComboBox<>();
+        txtClassification = new javax.swing.JComboBox<>();
+        txt_Editar4 = new javax.swing.JFormattedTextField();
         btnFechar = new javax.swing.JLabel();
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -254,19 +402,6 @@ public class TelaRegistrosBrutosSales extends javax.swing.JFrame {
             }
         });
 
-        btn_Change.setBackground(new java.awt.Color(23, 35, 51));
-        btn_Change.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btn_Change.setForeground(new java.awt.Color(255, 255, 255));
-        btn_Change.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btn_Change.setText("Change");
-        btn_Change.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_Change.setOpaque(true);
-        btn_Change.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_ChangeMouseClicked(evt);
-            }
-        });
-
         btn_Editions.setBackground(new java.awt.Color(23, 35, 51));
         btn_Editions.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btn_Editions.setForeground(new java.awt.Color(255, 255, 255));
@@ -280,43 +415,28 @@ public class TelaRegistrosBrutosSales extends javax.swing.JFrame {
             }
         });
 
-        txt_Editar1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        txt_Editar1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txt_Editar1KeyReleased(evt);
-            }
-        });
-
         txt_Editar2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        txt_Editar2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_Editar2ActionPerformed(evt);
-            }
-        });
         txt_Editar2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txt_Editar2KeyReleased(evt);
             }
-        });
-
-        txt_Editar4.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        txt_Editar4.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txt_Editar4KeyReleased(evt);
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_Editar2KeyTyped(evt);
             }
         });
 
         txt_Editar3.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txt_Editar3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_Editar3ActionPerformed(evt);
+            }
+        });
         txt_Editar3.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txt_Editar3KeyReleased(evt);
             }
-        });
-
-        txt_Editar5.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        txt_Editar5.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txt_Editar5KeyReleased(evt);
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_Editar3KeyTyped(evt);
             }
         });
 
@@ -325,15 +445,22 @@ public class TelaRegistrosBrutosSales extends javax.swing.JFrame {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txt_Editar6KeyReleased(evt);
             }
-        });
-
-        txt_Editar7.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        txt_Editar7.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txt_Editar7KeyReleased(evt);
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_Editar6KeyTyped(evt);
             }
         });
 
+        txt_Editar5.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txt_Editar5.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_Editar5KeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_Editar5KeyTyped(evt);
+            }
+        });
+
+        txt_Editar8.setEditable(false);
         txt_Editar8.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         txt_Editar8.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -341,6 +468,7 @@ public class TelaRegistrosBrutosSales extends javax.swing.JFrame {
             }
         });
 
+        txt_Editar9.setEditable(false);
         txt_Editar9.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         txt_Editar9.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -348,23 +476,43 @@ public class TelaRegistrosBrutosSales extends javax.swing.JFrame {
             }
         });
 
-        txt_Editar10.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        txt_Editar10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_Editar10ActionPerformed(evt);
+        txt_Editar1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txt_Editar1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_Editar1KeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_Editar1KeyTyped(evt);
             }
         });
-        txt_Editar10.addKeyListener(new java.awt.event.KeyAdapter() {
+
+        txt_EditarCod.setEditable(false);
+        txt_EditarCod.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txt_EditarCod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_EditarCodActionPerformed(evt);
+            }
+        });
+        txt_EditarCod.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                txt_Editar10KeyReleased(evt);
+                txt_EditarCodKeyReleased(evt);
             }
         });
 
         txtClient.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        txtClient.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "             ", "Female", "Male" }));
 
         txtService.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        txtService.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "             ", "Female", "Male" }));
+
+        txtClassification.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtClassification.setMaximumRowCount(2);
+        txtClassification.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Product revenue", "Revenue from services" }));
+
+        try {
+            txt_Editar4.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####-##-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txt_Editar4.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
 
         javax.swing.GroupLayout painelSalesLayout = new javax.swing.GroupLayout(painelSales);
         painelSales.setLayout(painelSalesLayout);
@@ -377,10 +525,8 @@ public class TelaRegistrosBrutosSales extends javax.swing.JFrame {
                     .addGroup(painelSalesLayout.createSequentialGroup()
                         .addComponent(btn_Refresh, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btn_Change, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
                         .addComponent(btn_Editions, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 179, Short.MAX_VALUE)
                 .addGroup(painelSalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(painelSalesLayout.createSequentialGroup()
                         .addComponent(deleteSales, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -391,29 +537,24 @@ public class TelaRegistrosBrutosSales extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(txtService, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(txt_Editar10, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txt_EditarCod, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(35, 35, 35))
             .addGroup(painelSalesLayout.createSequentialGroup()
                 .addGap(76, 76, 76)
                 .addGroup(painelSalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(painelSalesLayout.createSequentialGroup()
-                        .addGroup(painelSalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_Editar2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_Editar1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(89, 89, 89)
-                        .addGroup(painelSalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_Editar4, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_Editar3, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(89, 89, 89)
-                        .addGroup(painelSalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_Editar6, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_Editar5, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(painelSalesLayout.createSequentialGroup()
-                        .addComponent(txt_Editar7, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(89, 89, 89)
-                        .addComponent(txt_Editar8, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(89, 89, 89)
-                        .addComponent(txt_Editar9, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(txt_Editar3, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_Editar2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_Editar1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(89, 89, 89)
+                .addGroup(painelSalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txt_Editar4)
+                    .addComponent(txt_Editar6, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_Editar5, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(89, 89, 89)
+                .addGroup(painelSalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtClassification, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_Editar9, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_Editar8, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(76, Short.MAX_VALUE))
             .addGroup(painelSalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelSalesLayout.createSequentialGroup()
@@ -431,29 +572,31 @@ public class TelaRegistrosBrutosSales extends javax.swing.JFrame {
                         .addComponent(txtClient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(painelSalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btn_Refresh, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btn_Change, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btn_Editions, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txt_Editar10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txt_EditarCod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 264, Short.MAX_VALUE)
                 .addGroup(painelSalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_Editar7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(painelSalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txt_Editar8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txt_Editar9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(30, 30, 30)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelSalesLayout.createSequentialGroup()
+                        .addComponent(txt_Editar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30))
+                    .addGroup(painelSalesLayout.createSequentialGroup()
+                        .addGroup(painelSalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtClassification, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_Editar4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(painelSalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(painelSalesLayout.createSequentialGroup()
-                        .addComponent(txt_Editar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txt_Editar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
-                        .addComponent(txt_Editar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txt_Editar3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(painelSalesLayout.createSequentialGroup()
                         .addGroup(painelSalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txt_Editar3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_Editar5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txt_Editar5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_Editar8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(30, 30, 30)
                         .addGroup(painelSalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txt_Editar4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_Editar6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txt_Editar6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_Editar9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(33, 33, 33)
                 .addGroup(painelSalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(painelSalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -538,45 +681,25 @@ public class TelaRegistrosBrutosSales extends javax.swing.JFrame {
         Deletar_Sales();
     }//GEN-LAST:event_btn_DeletarSalesMouseClicked
 
-    private void btn_ChangeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ChangeMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_ChangeMouseClicked
-
     private void btn_EditionsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_EditionsMouseClicked
-        // TODO add your handling code here:
+        alterar_sales();
     }//GEN-LAST:event_btn_EditionsMouseClicked
-
-    private void txt_Editar1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Editar1KeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_Editar1KeyReleased
 
     private void txt_Editar2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Editar2KeyReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_Editar2KeyReleased
 
-    private void txt_Editar4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Editar4KeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_Editar4KeyReleased
-
     private void txt_Editar3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Editar3KeyReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_Editar3KeyReleased
-
-    private void txt_Editar5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Editar5KeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_Editar5KeyReleased
 
     private void txt_Editar6KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Editar6KeyReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_Editar6KeyReleased
 
-    private void txt_Editar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Editar2ActionPerformed
+    private void txt_Editar5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Editar5KeyReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_Editar2ActionPerformed
-
-    private void txt_Editar7KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Editar7KeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_Editar7KeyReleased
+    }//GEN-LAST:event_txt_Editar5KeyReleased
 
     private void txt_Editar8KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Editar8KeyReleased
         // TODO add your handling code here:
@@ -586,13 +709,61 @@ public class TelaRegistrosBrutosSales extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_Editar9KeyReleased
 
-    private void txt_Editar10KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Editar10KeyReleased
+    private void txt_Editar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Editar3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_Editar10KeyReleased
+    }//GEN-LAST:event_txt_Editar3ActionPerformed
 
-    private void txt_Editar10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Editar10ActionPerformed
+    private void txt_Editar1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Editar1KeyReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_Editar10ActionPerformed
+    }//GEN-LAST:event_txt_Editar1KeyReleased
+
+    private void txt_EditarCodKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_EditarCodKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_EditarCodKeyReleased
+
+    private void txt_EditarCodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_EditarCodActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_EditarCodActionPerformed
+
+    private void txt_Editar1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Editar1KeyTyped
+        
+        if (txt_Editar1.getText().length() >= 20) {
+
+            evt.consume();
+        }
+    }//GEN-LAST:event_txt_Editar1KeyTyped
+
+    private void txt_Editar2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Editar2KeyTyped
+        
+        if (txt_Editar2.getText().length() >= 15) {
+
+            evt.consume();
+        }
+    }//GEN-LAST:event_txt_Editar2KeyTyped
+
+    private void txt_Editar3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Editar3KeyTyped
+        
+        if (txt_Editar3.getText().length() >= 80) {
+
+            evt.consume();
+        }
+    }//GEN-LAST:event_txt_Editar3KeyTyped
+
+    private void txt_Editar5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Editar5KeyTyped
+        
+         if (txt_Editar5.getText().length() >= 10) {
+
+            evt.consume();
+        }
+    }//GEN-LAST:event_txt_Editar5KeyTyped
+
+    private void txt_Editar6KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Editar6KeyTyped
+        
+        if (txt_Editar6.getText().length() >= 30) {
+
+            evt.consume();
+        }
+    }//GEN-LAST:event_txt_Editar6KeyTyped
 
     public static void main(String args[]) {
 
@@ -622,7 +793,6 @@ public class TelaRegistrosBrutosSales extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btnFechar;
-    public javax.swing.JLabel btn_Change;
     public javax.swing.JLabel btn_DeletarSales;
     public javax.swing.JLabel btn_Editions;
     public javax.swing.JLabel btn_Refresh;
@@ -635,17 +805,17 @@ public class TelaRegistrosBrutosSales extends javax.swing.JFrame {
     private javax.swing.JPanel painelWhithe;
     public javax.swing.JTextField pesquisarSales;
     public javax.swing.JTable tabelaSalesBruto;
+    private javax.swing.JComboBox<String> txtClassification;
     private javax.swing.JComboBox<String> txtClient;
     private javax.swing.JComboBox<String> txtService;
     public javax.swing.JTextField txt_Editar1;
-    public javax.swing.JTextField txt_Editar10;
     public javax.swing.JTextField txt_Editar2;
     public javax.swing.JTextField txt_Editar3;
-    public javax.swing.JTextField txt_Editar4;
+    private javax.swing.JFormattedTextField txt_Editar4;
     public javax.swing.JTextField txt_Editar5;
     public javax.swing.JTextField txt_Editar6;
-    public javax.swing.JTextField txt_Editar7;
     public javax.swing.JTextField txt_Editar8;
     public javax.swing.JTextField txt_Editar9;
+    public javax.swing.JTextField txt_EditarCod;
     // End of variables declaration//GEN-END:variables
 }

@@ -36,9 +36,6 @@ public class TelaCadastroSales extends javax.swing.JFrame {
         }
     }
 
-    /**
-     *
-     */
     protected void Buscar_Client() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();

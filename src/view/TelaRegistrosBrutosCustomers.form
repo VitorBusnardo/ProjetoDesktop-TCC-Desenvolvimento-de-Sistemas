@@ -216,9 +216,9 @@
                               <Component id="txtServices" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="264" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="txt_Editar1" alignment="0" max="32767" attributes="0"/>
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="txt_Editar1" alignment="1" min="-2" pref="28" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="txt_Editar4" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="txt_Editar7" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
