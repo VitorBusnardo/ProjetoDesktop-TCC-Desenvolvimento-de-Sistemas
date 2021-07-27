@@ -21,7 +21,7 @@ public class ConexaoMysql {
             
                 String url = "jdbc:mysql://localhost:3306/usuarios_intermedix";
                 String user = "root";
-                String pass = "";
+                String pass = "trolei16";
                 this.conexao = DriverManager.getConnection(url,user, pass);
                 //JOptionPane.showMessageDialog(null,"Deu certo conectar");
             
