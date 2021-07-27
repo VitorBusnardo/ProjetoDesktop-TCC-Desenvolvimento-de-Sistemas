@@ -19,15 +19,15 @@ public class TelaRegistrosBrutosFuncionarios extends javax.swing.JFrame {
         setIcon();
         pesquisar_Employees_Sem();
         
-        txt_Editar1.setDocument(new Letras());
-        txt_Editar2.setDocument(new Numeros());
-        txt_Editar9.setDocument(new Letras());
-        txt_Editar8.setDocument(new Numeros());
+        txtEditar1.setDocument(new Letras());
+        txtEditar2.setDocument(new Numeros());
+        txtEditar9.setDocument(new Letras());
+        txtEditar8.setDocument(new Numeros());
         
-        tabelaEmployeesBruto.getTableHeader().setOpaque(false);
-        tabelaEmployeesBruto.getTableHeader().setBackground(new Color(71, 120, 197));
-        tabelaEmployeesBruto.getTableHeader().setForeground(new Color(255, 255, 255));
-        tabelaEmployeesBruto.setRowHeight(25);
+        tabelaFuncionariosBruto.getTableHeader().setOpaque(false);
+        tabelaFuncionariosBruto.getTableHeader().setBackground(new Color(71, 120, 197));
+        tabelaFuncionariosBruto.getTableHeader().setForeground(new Color(255, 255, 255));
+        tabelaFuncionariosBruto.setRowHeight(25);
     }
 
     public void setIcon() {
@@ -50,22 +50,22 @@ public class TelaRegistrosBrutosFuncionarios extends javax.swing.JFrame {
             
             comandoSQL = conexao.criarPreparedStatement(sql);
             
-            comandoSQL.setString(1, txt_Editar1.getText());
-            comandoSQL.setString(2, txt_Editar2.getText());
-            comandoSQL.setString(3, txt_Editar3.getText());
-            comandoSQL.setString(4, txt_Editar4.getText());
-            comandoSQL.setString(5, txt_Editar5.getText());
-            comandoSQL.setString(6, txt_Editar6.getText());
-            comandoSQL.setString(7, txt_Editar7.getText());
-            comandoSQL.setString(8, txt_Editar8.getText());
-            comandoSQL.setString(9, txt_Editar9.getText());
-            comandoSQL.setString(10, txtSex.getSelectedItem().toString());
+            comandoSQL.setString(1, txtEditar1.getText());
+            comandoSQL.setString(2, txtEditar2.getText());
+            comandoSQL.setString(3, txtEditar3.getText());
+            comandoSQL.setString(4, txtEditar4.getText());
+            comandoSQL.setString(5, txtEditar5.getText());
+            comandoSQL.setString(6, txtEditar6.getText());
+            comandoSQL.setString(7, txtEditar7.getText());
+            comandoSQL.setString(8, txtEditar8.getText());
+            comandoSQL.setString(9, txtEditar9.getText());
+            comandoSQL.setString(10, txtSexo.getSelectedItem().toString());
             
             
-            comandoSQL.setString(11, txt_EditarCod.getText());
+            comandoSQL.setString(11, txtEditarCod.getText());
             
             
-            if (txt_Editar1.getText().isEmpty() || txt_Editar2.getText().isEmpty() || txt_Editar4.getText().isEmpty() || txt_Editar4.getText().isEmpty() || txt_Editar5.getText().isEmpty() || txt_Editar6.getText().isEmpty() || txt_Editar7.getText().isEmpty() || txt_Editar8.getText().isEmpty() || txt_Editar9.getText().isEmpty()){
+            if (txtEditar1.getText().isEmpty() || txtEditar2.getText().isEmpty() || txtEditar4.getText().isEmpty() || txtEditar4.getText().isEmpty() || txtEditar5.getText().isEmpty() || txtEditar6.getText().isEmpty() || txtEditar7.getText().isEmpty() || txtEditar8.getText().isEmpty() || txtEditar9.getText().isEmpty()){
             
                 TelaPreencherCadastro preencher = new TelaPreencherCadastro();
                 preencher.setVisible(true);
@@ -77,16 +77,16 @@ public class TelaRegistrosBrutosFuncionarios extends javax.swing.JFrame {
                 if (adicionar > 0) {
                     
                    JOptionPane.showMessageDialog(null, "Dados alterados com Sucesso!");
-                    txt_Editar1.setText(null);
-                    txt_Editar2.setText(null);
-                    txt_Editar3.setText(null);
-                    txt_Editar4.setText(null);
-                    txt_Editar5.setText(null);
-                    txt_Editar6.setText(null);
-                    txt_Editar7.setText(null);
-                    txt_Editar8.setText(null);
-                    txt_Editar9.setText(null);
-                    txt_EditarCod.setText(null); 
+                    txtEditar1.setText(null);
+                    txtEditar2.setText(null);
+                    txtEditar3.setText(null);
+                    txtEditar4.setText(null);
+                    txtEditar5.setText(null);
+                    txtEditar6.setText(null);
+                    txtEditar7.setText(null);
+                    txtEditar8.setText(null);
+                    txtEditar9.setText(null);
+                    txtEditarCod.setText(null); 
                     
                     pesquisar_Employees_Sem();
                 }
@@ -127,7 +127,7 @@ public class TelaRegistrosBrutosFuncionarios extends javax.swing.JFrame {
 
             comandoSQL = conexao.criarPreparedStatement(sql);
             resultSQL = comandoSQL.executeQuery();
-            tabelaEmployeesBruto.setModel(DbUtils.resultSetToTableModel(resultSQL));
+            tabelaFuncionariosBruto.setModel(DbUtils.resultSetToTableModel(resultSQL));
 
         } catch (SQLException e) {
 
@@ -149,9 +149,9 @@ public class TelaRegistrosBrutosFuncionarios extends javax.swing.JFrame {
         try {
 
             comandoSQL = conexao.criarPreparedStatement(sql);
-            comandoSQL.setString(1, pesquisarEmployees.getText() + "%");
+            comandoSQL.setString(1, pesquisarFuncionarios.getText() + "%");
             resultSQL = comandoSQL.executeQuery();
-            tabelaEmployeesBruto.setModel(DbUtils.resultSetToTableModel(resultSQL));
+            tabelaFuncionariosBruto.setModel(DbUtils.resultSetToTableModel(resultSQL));
 
         } catch (SQLException e) {
 
@@ -174,26 +174,26 @@ public class TelaRegistrosBrutosFuncionarios extends javax.swing.JFrame {
 
             comandoSQL = conexao.criarPreparedStatement(sql);
 
-            comandoSQL.setString(1, deleteEmployees.getText());
+            comandoSQL.setString(1, deletarFuncionarios.getText());
 
             int apagado = comandoSQL.executeUpdate();
 
             if (apagado > 0) {
 
-                deleteEmployees.setText(null);
+                deletarFuncionarios.setText(null);
                 TelaSucessoDeletar sucesso = new TelaSucessoDeletar();
                 sucesso.setVisible(true);
                 pesquisar_Employees_Sem();
-                    txt_Editar1.setText(null);
-                    txt_Editar2.setText(null);
-                    txt_Editar3.setText(null);
-                    txt_Editar4.setText(null);
-                    txt_Editar5.setText(null);
-                    txt_Editar6.setText(null);
-                    txt_Editar7.setText(null);
-                    txt_Editar8.setText(null);
-                    txt_Editar9.setText(null);
-                    txt_EditarCod.setText(null);
+                    txtEditar1.setText(null);
+                    txtEditar2.setText(null);
+                    txtEditar3.setText(null);
+                    txtEditar4.setText(null);
+                    txtEditar5.setText(null);
+                    txtEditar6.setText(null);
+                    txtEditar7.setText(null);
+                    txtEditar8.setText(null);
+                    txtEditar9.setText(null);
+                    txtEditarCod.setText(null);
             }
 
         } catch (Exception e) {
@@ -206,20 +206,20 @@ public class TelaRegistrosBrutosFuncionarios extends javax.swing.JFrame {
     
     private void setar_camposEmployees() {
 
-            int setar = tabelaEmployeesBruto.getSelectedRow();
+            int setar = tabelaFuncionariosBruto.getSelectedRow();
             
-        txt_EditarCod.setText(tabelaEmployeesBruto.getModel().getValueAt(setar, 0).toString());
-        txt_Editar1.setText(tabelaEmployeesBruto.getModel().getValueAt(setar, 1).toString());
-        txt_Editar2.setText(tabelaEmployeesBruto.getModel().getValueAt(setar, 2).toString());
-        txt_Editar3.setText(tabelaEmployeesBruto.getModel().getValueAt(setar, 3).toString());
-        txt_Editar4.setText(tabelaEmployeesBruto.getModel().getValueAt(setar, 4).toString());
-        txt_Editar5.setText(tabelaEmployeesBruto.getModel().getValueAt(setar, 5).toString());
-        txt_Editar6.setText(tabelaEmployeesBruto.getModel().getValueAt(setar, 6).toString());
-        txt_Editar7.setText(tabelaEmployeesBruto.getModel().getValueAt(setar, 7).toString());
-        txt_Editar8.setText(tabelaEmployeesBruto.getModel().getValueAt(setar, 8).toString());
-        txt_Editar9.setText(tabelaEmployeesBruto.getModel().getValueAt(setar, 9).toString());
+        txtEditarCod.setText(tabelaFuncionariosBruto.getModel().getValueAt(setar, 0).toString());
+        txtEditar1.setText(tabelaFuncionariosBruto.getModel().getValueAt(setar, 1).toString());
+        txtEditar2.setText(tabelaFuncionariosBruto.getModel().getValueAt(setar, 2).toString());
+        txtEditar3.setText(tabelaFuncionariosBruto.getModel().getValueAt(setar, 3).toString());
+        txtEditar4.setText(tabelaFuncionariosBruto.getModel().getValueAt(setar, 4).toString());
+        txtEditar5.setText(tabelaFuncionariosBruto.getModel().getValueAt(setar, 5).toString());
+        txtEditar6.setText(tabelaFuncionariosBruto.getModel().getValueAt(setar, 6).toString());
+        txtEditar7.setText(tabelaFuncionariosBruto.getModel().getValueAt(setar, 7).toString());
+        txtEditar8.setText(tabelaFuncionariosBruto.getModel().getValueAt(setar, 8).toString());
+        txtEditar9.setText(tabelaFuncionariosBruto.getModel().getValueAt(setar, 9).toString());
         
-            deleteEmployees.setText(tabelaEmployeesBruto.getModel().getValueAt(setar, 1).toString());
+            deletarFuncionarios.setText(tabelaFuncionariosBruto.getModel().getValueAt(setar, 1).toString());
 
     }
 
@@ -229,27 +229,27 @@ public class TelaRegistrosBrutosFuncionarios extends javax.swing.JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        painelBlue = new javax.swing.JPanel();
-        painelWhithe = new javax.swing.JPanel();
-        painelEmployees = new javax.swing.JPanel();
+        painelAzul = new javax.swing.JPanel();
+        painelBranco = new javax.swing.JPanel();
+        painelFuncionarios = new javax.swing.JPanel();
         jScrollPane7 = new javax.swing.JScrollPane();
-        tabelaEmployeesBruto = new javax.swing.JTable();
-        pesquisarEmployees = new javax.swing.JTextField();
-        btn_Refresh = new javax.swing.JLabel();
-        deleteEmployees = new javax.swing.JTextField();
-        btn_DeletarEmployees = new javax.swing.JLabel();
-        btn_Editions = new javax.swing.JLabel();
-        txt_EditarCod = new javax.swing.JTextField();
-        txt_Editar1 = new javax.swing.JTextField();
-        txt_Editar2 = new javax.swing.JTextField();
-        txt_Editar4 = new javax.swing.JFormattedTextField();
-        txt_Editar5 = new javax.swing.JTextField();
-        txt_Editar6 = new javax.swing.JFormattedTextField();
-        txt_Editar7 = new javax.swing.JFormattedTextField();
-        txt_Editar8 = new javax.swing.JTextField();
-        txt_Editar9 = new javax.swing.JTextField();
-        txtSex = new javax.swing.JComboBox<>();
-        txt_Editar3 = new javax.swing.JTextField();
+        tabelaFuncionariosBruto = new javax.swing.JTable();
+        pesquisarFuncionarios = new javax.swing.JTextField();
+        btn_Atualizar = new javax.swing.JLabel();
+        deletarFuncionarios = new javax.swing.JTextField();
+        btnDeletarFuncionarios = new javax.swing.JLabel();
+        btnSalvar = new javax.swing.JLabel();
+        txtEditarCod = new javax.swing.JTextField();
+        txtEditar1 = new javax.swing.JTextField();
+        txtEditar2 = new javax.swing.JTextField();
+        txtEditar4 = new javax.swing.JFormattedTextField();
+        txtEditar5 = new javax.swing.JTextField();
+        txtEditar6 = new javax.swing.JFormattedTextField();
+        txtEditar7 = new javax.swing.JFormattedTextField();
+        txtEditar8 = new javax.swing.JTextField();
+        txtEditar9 = new javax.swing.JTextField();
+        txtSexo = new javax.swing.JComboBox<>();
+        txtEditar3 = new javax.swing.JTextField();
         btnFechar = new javax.swing.JLabel();
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -279,18 +279,18 @@ public class TelaRegistrosBrutosFuncionarios extends javax.swing.JFrame {
         setLocationByPlatform(true);
         setUndecorated(true);
 
-        painelBlue.setBackground(new java.awt.Color(71, 120, 197));
-        painelBlue.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        painelAzul.setBackground(new java.awt.Color(71, 120, 197));
+        painelAzul.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        painelWhithe.setBackground(new java.awt.Color(255, 255, 255));
-        painelWhithe.setPreferredSize(new java.awt.Dimension(444, 193));
+        painelBranco.setBackground(new java.awt.Color(255, 255, 255));
+        painelBranco.setPreferredSize(new java.awt.Dimension(444, 193));
 
-        painelEmployees.setBackground(new java.awt.Color(255, 255, 255));
-        painelEmployees.setForeground(new java.awt.Color(102, 102, 102));
-        painelEmployees.setPreferredSize(new java.awt.Dimension(900, 565));
+        painelFuncionarios.setBackground(new java.awt.Color(255, 255, 255));
+        painelFuncionarios.setForeground(new java.awt.Color(102, 102, 102));
+        painelFuncionarios.setPreferredSize(new java.awt.Dimension(900, 565));
 
-        tabelaEmployeesBruto.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        tabelaEmployeesBruto.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaFuncionariosBruto.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        tabelaFuncionariosBruto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -305,275 +305,275 @@ public class TelaRegistrosBrutosFuncionarios extends javax.swing.JFrame {
                 "Nome", "Telefone", "Endereço", "Email"
             }
         ));
-        tabelaEmployeesBruto.setFocusable(false);
-        tabelaEmployeesBruto.setIntercellSpacing(new java.awt.Dimension(0, 0));
-        tabelaEmployeesBruto.setRowHeight(25);
-        tabelaEmployeesBruto.setSelectionBackground(new java.awt.Color(192, 192, 192));
-        tabelaEmployeesBruto.setShowVerticalLines(false);
-        tabelaEmployeesBruto.getTableHeader().setReorderingAllowed(false);
-        tabelaEmployeesBruto.addMouseListener(new java.awt.event.MouseAdapter() {
+        tabelaFuncionariosBruto.setFocusable(false);
+        tabelaFuncionariosBruto.setIntercellSpacing(new java.awt.Dimension(0, 0));
+        tabelaFuncionariosBruto.setRowHeight(25);
+        tabelaFuncionariosBruto.setSelectionBackground(new java.awt.Color(192, 192, 192));
+        tabelaFuncionariosBruto.setShowVerticalLines(false);
+        tabelaFuncionariosBruto.getTableHeader().setReorderingAllowed(false);
+        tabelaFuncionariosBruto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tabelaEmployeesBrutoMouseClicked(evt);
+                tabelaFuncionariosBrutoMouseClicked(evt);
             }
         });
-        jScrollPane7.setViewportView(tabelaEmployeesBruto);
+        jScrollPane7.setViewportView(tabelaFuncionariosBruto);
 
-        pesquisarEmployees.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        pesquisarEmployees.addKeyListener(new java.awt.event.KeyAdapter() {
+        pesquisarFuncionarios.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        pesquisarFuncionarios.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                pesquisarEmployeesKeyReleased(evt);
+                pesquisarFuncionariosKeyReleased(evt);
             }
         });
 
-        btn_Refresh.setBackground(new java.awt.Color(23, 35, 51));
-        btn_Refresh.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btn_Refresh.setForeground(new java.awt.Color(255, 255, 255));
-        btn_Refresh.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btn_Refresh.setText("Atualizar");
-        btn_Refresh.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_Refresh.setOpaque(true);
-        btn_Refresh.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_Atualizar.setBackground(new java.awt.Color(23, 35, 51));
+        btn_Atualizar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btn_Atualizar.setForeground(new java.awt.Color(255, 255, 255));
+        btn_Atualizar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btn_Atualizar.setText("Atualizar");
+        btn_Atualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_Atualizar.setOpaque(true);
+        btn_Atualizar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_RefreshMouseClicked(evt);
+                btn_AtualizarMouseClicked(evt);
             }
         });
 
-        deleteEmployees.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        deleteEmployees.setToolTipText("");
-        deleteEmployees.addActionListener(new java.awt.event.ActionListener() {
+        deletarFuncionarios.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        deletarFuncionarios.setToolTipText("");
+        deletarFuncionarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteEmployeesActionPerformed(evt);
+                deletarFuncionariosActionPerformed(evt);
             }
         });
 
-        btn_DeletarEmployees.setBackground(new java.awt.Color(23, 35, 51));
-        btn_DeletarEmployees.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btn_DeletarEmployees.setForeground(new java.awt.Color(255, 255, 255));
-        btn_DeletarEmployees.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btn_DeletarEmployees.setText("Deletar");
-        btn_DeletarEmployees.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_DeletarEmployees.setOpaque(true);
-        btn_DeletarEmployees.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnDeletarFuncionarios.setBackground(new java.awt.Color(23, 35, 51));
+        btnDeletarFuncionarios.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnDeletarFuncionarios.setForeground(new java.awt.Color(255, 255, 255));
+        btnDeletarFuncionarios.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnDeletarFuncionarios.setText("Deletar");
+        btnDeletarFuncionarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnDeletarFuncionarios.setOpaque(true);
+        btnDeletarFuncionarios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_DeletarEmployeesMouseClicked(evt);
+                btnDeletarFuncionariosMouseClicked(evt);
             }
         });
 
-        btn_Editions.setBackground(new java.awt.Color(23, 35, 51));
-        btn_Editions.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btn_Editions.setForeground(new java.awt.Color(255, 255, 255));
-        btn_Editions.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btn_Editions.setText("Salvar Alterações");
-        btn_Editions.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_Editions.setOpaque(true);
-        btn_Editions.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnSalvar.setBackground(new java.awt.Color(23, 35, 51));
+        btnSalvar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnSalvar.setForeground(new java.awt.Color(255, 255, 255));
+        btnSalvar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnSalvar.setText("Salvar Alterações");
+        btnSalvar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSalvar.setOpaque(true);
+        btnSalvar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_EditionsMouseClicked(evt);
+                btnSalvarMouseClicked(evt);
             }
         });
 
-        txt_EditarCod.setEditable(false);
-        txt_EditarCod.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        txt_EditarCod.addActionListener(new java.awt.event.ActionListener() {
+        txtEditarCod.setEditable(false);
+        txtEditarCod.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtEditarCod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_EditarCodActionPerformed(evt);
+                txtEditarCodActionPerformed(evt);
             }
         });
-        txt_EditarCod.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtEditarCod.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                txt_EditarCodKeyReleased(evt);
+                txtEditarCodKeyReleased(evt);
             }
         });
 
-        txt_Editar1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        txt_Editar1.addActionListener(new java.awt.event.ActionListener() {
+        txtEditar1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtEditar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_Editar1ActionPerformed(evt);
+                txtEditar1ActionPerformed(evt);
             }
         });
-        txt_Editar1.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtEditar1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                txt_Editar1KeyReleased(evt);
+                txtEditar1KeyReleased(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txt_Editar1KeyTyped(evt);
+                txtEditar1KeyTyped(evt);
             }
         });
 
-        txt_Editar2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        txt_Editar2.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtEditar2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtEditar2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                txt_Editar2KeyReleased(evt);
+                txtEditar2KeyReleased(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txt_Editar2KeyTyped(evt);
+                txtEditar2KeyTyped(evt);
             }
         });
 
         try {
-            txt_Editar4.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #########")));
+            txtEditar4.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #########")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        txt_Editar4.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtEditar4.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
 
-        txt_Editar5.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        txt_Editar5.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtEditar5.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtEditar5.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                txt_Editar5KeyReleased(evt);
+                txtEditar5KeyReleased(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txt_Editar5KeyTyped(evt);
+                txtEditar5KeyTyped(evt);
             }
         });
 
         try {
-            txt_Editar6.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+            txtEditar6.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        txt_Editar6.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtEditar6.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
 
         try {
-            txt_Editar7.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####-##-##")));
+            txtEditar7.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####-##-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        txt_Editar7.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtEditar7.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
 
-        txt_Editar8.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        txt_Editar8.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtEditar8.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtEditar8.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                txt_Editar8KeyReleased(evt);
+                txtEditar8KeyReleased(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txt_Editar8KeyTyped(evt);
+                txtEditar8KeyTyped(evt);
             }
         });
 
-        txt_Editar9.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        txt_Editar9.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtEditar9.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtEditar9.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                txt_Editar9KeyReleased(evt);
+                txtEditar9KeyReleased(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txt_Editar9KeyTyped(evt);
+                txtEditar9KeyTyped(evt);
             }
         });
 
-        txtSex.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        txtSex.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Feminino", "Masculino", " " }));
+        txtSexo.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Feminino", "Masculino", " " }));
 
-        txt_Editar3.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        txt_Editar3.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtEditar3.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtEditar3.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                txt_Editar3KeyReleased(evt);
+                txtEditar3KeyReleased(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txt_Editar3KeyTyped(evt);
+                txtEditar3KeyTyped(evt);
             }
         });
 
-        javax.swing.GroupLayout painelEmployeesLayout = new javax.swing.GroupLayout(painelEmployees);
-        painelEmployees.setLayout(painelEmployeesLayout);
-        painelEmployeesLayout.setHorizontalGroup(
-            painelEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painelEmployeesLayout.createSequentialGroup()
+        javax.swing.GroupLayout painelFuncionariosLayout = new javax.swing.GroupLayout(painelFuncionarios);
+        painelFuncionarios.setLayout(painelFuncionariosLayout);
+        painelFuncionariosLayout.setHorizontalGroup(
+            painelFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelFuncionariosLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
-                .addGroup(painelEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(painelEmployeesLayout.createSequentialGroup()
-                        .addComponent(btn_Refresh, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(painelFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(painelFuncionariosLayout.createSequentialGroup()
+                        .addComponent(btn_Atualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btn_Editions, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtSex, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(txt_EditarCod, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(painelEmployeesLayout.createSequentialGroup()
-                        .addComponent(pesquisarEmployees, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtEditarCod, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(painelFuncionariosLayout.createSequentialGroup()
+                        .addComponent(pesquisarFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(deleteEmployees, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(deletarFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btn_DeletarEmployees, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnDeletarFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(35, 35, 35))
-            .addGroup(painelEmployeesLayout.createSequentialGroup()
+            .addGroup(painelFuncionariosLayout.createSequentialGroup()
                 .addGap(76, 76, 76)
-                .addGroup(painelEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(painelFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane7)
-                    .addGroup(painelEmployeesLayout.createSequentialGroup()
-                        .addGroup(painelEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_Editar2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_Editar1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_Editar3, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(painelFuncionariosLayout.createSequentialGroup()
+                        .addGroup(painelFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtEditar2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtEditar1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtEditar3, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(89, 89, 89)
-                        .addGroup(painelEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_Editar6, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_Editar5, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_Editar4, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(painelFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtEditar6, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtEditar5, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtEditar4, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(89, 89, 89)
-                        .addGroup(painelEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txt_Editar9, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
-                            .addComponent(txt_Editar8, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
-                            .addComponent(txt_Editar7, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE))))
+                        .addGroup(painelFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtEditar9, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+                            .addComponent(txtEditar8, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+                            .addComponent(txtEditar7, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE))))
                 .addContainerGap(76, Short.MAX_VALUE))
         );
-        painelEmployeesLayout.setVerticalGroup(
-            painelEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelEmployeesLayout.createSequentialGroup()
+        painelFuncionariosLayout.setVerticalGroup(
+            painelFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelFuncionariosLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addGroup(painelEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_Refresh, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_Editions, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_EditarCod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtSex, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(painelFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_Atualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEditarCod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(painelEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(painelEmployeesLayout.createSequentialGroup()
+                .addGroup(painelFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(painelFuncionariosLayout.createSequentialGroup()
                         .addGap(58, 58, 58)
-                        .addComponent(txt_Editar5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtEditar5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
-                        .addGroup(painelEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txt_Editar6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_Editar3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(painelEmployeesLayout.createSequentialGroup()
-                        .addComponent(txt_Editar1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(painelFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtEditar6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtEditar3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(painelFuncionariosLayout.createSequentialGroup()
+                        .addComponent(txtEditar1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
-                        .addComponent(txt_Editar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(painelEmployeesLayout.createSequentialGroup()
-                        .addGroup(painelEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txt_Editar7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_Editar4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtEditar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(painelFuncionariosLayout.createSequentialGroup()
+                        .addGroup(painelFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtEditar7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtEditar4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(30, 30, 30)
-                        .addComponent(txt_Editar8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtEditar8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
-                        .addComponent(txt_Editar9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtEditar9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(33, 33, 33)
-                .addGroup(painelEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(painelEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(deleteEmployees, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btn_DeletarEmployees, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(pesquisarEmployees, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(painelFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(painelFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(deletarFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnDeletarFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pesquisarFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout painelWhitheLayout = new javax.swing.GroupLayout(painelWhithe);
-        painelWhithe.setLayout(painelWhitheLayout);
-        painelWhitheLayout.setHorizontalGroup(
-            painelWhitheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout painelBrancoLayout = new javax.swing.GroupLayout(painelBranco);
+        painelBranco.setLayout(painelBrancoLayout);
+        painelBrancoLayout.setHorizontalGroup(
+            painelBrancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1140, Short.MAX_VALUE)
-            .addGroup(painelWhitheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(painelEmployees, javax.swing.GroupLayout.DEFAULT_SIZE, 1140, Short.MAX_VALUE))
+            .addGroup(painelBrancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(painelFuncionarios, javax.swing.GroupLayout.DEFAULT_SIZE, 1140, Short.MAX_VALUE))
         );
-        painelWhitheLayout.setVerticalGroup(
-            painelWhitheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        painelBrancoLayout.setVerticalGroup(
+            painelBrancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 530, Short.MAX_VALUE)
-            .addGroup(painelWhitheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(painelEmployees, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE))
+            .addGroup(painelBrancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(painelFuncionarios, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE))
         );
 
-        painelBlue.add(painelWhithe, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 38, 1140, 530));
+        painelAzul.add(painelBranco, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 38, 1140, 530));
 
         btnFechar.setBackground(new java.awt.Color(23, 35, 51));
         btnFechar.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -587,17 +587,17 @@ public class TelaRegistrosBrutosFuncionarios extends javax.swing.JFrame {
                 btnFecharMouseClicked(evt);
             }
         });
-        painelBlue.add(btnFechar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 0, 40, 40));
+        painelAzul.add(btnFechar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 0, 40, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(painelBlue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(painelAzul, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(painelBlue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(painelAzul, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -608,113 +608,113 @@ public class TelaRegistrosBrutosFuncionarios extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnFecharMouseClicked
 
-    private void txt_EditarCodKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_EditarCodKeyReleased
+    private void txtEditarCodKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEditarCodKeyReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_EditarCodKeyReleased
+    }//GEN-LAST:event_txtEditarCodKeyReleased
 
-    private void txt_EditarCodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_EditarCodActionPerformed
+    private void txtEditarCodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEditarCodActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_EditarCodActionPerformed
+    }//GEN-LAST:event_txtEditarCodActionPerformed
 
-    private void btn_EditionsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_EditionsMouseClicked
+    private void btnSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalvarMouseClicked
         alterar_employees();
-    }//GEN-LAST:event_btn_EditionsMouseClicked
+    }//GEN-LAST:event_btnSalvarMouseClicked
 
-    private void btn_DeletarEmployeesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DeletarEmployeesMouseClicked
+    private void btnDeletarFuncionariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeletarFuncionariosMouseClicked
         Deletar_Employees();
-    }//GEN-LAST:event_btn_DeletarEmployeesMouseClicked
+    }//GEN-LAST:event_btnDeletarFuncionariosMouseClicked
 
-    private void deleteEmployeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteEmployeesActionPerformed
+    private void deletarFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletarFuncionariosActionPerformed
         Deletar_Employees();
-    }//GEN-LAST:event_deleteEmployeesActionPerformed
+    }//GEN-LAST:event_deletarFuncionariosActionPerformed
 
-    private void btn_RefreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_RefreshMouseClicked
+    private void btn_AtualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_AtualizarMouseClicked
         pesquisar_Employees();
-    }//GEN-LAST:event_btn_RefreshMouseClicked
+    }//GEN-LAST:event_btn_AtualizarMouseClicked
 
-    private void pesquisarEmployeesKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pesquisarEmployeesKeyReleased
+    private void pesquisarFuncionariosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pesquisarFuncionariosKeyReleased
         pesquisar_Employees();
-    }//GEN-LAST:event_pesquisarEmployeesKeyReleased
+    }//GEN-LAST:event_pesquisarFuncionariosKeyReleased
 
-    private void tabelaEmployeesBrutoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaEmployeesBrutoMouseClicked
+    private void tabelaFuncionariosBrutoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaFuncionariosBrutoMouseClicked
         setar_camposEmployees();
-    }//GEN-LAST:event_tabelaEmployeesBrutoMouseClicked
+    }//GEN-LAST:event_tabelaFuncionariosBrutoMouseClicked
 
-    private void txt_Editar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Editar1ActionPerformed
+    private void txtEditar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEditar1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_Editar1ActionPerformed
+    }//GEN-LAST:event_txtEditar1ActionPerformed
 
-    private void txt_Editar1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Editar1KeyReleased
+    private void txtEditar1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEditar1KeyReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_Editar1KeyReleased
+    }//GEN-LAST:event_txtEditar1KeyReleased
 
-    private void txt_Editar1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Editar1KeyTyped
+    private void txtEditar1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEditar1KeyTyped
 
-        if (txt_Editar1.getText().length() >= 30) {
+        if (txtEditar1.getText().length() >= 30) {
 
             evt.consume();
         }
-    }//GEN-LAST:event_txt_Editar1KeyTyped
+    }//GEN-LAST:event_txtEditar1KeyTyped
 
-    private void txt_Editar2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Editar2KeyReleased
+    private void txtEditar2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEditar2KeyReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_Editar2KeyReleased
+    }//GEN-LAST:event_txtEditar2KeyReleased
 
-    private void txt_Editar2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Editar2KeyTyped
+    private void txtEditar2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEditar2KeyTyped
 
-        if (txt_Editar2.getText().length() >= 3) {
+        if (txtEditar2.getText().length() >= 3) {
 
             evt.consume();
         }
-    }//GEN-LAST:event_txt_Editar2KeyTyped
+    }//GEN-LAST:event_txtEditar2KeyTyped
 
-    private void txt_Editar5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Editar5KeyReleased
+    private void txtEditar5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEditar5KeyReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_Editar5KeyReleased
+    }//GEN-LAST:event_txtEditar5KeyReleased
 
-    private void txt_Editar5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Editar5KeyTyped
+    private void txtEditar5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEditar5KeyTyped
 
-        if (txt_Editar5.getText().length() >= 30) {
+        if (txtEditar5.getText().length() >= 30) {
 
             evt.consume();
         }
-    }//GEN-LAST:event_txt_Editar5KeyTyped
+    }//GEN-LAST:event_txtEditar5KeyTyped
 
-    private void txt_Editar8KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Editar8KeyReleased
+    private void txtEditar8KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEditar8KeyReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_Editar8KeyReleased
+    }//GEN-LAST:event_txtEditar8KeyReleased
 
-    private void txt_Editar8KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Editar8KeyTyped
+    private void txtEditar8KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEditar8KeyTyped
 
-        if (txt_Editar8.getText().length() >= 10) {
+        if (txtEditar8.getText().length() >= 10) {
 
             evt.consume();
         }
-    }//GEN-LAST:event_txt_Editar8KeyTyped
+    }//GEN-LAST:event_txtEditar8KeyTyped
 
-    private void txt_Editar9KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Editar9KeyReleased
+    private void txtEditar9KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEditar9KeyReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_Editar9KeyReleased
+    }//GEN-LAST:event_txtEditar9KeyReleased
 
-    private void txt_Editar3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Editar3KeyReleased
+    private void txtEditar3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEditar3KeyReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_Editar3KeyReleased
+    }//GEN-LAST:event_txtEditar3KeyReleased
 
-    private void txt_Editar3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Editar3KeyTyped
+    private void txtEditar3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEditar3KeyTyped
         
-        if (txt_Editar3.getText().length() >= 30) {
+        if (txtEditar3.getText().length() >= 30) {
 
             evt.consume();
         }
-    }//GEN-LAST:event_txt_Editar3KeyTyped
+    }//GEN-LAST:event_txtEditar3KeyTyped
 
-    private void txt_Editar9KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Editar9KeyTyped
+    private void txtEditar9KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEditar9KeyTyped
        
-        if (txt_Editar9.getText().length() >= 20) {
+        if (txtEditar9.getText().length() >= 20) {
 
             evt.consume();
         }
-    }//GEN-LAST:event_txt_Editar9KeyTyped
+    }//GEN-LAST:event_txtEditar9KeyTyped
 
     public static void main(String args[]) {
 
@@ -743,29 +743,29 @@ public class TelaRegistrosBrutosFuncionarios extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JLabel btnDeletarFuncionarios;
     private javax.swing.JLabel btnFechar;
-    public javax.swing.JLabel btn_DeletarEmployees;
-    public javax.swing.JLabel btn_Editions;
-    public javax.swing.JLabel btn_Refresh;
-    private javax.swing.JTextField deleteEmployees;
+    public javax.swing.JLabel btnSalvar;
+    public javax.swing.JLabel btn_Atualizar;
+    private javax.swing.JTextField deletarFuncionarios;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;
     public javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JPanel painelBlue;
-    public javax.swing.JPanel painelEmployees;
-    private javax.swing.JPanel painelWhithe;
-    public javax.swing.JTextField pesquisarEmployees;
-    public javax.swing.JTable tabelaEmployeesBruto;
-    private javax.swing.JComboBox<String> txtSex;
-    public javax.swing.JTextField txt_Editar1;
-    public javax.swing.JTextField txt_Editar2;
-    public javax.swing.JTextField txt_Editar3;
-    private javax.swing.JFormattedTextField txt_Editar4;
-    public javax.swing.JTextField txt_Editar5;
-    private javax.swing.JFormattedTextField txt_Editar6;
-    private javax.swing.JFormattedTextField txt_Editar7;
-    public javax.swing.JTextField txt_Editar8;
-    public javax.swing.JTextField txt_Editar9;
-    public javax.swing.JTextField txt_EditarCod;
+    private javax.swing.JPanel painelAzul;
+    private javax.swing.JPanel painelBranco;
+    public javax.swing.JPanel painelFuncionarios;
+    public javax.swing.JTextField pesquisarFuncionarios;
+    public javax.swing.JTable tabelaFuncionariosBruto;
+    public javax.swing.JTextField txtEditar1;
+    public javax.swing.JTextField txtEditar2;
+    public javax.swing.JTextField txtEditar3;
+    private javax.swing.JFormattedTextField txtEditar4;
+    public javax.swing.JTextField txtEditar5;
+    private javax.swing.JFormattedTextField txtEditar6;
+    private javax.swing.JFormattedTextField txtEditar7;
+    public javax.swing.JTextField txtEditar8;
+    public javax.swing.JTextField txtEditar9;
+    public javax.swing.JTextField txtEditarCod;
+    private javax.swing.JComboBox<String> txtSexo;
     // End of variables declaration//GEN-END:variables
 }
