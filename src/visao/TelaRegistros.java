@@ -19,16 +19,12 @@ import org.jfree.data.category.DefaultCategoryDataset;
 public class TelaRegistros extends javax.swing.JFrame {
 
     public String nomeDeUsuario = null;
-
     protected float SalesValor;
-
     protected float SalesValorInicial;
-
     protected float SpendingValor;
-
     protected float SpendingValorInicial;
 
-    protected void Buscar_Sales_Value() {
+    protected void buscarVendasValor() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -57,7 +53,7 @@ public class TelaRegistros extends javax.swing.JFrame {
 
     }
 
-    protected void Buscar_Spending_Value() {
+    protected void buscarGastosValores() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -86,7 +82,7 @@ public class TelaRegistros extends javax.swing.JFrame {
 
     }
 
-    protected void Deletar_Customers() {
+    protected void deletarClientes() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -109,7 +105,7 @@ public class TelaRegistros extends javax.swing.JFrame {
                 deletarClientes.setText(null);
                 TelaSucessoDeletar sucesso = new TelaSucessoDeletar();
                 sucesso.setVisible(true);
-                pesquisar_Customers_Sem();
+                pesquisarClientes();
             }
 
         } catch (Exception e) {
@@ -120,7 +116,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         }
     }
 
-    protected void Deletar_Products() {
+    protected void deletarProdutos() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -143,7 +139,7 @@ public class TelaRegistros extends javax.swing.JFrame {
                 deletarProdutos.setText(null);
                 TelaSucessoDeletar sucesso = new TelaSucessoDeletar();
                 sucesso.setVisible(true);
-                pesquisar_products_Sem();
+                pesquisarProdutosSem();
             }
 
         } catch (Exception e) {
@@ -154,7 +150,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         }
     }
 
-    protected void Deletar_Services() {
+    protected void deletarServicos() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -177,7 +173,7 @@ public class TelaRegistros extends javax.swing.JFrame {
                 deletarServicos.setText(null);
                 TelaSucessoDeletar sucesso = new TelaSucessoDeletar();
                 sucesso.setVisible(true);
-                pesquisar_services_Sem();
+                pesquisarServicosSem();
             }
 
         } catch (Exception e) {
@@ -188,7 +184,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         }
     }
 
-    protected void Deletar_Employees() {
+    protected void deletarFuncionarios() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -211,7 +207,7 @@ public class TelaRegistros extends javax.swing.JFrame {
                 deletarFuncionarios.setText(null);
                 TelaSucessoDeletar sucesso = new TelaSucessoDeletar();
                 sucesso.setVisible(true);
-                pesquisar_Employees_Sem();
+                pesquisarFuncionariosSem();
             }
 
         } catch (Exception e) {
@@ -222,7 +218,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         }
     }
 
-    protected void pesquisar_Customers_Sem() {
+    protected void pesquisarClientesSem() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -246,7 +242,7 @@ public class TelaRegistros extends javax.swing.JFrame {
 
     }
 
-    public void pesquisar_Customers() {
+    public void pesquisarClientes() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -270,7 +266,7 @@ public class TelaRegistros extends javax.swing.JFrame {
 
     }
 
-    public void pesquisar_Employees_Sem() {
+    public void pesquisarFuncionariosSem() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -293,7 +289,7 @@ public class TelaRegistros extends javax.swing.JFrame {
 
     }
 
-    public void pesquisar_Employees() {
+    public void pesquisarFuncionarios() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -317,7 +313,7 @@ public class TelaRegistros extends javax.swing.JFrame {
 
     }
 
-    public void pesquisar_products_Sem() {
+    public void pesquisarProdutosSem() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -340,7 +336,7 @@ public class TelaRegistros extends javax.swing.JFrame {
 
     }
 
-    public void pesquisar_products() {
+    public void pesquisarProdutos() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -364,7 +360,7 @@ public class TelaRegistros extends javax.swing.JFrame {
 
     }
 
-    public void pesquisar_services() {
+    public void pesquisarServicos() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -388,7 +384,7 @@ public class TelaRegistros extends javax.swing.JFrame {
 
     }
 
-    public void pesquisar_services_Sem() {
+    public void pesquisarServicosSem() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -411,28 +407,28 @@ public class TelaRegistros extends javax.swing.JFrame {
 
     }
 
-    private void setar_camposProducts() {
+    private void setarCamposProdutos() {
 
         int setar = tabelaProdutos.getSelectedRow();
         deletarProdutos.setText(tabelaProdutos.getModel().getValueAt(setar, 0).toString());
 
     }
 
-    private void setar_camposCustomers() {
+    private void setarCamposClientes() {
 
         int setar = tabelaClientes.getSelectedRow();
         deletarClientes.setText(tabelaClientes.getModel().getValueAt(setar, 0).toString());
 
     }
 
-    private void setar_camposEmployees() {
+    private void setarCamposFuncionarios() {
 
         int setar = tabelaFuncionarios.getSelectedRow();
         deletarFuncionarios.setText(tabelaFuncionarios.getModel().getValueAt(setar, 0).toString());
 
     }
 
-    private void setar_camposServices() {
+    private void setarCamposServicos() {
 
         int setar = tabelaServicos.getSelectedRow();
         deletarServicos.setText(tabelaServicos.getModel().getValueAt(setar, 0).toString());
@@ -445,8 +441,8 @@ public class TelaRegistros extends javax.swing.JFrame {
 
         initComponents();
 
-        this.Buscar_Sales_Value();
-        this.Buscar_Spending_Value();
+        this.buscarGastosValores();
+        this.buscarVendasValor();
 
         setLblColor(btnGrafico);
         resetLblColor(btnProdutos);
@@ -1251,7 +1247,7 @@ public class TelaRegistros extends javax.swing.JFrame {
 
         this.lblNomeDeUsuarioRegistro.setVisible(true);
 
-        pesquisar_products_Sem();
+        pesquisarProdutosSem();
 
     }//GEN-LAST:event_btnProdutosMouseClicked
 
@@ -1269,8 +1265,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         funcionarios.setVisible(false);
         servicos.setVisible(true);
 
-        pesquisar_services_Sem();
-
+        pesquisarServicosSem();
 
     }//GEN-LAST:event_btnServicosMouseClicked
 
@@ -1288,8 +1283,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         funcionarios.setVisible(false);
         servicos.setVisible(false);
 
-        pesquisar_Customers_Sem();
-
+        pesquisarClientesSem();
 
     }//GEN-LAST:event_btnClientesMouseClicked
 
@@ -1307,7 +1301,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         funcionarios.setVisible(true);
         servicos.setVisible(false);
 
-        pesquisar_Employees_Sem();
+        pesquisarFuncionariosSem();
 
     }//GEN-LAST:event_btnFuncionariosMouseClicked
 
@@ -1317,7 +1311,7 @@ public class TelaRegistros extends javax.swing.JFrame {
 
     private void btnDeletarServicosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeletarServicosMouseClicked
 
-        Deletar_Services();
+        deletarServicos();
     }//GEN-LAST:event_btnDeletarServicosMouseClicked
 
     private void deletarServicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletarServicosActionPerformed
@@ -1329,8 +1323,7 @@ public class TelaRegistros extends javax.swing.JFrame {
     }//GEN-LAST:event_btnProdutosMouseEntered
 
     private void btnDeletarProdutosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeletarProdutosMouseClicked
-
-        Deletar_Products();
+        deletarProdutos();
     }//GEN-LAST:event_btnDeletarProdutosMouseClicked
 
     private void deletarProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletarProdutosActionPerformed
@@ -1338,8 +1331,7 @@ public class TelaRegistros extends javax.swing.JFrame {
     }//GEN-LAST:event_deletarProdutosActionPerformed
 
     private void btnDeletarClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeletarClientesMouseClicked
-
-        Deletar_Customers();
+        deletarClientes();
     }//GEN-LAST:event_btnDeletarClientesMouseClicked
 
     private void deletarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletarClientesActionPerformed
@@ -1347,7 +1339,7 @@ public class TelaRegistros extends javax.swing.JFrame {
     }//GEN-LAST:event_deletarClientesActionPerformed
 
     private void btnDeletarFuncionariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeletarFuncionariosMouseClicked
-        Deletar_Employees();
+        deletarFuncionarios();
     }//GEN-LAST:event_btnDeletarFuncionariosMouseClicked
 
     private void deletarFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletarFuncionariosActionPerformed
@@ -1355,39 +1347,39 @@ public class TelaRegistros extends javax.swing.JFrame {
     }//GEN-LAST:event_deletarFuncionariosActionPerformed
 
     private void pesquisarProdutosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pesquisarProdutosKeyReleased
-        pesquisar_products();
+        pesquisarProdutos();
     }//GEN-LAST:event_pesquisarProdutosKeyReleased
 
     private void pesquisarClientesKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pesquisarClientesKeyReleased
-        pesquisar_Customers();
+        pesquisarClientes();
     }//GEN-LAST:event_pesquisarClientesKeyReleased
 
     private void pesquisarFuncionariosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pesquisarFuncionariosKeyReleased
-        pesquisar_Employees();
+        pesquisarFuncionarios();
     }//GEN-LAST:event_pesquisarFuncionariosKeyReleased
 
     private void servicosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_servicosKeyReleased
-        pesquisar_services();
+        pesquisarServicos();
     }//GEN-LAST:event_servicosKeyReleased
 
     private void tabelaServicosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaServicosMouseClicked
-        setar_camposServices();
+        setarCamposServicos();
     }//GEN-LAST:event_tabelaServicosMouseClicked
 
     private void tabelaFuncionariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaFuncionariosMouseClicked
-        setar_camposEmployees();
+        setarCamposFuncionarios();
     }//GEN-LAST:event_tabelaFuncionariosMouseClicked
 
     private void tabelaProdutosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaProdutosMouseClicked
-        setar_camposProducts();
+        setarCamposProdutos();
     }//GEN-LAST:event_tabelaProdutosMouseClicked
 
     private void tabelaClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaClientesMouseClicked
-        setar_camposCustomers();
+        setarCamposClientes();
     }//GEN-LAST:event_tabelaClientesMouseClicked
 
     private void pesquisarServicosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pesquisarServicosKeyReleased
-        pesquisar_services();
+        pesquisarServicos();
     }//GEN-LAST:event_pesquisarServicosKeyReleased
 
     public void setLblColor(JLabel lbl) {

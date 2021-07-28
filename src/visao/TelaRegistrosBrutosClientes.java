@@ -17,8 +17,8 @@ public class TelaRegistrosBrutosClientes extends javax.swing.JFrame {
         initComponents();
 
         setIcon();
-        pesquisar_Customers_Sem();
-        Buscar_Services();
+        pesquisarClientesSem();
+        buscarServicos();
         
         tabelaClientesBruto.getTableHeader().setOpaque(false);
         tabelaClientesBruto.getTableHeader().setBackground(new Color(71, 120, 197));
@@ -36,7 +36,7 @@ public class TelaRegistrosBrutosClientes extends javax.swing.JFrame {
 
     }
     
-    private void alterar_customers(){
+    private void alterarClientes(){
     
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -87,7 +87,7 @@ public class TelaRegistrosBrutosClientes extends javax.swing.JFrame {
                     txtEditar8.setText(null);
                     txtEditarCod.setText(null); 
                     
-                    pesquisar_Customers_Sem();
+                    pesquisarClientesSem();
                 }
             
             }
@@ -112,7 +112,7 @@ public class TelaRegistrosBrutosClientes extends javax.swing.JFrame {
         }
     }
     
-    private void Buscar_Services() {
+    private void buscarServicos() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -137,7 +137,7 @@ public class TelaRegistrosBrutosClientes extends javax.swing.JFrame {
 
     }
     
-    protected void pesquisar_Customers_Sem() {
+    protected void pesquisarClientesSem() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -161,7 +161,7 @@ public class TelaRegistrosBrutosClientes extends javax.swing.JFrame {
 
     }
     
-    protected void Deletar_Customers() {
+    protected void deletarClientes() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -184,7 +184,7 @@ public class TelaRegistrosBrutosClientes extends javax.swing.JFrame {
                 deletarClientes.setText(null);
                 TelaSucessoDeletar sucesso = new TelaSucessoDeletar();
                 sucesso.setVisible(true);
-                pesquisar_Customers_Sem();
+                pesquisarClientesSem();
                     txtEditar1.setText(null);
                     txtEditar2.setText(null);
                     txtEditar3.setText(null);
@@ -204,7 +204,7 @@ public class TelaRegistrosBrutosClientes extends javax.swing.JFrame {
         }
     }
 
-    public void pesquisar_Customers() {
+    public void pesquisarClientes() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -648,16 +648,16 @@ public class TelaRegistrosBrutosClientes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void pesquisarClientesKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pesquisarClientesKeyReleased
-        pesquisar_Customers();
+        pesquisarClientes();
     }//GEN-LAST:event_pesquisarClientesKeyReleased
 
     private void btnAtualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAtualizarMouseClicked
-        pesquisar_Customers();
-        Buscar_Services();
+        pesquisarClientes();
+        buscarServicos();
     }//GEN-LAST:event_btnAtualizarMouseClicked
 
     private void deletarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletarClientesActionPerformed
-        Deletar_Customers();
+        deletarClientes();
     }//GEN-LAST:event_deletarClientesActionPerformed
 
     private void btnFecharMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFecharMouseClicked
@@ -669,12 +669,12 @@ public class TelaRegistrosBrutosClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_tabelaClientesBrutoMouseClicked
 
     private void btnDeletarClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeletarClientesMouseClicked
-        Deletar_Customers();
+        deletarClientes();
     }//GEN-LAST:event_btnDeletarClientesMouseClicked
 
     private void btnSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalvarMouseClicked
-        alterar_customers();
-        pesquisar_Customers_Sem();
+        alterarClientes();
+        pesquisarClientesSem();
     }//GEN-LAST:event_btnSalvarMouseClicked
 
     private void txtEditar2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEditar2KeyReleased

@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 
 public class TelaCadastroVendas extends javax.swing.JFrame {
 
-    protected void Buscar_Services() {
+    protected void buscarServico() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -36,7 +36,7 @@ public class TelaCadastroVendas extends javax.swing.JFrame {
         }
     }
 
-    protected void Buscar_Client() {
+    protected void buscarCliente() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -138,8 +138,8 @@ public class TelaCadastroVendas extends javax.swing.JFrame {
     public TelaCadastroVendas() {
         initComponents();
 
-        Buscar_Client();
-        Buscar_Services();
+        buscarCliente();
+        buscarServico();
 
         setIcon();
 

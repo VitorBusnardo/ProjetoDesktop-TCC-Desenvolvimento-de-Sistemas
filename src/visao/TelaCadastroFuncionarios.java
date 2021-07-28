@@ -1,6 +1,5 @@
 package visao;
 
-import conexao.ConexaoMysql;
 import conexao.ConexaoSQLite;
 import formatacao.Letras;
 import formatacao.Numeros;
@@ -9,7 +8,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
-import javax.swing.JOptionPane;
 
 public class TelaCadastroFuncionarios extends javax.swing.JFrame {
 

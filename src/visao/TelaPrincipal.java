@@ -22,11 +22,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     public TelaPrincipal() {
 
         initComponents();
-
-        Buscar_NomeCompleto();
-        Buscar_Telefone();
-        Buscar_Email();
-        Buscar_Idade();
+        
+        buscarNomeCompleto();
+        buscarTelefone();
+        buscarEmail();
+        buscarIdade();
 
         setIcon();
 
@@ -54,7 +54,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     }
 
-    private void Buscar_NomeCompleto() {
+    private void buscarNomeCompleto() {
 
         ConexaoMysql conexao = new ConexaoMysql();
 
@@ -79,7 +79,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     }
 
-    private void Buscar_Telefone() {
+    private void buscarTelefone() {
 
         ConexaoMysql conexao = new ConexaoMysql();
 
@@ -104,7 +104,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     }
 
-    private void Buscar_Email() {
+    private void buscarEmail() {
 
         ConexaoMysql conexao = new ConexaoMysql();
 
@@ -129,7 +129,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     }
 
-    private void Buscar_Idade() {
+    private void buscarIdade() {
 
         ConexaoMysql conexao = new ConexaoMysql();
 
@@ -154,7 +154,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     }
     
-        private void Buscar_Usuario() {
+        private void buscarUsuario() {
 
         ConexaoMysql conexao = new ConexaoMysql();
 

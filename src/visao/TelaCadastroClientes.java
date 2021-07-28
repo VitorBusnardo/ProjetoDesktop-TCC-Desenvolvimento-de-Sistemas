@@ -1,6 +1,5 @@
 package visao;
 
-import conexao.ConexaoMysql;
 import conexao.ConexaoSQLite;
 import formatacao.Letras;
 import formatacao.Numeros;
@@ -10,12 +9,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
-import net.proteanit.sql.DbUtils;
 
 public class TelaCadastroClientes extends javax.swing.JFrame {
 
-    private void Buscar_Services() {
+    private void buscarServico() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -131,7 +128,7 @@ public class TelaCadastroClientes extends javax.swing.JFrame {
 
         setIcon();
 
-        Buscar_Services();
+        buscarServico();
 
         txNomeCompleto.setDocument(new Letras());
         txtIdade.setDocument(new Numeros());
