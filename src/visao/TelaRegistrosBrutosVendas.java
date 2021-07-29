@@ -17,9 +17,9 @@ public class TelaRegistrosBrutosVendas extends javax.swing.JFrame {
         initComponents();
 
         setIcon();
-        pesquisar_sales_Sem();
-        Buscar_Client();
-        Buscar_Services();
+        pesquisarVendasSem();
+        buscarCliente();
+        buscarServico();
         
         txtEditar1.setDocument(new Letras());
         txtEditar6.setDocument(new Letras());
@@ -38,7 +38,7 @@ public class TelaRegistrosBrutosVendas extends javax.swing.JFrame {
 
     }
     
-    protected void Buscar_Services() {
+    protected void buscarServico() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -62,7 +62,7 @@ public class TelaRegistrosBrutosVendas extends javax.swing.JFrame {
         }
     }
     
-    protected void Buscar_Client() {
+    protected void buscarCliente() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -87,7 +87,7 @@ public class TelaRegistrosBrutosVendas extends javax.swing.JFrame {
 
     }
     
-    private void alterar_sales(){
+    private void alterarVendas(){
     
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -136,7 +136,7 @@ public class TelaRegistrosBrutosVendas extends javax.swing.JFrame {
                     txtEditar8.setText(null);
                     txtEditarCod.setText(null); 
                     
-                    pesquisar_sales_Sem();
+                    pesquisarVendasSem();
                 }
             
             }
@@ -161,7 +161,7 @@ public class TelaRegistrosBrutosVendas extends javax.swing.JFrame {
         }
     }
     
-        protected void Deletar_Sales() {
+        protected void deletarVendas() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -184,7 +184,7 @@ public class TelaRegistrosBrutosVendas extends javax.swing.JFrame {
                 deletarVendas.setText(null);
                 TelaSucessoDeletar sucesso = new TelaSucessoDeletar();
                 sucesso.setVisible(true);
-                pesquisar_sales_Sem();               
+                pesquisarVendasSem();
                     txtEditar1.setText(null);
                     txtEditar2.setText(null);
                     txtEditar3.setText(null);
@@ -203,7 +203,7 @@ public class TelaRegistrosBrutosVendas extends javax.swing.JFrame {
         }
     }
 
-    public void pesquisar_sales_Sem() {
+    public void pesquisarVendasSem() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -226,7 +226,7 @@ public class TelaRegistrosBrutosVendas extends javax.swing.JFrame {
 
     }
 
-    public void pesquisar_sales() {
+    public void pesquisarVendas() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -249,7 +249,7 @@ public class TelaRegistrosBrutosVendas extends javax.swing.JFrame {
         }
     }
 
-    private void setar_camposSales() {
+    private void setarCamposVendas() {
 
         int setar = tabelaVendasBruto.getSelectedRow();
         
@@ -658,15 +658,15 @@ public class TelaRegistrosBrutosVendas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void pesquisarVendasKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pesquisarVendasKeyReleased
-        pesquisar_sales();
+        pesquisarVendas();
     }//GEN-LAST:event_pesquisarVendasKeyReleased
 
     private void btnAtualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAtualizarMouseClicked
-        pesquisar_sales();
+        pesquisarVendas();
     }//GEN-LAST:event_btnAtualizarMouseClicked
 
     private void deletarVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletarVendasActionPerformed
-        Deletar_Sales();
+        deletarVendas();
     }//GEN-LAST:event_deletarVendasActionPerformed
 
     private void btnFecharMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFecharMouseClicked
@@ -674,15 +674,15 @@ public class TelaRegistrosBrutosVendas extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFecharMouseClicked
 
     private void tabelaVendasBrutoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaVendasBrutoMouseClicked
-        setar_camposSales();
+        setarCamposVendas();
     }//GEN-LAST:event_tabelaVendasBrutoMouseClicked
 
     private void btnDeletarVendasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeletarVendasMouseClicked
-        Deletar_Sales();
+        deletarVendas();
     }//GEN-LAST:event_btnDeletarVendasMouseClicked
 
     private void btnSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalvarMouseClicked
-        alterar_sales();
+        alterarVendas();
     }//GEN-LAST:event_btnSalvarMouseClicked
 
     private void txtEditar2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEditar2KeyReleased

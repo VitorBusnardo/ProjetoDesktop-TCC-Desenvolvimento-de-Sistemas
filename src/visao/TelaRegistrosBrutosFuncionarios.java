@@ -17,7 +17,7 @@ public class TelaRegistrosBrutosFuncionarios extends javax.swing.JFrame {
         initComponents();
 
         setIcon();
-        pesquisar_Employees_Sem();
+        pesquisarFuncionariosSem();
         
         txtEditar1.setDocument(new Letras());
         txtEditar2.setDocument(new Numeros());
@@ -36,7 +36,7 @@ public class TelaRegistrosBrutosFuncionarios extends javax.swing.JFrame {
 
     }
     
-    private void alterar_employees(){
+    private void alterarFuncionarios(){
     
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -88,7 +88,7 @@ public class TelaRegistrosBrutosFuncionarios extends javax.swing.JFrame {
                     txtEditar9.setText(null);
                     txtEditarCod.setText(null); 
                     
-                    pesquisar_Employees_Sem();
+                    pesquisarFuncionariosSem();
                 }
             
             }
@@ -113,7 +113,7 @@ public class TelaRegistrosBrutosFuncionarios extends javax.swing.JFrame {
         }
     }
     
-    public void pesquisar_Employees_Sem() {
+    public void pesquisarFuncionariosSem() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -136,7 +136,7 @@ public class TelaRegistrosBrutosFuncionarios extends javax.swing.JFrame {
 
     }
     
-    public void pesquisar_Employees() {
+    public void pesquisarFuncionarios() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -160,7 +160,7 @@ public class TelaRegistrosBrutosFuncionarios extends javax.swing.JFrame {
 
     }
     
-    protected void Deletar_Employees() {
+    protected void deletarFuncionarios() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -183,7 +183,7 @@ public class TelaRegistrosBrutosFuncionarios extends javax.swing.JFrame {
                 deletarFuncionarios.setText(null);
                 TelaSucessoDeletar sucesso = new TelaSucessoDeletar();
                 sucesso.setVisible(true);
-                pesquisar_Employees_Sem();
+                pesquisarFuncionariosSem();
                     txtEditar1.setText(null);
                     txtEditar2.setText(null);
                     txtEditar3.setText(null);
@@ -204,9 +204,9 @@ public class TelaRegistrosBrutosFuncionarios extends javax.swing.JFrame {
         }
     }
     
-    private void setar_camposEmployees() {
+    private void setarCamposFuncionarios() {
 
-            int setar = tabelaFuncionariosBruto.getSelectedRow();
+        int setar = tabelaFuncionariosBruto.getSelectedRow();
             
         txtEditarCod.setText(tabelaFuncionariosBruto.getModel().getValueAt(setar, 0).toString());
         txtEditar1.setText(tabelaFuncionariosBruto.getModel().getValueAt(setar, 1).toString());
@@ -219,7 +219,7 @@ public class TelaRegistrosBrutosFuncionarios extends javax.swing.JFrame {
         txtEditar8.setText(tabelaFuncionariosBruto.getModel().getValueAt(setar, 8).toString());
         txtEditar9.setText(tabelaFuncionariosBruto.getModel().getValueAt(setar, 9).toString());
         
-            deletarFuncionarios.setText(tabelaFuncionariosBruto.getModel().getValueAt(setar, 1).toString());
+        deletarFuncionarios.setText(tabelaFuncionariosBruto.getModel().getValueAt(setar, 1).toString());
 
     }
 
@@ -617,27 +617,27 @@ public class TelaRegistrosBrutosFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_txtEditarCodActionPerformed
 
     private void btnSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalvarMouseClicked
-        alterar_employees();
+        alterarFuncionarios();
     }//GEN-LAST:event_btnSalvarMouseClicked
 
     private void btnDeletarFuncionariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeletarFuncionariosMouseClicked
-        Deletar_Employees();
+        deletarFuncionarios();
     }//GEN-LAST:event_btnDeletarFuncionariosMouseClicked
 
     private void deletarFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletarFuncionariosActionPerformed
-        Deletar_Employees();
+        deletarFuncionarios();
     }//GEN-LAST:event_deletarFuncionariosActionPerformed
 
     private void btn_AtualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_AtualizarMouseClicked
-        pesquisar_Employees();
+        pesquisarFuncionarios();
     }//GEN-LAST:event_btn_AtualizarMouseClicked
 
     private void pesquisarFuncionariosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pesquisarFuncionariosKeyReleased
-        pesquisar_Employees();
+        pesquisarFuncionarios();
     }//GEN-LAST:event_pesquisarFuncionariosKeyReleased
 
     private void tabelaFuncionariosBrutoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaFuncionariosBrutoMouseClicked
-        setar_camposEmployees();
+        setarCamposFuncionarios();
     }//GEN-LAST:event_tabelaFuncionariosBrutoMouseClicked
 
     private void txtEditar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEditar1ActionPerformed

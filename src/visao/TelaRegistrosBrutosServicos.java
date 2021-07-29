@@ -17,7 +17,7 @@ public class TelaRegistrosBrutosServicos extends javax.swing.JFrame {
         initComponents();
 
         setIcon();
-        pesquisar_services_Sem();
+        pesquisarServicosSem();
         
         txtEditar1.setDocument(new Letras());
         txtEditar2.setDocument(new Numeros());
@@ -35,7 +35,7 @@ public class TelaRegistrosBrutosServicos extends javax.swing.JFrame {
 
     }
     
-    private void alterar_services(){
+    private void alterarServicos(){
     
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -76,7 +76,7 @@ public class TelaRegistrosBrutosServicos extends javax.swing.JFrame {
                     txtEditar4.setText(null);
                     txtEditarCod.setText(null); 
                     
-                    pesquisar_services_Sem();
+                    pesquisarServicosSem();
                 }
             
             }
@@ -101,7 +101,7 @@ public class TelaRegistrosBrutosServicos extends javax.swing.JFrame {
         }
     }
     
-    public void pesquisar_services_Sem() {
+    public void pesquisarServicosSem() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -124,7 +124,7 @@ public class TelaRegistrosBrutosServicos extends javax.swing.JFrame {
 
     }
     
-    protected void Deletar_Services() {
+    protected void deletarServicos() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -147,7 +147,7 @@ public class TelaRegistrosBrutosServicos extends javax.swing.JFrame {
                 deletarServicos.setText(null);
                 TelaSucessoDeletar sucesso = new TelaSucessoDeletar();
                 sucesso.setVisible(true);
-                pesquisar_services_Sem();
+                pesquisarServicosSem();
                     txtEditar1.setText(null);
                     txtEditar2.setText(null);
                     txtEditar3.setText(null);
@@ -163,7 +163,7 @@ public class TelaRegistrosBrutosServicos extends javax.swing.JFrame {
         }
     }
 
-    public void pesquisar_services() {
+    public void pesquisarServicos() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -187,7 +187,7 @@ public class TelaRegistrosBrutosServicos extends javax.swing.JFrame {
 
     }
 
-    private void setar_camposServices() {
+    private void setarCamposServicos() {
 
         int setar = tabelaServicosBruto.getSelectedRow();
         
@@ -534,15 +534,15 @@ public class TelaRegistrosBrutosServicos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void pesquisarServicosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pesquisarServicosKeyReleased
-        pesquisar_services();
+        pesquisarServicos();
     }//GEN-LAST:event_pesquisarServicosKeyReleased
 
     private void btnAtualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAtualizarMouseClicked
-        pesquisar_services();
+        pesquisarServicos();
     }//GEN-LAST:event_btnAtualizarMouseClicked
 
     private void deletarServicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletarServicosActionPerformed
-        Deletar_Services();
+        deletarServicos();
     }//GEN-LAST:event_deletarServicosActionPerformed
 
     private void btnFecharMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFecharMouseClicked
@@ -550,11 +550,11 @@ public class TelaRegistrosBrutosServicos extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFecharMouseClicked
 
     private void tabelaServicosBrutoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaServicosBrutoMouseClicked
-        setar_camposServices();
+        setarCamposServicos();
     }//GEN-LAST:event_tabelaServicosBrutoMouseClicked
 
     private void btnDeletarServicosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeletarServicosMouseClicked
-        Deletar_Services();
+        deletarServicos();
     }//GEN-LAST:event_btnDeletarServicosMouseClicked
 
     private void txtEditar1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEditar1KeyReleased
@@ -582,7 +582,7 @@ public class TelaRegistrosBrutosServicos extends javax.swing.JFrame {
     }//GEN-LAST:event_txtEditar6KeyReleased
 
     private void btnSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalvarMouseClicked
-        alterar_services();
+        alterarServicos();
     }//GEN-LAST:event_btnSalvarMouseClicked
 
     private void txtEditarCodKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEditarCodKeyReleased

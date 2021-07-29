@@ -17,7 +17,7 @@ public class TelaRegistrosBrutosProdutos extends javax.swing.JFrame {
         initComponents();
 
         setIcon();
-        pesquisar_products_Sem();
+        pesquisarProdutosSem();
         
         tabelaProdutosBruto.getTableHeader().setOpaque(false);
         tabelaProdutosBruto.getTableHeader().setBackground(new Color(71, 120, 197));
@@ -38,7 +38,7 @@ public class TelaRegistrosBrutosProdutos extends javax.swing.JFrame {
 
     }
     
-    private void alterar_products(){
+    private void alterarProdutos(){
     
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -83,7 +83,7 @@ public class TelaRegistrosBrutosProdutos extends javax.swing.JFrame {
                     txtEditar6.setText(null);
                     txtEditarCod.setText(null); 
                     
-                    pesquisar_products_Sem();
+                    pesquisarProdutosSem();
                 }
             
             }
@@ -110,7 +110,7 @@ public class TelaRegistrosBrutosProdutos extends javax.swing.JFrame {
         }
     }
     
-    public void pesquisar_products_Sem() {
+    public void pesquisarProdutosSem() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -133,7 +133,7 @@ public class TelaRegistrosBrutosProdutos extends javax.swing.JFrame {
 
     }
     
-    protected void Deletar_Products() {
+    protected void deletarProdutos() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -165,7 +165,7 @@ public class TelaRegistrosBrutosProdutos extends javax.swing.JFrame {
                     txtEditar6.setText(null);
                     txtEditarCod.setText(null); 
                 
-                pesquisar_products_Sem();
+                pesquisarProdutosSem();
             }
 
         } catch (Exception e) {
@@ -176,7 +176,7 @@ public class TelaRegistrosBrutosProdutos extends javax.swing.JFrame {
         }
     }
 
-    public void pesquisar_products() {
+    public void pesquisarProdutos() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -200,7 +200,7 @@ public class TelaRegistrosBrutosProdutos extends javax.swing.JFrame {
 
     }
 
-    private void setar_camposProducts() {
+    private void setarCamposProdutos() {
 
             int setar = tabelaProdutosBruto.getSelectedRow();
             
@@ -554,15 +554,15 @@ public class TelaRegistrosBrutosProdutos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void pesquisarProdutosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pesquisarProdutosKeyReleased
-        pesquisar_products();
+        pesquisarProdutos();
     }//GEN-LAST:event_pesquisarProdutosKeyReleased
 
     private void btnAtualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAtualizarMouseClicked
-        pesquisar_products();
+        pesquisarProdutos();
     }//GEN-LAST:event_btnAtualizarMouseClicked
 
     private void deletarProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletarProdutosActionPerformed
-        Deletar_Products();
+        deletarProdutos();
     }//GEN-LAST:event_deletarProdutosActionPerformed
 
     private void btnFecharMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFecharMouseClicked
@@ -570,11 +570,11 @@ public class TelaRegistrosBrutosProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFecharMouseClicked
 
     private void tabelaProdutosBrutoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaProdutosBrutoMouseClicked
-        setar_camposProducts();
+        setarCamposProdutos();
     }//GEN-LAST:event_tabelaProdutosBrutoMouseClicked
 
     private void btnDeletarProdutosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeletarProdutosMouseClicked
-        Deletar_Products();
+        deletarProdutos();
     }//GEN-LAST:event_btnDeletarProdutosMouseClicked
 
     private void txtEditar1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEditar1KeyReleased
@@ -602,7 +602,7 @@ public class TelaRegistrosBrutosProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_txtEditar6KeyReleased
 
     private void btnSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalvarMouseClicked
-        alterar_products();
+        alterarProdutos();
     }//GEN-LAST:event_btnSalvarMouseClicked
 
     private void txtEditarCodKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEditarCodKeyReleased

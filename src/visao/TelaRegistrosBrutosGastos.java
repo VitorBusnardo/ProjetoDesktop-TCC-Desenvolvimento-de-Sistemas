@@ -17,7 +17,7 @@ public class TelaRegistrosBrutosGastos extends javax.swing.JFrame {
         initComponents();
 
         setIcon();
-        pesquisar_Spending_Sem();
+        pesquisarGastosSem();
         
         txtEditar1.setDocument(new Letras());
         txtEditar6.setDocument(new Letras());
@@ -36,7 +36,7 @@ public class TelaRegistrosBrutosGastos extends javax.swing.JFrame {
 
     }
     
-    private void alterar_spending(){
+    private void alterarGastos(){
     
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -82,7 +82,7 @@ public class TelaRegistrosBrutosGastos extends javax.swing.JFrame {
                     txtEditar6.setText(null);
                     txtEditarCod.setText(null); 
                     
-                    pesquisar_Spending_Sem();
+                    pesquisarGastosSem();
                 }
             
             }
@@ -107,7 +107,7 @@ public class TelaRegistrosBrutosGastos extends javax.swing.JFrame {
         }
     }
     
-    protected void Deletar_Spending() {
+    protected void deletarGastos() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -130,7 +130,7 @@ public class TelaRegistrosBrutosGastos extends javax.swing.JFrame {
                 deletarGastos.setText(null);
                 TelaSucessoDeletar sucesso = new TelaSucessoDeletar();
                 sucesso.setVisible(true);
-                pesquisar_Spending_Sem();
+                pesquisarGastosSem();
                     txtEditar1.setText(null);
                     txtEditar2.setText(null);
                     txtEditar3.setText(null);
@@ -148,7 +148,7 @@ public class TelaRegistrosBrutosGastos extends javax.swing.JFrame {
         }
     }
 
-    public void pesquisar_Spending_Sem() {
+    public void pesquisarGastosSem() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -171,7 +171,7 @@ public class TelaRegistrosBrutosGastos extends javax.swing.JFrame {
 
     }
 
-    public void pesquisar_Spending() {
+    public void pesquisarGastos() {
 
         ConexaoSQLite conexao = new ConexaoSQLite();
 
@@ -194,7 +194,7 @@ public class TelaRegistrosBrutosGastos extends javax.swing.JFrame {
         }
     }
 
-    private void setar_camposSpending() {
+    private void setarCamposGastos() {
 
         int setar = tabelaGastosBruto.getSelectedRow();
         
@@ -608,15 +608,15 @@ public class TelaRegistrosBrutosGastos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void pesquisarGastosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pesquisarGastosKeyReleased
-        pesquisar_Spending();
+        pesquisarGastos();
     }//GEN-LAST:event_pesquisarGastosKeyReleased
 
     private void btnAtualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAtualizarMouseClicked
-        pesquisar_Spending();
+        pesquisarGastos();
     }//GEN-LAST:event_btnAtualizarMouseClicked
 
     private void deletarGastosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletarGastosActionPerformed
-        Deletar_Spending();
+        deletarGastos();
     }//GEN-LAST:event_deletarGastosActionPerformed
 
     private void btnFecharMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFecharMouseClicked
@@ -624,15 +624,15 @@ public class TelaRegistrosBrutosGastos extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFecharMouseClicked
 
     private void tabelaGastosBrutoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaGastosBrutoMouseClicked
-        setar_camposSpending();
+        setarCamposGastos();
     }//GEN-LAST:event_tabelaGastosBrutoMouseClicked
 
     private void btnDeletarGastosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeletarGastosMouseClicked
-        Deletar_Spending();
+        deletarGastos();
     }//GEN-LAST:event_btnDeletarGastosMouseClicked
 
     private void btnSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalvarMouseClicked
-        alterar_spending();
+        alterarGastos();
     }//GEN-LAST:event_btnSalvarMouseClicked
 
     private void txtEditar2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEditar2KeyReleased
