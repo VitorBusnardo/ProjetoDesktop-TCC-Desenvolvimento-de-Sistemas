@@ -21,7 +21,7 @@ public class TelaCadastroGastos extends javax.swing.JFrame {
 
         PreparedStatement comandoSQL = null;
 
-        String insertSQL = "insert into Spending(Title,Type,Description,Date,Value,PurchasedSpent,Classification) values(?,?,?,?,?,?,?);";
+        String insertSQL = "insert into Gastos(Titulo,Tipo,Descricao,Data,Valor,CompradoGasto,Classificacao) values(?,?,?,?,?,?,?);";
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 

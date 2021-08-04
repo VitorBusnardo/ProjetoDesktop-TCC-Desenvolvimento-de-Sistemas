@@ -22,14 +22,14 @@ public class TelaCadastroClientes extends javax.swing.JFrame {
 
         PreparedStatement comandoSQL = null;
 
-        String insertSQL = "select Name from Services;";
+        String insertSQL = "select Nome from Servicos;";
 
         try {
 
             comandoSQL = conexao.criarPreparedStatement(insertSQL);
             resultSQL = comandoSQL.executeQuery();
             while (resultSQL.next()) {
-                txtServicos.addItem(resultSQL.getString("Name"));
+                txtServicos.addItem(resultSQL.getString("Nome"));
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error " + e.getMessage());
@@ -49,9 +49,9 @@ public class TelaCadastroClientes extends javax.swing.JFrame {
 
         PreparedStatement readComando = null;
 
-        String insertSQL = "insert into Customers(FullName,Age,Email,Telephone,Address,Cpf,BirthDate,City,Sex,Services) VALUES(?,?,?,?,?,?,?,?,?,?);";
+        String insertSQL = "insert into Clientes(NomeCompleto,Idade,Email,Telefone,Endereco,Cpf,DataNascimento,Cidade,Sexo,Servico) VALUES(?,?,?,?,?,?,?,?,?,?);";
 
-        String readSql = "select Name from Services where Name = ?";
+        String readSql = "select Nome from Servicos where Nome = ?";
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -63,7 +63,7 @@ public class TelaCadastroClientes extends javax.swing.JFrame {
             readComando = conexao.criarPreparedStatement(readSql);
             readComando.setString(1, txtServicos.getSelectedItem().toString());
             resultSQL = readComando.executeQuery();
-            String idServices = resultSQL.getString("Name");
+            String idServices = resultSQL.getString("Nome");
             
             comandoSQL = conexao.criarPreparedStatement(insertSQL);
             comandoSQL.setString(1, txNomeCompleto.getText());
@@ -96,7 +96,7 @@ public class TelaCadastroClientes extends javax.swing.JFrame {
                     txtEmail.setText(null);
                     txNomeCompleto.setText(null);
                     txtTelefone.setText(null);
-                    txtSexo.setSelectedItem("Male");
+                    txtSexo.setSelectedItem(null);
                     txtDataNascimento.setCalendar(null);
                 }
 

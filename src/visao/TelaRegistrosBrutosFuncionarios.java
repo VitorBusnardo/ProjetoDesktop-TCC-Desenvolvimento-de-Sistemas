@@ -44,7 +44,7 @@ public class TelaRegistrosBrutosFuncionarios extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
         
-        String sql = "update Employees set FullName=?, Age=?, Email=?, Telephone=?, Address=?, Cpf=?, BirthDate=?, Salary=?, OccupationArea=?, Sex=? where Id=?";
+        String sql = "update Funcionarios set NomeCompleto=?, Idade=?, Email=?, Telefone=?, Endereco=?, Cpf=?, DataNascimento=?, Salario=?, AreaOcupacao=?, Sexo=? where Id=?";
         
         try {
             
@@ -121,7 +121,7 @@ public class TelaRegistrosBrutosFuncionarios extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "select Id, FullName, Age, Email, Telephone, Address, Cpf, BirthDate, Salary, OccupationArea, Sex from Employees;";
+        String sql = "select Id, NomeCompleto, Idade, Email, Telefone, Endereco, Cpf, DataNascimento, Salario, AreaOcupacao, Sexo from Funcionarios;";
 
         try {
 
@@ -144,7 +144,7 @@ public class TelaRegistrosBrutosFuncionarios extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "select Id, FullName, Age, Email, Telephone, Address, Cpf, BirthDate, Salary, OccupationArea, Sex from Employees where FullName like ?";
+        String sql = "select Id, NomeCompleto, Idade, Email, Telefone, Endereco, Cpf, DataNascimento, Salario, AreaOcupacao, Sexo from Funcionarios where NomeCompleto like ?";
 
         try {
 
@@ -168,7 +168,7 @@ public class TelaRegistrosBrutosFuncionarios extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "delete from Employees where FullName=?";
+        String sql = "delete from Funcionarios where NomeCompleto=?";
 
         try {
 

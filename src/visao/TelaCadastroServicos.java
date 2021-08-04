@@ -20,7 +20,7 @@ public class TelaCadastroServicos extends javax.swing.JFrame {
 
         PreparedStatement comandoSQL = null;
 
-        String insertSQL = "insert into Services(Name,Type,Description,Value) values(?,?,?,?);";
+        String insertSQL = "insert into Servicos(Nome,Tipo,Descricao,Valor) values(?,?,?,?);";
 
         //criando Stament para fazer insert 
         try {

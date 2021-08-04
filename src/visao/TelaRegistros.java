@@ -34,7 +34,7 @@ public class TelaRegistros extends javax.swing.JFrame {
 
         PreparedStatement comandoSQL = null;
 
-        String insertSQL = "select Value from Sales;";
+        String insertSQL = "select Valor from Vendas;";
 
         float valorSales = 0;
 
@@ -43,7 +43,7 @@ public class TelaRegistros extends javax.swing.JFrame {
             comandoSQL = conexao.criarPreparedStatement(insertSQL);
             resultSQL = comandoSQL.executeQuery();
             while (resultSQL.next()) {
-                valorSales = Float.parseFloat(resultSQL.getString("Value"));
+                valorSales = Float.parseFloat(resultSQL.getString("Valor"));
                 SalesValorInicial = SalesValorInicial + valorSales;
             }
             System.out.println(SalesValorInicial);
@@ -63,7 +63,7 @@ public class TelaRegistros extends javax.swing.JFrame {
 
         PreparedStatement comandoSQL = null;
 
-        String insertSQL = "select Value from Spending;";
+        String insertSQL = "select Valor from Gastos;";
 
         float valorSpending = 0;
 
@@ -72,7 +72,7 @@ public class TelaRegistros extends javax.swing.JFrame {
             comandoSQL = conexao.criarPreparedStatement(insertSQL);
             resultSQL = comandoSQL.executeQuery();
             while (resultSQL.next()) {
-                valorSpending = Float.parseFloat(resultSQL.getString("Value"));
+                valorSpending = Float.parseFloat(resultSQL.getString("Valor"));
                 SpendingValorInicial = SpendingValorInicial + valorSpending;
             }
             System.out.println(SpendingValorInicial);
@@ -90,7 +90,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "delete from Customers where FullName=?";
+        String sql = "delete from Clientes where NomeCompleto=?";
 
         try {
 
@@ -124,7 +124,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "delete from Products where Name=?";
+        String sql = "delete from Produtos where Nome=?";
 
         try {
 
@@ -158,7 +158,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "delete from Services where Name=?";
+        String sql = "delete from Servicos where Nome=?";
 
         try {
 
@@ -192,7 +192,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "delete from Employees where FullName=?";
+        String sql = "delete from Funcionarios where NomeCompleto=?";
 
         try {
 
@@ -226,7 +226,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "select FullName, Telephone, Cpf, Sex, Services from Customers where FullName like ?";
+        String sql = "select NomeCompleto, Telefone, Cpf, Sexo, Servico from Clientes where NomeCompleto like ?";
 
         try {
 
@@ -250,7 +250,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "select FullName, Telephone, Cpf, City, Sex, Services from Customers where FullName like ?";
+        String sql = "select NomeCompleto, Telefone, Cpf, Sexo, Servicos from Clientes where NomeCompleto like ?";
 
         try {
 
@@ -274,7 +274,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "select FullName, Telephone, Cpf, Salary, OccupationArea from Employees;";
+        String sql = "select NomeCompleto, Telefone, Cpf, Salario, AreaOcupacao from Funcionarios;";
 
         try {
 
@@ -297,7 +297,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "select FullName, Telephone, Cpf, Salary, OccupationArea from Employees where FullName like ?";
+        String sql = "select NomeCompleto, Telefone, Cpf, Salario, AreaOcupacao from Funcionarios where NomeCompleto like ?";
 
         try {
 
@@ -321,7 +321,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "select Name, Brand, Stock, Value, Type from Products;";
+        String sql = "select Nome, Marca, Estoque, Valor, Tipo from Produtos;";
 
         try {
 
@@ -344,7 +344,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "select Name, Brand, Stock, Value, Type from Products where Name like ?";
+        String sql = "select Nome, Marca, Estoque, Valor, Tipo from Produtos where Nome like ?";
 
         try {
 
@@ -368,7 +368,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "select Name, Type, Description, Value from Services where Name like ?";
+        String sql = "select Nome, Tipo, Descricao, Valor from Servicos where Nome like ?";
 
         try {
 
@@ -392,7 +392,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "select Name, Type, Description, Value from Services;";
+        String sql = "select Nome, Tipo, Descricao, Valor from Servicos;";
 
         try {
 

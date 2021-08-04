@@ -48,14 +48,14 @@ public class TelaRegistrosBrutosVendas extends javax.swing.JFrame {
 
         PreparedStatement comandoSQL = null;
 
-        String insertSQL = "select Name from Services;";
+        String insertSQL = "select Nome from Servicos;";
 
         try {
 
             comandoSQL = conexao.criarPreparedStatement(insertSQL);
             resultSQL = comandoSQL.executeQuery();
             while (resultSQL.next()) {
-                txtServico.addItem(resultSQL.getString("Name"));
+                txtServico.addItem(resultSQL.getString("Nome"));
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error " + e.getMessage());
@@ -72,14 +72,14 @@ public class TelaRegistrosBrutosVendas extends javax.swing.JFrame {
 
         PreparedStatement comandoSQL = null;
 
-        String insertSQL = "select FullName from Customers;";
+        String insertSQL = "select NomeCompleto from Clientes;";
 
         try {
 
             comandoSQL = conexao.criarPreparedStatement(insertSQL);
             resultSQL = comandoSQL.executeQuery();
             while (resultSQL.next()) {
-                txtCliente.addItem(resultSQL.getString("FullName"));
+                txtCliente.addItem(resultSQL.getString("NomeCompleto"));
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error " + e.getMessage());
@@ -95,7 +95,7 @@ public class TelaRegistrosBrutosVendas extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
         
-        String sql = "update Sales set Title=?, Type=?, Description=?, Date=?, Value=?, Products=?, Classification=?, Service=?, Client=? where Id=?";
+        String sql = "update Vendas set Titulos=?, Tipo=?, Descricao=?, Data=?, Valor=?, Produtos=?, Classificacao=?, Servico=?, Cliente=? where Id=?";
         
         try {
             
@@ -169,7 +169,7 @@ public class TelaRegistrosBrutosVendas extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "delete from Sales where Title=?";
+        String sql = "delete from Vendas where Titulo=?";
 
         try {
 
@@ -211,7 +211,7 @@ public class TelaRegistrosBrutosVendas extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "select Id, Title, Type, Description, Date, Value, Products, Classification, Service, Client from Sales;";
+        String sql = "select Id, Titulo, Tipo, Descricao, Data, Valor, Produtos, Classificacao, Servico, Cliente from Vendas;";
 
         try {
 
@@ -234,7 +234,7 @@ public class TelaRegistrosBrutosVendas extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "select Id, Title, Type, Description, Date, Value, Products, Classification, Service, Client from Sales where Title like ?";
+        String sql = "select Id, Titulo, Tipo, Descricao, Data, Valor, Produtos, Classificacao, Servico, Cliente from Vendas where Titulo like ?";
 
         try {
 

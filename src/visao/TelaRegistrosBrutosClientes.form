@@ -108,7 +108,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <EmptySpace min="0" pref="1140" max="32767" attributes="0"/>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Component id="painelClientes" alignment="0" pref="1140" max="32767" attributes="0"/>
+                      <Component id="painelClientes" alignment="1" pref="1140" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -177,16 +177,16 @@
                           </Group>
                           <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="txtEditar4" max="32767" attributes="0"/>
-                              <Component id="txtEditar5" alignment="0" pref="270" max="32767" attributes="0"/>
+                              <Component id="txtEditar4" pref="270" max="32767" attributes="0"/>
+                              <Component id="txtEditar5" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="89" pref="89" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="txtEditar9" pref="270" max="32767" attributes="0"/>
-                              <Component id="txtEditar8" pref="270" max="32767" attributes="0"/>
-                              <Component id="txtEditar7" max="32767" attributes="0"/>
+                              <Component id="txtEditar9" max="32767" attributes="0"/>
+                              <Component id="txtEditar8" max="32767" attributes="0"/>
+                              <Component id="txtEditar7" pref="270" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="76" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                       <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
@@ -198,7 +198,7 @@
                       <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="435" max="-2" attributes="0"/>
-                              <Component id="txtEditar6" max="32767" attributes="0"/>
+                              <Component id="txtEditar6" pref="270" max="32767" attributes="0"/>
                               <EmptySpace min="-2" pref="435" max="-2" attributes="0"/>
                           </Group>
                       </Group>

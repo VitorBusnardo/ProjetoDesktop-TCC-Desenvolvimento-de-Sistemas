@@ -44,7 +44,7 @@ public class TelaRegistrosBrutosGastos extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
         
-        String sql = "update Spending set Title=?, Type=?, Description=?, Date=?, Value=?, PurchasedSpent=?, Classification=? where Id=?";
+        String sql = "update Gastos set Titulo=?, Tipo=?, Descricao=?, Data=?, Valor=?, CompradoGasto=?, Classificacao=? where Id=?";
         
         try {
             
@@ -115,7 +115,7 @@ public class TelaRegistrosBrutosGastos extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "delete from Spending where Title=?";
+        String sql = "delete from Gastos where Titulo=?";
 
         try {
 
@@ -156,7 +156,7 @@ public class TelaRegistrosBrutosGastos extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "select Id, Title, Type, Description, Date, Value, PurchasedSpent, Classification from Spending;";
+        String sql = "select Id, Titulo, Tipo, Descricao, Data, Valor, CompradoGasto, Classificacao from Gastos;";
 
         try {
 
@@ -179,7 +179,7 @@ public class TelaRegistrosBrutosGastos extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "select Id, Title, Type, Description, Date, Value, PurchasedSpent, Classification from Spending where Title like ?";
+        String sql = "select Id, Titulo, Tipo, Descricao, Data, Valor, CompradoGasto, Classificacao from Gastos where Title like ?";
 
         try {
 

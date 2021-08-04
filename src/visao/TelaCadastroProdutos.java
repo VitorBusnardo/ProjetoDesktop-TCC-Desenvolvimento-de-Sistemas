@@ -20,7 +20,7 @@ public class TelaCadastroProdutos extends javax.swing.JFrame {
 
         PreparedStatement comandoSQL = null;
 
-        String insertSQL = "insert into Products(Name,Brand,Stock,Description,Value,Type) VALUES(?,?,?,?,?,?);";
+        String insertSQL = "insert into Produtos(Nome,Marca,Estoque,Descricao,Valor,Tipo) VALUES(?,?,?,?,?,?);";
 
         //criando Stament para fazer insert 
         try {

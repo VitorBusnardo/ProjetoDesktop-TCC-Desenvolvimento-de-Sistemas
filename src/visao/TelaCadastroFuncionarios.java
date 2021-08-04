@@ -21,7 +21,7 @@ public class TelaCadastroFuncionarios extends javax.swing.JFrame {
 
         PreparedStatement comandoSQL = null;
 
-        String insertSQL = "insert into Employees(FullName,Age,Email,Telephone,Address,Cpf,BirthDate,Salary,OccupationArea,Sex) VALUES(?,?,?,?,?,?,?,?,?,?);";
+        String insertSQL = "insert into Funcionarios(NomeCompleto,Idade,Email,Telefone,Endereco,Cpf,DataNascimento,Salario,AreaOcupacao,Sexo) VALUES(?,?,?,?,?,?,?,?,?,?);";
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -60,7 +60,7 @@ public class TelaCadastroFuncionarios extends javax.swing.JFrame {
                     txtEmail.setText(null);
                     txtNomeCompleto.setText(null);
                     txtTelefone.setText(null);
-                    txtSexo.setSelectedItem("Male");
+                    txtSexo.setSelectedItem(null);
                     txtDataNascimento.setCalendar(null);
                     txtAreaOcupacao.setText(null);
                 }

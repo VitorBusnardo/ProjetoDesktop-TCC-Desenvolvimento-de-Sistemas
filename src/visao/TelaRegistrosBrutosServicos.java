@@ -43,7 +43,7 @@ public class TelaRegistrosBrutosServicos extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
         
-        String sql = "update Services set Name=?, Type=?, Description=?, Value=? where Id=?";
+        String sql = "update Servicos set Nome=?, Tipo=?, Descricao=?, Valor=? where Id=?";
     
         try {
             
@@ -109,7 +109,7 @@ public class TelaRegistrosBrutosServicos extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "select Id, Name, Type, Description, Value from Services;";
+        String sql = "select Id, Nome, Tipo, Descricao, Valor from Servicos;";
 
         try {
 
@@ -132,7 +132,7 @@ public class TelaRegistrosBrutosServicos extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "delete from Services where Name=?";
+        String sql = "delete from Servicos where Nome=?";
 
         try {
 
@@ -171,7 +171,7 @@ public class TelaRegistrosBrutosServicos extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "select Id, Name, Type, Description, Value from Services where Name like ?";
+        String sql = "select Id, Nome, Tipo, Descricao, Valor from Servicos where Nome like ?";
 
         try {
 

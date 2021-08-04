@@ -27,7 +27,7 @@ public class TelaDeletar extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "delete from Customers";
+        String sql = "delete from Clientes";
 
         try {
 
@@ -51,7 +51,7 @@ public class TelaDeletar extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "delete from Products";
+        String sql = "delete from Produtos";
 
         try {
 
@@ -75,7 +75,7 @@ public class TelaDeletar extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "delete from Services";
+        String sql = "delete from Servicos";
 
         try {
 
@@ -91,29 +91,6 @@ public class TelaDeletar extends javax.swing.JFrame {
         }
     }
 
-    protected void Deletar_Schedule() {
-
-        ConexaoSQLite conexao = new ConexaoSQLite();
-
-        conexao.conectar();
-        ResultSet resultSQL = null;
-        PreparedStatement comandoSQL = null;
-
-        String sql = "delete from Schedule";
-
-        try {
-
-            comandoSQL = conexao.criarPreparedStatement(sql);
-
-            int apagado = comandoSQL.executeUpdate();
-
-        } catch (Exception e) {
-
-            TelaErroDeletar erro = new TelaErroDeletar();
-            erro.setVisible(true);
-
-        }
-    }
 
     protected void Deletar_Employees() {
 
@@ -123,7 +100,7 @@ public class TelaDeletar extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "delete from Employees";
+        String sql = "delete from Funcionarios";
 
         try {
 
@@ -147,7 +124,7 @@ public class TelaDeletar extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "delete from Sales";
+        String sql = "delete from Vendas";
 
         try {
 
@@ -171,7 +148,7 @@ public class TelaDeletar extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "delete from Spending";
+        String sql = "delete from Gastos";
 
         try {
 
@@ -332,7 +309,6 @@ public class TelaDeletar extends javax.swing.JFrame {
         Deletar_Customers();
         Deletar_Employees();
         Deletar_Products();
-        Deletar_Schedule();
         Deletar_Services();
         Deletar_Sales();
         Deletar_Spending();

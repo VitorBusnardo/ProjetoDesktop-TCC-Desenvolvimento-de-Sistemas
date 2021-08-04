@@ -49,8 +49,8 @@ public class TelaLogin extends javax.swing.JFrame {
                 txtSenha.setText(null);
             }
 
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, " ERROR " + e.getMessage());
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, " ERROR TELA LOGIN " + e.getMessage());
         } finally {
 
             try {

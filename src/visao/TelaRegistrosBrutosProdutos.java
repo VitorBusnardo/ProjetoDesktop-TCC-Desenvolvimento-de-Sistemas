@@ -46,7 +46,7 @@ public class TelaRegistrosBrutosProdutos extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
         
-        String sql = "update Products set Name=?, Brand=?, Stock=?, Description=?, Value=?, Type=? where IdProducts=?";
+        String sql = "update Produtos set Nome=?, Marca=?, Estoque=?, Descricao=?, Valor=?, Tipo=? where Id=?";
     
         try {
             
@@ -118,7 +118,7 @@ public class TelaRegistrosBrutosProdutos extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "select IdProducts, Name, Brand, Stock, Description, Value, Type from Products;";
+        String sql = "select Id, Nome, Marca, Estoque, Descricao, Valor, Tipo from Produtos;";
 
         try {
 
@@ -141,7 +141,7 @@ public class TelaRegistrosBrutosProdutos extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "delete from Products where Name=?";
+        String sql = "delete from Produtos where Nome=?";
 
         try {
 
@@ -184,7 +184,7 @@ public class TelaRegistrosBrutosProdutos extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "select IdProducts, Name, Brand, Stock, Description, Value, Type from Products where Name like ?";
+        String sql = "select Id, Nome, Marca, Estoque, Descricao, Valor, Tipo from Produtos where Nome like ?";
 
         try {
 

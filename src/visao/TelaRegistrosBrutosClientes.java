@@ -44,7 +44,7 @@ public class TelaRegistrosBrutosClientes extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
         
-        String sql = "update Customers set FullName=?, Age=?, Email=?, Telephone=?, Address=?, Cpf=?, BirthDate=?, City=?, Sex=?, Services=? where Id=?";
+        String sql = "update Clientes set NomeCompleto=?, Idade=?, Email=?, Telefone=?, Endereco=?, Cpf=?, DataNascimento=?, Cidade=?, Sexo=?, Servico=? where Id=?";
         
         try {
             
@@ -122,14 +122,14 @@ public class TelaRegistrosBrutosClientes extends javax.swing.JFrame {
 
         PreparedStatement comandoSQL = null;
 
-        String insertSQL = "select Name from Services;";
+        String insertSQL = "select Nome from Servicos;";
 
         try {
 
             comandoSQL = conexao.criarPreparedStatement(insertSQL);
             resultSQL = comandoSQL.executeQuery();
             while (resultSQL.next()) {
-                txtServicos.addItem(resultSQL.getString("Name"));
+                txtServicos.addItem(resultSQL.getString("Nome"));
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error " + e.getMessage());
@@ -145,7 +145,7 @@ public class TelaRegistrosBrutosClientes extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "select Id, FullName, Age, Email, Telephone, Address, Cpf, BirthDate, City, Sex, Services from Customers where FullName like ?";
+        String sql = "select Id, NomeCompleto, Idade, Email, Telefone, Endereco, Cpf, DataNascimento, Cidade, Sexo, Servico from Clientes where NomeCompleto like ?";
 
         try {
 
@@ -169,7 +169,7 @@ public class TelaRegistrosBrutosClientes extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "delete from Customers where FullName=?";
+        String sql = "delete from Clientes where NomeCompleto=?";
 
         try {
 
@@ -212,7 +212,7 @@ public class TelaRegistrosBrutosClientes extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "select Id, FullName, Age, Email, Telephone, Address, Email, Cpf, BirthDate, City, Sex, Services from Customers where FullName like ?";
+        String sql = "select Id, NomeCompleto, Idade, Email, Telefone, Endereco, Cpf, DataNascimento, Cidade, Sexo, Servico from Clientes where NomeCompleto like ?";
 
         try {
 
@@ -535,14 +535,14 @@ public class TelaRegistrosBrutosClientes extends javax.swing.JFrame {
                     .addComponent(txtEditar1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(89, 89, 89)
                 .addGroup(painelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtEditar4)
-                    .addComponent(txtEditar5, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE))
+                    .addComponent(txtEditar4, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+                    .addComponent(txtEditar5))
                 .addGap(89, 89, 89)
                 .addGroup(painelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtEditar9, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
-                    .addComponent(txtEditar8, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
-                    .addComponent(txtEditar7))
-                .addContainerGap(76, Short.MAX_VALUE))
+                    .addComponent(txtEditar9)
+                    .addComponent(txtEditar8)
+                    .addComponent(txtEditar7, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(painelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelClientesLayout.createSequentialGroup()
                     .addContainerGap(78, Short.MAX_VALUE)
@@ -551,7 +551,7 @@ public class TelaRegistrosBrutosClientes extends javax.swing.JFrame {
             .addGroup(painelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(painelClientesLayout.createSequentialGroup()
                     .addGap(435, 435, 435)
-                    .addComponent(txtEditar6)
+                    .addComponent(txtEditar6, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
                     .addGap(435, 435, 435)))
         );
         painelClientesLayout.setVerticalGroup(
@@ -607,7 +607,7 @@ public class TelaRegistrosBrutosClientes extends javax.swing.JFrame {
             painelBrancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1140, Short.MAX_VALUE)
             .addGroup(painelBrancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(painelClientes, javax.swing.GroupLayout.DEFAULT_SIZE, 1140, Short.MAX_VALUE))
+                .addComponent(painelClientes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1140, Short.MAX_VALUE))
         );
         painelBrancoLayout.setVerticalGroup(
             painelBrancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
