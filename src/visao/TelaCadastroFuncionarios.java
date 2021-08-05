@@ -116,12 +116,8 @@ public class TelaCadastroFuncionarios extends javax.swing.JFrame {
         painel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        btnRegistrar = new javax.swing.JPanel();
-        indRegistrar = new javax.swing.JPanel();
-        jLabel15 = new javax.swing.JLabel();
-        btnRegistros = new javax.swing.JPanel();
-        indRegistros = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
+        btnRegistrar = new javax.swing.JLabel();
+        btnRegistrosBrutos = new javax.swing.JLabel();
         menuPrincipal = new javax.swing.JPanel();
         txtNomeCompleto = new javax.swing.JTextField();
         txtIdade = new javax.swing.JTextField();
@@ -204,106 +200,30 @@ public class TelaCadastroFuncionarios extends javax.swing.JFrame {
         painel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, -1, 60));
 
         btnRegistrar.setBackground(new java.awt.Color(23, 35, 51));
+        btnRegistrar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnRegistrar.setText("Registrar");
+        btnRegistrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegistrar.setOpaque(true);
         btnRegistrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnRegistrarMouseClicked(evt);
             }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                btnRegistrarMouseReleased(evt);
-            }
         });
 
-        indRegistrar.setOpaque(false);
-        indRegistrar.setPreferredSize(new java.awt.Dimension(3, 43));
-
-        javax.swing.GroupLayout indRegistrarLayout = new javax.swing.GroupLayout(indRegistrar);
-        indRegistrar.setLayout(indRegistrarLayout);
-        indRegistrarLayout.setHorizontalGroup(
-            indRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 3, Short.MAX_VALUE)
-        );
-        indRegistrarLayout.setVerticalGroup(
-            indRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 43, Short.MAX_VALUE)
-        );
-
-        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setText("Registrar");
-        jLabel15.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        javax.swing.GroupLayout btnRegistrarLayout = new javax.swing.GroupLayout(btnRegistrar);
-        btnRegistrar.setLayout(btnRegistrarLayout);
-        btnRegistrarLayout.setHorizontalGroup(
-            btnRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnRegistrarLayout.createSequentialGroup()
-                .addComponent(indRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(jLabel15)
-                .addGap(0, 40, Short.MAX_VALUE))
-        );
-        btnRegistrarLayout.setVerticalGroup(
-            btnRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnRegistrarLayout.createSequentialGroup()
-                .addComponent(indRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(btnRegistrarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        btnRegistros.setBackground(new java.awt.Color(23, 35, 51));
-        btnRegistros.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                btnRegistrosMouseReleased(evt);
+        btnRegistrosBrutos.setBackground(new java.awt.Color(23, 35, 51));
+        btnRegistrosBrutos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnRegistrosBrutos.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistrosBrutos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnRegistrosBrutos.setText("Registros Brutos");
+        btnRegistrosBrutos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegistrosBrutos.setOpaque(true);
+        btnRegistrosBrutos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRegistrosBrutosMouseClicked(evt);
             }
         });
-
-        indRegistros.setOpaque(false);
-        indRegistros.setPreferredSize(new java.awt.Dimension(3, 43));
-
-        javax.swing.GroupLayout indRegistrosLayout = new javax.swing.GroupLayout(indRegistros);
-        indRegistros.setLayout(indRegistrosLayout);
-        indRegistrosLayout.setHorizontalGroup(
-            indRegistrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 3, Short.MAX_VALUE)
-        );
-        indRegistrosLayout.setVerticalGroup(
-            indRegistrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 43, Short.MAX_VALUE)
-        );
-
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("Registros");
-        jLabel14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                jLabel14MouseReleased(evt);
-            }
-        });
-
-        javax.swing.GroupLayout btnRegistrosLayout = new javax.swing.GroupLayout(btnRegistros);
-        btnRegistros.setLayout(btnRegistrosLayout);
-        btnRegistrosLayout.setHorizontalGroup(
-            btnRegistrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnRegistrosLayout.createSequentialGroup()
-                .addComponent(indRegistros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(jLabel14)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        btnRegistrosLayout.setVerticalGroup(
-            btnRegistrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnRegistrosLayout.createSequentialGroup()
-                .addComponent(indRegistros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(btnRegistrosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
 
         javax.swing.GroupLayout menuSecundarioLayout = new javax.swing.GroupLayout(menuSecundario);
         menuSecundario.setLayout(menuSecundarioLayout);
@@ -311,20 +231,20 @@ public class TelaCadastroFuncionarios extends javax.swing.JFrame {
             menuSecundarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(painel, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(menuSecundarioLayout.createSequentialGroup()
-                .addGap(70, 70, 70)
+                .addGap(62, 62, 62)
                 .addGroup(menuSecundarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnRegistrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnRegistros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(btnRegistrosBrutos, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)))
         );
         menuSecundarioLayout.setVerticalGroup(
             menuSecundarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menuSecundarioLayout.createSequentialGroup()
                 .addComponent(painel, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 273, Short.MAX_VALUE)
-                .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(btnRegistros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(76, 76, 76))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnRegistrosBrutos, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(74, 74, 74))
         );
 
         menuPrincipal.setBackground(new java.awt.Color(255, 255, 255));
@@ -477,7 +397,7 @@ public class TelaCadastroFuncionarios extends javax.swing.JFrame {
                     .addComponent(txtEndereço, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
                     .addComponent(jLabel5)
                     .addComponent(txtTelefone))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addGroup(menuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel4)
                     .addComponent(jLabel8)
@@ -606,10 +526,6 @@ public class TelaCadastroFuncionarios extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSalarioActionPerformed
 
-    private void btnRegistrarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarMouseReleased
-
-    }//GEN-LAST:event_btnRegistrarMouseReleased
-
     private void txtAreaOcupacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAreaOcupacaoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAreaOcupacaoActionPerformed
@@ -619,11 +535,6 @@ public class TelaCadastroFuncionarios extends javax.swing.JFrame {
         this.dispose();
 
     }//GEN-LAST:event_btnFecharMouseClicked
-
-    private void btnRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarMouseClicked
-        // TODO add your handling code here:
-        this.insertCadastro();
-    }//GEN-LAST:event_btnRegistrarMouseClicked
 
     private void txtNomeCompletoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeCompletoKeyTyped
 
@@ -673,15 +584,14 @@ public class TelaCadastroFuncionarios extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtAreaOcupacaoKeyTyped
 
-    private void jLabel14MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseReleased
-        brutosEmployees.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jLabel14MouseReleased
+    private void btnRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarMouseClicked
+        this.insertCadastro();
+    }//GEN-LAST:event_btnRegistrarMouseClicked
 
-    private void btnRegistrosMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrosMouseReleased
+    private void btnRegistrosBrutosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrosBrutosMouseClicked
         brutosEmployees.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_btnRegistrosMouseReleased
+    }//GEN-LAST:event_btnRegistrosBrutosMouseClicked
 
     public static void main(String args[]) {
 
@@ -712,10 +622,8 @@ public class TelaCadastroFuncionarios extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btnFechar;
-    private javax.swing.JPanel btnRegistrar;
-    private javax.swing.JPanel btnRegistros;
-    private javax.swing.JPanel indRegistrar;
-    private javax.swing.JPanel indRegistros;
+    public javax.swing.JLabel btnRegistrar;
+    public javax.swing.JLabel btnRegistrosBrutos;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private com.toedter.calendar.JDateChooser jDateChooser3;
@@ -723,8 +631,6 @@ public class TelaCadastroFuncionarios extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

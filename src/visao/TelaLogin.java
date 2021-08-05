@@ -254,7 +254,7 @@ public class TelaLogin extends javax.swing.JFrame {
                     .addComponent(exit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuSecundarioLayout.createSequentialGroup()
                         .addComponent(jLabel4)
-                        .addGap(155, 155, 155))
+                        .addGap(152, 152, 152))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuSecundarioLayout.createSequentialGroup()
                         .addGroup(menuSecundarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuSecundarioLayout.createSequentialGroup()

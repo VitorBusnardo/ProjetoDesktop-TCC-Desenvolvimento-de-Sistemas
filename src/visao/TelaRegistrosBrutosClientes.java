@@ -76,7 +76,8 @@ public class TelaRegistrosBrutosClientes extends javax.swing.JFrame {
             
                 if (adicionar > 0) {
                     
-                   JOptionPane.showMessageDialog(null, "Dados alterados com Sucesso!");
+                   TelaSucessoAlterar sucesso = new TelaSucessoAlterar();
+                   sucesso.setVisible(true); 
                     txtEditar1.setText(null);
                     txtEditar2.setText(null);
                     txtEditar3.setText(null);
