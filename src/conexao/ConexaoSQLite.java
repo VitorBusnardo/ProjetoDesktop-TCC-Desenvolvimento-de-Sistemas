@@ -25,7 +25,7 @@ public class ConexaoSQLite {
             
             } catch (SQLException e) {
             
-                JOptionPane.showMessageDialog(null,"ERROR" + e.getMessage());
+                JOptionPane.showMessageDialog(null,"ERROR SQL LITE" + e.getMessage());
                 return false;
             
             }

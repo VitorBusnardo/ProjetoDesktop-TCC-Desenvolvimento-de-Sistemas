@@ -27,7 +27,7 @@ public class ConexaoMysql {
             
             } catch (SQLException e) {
             
-                JOptionPane.showMessageDialog(null,"ERROR" + e.getMessage());
+                JOptionPane.showMessageDialog(null,"ERROR MY SQL" + e.getMessage());
                 return false;
             
             }

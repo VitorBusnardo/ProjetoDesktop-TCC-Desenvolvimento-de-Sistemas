@@ -22,11 +22,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     public TelaPrincipal() {
 
         initComponents();
-
-        Buscar_NomeCompleto();
-        Buscar_Telefone();
-        Buscar_Email();
-        Buscar_Idade();
+        
+        buscarNomeCompleto();
+        buscarTelefone();
+        buscarEmail();
+        buscarIdade();
 
         setIcon();
 
@@ -54,7 +54,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     }
 
-    private void Buscar_NomeCompleto() {
+    private void buscarNomeCompleto() {
 
         ConexaoMysql conexao = new ConexaoMysql();
 
@@ -79,7 +79,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     }
 
-    private void Buscar_Telefone() {
+    private void buscarTelefone() {
 
         ConexaoMysql conexao = new ConexaoMysql();
 
@@ -104,7 +104,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     }
 
-    private void Buscar_Email() {
+    private void buscarEmail() {
 
         ConexaoMysql conexao = new ConexaoMysql();
 
@@ -129,7 +129,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     }
 
-    private void Buscar_Idade() {
+    private void buscarIdade() {
 
         ConexaoMysql conexao = new ConexaoMysql();
 
@@ -146,7 +146,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             comandoSQL = conexao.criarPreparedStatement(insertSQL);
             resultSQL = comandoSQL.executeQuery();
             while (resultSQL.next()) {
-                txtIdadeUsuario.setText(resultSQL.getString("Idade") + " Years");
+                txtIdadeUsuario.setText(resultSQL.getString("Idade") + " Anos");
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error " + e.getMessage());
@@ -154,7 +154,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     }
     
-        private void Buscar_Usuario() {
+        private void buscarUsuario() {
 
         ConexaoMysql conexao = new ConexaoMysql();
 
@@ -225,15 +225,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         btnSair = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         lblNomeUsuario = new javax.swing.JLabel();
-        btnRegistros = new javax.swing.JPanel();
-        indRegistros = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
         MenuSegurança = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        btnVerificar = new javax.swing.JPanel();
-        indVerificar = new javax.swing.JPanel();
-        jLabel27 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
+        btnVerificar = new javax.swing.JLabel();
         MenuCalendario = new javax.swing.JPanel();
         horaCalendario = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
@@ -249,6 +244,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         btnMenuExit = new javax.swing.JLabel();
         btnMenuTroca = new javax.swing.JLabel();
         btnMenuResetar = new javax.swing.JLabel();
+        btnRegistros = new javax.swing.JLabel();
         menuApresentacao = new javax.swing.JPanel();
         painelWebSite = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
@@ -763,60 +759,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         menuTerciario.add(subMenuTerciario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        btnRegistros.setBackground(new java.awt.Color(23, 35, 51));
-        btnRegistros.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                btnRegistrosMouseReleased(evt);
-            }
-        });
-
-        indRegistros.setOpaque(false);
-        indRegistros.setPreferredSize(new java.awt.Dimension(3, 43));
-
-        javax.swing.GroupLayout indRegistrosLayout = new javax.swing.GroupLayout(indRegistros);
-        indRegistros.setLayout(indRegistrosLayout);
-        indRegistrosLayout.setHorizontalGroup(
-            indRegistrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 3, Short.MAX_VALUE)
-        );
-        indRegistrosLayout.setVerticalGroup(
-            indRegistrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 43, Short.MAX_VALUE)
-        );
-
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("Registros");
-        jLabel14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel14MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout btnRegistrosLayout = new javax.swing.GroupLayout(btnRegistros);
-        btnRegistros.setLayout(btnRegistrosLayout);
-        btnRegistrosLayout.setHorizontalGroup(
-            btnRegistrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnRegistrosLayout.createSequentialGroup()
-                .addComponent(indRegistros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(jLabel14)
-                .addGap(0, 40, Short.MAX_VALUE))
-        );
-        btnRegistrosLayout.setVerticalGroup(
-            btnRegistrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnRegistrosLayout.createSequentialGroup()
-                .addComponent(indRegistros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(btnRegistrosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        menuTerciario.add(btnRegistros, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 269, -1, -1));
-
         MenuSegurança.setBackground(new java.awt.Color(255, 255, 255));
         MenuSegurança.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -828,68 +770,24 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconPadLock.png"))); // NOI18N
         MenuSegurança.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 70, 50));
 
-        btnVerificar.setBackground(new java.awt.Color(23, 35, 51));
-        btnVerificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnVerificar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnVerificarMouseClicked(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                btnVerificarMouseReleased(evt);
-            }
-        });
-
-        indVerificar.setOpaque(false);
-        indVerificar.setPreferredSize(new java.awt.Dimension(3, 43));
-
-        javax.swing.GroupLayout indVerificarLayout = new javax.swing.GroupLayout(indVerificar);
-        indVerificar.setLayout(indVerificarLayout);
-        indVerificarLayout.setHorizontalGroup(
-            indVerificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 3, Short.MAX_VALUE)
-        );
-        indVerificarLayout.setVerticalGroup(
-            indVerificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 43, Short.MAX_VALUE)
-        );
-
-        jLabel27.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel27.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel27.setText("Verificar");
-        jLabel27.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel27.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel27MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout btnVerificarLayout = new javax.swing.GroupLayout(btnVerificar);
-        btnVerificar.setLayout(btnVerificarLayout);
-        btnVerificarLayout.setHorizontalGroup(
-            btnVerificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnVerificarLayout.createSequentialGroup()
-                .addComponent(indVerificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(jLabel27)
-                .addGap(0, 39, Short.MAX_VALUE))
-        );
-        btnVerificarLayout.setVerticalGroup(
-            btnVerificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnVerificarLayout.createSequentialGroup()
-                .addComponent(indVerificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(btnVerificarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        MenuSegurança.add(btnVerificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 120, -1));
-
         jLabel16.setBackground(new java.awt.Color(0, 0, 0));
         jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel16.setText("Segurança");
         MenuSegurança.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, -1, 50));
+
+        btnVerificar.setBackground(new java.awt.Color(23, 35, 51));
+        btnVerificar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnVerificar.setForeground(new java.awt.Color(255, 255, 255));
+        btnVerificar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnVerificar.setText("Verificar");
+        btnVerificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnVerificar.setOpaque(true);
+        btnVerificar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnVerificarMouseClicked(evt);
+            }
+        });
+        MenuSegurança.add(btnVerificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 160, 40));
 
         menuTerciario.add(MenuSegurança, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 345, 270, 173));
 
@@ -1006,6 +904,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
         );
 
         menuTerciario.add(MenuConfiguracao, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 345, -1, -1));
+
+        btnRegistros.setBackground(new java.awt.Color(23, 35, 51));
+        btnRegistros.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnRegistros.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistros.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnRegistros.setText("Registros");
+        btnRegistros.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegistros.setOpaque(true);
+        btnRegistros.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRegistrosMouseClicked(evt);
+            }
+        });
+        menuTerciario.add(btnRegistros, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 160, 40));
 
         getContentPane().add(menuTerciario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 310, 540));
 
@@ -1188,7 +1100,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         setColor(btnProdutosP);
         indProdutos.setOpaque(true);
-        resetColor(new JPanel[]{btnClientesP, btnFuncionariosP, btnServicosP, btnRegistros, btnVendasP, btnGastoP}, new JPanel[]{indClientes, indFuncionarios, indServicos, indRegistros, indGastos, indVendas});
+        resetColor(new JPanel[]{btnClientesP, btnFuncionariosP, btnServicosP, btnVendasP, btnGastoP}, new JPanel[]{indClientes, indFuncionarios, indServicos, indGastos, indVendas});
 
         customers.setVisible(false);
 
@@ -1229,7 +1141,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         setColor(btnClientesP);
         indClientes.setOpaque(true);
-        resetColor(new JPanel[]{btnProdutosP, btnFuncionariosP, btnServicosP, btnRegistros, btnVendasP, btnGastoP}, new JPanel[]{indProdutos, indFuncionarios, indServicos, indRegistros, indGastos, indVendas});
+        resetColor(new JPanel[]{btnProdutosP, btnFuncionariosP, btnServicosP, btnVendasP, btnGastoP}, new JPanel[]{indProdutos, indFuncionarios, indServicos, indGastos, indVendas});
 
         customers.setVisible(true);
 
@@ -1250,7 +1162,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         setColor(btnFuncionariosP);
         indFuncionarios.setOpaque(true);
-        resetColor(new JPanel[]{btnProdutosP, btnClientesP, btnServicosP, btnRegistros, btnVendasP, btnGastoP}, new JPanel[]{indProdutos, indClientes, indServicos, indRegistros, indGastos, indVendas});
+        resetColor(new JPanel[]{btnProdutosP, btnClientesP, btnServicosP, btnVendasP, btnGastoP}, new JPanel[]{indProdutos, indClientes, indServicos, indGastos, indVendas});
 
         customers.setVisible(false);
 
@@ -1270,7 +1182,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         setColor(btnServicosP);
         indServicos.setOpaque(true);
-        resetColor(new JPanel[]{btnProdutosP, btnFuncionariosP, btnClientesP, btnRegistros, btnVendasP, btnGastoP}, new JPanel[]{indProdutos, indFuncionarios, indClientes, indRegistros, indGastos, indVendas});
+        resetColor(new JPanel[]{btnProdutosP, btnFuncionariosP, btnClientesP, btnVendasP, btnGastoP}, new JPanel[]{indProdutos, indFuncionarios, indClientes, indGastos, indVendas});
 
         customers.setVisible(false);
 
@@ -1286,27 +1198,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnServicosPMouseReleased
 
-    private void btnRegistrosMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrosMouseReleased
-
-        customers.setVisible(false);
-
-        products.setVisible(false);
-
-        employees.setVisible(false);
-
-        services.setVisible(false);
-
-        sales.setVisible(false);
-
-        spending.setVisible(false);
-
-    }//GEN-LAST:event_btnRegistrosMouseReleased
-
     private void btnVendasPMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVendasPMouseReleased
 
         setColor(btnVendasP);
         indVendas.setOpaque(true);
-        resetColor(new JPanel[]{btnProdutosP, btnClientesP, btnServicosP, btnFuncionariosP, btnRegistros, btnGastoP}, new JPanel[]{indProdutos, indClientes, indServicos, indFuncionarios, indRegistros, indGastos});
+        resetColor(new JPanel[]{btnProdutosP, btnClientesP, btnServicosP, btnFuncionariosP, btnGastoP}, new JPanel[]{indProdutos, indClientes, indServicos, indFuncionarios, indGastos});
 
         customers.setVisible(false);
 
@@ -1472,8 +1368,39 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_painelLinkedInMousePressed
 
-    private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
+    private void btnClientesPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClientesPMouseClicked
+        // TODO add your handling code here:
 
+    }//GEN-LAST:event_btnClientesPMouseClicked
+
+    private void btnMenuResetarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMenuResetarMouseClicked
+
+        TelaDeletar delete = new TelaDeletar();
+        delete.setVisible(true);
+
+    }//GEN-LAST:event_btnMenuResetarMouseClicked
+
+    private void btnGastoPMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGastoPMouseReleased
+
+        setColor(btnGastoP);
+        indGastos.setOpaque(true);
+        resetColor(new JPanel[]{btnProdutosP, btnClientesP, btnServicosP, btnFuncionariosP, btnVendasP}, new JPanel[]{indProdutos, indClientes, indServicos, indFuncionarios, indVendas});
+
+        customers.setVisible(false);
+
+        products.setVisible(false);
+
+        employees.setVisible(false);
+
+        services.setVisible(false);
+
+        sales.setVisible(false);
+
+        spending.setVisible(true);
+
+    }//GEN-LAST:event_btnGastoPMouseReleased
+
+    private void btnRegistrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrosMouseClicked
         TelaPrincipal principal = new TelaPrincipal();
         TelaRegistros registros = new TelaRegistros();
 
@@ -1496,63 +1423,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         registros.criaGrafico();
 
         this.dispose();
-    }//GEN-LAST:event_jLabel14MouseClicked
-
-    private void btnClientesPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClientesPMouseClicked
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_btnClientesPMouseClicked
-
-    private void btnMenuResetarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMenuResetarMouseClicked
-
-        TelaDeletar delete = new TelaDeletar();
-        delete.setVisible(true);
-
-    }//GEN-LAST:event_btnMenuResetarMouseClicked
-
-    private void jLabel27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel27MouseClicked
-
-        TelaProtecao protecao = new TelaProtecao();
-
-        protecao.setVisible(true);
-
-    }//GEN-LAST:event_jLabel27MouseClicked
-
-    private void btnVerificarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVerificarMouseReleased
-
-        TelaProtecao protecao = new TelaProtecao();
-
-        protecao.setVisible(true);
-
-    }//GEN-LAST:event_btnVerificarMouseReleased
+    }//GEN-LAST:event_btnRegistrosMouseClicked
 
     private void btnVerificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVerificarMouseClicked
-
         TelaProtecao protecao = new TelaProtecao();
 
         protecao.setVisible(true);
-
     }//GEN-LAST:event_btnVerificarMouseClicked
-
-    private void btnGastoPMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGastoPMouseReleased
-
-        setColor(btnGastoP);
-        indGastos.setOpaque(true);
-        resetColor(new JPanel[]{btnProdutosP, btnClientesP, btnServicosP, btnRegistros, btnFuncionariosP, btnVendasP}, new JPanel[]{indProdutos, indClientes, indServicos, indRegistros, indFuncionarios, indVendas});
-
-        customers.setVisible(false);
-
-        products.setVisible(false);
-
-        employees.setVisible(false);
-
-        services.setVisible(false);
-
-        sales.setVisible(false);
-
-        spending.setVisible(true);
-
-    }//GEN-LAST:event_btnGastoPMouseReleased
 
     public static void main(String args[]) {
 
@@ -1617,29 +1494,26 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel btnMenuResetar;
     private javax.swing.JLabel btnMenuTroca;
     private javax.swing.JPanel btnProdutosP;
-    private javax.swing.JPanel btnRegistros;
+    public javax.swing.JLabel btnRegistros;
     private javax.swing.JLabel btnSair;
     private javax.swing.JLabel btnSeguranca;
     private javax.swing.JPanel btnServicosP;
     private javax.swing.JLabel btnUsuario;
     private javax.swing.JPanel btnVendasP;
-    private javax.swing.JPanel btnVerificar;
+    public javax.swing.JLabel btnVerificar;
     private javax.swing.JLabel horaCalendario;
     private javax.swing.JPanel indClientes;
     private javax.swing.JPanel indFuncionarios;
     private javax.swing.JPanel indGastos;
     private javax.swing.JPanel indHome;
     private javax.swing.JPanel indProdutos;
-    private javax.swing.JPanel indRegistros;
     private javax.swing.JPanel indServicos;
     private javax.swing.JPanel indVendas;
-    private javax.swing.JPanel indVerificar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -1652,7 +1526,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
