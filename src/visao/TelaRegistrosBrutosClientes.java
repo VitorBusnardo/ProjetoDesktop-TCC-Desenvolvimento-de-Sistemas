@@ -274,6 +274,7 @@ public class TelaRegistrosBrutosClientes extends javax.swing.JFrame {
         txtEditar4 = new javax.swing.JFormattedTextField();
         txtEditar6 = new javax.swing.JFormattedTextField();
         txtEditar7 = new javax.swing.JFormattedTextField();
+        btnRelatorio = new javax.swing.JLabel();
         btnFechar = new javax.swing.JLabel();
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -503,6 +504,19 @@ public class TelaRegistrosBrutosClientes extends javax.swing.JFrame {
         }
         txtEditar7.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
 
+        btnRelatorio.setBackground(new java.awt.Color(23, 35, 51));
+        btnRelatorio.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnRelatorio.setForeground(new java.awt.Color(255, 255, 255));
+        btnRelatorio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnRelatorio.setText("Gerar Relatório");
+        btnRelatorio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRelatorio.setOpaque(true);
+        btnRelatorio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRelatorioMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout painelClientesLayout = new javax.swing.GroupLayout(painelClientes);
         painelClientes.setLayout(painelClientesLayout);
         painelClientesLayout.setHorizontalGroup(
@@ -510,12 +524,15 @@ public class TelaRegistrosBrutosClientes extends javax.swing.JFrame {
             .addGroup(painelClientesLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addGroup(painelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pesquisarClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(painelClientesLayout.createSequentialGroup()
+                        .addComponent(pesquisarClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44)
+                        .addComponent(btnRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(painelClientesLayout.createSequentialGroup()
                         .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 179, Short.MAX_VALUE)
+                        .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(painelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelClientesLayout.createSequentialGroup()
                         .addComponent(deletarClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -588,7 +605,9 @@ public class TelaRegistrosBrutosClientes extends javax.swing.JFrame {
                     .addGroup(painelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(deletarClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnDeletarClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(pesquisarClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(painelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(pesquisarClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
             .addGroup(painelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelClientesLayout.createSequentialGroup()
@@ -763,6 +782,10 @@ public class TelaRegistrosBrutosClientes extends javax.swing.JFrame {
          
     }//GEN-LAST:event_txtEditar8KeyTyped
 
+    private void btnRelatorioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRelatorioMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRelatorioMouseClicked
+
     public static void main(String args[]) {
 
         try {
@@ -793,6 +816,7 @@ public class TelaRegistrosBrutosClientes extends javax.swing.JFrame {
     public javax.swing.JLabel btnAtualizar;
     public javax.swing.JLabel btnDeletarClientes;
     private javax.swing.JLabel btnFechar;
+    public javax.swing.JLabel btnRelatorio;
     public javax.swing.JLabel btnSalvar;
     private javax.swing.JTextField deletarClientes;
     private javax.swing.JLabel jLabel2;

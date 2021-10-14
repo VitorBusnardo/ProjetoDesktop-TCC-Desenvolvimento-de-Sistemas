@@ -238,6 +238,7 @@ public class TelaRegistrosBrutosGastos extends javax.swing.JFrame {
         txtEditarCod = new javax.swing.JTextField();
         txtClassificacao = new javax.swing.JComboBox<>();
         txtEditar4 = new javax.swing.JFormattedTextField();
+        btnRelatorio = new javax.swing.JLabel();
         btnFechar = new javax.swing.JLabel();
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -462,6 +463,19 @@ public class TelaRegistrosBrutosGastos extends javax.swing.JFrame {
         }
         txtEditar4.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
 
+        btnRelatorio.setBackground(new java.awt.Color(23, 35, 51));
+        btnRelatorio.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnRelatorio.setForeground(new java.awt.Color(255, 255, 255));
+        btnRelatorio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnRelatorio.setText("Gerar Relátorio");
+        btnRelatorio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRelatorio.setOpaque(true);
+        btnRelatorio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRelatorioMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout painelGastosLayout = new javax.swing.GroupLayout(painelGastos);
         painelGastos.setLayout(painelGastosLayout);
         painelGastosLayout.setHorizontalGroup(
@@ -469,12 +483,15 @@ public class TelaRegistrosBrutosGastos extends javax.swing.JFrame {
             .addGroup(painelGastosLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addGroup(painelGastosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pesquisarGastos, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(painelGastosLayout.createSequentialGroup()
+                        .addComponent(pesquisarGastos, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44)
+                        .addComponent(btnRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(painelGastosLayout.createSequentialGroup()
                         .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 332, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 182, Short.MAX_VALUE)
                 .addGroup(painelGastosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelGastosLayout.createSequentialGroup()
                         .addComponent(deletarGastos, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -548,7 +565,9 @@ public class TelaRegistrosBrutosGastos extends javax.swing.JFrame {
                     .addGroup(painelGastosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(deletarGastos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnDeletarGastos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(pesquisarGastos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(painelGastosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(pesquisarGastos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
             .addGroup(painelGastosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelGastosLayout.createSequentialGroup()
@@ -720,6 +739,10 @@ public class TelaRegistrosBrutosGastos extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtEditar6KeyTyped
 
+    private void btnRelatorioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRelatorioMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRelatorioMouseClicked
+
     public static void main(String args[]) {
 
         try {
@@ -750,6 +773,7 @@ public class TelaRegistrosBrutosGastos extends javax.swing.JFrame {
     public javax.swing.JLabel btnAtualizar;
     public javax.swing.JLabel btnDeletarGastos;
     private javax.swing.JLabel btnFechar;
+    public javax.swing.JLabel btnRelatorio;
     public javax.swing.JLabel btnSalvar;
     private javax.swing.JTextField deletarGastos;
     private javax.swing.JLabel jLabel2;
