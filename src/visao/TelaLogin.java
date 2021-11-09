@@ -21,7 +21,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
         PreparedStatement comandoSQL = null;
 
-        String pesquisarSQL = " SELECT * FROM USUARIO WHERE NomeUsuario = ? AND SENHA = ?; ";
+        String pesquisarSQL = " SELECT * FROM USUARIO WHERE nomeUsuario = ? AND SENHA = ?; ";
 
         try {
             String NomeUsuario = txtNome.getText();

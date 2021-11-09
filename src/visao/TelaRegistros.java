@@ -250,7 +250,7 @@ public class TelaRegistros extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
 
-        String sql = "select NomeCompleto, Telefone, Cpf, Sexo, Servicos from Clientes where NomeCompleto like ?";
+        String sql = "select NomeCompleto, Telefone, Cpf, Sexo, Servico from Clientes where NomeCompleto like ?";
 
         try {
 

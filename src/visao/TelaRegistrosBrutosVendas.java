@@ -95,7 +95,7 @@ public class TelaRegistrosBrutosVendas extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
         
-        String sql = "update Vendas set Titulos=?, Tipo=?, Descricao=?, Data=?, Valor=?, Produtos=?, Classificacao=?, Servico=?, Cliente=? where Id=?";
+        String sql = "update Vendas set Titulo=?, Tipo=?, Descricao=?, Data=?, Valor=?, Produtos=?, Classificacao=?, Servico=?, Cliente=? where Id=?";
         
         try {
             
@@ -294,6 +294,7 @@ public class TelaRegistrosBrutosVendas extends javax.swing.JFrame {
         txtServico = new javax.swing.JComboBox<>();
         txtClassificacao = new javax.swing.JComboBox<>();
         txtEditar4 = new javax.swing.JFormattedTextField();
+        btnRelatorio = new javax.swing.JLabel();
         btnFechar = new javax.swing.JLabel();
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -515,6 +516,19 @@ public class TelaRegistrosBrutosVendas extends javax.swing.JFrame {
         }
         txtEditar4.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
 
+        btnRelatorio.setBackground(new java.awt.Color(23, 35, 51));
+        btnRelatorio.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnRelatorio.setForeground(new java.awt.Color(255, 255, 255));
+        btnRelatorio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnRelatorio.setText("Gerar Relátorio");
+        btnRelatorio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRelatorio.setOpaque(true);
+        btnRelatorio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRelatorioMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout painelVendasLayout = new javax.swing.GroupLayout(painelVendas);
         painelVendas.setLayout(painelVendasLayout);
         painelVendasLayout.setHorizontalGroup(
@@ -522,12 +536,15 @@ public class TelaRegistrosBrutosVendas extends javax.swing.JFrame {
             .addGroup(painelVendasLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addGroup(painelVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pesquisarVendas, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(painelVendasLayout.createSequentialGroup()
+                        .addComponent(pesquisarVendas, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44)
+                        .addComponent(btnRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(painelVendasLayout.createSequentialGroup()
                         .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 179, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(painelVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(painelVendasLayout.createSequentialGroup()
                         .addComponent(deletarVendas, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -603,7 +620,9 @@ public class TelaRegistrosBrutosVendas extends javax.swing.JFrame {
                     .addGroup(painelVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(deletarVendas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnDeletarVendas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(pesquisarVendas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(painelVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(pesquisarVendas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
             .addGroup(painelVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelVendasLayout.createSequentialGroup()
@@ -766,6 +785,10 @@ public class TelaRegistrosBrutosVendas extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtEditar6KeyTyped
 
+    private void btnRelatorioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRelatorioMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRelatorioMouseClicked
+
     public static void main(String args[]) {
 
         try {
@@ -796,6 +819,7 @@ public class TelaRegistrosBrutosVendas extends javax.swing.JFrame {
     public javax.swing.JLabel btnAtualizar;
     public javax.swing.JLabel btnDeletarVendas;
     private javax.swing.JLabel btnFechar;
+    public javax.swing.JLabel btnRelatorio;
     public javax.swing.JLabel btnSalvar;
     private javax.swing.JTextField deletarVendas;
     private javax.swing.JLabel jLabel2;

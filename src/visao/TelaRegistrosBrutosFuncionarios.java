@@ -236,7 +236,7 @@ public class TelaRegistrosBrutosFuncionarios extends javax.swing.JFrame {
         jScrollPane7 = new javax.swing.JScrollPane();
         tabelaFuncionariosBruto = new javax.swing.JTable();
         pesquisarFuncionarios = new javax.swing.JTextField();
-        btn_Atualizar = new javax.swing.JLabel();
+        btnAtualizar = new javax.swing.JLabel();
         deletarFuncionarios = new javax.swing.JTextField();
         btnDeletarFuncionarios = new javax.swing.JLabel();
         btnSalvar = new javax.swing.JLabel();
@@ -251,6 +251,7 @@ public class TelaRegistrosBrutosFuncionarios extends javax.swing.JFrame {
         txtEditar9 = new javax.swing.JTextField();
         txtSexo = new javax.swing.JComboBox<>();
         txtEditar3 = new javax.swing.JTextField();
+        btnRelatorio = new javax.swing.JLabel();
         btnFechar = new javax.swing.JLabel();
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -326,16 +327,16 @@ public class TelaRegistrosBrutosFuncionarios extends javax.swing.JFrame {
             }
         });
 
-        btn_Atualizar.setBackground(new java.awt.Color(23, 35, 51));
-        btn_Atualizar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btn_Atualizar.setForeground(new java.awt.Color(255, 255, 255));
-        btn_Atualizar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btn_Atualizar.setText("Atualizar");
-        btn_Atualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_Atualizar.setOpaque(true);
-        btn_Atualizar.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnAtualizar.setBackground(new java.awt.Color(23, 35, 51));
+        btnAtualizar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnAtualizar.setForeground(new java.awt.Color(255, 255, 255));
+        btnAtualizar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnAtualizar.setText("Atualizar");
+        btnAtualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAtualizar.setOpaque(true);
+        btnAtualizar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_AtualizarMouseClicked(evt);
+                btnAtualizarMouseClicked(evt);
             }
         });
 
@@ -475,6 +476,19 @@ public class TelaRegistrosBrutosFuncionarios extends javax.swing.JFrame {
             }
         });
 
+        btnRelatorio.setBackground(new java.awt.Color(23, 35, 51));
+        btnRelatorio.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnRelatorio.setForeground(new java.awt.Color(255, 255, 255));
+        btnRelatorio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnRelatorio.setText("Gerar Relatório");
+        btnRelatorio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRelatorio.setOpaque(true);
+        btnRelatorio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRelatorioMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout painelFuncionariosLayout = new javax.swing.GroupLayout(painelFuncionarios);
         painelFuncionarios.setLayout(painelFuncionariosLayout);
         painelFuncionariosLayout.setHorizontalGroup(
@@ -483,7 +497,7 @@ public class TelaRegistrosBrutosFuncionarios extends javax.swing.JFrame {
                 .addGap(35, 35, 35)
                 .addGroup(painelFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(painelFuncionariosLayout.createSequentialGroup()
-                        .addComponent(btn_Atualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -492,6 +506,8 @@ public class TelaRegistrosBrutosFuncionarios extends javax.swing.JFrame {
                         .addComponent(txtEditarCod, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(painelFuncionariosLayout.createSequentialGroup()
                         .addComponent(pesquisarFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44)
+                        .addComponent(btnRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(deletarFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -523,7 +539,7 @@ public class TelaRegistrosBrutosFuncionarios extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelFuncionariosLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(painelFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_Atualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtEditarCod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -550,12 +566,16 @@ public class TelaRegistrosBrutosFuncionarios extends javax.swing.JFrame {
                         .addComponent(txtEditar8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
                         .addComponent(txtEditar9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(33, 33, 33)
-                .addGroup(painelFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(painelFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(deletarFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnDeletarFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(pesquisarFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addGroup(painelFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(painelFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(painelFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(deletarFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnDeletarFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(pesquisarFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(painelFuncionariosLayout.createSequentialGroup()
+                        .addComponent(btnRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(2, 2, 2)))
                 .addContainerGap())
         );
 
@@ -629,9 +649,9 @@ public class TelaRegistrosBrutosFuncionarios extends javax.swing.JFrame {
         deletarFuncionarios();
     }//GEN-LAST:event_deletarFuncionariosActionPerformed
 
-    private void btn_AtualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_AtualizarMouseClicked
+    private void btnAtualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAtualizarMouseClicked
         pesquisarFuncionarios();
-    }//GEN-LAST:event_btn_AtualizarMouseClicked
+    }//GEN-LAST:event_btnAtualizarMouseClicked
 
     private void pesquisarFuncionariosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pesquisarFuncionariosKeyReleased
         pesquisarFuncionarios();
@@ -717,6 +737,10 @@ public class TelaRegistrosBrutosFuncionarios extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtEditar9KeyTyped
 
+    private void btnRelatorioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRelatorioMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRelatorioMouseClicked
+
     public static void main(String args[]) {
 
         try {
@@ -744,10 +768,11 @@ public class TelaRegistrosBrutosFuncionarios extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JLabel btnAtualizar;
     public javax.swing.JLabel btnDeletarFuncionarios;
     private javax.swing.JLabel btnFechar;
+    public javax.swing.JLabel btnRelatorio;
     public javax.swing.JLabel btnSalvar;
-    public javax.swing.JLabel btn_Atualizar;
     private javax.swing.JTextField deletarFuncionarios;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;

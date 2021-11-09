@@ -241,6 +241,7 @@ public class TelaRegistrosBrutosProdutos extends javax.swing.JFrame {
         txtEditar6 = new javax.swing.JTextField();
         btnSalvar = new javax.swing.JLabel();
         txtEditarCod = new javax.swing.JTextField();
+        btnRelatorio = new javax.swing.JLabel();
         btnFechar = new javax.swing.JLabel();
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -431,6 +432,19 @@ public class TelaRegistrosBrutosProdutos extends javax.swing.JFrame {
             }
         });
 
+        btnRelatorio.setBackground(new java.awt.Color(23, 35, 51));
+        btnRelatorio.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnRelatorio.setForeground(new java.awt.Color(255, 255, 255));
+        btnRelatorio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnRelatorio.setText("Gerar Relátorio");
+        btnRelatorio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRelatorio.setOpaque(true);
+        btnRelatorio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRelatorioMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout painelProdutosLayout = new javax.swing.GroupLayout(painelProdutos);
         painelProdutos.setLayout(painelProdutosLayout);
         painelProdutosLayout.setHorizontalGroup(
@@ -448,6 +462,8 @@ public class TelaRegistrosBrutosProdutos extends javax.swing.JFrame {
                                 .addComponent(txtEditarCod, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(painelProdutosLayout.createSequentialGroup()
                                 .addComponent(pesquisarProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(44, 44, 44)
+                                .addComponent(btnRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(deletarProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(34, 34, 34)
@@ -499,7 +515,8 @@ public class TelaRegistrosBrutosProdutos extends javax.swing.JFrame {
                 .addGroup(painelProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(pesquisarProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(deletarProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnDeletarProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnDeletarProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11))
             .addGroup(painelProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelProdutosLayout.createSequentialGroup()
@@ -652,6 +669,10 @@ public class TelaRegistrosBrutosProdutos extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtEditar6KeyTyped
 
+    private void btnRelatorioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRelatorioMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRelatorioMouseClicked
+
     public static void main(String args[]) {
 
         try {
@@ -682,6 +703,7 @@ public class TelaRegistrosBrutosProdutos extends javax.swing.JFrame {
     public javax.swing.JLabel btnAtualizar;
     public javax.swing.JLabel btnDeletarProdutos;
     private javax.swing.JLabel btnFechar;
+    public javax.swing.JLabel btnRelatorio;
     public javax.swing.JLabel btnSalvar;
     private javax.swing.JTextField deletarProdutos;
     private javax.swing.JLabel jLabel2;

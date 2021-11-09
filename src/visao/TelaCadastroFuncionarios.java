@@ -323,11 +323,11 @@ public class TelaCadastroFuncionarios extends javax.swing.JFrame {
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel8.setText("Data Nascimento");
+        jLabel8.setText("Data Nascimento:");
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel9.setText("Salário");
+        jLabel9.setText("Salário:");
 
         txtSalario.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         txtSalario.addActionListener(new java.awt.event.ActionListener() {

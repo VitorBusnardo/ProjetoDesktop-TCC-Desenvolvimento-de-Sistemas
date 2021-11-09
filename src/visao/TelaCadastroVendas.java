@@ -71,7 +71,7 @@ public class TelaCadastroVendas extends javax.swing.JFrame {
 
         PreparedStatement comandoSQL = null;
 
-        String insertSQL = "insert into Vendas(Titulos,Tipo,Descricao,Data,Valor,Produtos,Classificacao,Servico,Cliente) values(?,?,?,?,?,?,?,?,?);";
+        String insertSQL = "insert into Vendas(Titulo,Tipo,Descricao,Data,Valor,Produtos,Classificacao,Servico,Cliente) values(?,?,?,?,?,?,?,?,?);";
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 

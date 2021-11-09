@@ -23,10 +23,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         initComponents();
         
-        buscarNomeCompleto();
+        buscarNome();
         buscarTelefone();
         buscarEmail();
-        buscarIdade();
+        buscarSobrenome();
+        buscarUsuario();
 
         setIcon();
 
@@ -54,7 +55,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     }
 
-    private void buscarNomeCompleto() {
+    private void buscarNome() {
 
         ConexaoMysql conexao = new ConexaoMysql();
 
@@ -64,14 +65,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         PreparedStatement comandoSQL = null;
 
-        String insertSQL = "select NomeCompleto from Usuario;";
+        String insertSQL = "select nome from Usuario;";
 
         try {
 
             comandoSQL = conexao.criarPreparedStatement(insertSQL);
             resultSQL = comandoSQL.executeQuery();
             while (resultSQL.next()) {
-                txtNomeCompleto.setText(resultSQL.getString("NomeCompleto"));
+                txtNome.setText(resultSQL.getString("nome"));
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error " + e.getMessage());
@@ -129,7 +130,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     }
 
-    private void buscarIdade() {
+    private void buscarSobrenome() {
 
         ConexaoMysql conexao = new ConexaoMysql();
 
@@ -139,14 +140,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         PreparedStatement comandoSQL = null;
 
-        String insertSQL = "select Idade from Usuario;";
+        String insertSQL = "select sobrenome from Usuario;";
 
         try {
 
             comandoSQL = conexao.criarPreparedStatement(insertSQL);
             resultSQL = comandoSQL.executeQuery();
             while (resultSQL.next()) {
-                txtIdadeUsuario.setText(resultSQL.getString("Idade") + " Anos");
+                txtSobrenomeUsuario.setText(resultSQL.getString("sobrenome"));
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error " + e.getMessage());
@@ -164,14 +165,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         PreparedStatement comandoSQL = null;
 
-        String insertSQL = "select NomeUsuario from Usuario;";
+        String insertSQL = "select nomeUsuario from Usuario;";
 
         try {
 
             comandoSQL = conexao.criarPreparedStatement(insertSQL);
             resultSQL = comandoSQL.executeQuery();
             while (resultSQL.next()) {
-                txtNomeDeUsuario.setText(resultSQL.getString("NomeDeUsuario"));
+                txtNomeDeUsuario.setText(resultSQL.getString("nomeUsuario"));
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error " + e.getMessage());
@@ -235,8 +236,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         DataCalendario = new javax.swing.JLabel();
         MenuUsuario = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
-        txtIdadeUsuario = new javax.swing.JLabel();
-        txtNomeCompleto = new javax.swing.JLabel();
+        txtSobrenomeUsuario = new javax.swing.JLabel();
+        txtNome = new javax.swing.JLabel();
         txtNomeDeUsuario = new javax.swing.JLabel();
         txtTelefoneUsuario = new javax.swing.JLabel();
         txtEmailUsuario = new javax.swing.JLabel();
@@ -825,25 +826,25 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel12.setText("Informações do Usuário");
         MenuUsuario.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
-        txtIdadeUsuario.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        txtIdadeUsuario.setText("Idade");
-        MenuUsuario.add(txtIdadeUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
+        txtSobrenomeUsuario.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtSobrenomeUsuario.setText("Sobrenome");
+        MenuUsuario.add(txtSobrenomeUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
 
-        txtNomeCompleto.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        txtNomeCompleto.setText("NomeCompleto");
-        MenuUsuario.add(txtNomeCompleto, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
+        txtNome.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtNome.setText("NomeCompleto");
+        MenuUsuario.add(txtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
 
         txtNomeDeUsuario.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         txtNomeDeUsuario.setText("NomeDeUsuario");
-        MenuUsuario.add(txtNomeDeUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
+        MenuUsuario.add(txtNomeDeUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
 
         txtTelefoneUsuario.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         txtTelefoneUsuario.setText("Telefone");
-        MenuUsuario.add(txtTelefoneUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
+        MenuUsuario.add(txtTelefoneUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
 
         txtEmailUsuario.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         txtEmailUsuario.setText("Email");
-        MenuUsuario.add(txtEmailUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+        MenuUsuario.add(txtEmailUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
 
         menuTerciario.add(MenuUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 345, 270, 173));
 
@@ -943,9 +944,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
             painelWebSiteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelWebSiteLayout.createSequentialGroup()
                 .addContainerGap(55, Short.MAX_VALUE)
-                .addGroup(painelWebSiteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel20)
-                    .addComponent(jLabel5))
+                .addGroup(painelWebSiteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(54, 54, 54))
         );
         painelWebSiteLayout.setVerticalGroup(
@@ -971,7 +972,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IconSuport.png"))); // NOI18N
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel17.setText("   Suport");
+        jLabel17.setText("  Suporte");
 
         javax.swing.GroupLayout painelSuportLayout = new javax.swing.GroupLayout(painelSuport);
         painelSuport.setLayout(painelSuportLayout);
@@ -1544,10 +1545,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel subMenuTerciario;
     private javax.swing.JPanel subMenuTerciario2;
     private javax.swing.JLabel txtEmailUsuario;
-    private javax.swing.JLabel txtIdadeUsuario;
-    private javax.swing.JLabel txtNomeCompleto;
+    private javax.swing.JLabel txtNome;
     public javax.swing.JLabel txtNomeDeUsuario;
     private javax.swing.JTextField txtPesquisa;
+    private javax.swing.JLabel txtSobrenomeUsuario;
     private javax.swing.JLabel txtTelefoneUsuario;
     // End of variables declaration//GEN-END:variables
 
