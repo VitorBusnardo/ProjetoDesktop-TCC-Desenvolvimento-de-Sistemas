@@ -20,8 +20,8 @@ public class TelaRegistrosBrutosServicos extends javax.swing.JFrame {
         pesquisarServicosSem();
         
         txtEditar1.setDocument(new Letras());
-        txtEditar2.setDocument(new Numeros());
-        txtEditar4.setDocument(new Letras());
+        txtEditar2.setDocument(new Letras());
+        txtEditar4.setDocument(new Numeros());
         
         tabelaServicosBruto.getTableHeader().setOpaque(false);
         tabelaServicosBruto.getTableHeader().setBackground(new Color(71, 120, 197));

@@ -95,7 +95,7 @@ public class TelaRegistrosBrutosVendas extends javax.swing.JFrame {
         ResultSet resultSQL = null;
         PreparedStatement comandoSQL = null;
         
-        String sql = "update Vendas set Titulos=?, Tipo=?, Descricao=?, Data=?, Valor=?, Produtos=?, Classificacao=?, Servico=?, Cliente=? where Id=?";
+        String sql = "update Vendas set Titulo=?, Tipo=?, Descricao=?, Data=?, Valor=?, Produtos=?, Classificacao=?, Servico=?, Cliente=? where Id=?";
         
         try {
             
