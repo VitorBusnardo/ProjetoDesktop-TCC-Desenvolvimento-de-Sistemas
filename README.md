@@ -12,7 +12,7 @@
 </p>
 
 <p align="left">
-  💼 Ferramentas: <strong>NetBeans com Java 8. </strong>
+  💼 Ferramentas: <strong>NetBeans IDE com Java 8. </strong>
 </p>
 
 <p align="justify">
