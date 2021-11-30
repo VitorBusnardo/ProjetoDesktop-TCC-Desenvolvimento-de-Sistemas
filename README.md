@@ -15,7 +15,7 @@
   💼 Ferramentas: <strong>NetBeans com Java 8. </strong>
 </p>
 
-<p align="left">
+<p align="justify">
   💌 Entre em contato comigo através das plataformas abaixo: ⤵️
 </p>
 
@@ -40,4 +40,26 @@
 
 ```
 https://www.mediafire.com/file/qqcj1qmgf730xgu/Artigo_SyTecb.docx/file
+```
+
+<h3> :monocle_face: &nbsp;Banco de Login da Aplicação</h3>
+
+```
+create database if not exists usuarios_sytecb;
+
+use usuarios_sytecb;
+
+create table usuario(
+id integer primary key not null auto_increment,
+nome varchar(100) not null,
+sobrenome varchar(100) not null,
+email varchar(100) not null unique,
+nomeUsuario varchar(100) not null unique,
+senha varchar(100) not null,
+telefone varchar(100) not null unique
+) default charset = utf8 ;
+
+insert into Usuario values (null, 'Vitor', 'Busnardo', 'busnardovitor@gmail.com', 'Admin', 'admin', '17981806259');
+
+select * from usuario;
 ```
