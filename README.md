@@ -41,7 +41,7 @@
 ```
 https://www.mediafire.com/file/qqcj1qmgf730xgu/Artigo_SyTecb.docx/file
 ```
-<h3> :monocle_face: &nbsp;Banco para Login na Aplicação</h3>
+<h3> :monocle_face: &nbsp;Banco Necessário para Realização do Login na Aplicação</h3>
 
 ```
 create database if not exists usuarios_sytecb;
