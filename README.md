@@ -3,7 +3,7 @@
 <img src="https://raw.githubusercontent.com/MicaelliMedeiros/micaellimedeiros/master/image/computer-illustration.png" min-width="400px" max-width="400px" width="400px" align="right" alt="Computador iuriCode">
 
 <p align="left"> 
-  Foi desenvolvido por nós um software batizado com o nome de Intermedix, com a intenção de te ajudar a administrar seu próprio negócio, batendo forte na tecla do setor Administrativo, com determinadas funções de controle de estoque, relatórios, contas, entre outras. Para ter acesso a mais infomações e prévias realize o download do mesmo.
+  Foi desenvolvido por nós um software batizado com o nome de Intermedix, com a intenção de te ajudar a administrar seu próprio negócio, batendo forte na tecla do setor Administrativo, com determinadas funções de controle de estoque, relatórios, contas, entre outras. Por tanto atuando junto com o serviço web, descrito no outro repositório. Para ter acesso a mais infomações e prévias realize o download do mesmo.
 
 </p>
 
