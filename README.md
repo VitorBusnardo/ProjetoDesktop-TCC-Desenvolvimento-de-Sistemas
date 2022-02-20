@@ -1,6 +1,6 @@
 # Projeto Desktop - Desenvolvimento de Sistemas
 
-<img src="https://lh4.googleusercontent.com/ZiZbnax-K7GTedLqSp4wAMkhgNRHOxovPBPJ-6PdtMfr6PXLuKob7-S03wQkBcvi013Skd9LgsT7b5qnUmacQ_n779hqo8SStX-7N9TkPnvRVLm71OISkX8xTooXe29h20LcTkzv" max-width="400px" width="400px" height="220px" align="right" alt="Computador VitorBusnardo">
+<img src="https://raw.githubusercontent.com/MicaelliMedeiros/micaellimedeiros/master/image/computer-illustration.png" min-width="400px" max-width="400px" width="400px" align="right" alt="Computador">
 
 <p align="justify"> 
   Foi desenvolvido por nós um software batizado com o nome de Intermedix, com a intenção de te ajudar a administrar seu próprio negócio, batendo forte na tecla do setor Administrativo, com determinadas funções de controle de estoque, relatórios, contas, entre outras. Portanto atuando junto com o serviço web, descrito no outro repositório. Para ter acesso a mais infomações e prévias realize o download do Artigo do projeto.
