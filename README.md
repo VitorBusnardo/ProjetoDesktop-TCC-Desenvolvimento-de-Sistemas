@@ -39,7 +39,7 @@
 <h3> :rocket: &nbsp;Download do Artigo do Projeto </h3>
 
 ```
-https://www.mediafire.com/file/qqcj1qmgf730xgu/Artigo_SyTecb.docx/file
+https://www.mediafire.com/file/8bo7z11bxr5fqjr/Artigo_SyTecb.docx/file
 ```
 <h3> :monocle_face: &nbsp;Banco Necessário para Realização do Login na Aplicação</h3>
 
